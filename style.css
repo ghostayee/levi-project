@@ -1,0 +1,444 @@
+:root {
+  --green-main: #0a8a4a;
+  --green-dark: #086c3a;
+  --green-light: #d4f0d9;
+  --green-very-light: #e8f7eb;
+  --blue-main: #1a73e8;
+  --text-main: #2d2d2d;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: var(--green-very-light);
+  color: var(--text-main);
+  line-height: 1.6;
+  margin: 0;
+  padding-top: 0px; /* space for fixed menus on desktop */
+}
+
+@media (max-width: 991px) {
+  body {
+    padding-top: 70px;
+  } /* collapsed menus take less space */
+}
+/* HEADER & MENU */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  background: var(--green-main);
+}
+
+.logo {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #086c3a;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  transform: scale(1.2);
+}
+
+/* JWT Top Menu */
+#jwt-top-menu {
+  position: fixed;
+  top: 60px; /* adjust to header height */
+  left: 0;
+  width: 100%;
+  z-index: 1040;
+  background: linear-gradient(90deg, var(--green-main), var(--green-dark));
+  box-shadow: var(--shadow-sm);
+}
+
+/* PCRR Sub Menu */
+#pcrr-submenu {
+  position: fixed;
+  top: 115px; /* header height + jwt-top-menu height */
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+  background: var(--green-dark);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* Navbar links */
+.nav-link {
+  color: white !important;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.25s;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Body padding to avoid content hiding under fixed menus */
+body {
+  padding-top: 170px; /* sum of header + top + sub menu heights */
+}
+/* Sidebar – always visible, changes layout */
+#sidebar-container {
+  background-image: url("images/PCRR_01\ \(1\).jpg");
+  border-bottom: 1px solid #e0e9e0;
+}
+
+@media (min-width: 1200px) {
+  #sidebar-container {
+    position: fixed;
+    top: 110px;
+    bottom: 0;
+    left: 0;
+    width: 260px;
+    border-bottom: none;
+    border-right: 1px solid #e0e9e0;
+    margin: 0;
+    padding: 1.5rem 1rem;
+    overflow-y: auto;
+    z-index: 1010;
+  }
+  body {
+    padding-left: 280px;
+  }
+  main {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.vert-menu h3 {
+  background: var(--green-main);
+  color: white;
+  padding: 0.8rem;
+  margin: 1.2rem 0 0.6rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.vert-menu a {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: var(--green-dark);
+  text-decoration: none;
+  border-radius: 6px;
+  margin: 0.25rem 0;
+  transition: 0.2s;
+}
+
+.vert-menu a:hover {
+  background: var(--green-light);
+}
+/* ABOUT SECTION */
+.about-section {
+  display: flex;
+  gap: 40px;
+  padding: 60px 50px;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  color: var(--green-main);
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  margin-bottom: 15px;
+}
+
+.about-image {
+  flex: 1;
+}
+.image-card {
+  background: var(--green-light);
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--green-main);
+  font-size: 1.3rem;
+}
+/* VALUES GRID */
+.values-grid {
+  padding: 60px 50px;
+  background: var(--bg-soft);
+}
+
+.values-grid h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--green-main);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.value-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #e0ede4;
+}
+
+.value-box h3 {
+  color: var(--blue-main);
+  margin-bottom: 10px;
+}
+
+/* PHILOSOPHY SECTION */
+.philosophy-section {
+  display: flex;
+  gap: 40px;
+  padding: 60px 50px;
+}
+
+.philosophy-card {
+  flex: 2;
+  background-color: #a8cab9;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #e0ede4;
+}
+
+.philosophy-card h2 {
+  color: var(--green-main);
+  margin-bottom: 15px;
+}
+
+.quote-box {
+  flex: 1;
+  background-image: url("collabration.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+/* slide show*/
+.slideshow {
+  width: 100%;
+  max-width: 1920px;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem 4rem;
+  background: linear-gradient(135deg, #f0fff4 0%, #e8f5e9 100%);
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  font-weight: 800;
+  color: var(--green-main);
+}
+
+.circle {
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(135deg, var(--green-main), var(--blue-main));
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  opacity: 0.85;
+}
+
+.circle.small {
+  width: 90px;
+  height: 90px;
+  bottom: 0;
+  left: 10px;
+  opacity: 0.6;
+}
+/* CONTACT GRID */
+.contact-grid {
+  padding: 60px 50px;
+  background-image: url("gree.jpg");
+}
+
+.contact-grid h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--green-main);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.contact-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #e0ede4;
+  text-align: center;
+}
+
+.contact-card h3 {
+  color: var(--blue-main);
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  margin-top: 15px;
+  font-weight: bold;
+  color: var(--green-main);
+}
+
+/* CTA SECTION */
+.cta-section {
+  padding: 60px 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-box {
+  background: var(--green-main);
+  color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 700px;
+  text-align: center;
+}
+
+.cta-box h2 {
+  margin-bottom: 15px;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #fff;
+  color: var(--green-main);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.cta-btn:hover {
+  background: var(--green-light);
+}
+/* Cards */
+.pillar-card {
+  background: rgb(171, 216, 194);
+  border-radius: 10px;
+  padding: 1.8rem;
+  border: 1px solid #e0ede4;
+  transition: all 0.25s;
+  height: 100%;
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(10, 138, 74, 0.14);
+}
+
+.pillar-card h3 {
+  color: var(--blue-main);
+}
+/* SPLIT HERO */
+.contact-hero {
+  display: flex;
+  padding: 60px 50px;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text {
+  flex: 2;
+}
+
+.hero-text h1 {
+  font-size: 2.4rem;
+  color: var(--green-main);
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  max-width: 600px;
+}
+
+.hero-visual {
+  flex: 1;
+  position: relative;
+  height: 200px;
+}
+
+/* FOOTER */
+.footer {
+  padding: 20px 50px;
+  background: #f0f4f2;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+#chatReply {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+#chatReply p {
+    margin: 5px 0;
+}
