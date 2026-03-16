@@ -197,7 +197,7 @@ header {
   padding: 20px;
   background: #abd4c7;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .vision h1 {
@@ -508,12 +508,42 @@ footer p {
   color: #666;
 }
 #chatReply {
-    border: 1px solid #ccc;
-    padding: 10px;
-    max-height: 300px;
-    overflow-y: auto;
-    background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
 }
 #chatReply p {
-    margin: 5px 0;
+  margin: 5px 0;
+}
+/* Sub-level accordion styling */
+.nested-accordion-item {
+  margin-bottom: 2px;
+}
+
+.sub-header {
+  background-color: #f8f9fa; /* light gray – adjust as needed */
+  border: none !important;
+}
+
+.sub-button {
+  font-size: 0.95rem;
+  padding: 0.45rem 1rem !important;
+  background-color: transparent !important;
+}
+
+.sub-button:not(.collapsed) {
+  background-color: #e9ecef !important;
+  color: #212529;
+}
+
+.sub-sub-menu {
+  font-size: 0.9rem;
+  background-color: #f1f3f5;
+}
+
+/* Unique background only for ITEG – Rotor sub-items (example) */
+.bg-it-eg-rotor {
+  background-color: #e3f2fd !important; /* light blue – change to your preference */
 }
