@@ -547,3 +547,27 @@ footer p {
 .bg-it-eg-rotor {
   background-color: #e3f2fd !important; /* light blue – change to your preference */
 }
+.nested-accordion-item {
+  margin-bottom: 4px;
+}
+.sub-header {
+  background-color: #f1f3f5;
+  font-weight: 500;
+}
+.sub-button {
+  padding: 0.5rem 1.25rem !important;
+  font-size: 0.95rem;
+}
+.sub-sub-menu {
+  font-size: 0.875rem;
+}
+.sub-sub-menu a {
+  color: #0d6efd;
+}
+.sub-sub-menu a:hover {
+  text-decoration: underline;
+  color: #0a58ca;
+}
+.bg-it-eg-rotor {
+  background-color: #e3f2fd !important;
+} /* optional for ITEG */
