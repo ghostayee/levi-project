@@ -76,7 +76,7 @@ body {
 /* PCRR Sub Menu */
 #pcrr-submenu {
   position: fixed;
-  top: 115px; /* header height + jwt-top-menu height */
+  top: 60px; /* header height + jwt-top-menu height */
   left: 0;
   width: 100%;
   z-index: 1030;
@@ -584,7 +584,7 @@ footer p {
 
 .scroll-track {
   display: inline-flex;
-  animation: scroll-left 25s linear infinite;
+  animation: scroll-left 5s linear infinite;
 }
 
 .scroll-wrapper:hover .scroll-track {
