@@ -571,3 +571,31 @@ footer p {
 .bg-it-eg-rotor {
   background-color: #e3f2fd !important;
 } /* optional for ITEG */
+
+/* styling each independent pages */
+.head-button {
+  font-weight: bold;
+}
+
+.scroll-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroll-track {
+  display: inline-flex;
+  animation: scroll-left 25s linear infinite;
+}
+
+.scroll-wrapper:hover .scroll-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
