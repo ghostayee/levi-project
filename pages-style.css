@@ -13,7 +13,10 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   color: var(--text-main);
   padding-top: 110px;
 }
@@ -37,7 +40,7 @@ body {
 .scroll-track {
   display: inline-flex;
   gap: 30px;
-  animation: scroll-left 10s linear infinite;
+  animation: scroll-left 12s linear infinite;
 }
 
 .scroll-wrapper:hover .scroll-track {
@@ -60,6 +63,7 @@ body {
   padding: 10px 12px;
   border-radius: 6px;
   transition: 0.25s;
+  font-size: 0.9rem;
 }
 
 .nav-link:hover {
@@ -79,6 +83,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 12px 30px;
+  flex-wrap: wrap;
 }
 
 /* NAV MENU */
@@ -86,6 +91,7 @@ body {
   display: flex;
   gap: 20px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* NAV LINKS */
@@ -94,10 +100,11 @@ body {
   color: var(--green-main);
   font-weight: bold;
   transition: 0.2s;
+  font-size: 0.95rem;
 }
 
 .menu a:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
   color: var(--green-dark);
 }
 
@@ -109,8 +116,65 @@ body {
 #cart-count {
   background: red;
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   padding: 2px 6px;
   border-radius: 50%;
   margin-left: 5px;
+}
+
+/* TABLET */
+@media (max-width: 991px) {
+  body {
+    padding-top: 120px;
+  }
+
+  .site-header {
+    padding: 10px 20px;
+  }
+
+  .menu {
+    gap: 12px;
+  }
+
+  .menu a {
+    font-size: 0.9rem;
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 576px) {
+  body {
+    padding-top: 140px;
+  }
+
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .menu {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .menu a {
+    font-size: 0.85rem;
+  }
+
+  .scroll-track {
+    gap: 20px;
+    animation-duration: 15s;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
 }
