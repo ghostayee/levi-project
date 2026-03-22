@@ -64,7 +64,7 @@ body {
 
 /* JWT Top Menu */
 #jwt-top-menu {
-  position: fixed;
+  position: absolute;
   top: 60px; /* adjust to header height */
   left: 0;
   width: 100%;
