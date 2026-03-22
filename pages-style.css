@@ -15,6 +15,7 @@
 body {
   font-family: system-ui, -apple-system, sans-serif;
   color: var(--text-main);
+  padding-top: 110px;
 }
 
 /* ROTATING TOP BANNER */
@@ -28,7 +29,6 @@ body {
   overflow: hidden;
 }
 
-/* scrolling container */
 .scroll-wrapper {
   overflow: hidden;
   white-space: nowrap;
@@ -44,7 +44,6 @@ body {
   animation-play-state: paused;
 }
 
-/* animation */
 @keyframes scroll-left {
   0% {
     transform: translateX(0%);
@@ -54,21 +53,27 @@ body {
   }
 }
 
-/* banner links */
+/* BANNER LINKS */
 .nav-link {
   color: white !important;
   font-weight: 600;
-  padding: 10px 0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: 0.25s;
 }
 
-/* NAVBAR UNDER BANNER */
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* NAVBAR */
 .site-header {
   position: fixed;
-  top: 45px; /* sits below banner */
+  top: 45px;
   left: 0;
   width: 100%;
   z-index: 1050;
-  background: var(--green-main);
+  background: white;
 
   display: flex;
   justify-content: space-between;
@@ -76,26 +81,24 @@ body {
   padding: 12px 30px;
 }
 
-/* NAV LINKS */
+/* NAV MENU */
 .menu {
   display: flex;
   gap: 20px;
   align-items: center;
 }
 
+/* NAV LINKS */
 .menu a {
   text-decoration: none;
-  color: white;
-  font-weight: 600;
+  color: var(--green-main);
+  font-weight: bold;
+  transition: 0.2s;
 }
 
 .menu a:hover {
-  opacity: 0.8;
-}
-
-/* BODY OFFSET */
-body {
-  padding-top: 110px; /* space for banner + navbar */
+  transform: scale(1.15);
+  color: var(--green-dark);
 }
 
 /* CART */
