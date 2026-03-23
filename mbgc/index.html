@@ -23,25 +23,25 @@
         <div class="container-fluid px-3 px-lg-4">
             <div class="scroll-wrapper">
                 <ul class="navbar-nav flex-row gap-4 scroll-track">
-                    <li class="nav-item"><a class="nav-link" href="#">PCRR</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">NFT / NFW</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">GUPC RE/Lab</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">HousingCare</a></li>
-                    <li class="nav-item"><a class="nav-link" href="JWT_project.pdf" target="_blank">Master Plan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ESCP_HR.pdf" target="_blank">HR Leader</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">PCRR</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">NFT / NFW</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">GUPC RE/Lab</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">HousingCare</a></li>
-                    <li class="nav-item"><a class="nav-link" href="JWT_project.pdf" target="_blank">Master Plan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ESCP_HR.pdf" target="_blank">HR Leader</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">WIPO/UN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">EPO/EU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">UIBM/IT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">inPASS/IN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">CNIPA/CN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">USPTO/US</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">EAPO/RU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ARIPO/AIPO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ESG/UN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">SDGs/UN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ZONE1</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <header class="site-header bg-warning">
         <div class="logo-container">
-            <a href="https://jwt-jwt.eu/"><img src="faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="30">-</a>
+            <a href="https://jwt-jwt.eu/"><img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo"
+                    height="30">-</a>
             <span class="logo text-success">EUWEB GREEN <a href=""><button
                         class="head-button btn btn-success rounded-5 fw-bold">jwt</button></a></span>
         </div>
@@ -61,9 +61,27 @@
 
         </nav>
     </header>
-    <div>
-        <h1>content</h1>
+    <!-- Hamburger Icon -->
+    <div id="hamburger" class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
+
+    <!-- Side Menu -->
+    <nav id="side-menu" class="side-menu">
+        <ul>
+            <li><a href="#">JWT</a></li>
+            <li><a href="#">PCRR</a></li>
+            <li><a href="#">NFT / NFW</a></li>
+            <li><a href="#">GUPC RE/Lab</a></li>
+            <li><a href="#">HousingCare</a></li>
+            <li><a href="#">Master Plan</a></li>
+            <li><a href="#">HR Leader</a></li>
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">Services</a></li>
+        </ul>
+    </nav>
 
     <script>
         const track = document.querySelector('.scroll-track');
@@ -78,6 +96,15 @@
         track.addEventListener('mouseleave', () => {
             track.style.animationPlayState = 'running';
             isPaused = false;
+        });
+        // Get hamburger icon and side menu
+        const hamburger = document.getElementById('hamburger');
+        const sideMenu = document.getElementById('side-menu');
+
+        // Toggle menu on click
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active'); // animate hamburger
+            sideMenu.classList.toggle('active');  // slide menu in/out
         });
     </script>
     </body>
