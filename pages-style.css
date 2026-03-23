@@ -1,11 +1,8 @@
-/* ROOT */
 :root {
   --green-main: #0a8a4a;
   --green-dark: #086c3a;
-  --text-main: #2d2d2d;
 }
 
-/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -13,36 +10,25 @@
 }
 
 body {
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  color: var(--text-main);
-  padding-top: 125px; /* rotating bar + header + breathing room */
+  font-family: system-ui, sans-serif;
+  padding-top: 118px;
   transition: padding-left 0.4s ease;
 }
 
 body.menu-open {
   padding-left: 300px;
-  transition: padding-left 0.4s ease;
 }
 
-/* ── ROTATING TOP BANNER ── */
+/* Rotating Banner */
 #pcrr-submenu {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   height: 44px;
   background: var(--green-dark);
   z-index: 1200;
   overflow: hidden;
-}
-
-.scroll-wrapper {
-  overflow: hidden;
-  white-space: nowrap;
-  height: 100%;
 }
 
 .scroll-track {
@@ -54,11 +40,6 @@ body.menu-open {
   padding: 0 1.5rem;
 }
 
-.scroll-wrapper:hover .scroll-track,
-.scroll-track:hover {
-  animation-play-state: paused;
-}
-
 @keyframes scroll-left {
   0% {
     transform: translateX(0%);
@@ -68,21 +49,14 @@ body.menu-open {
   }
 }
 
-/* BANNER LINKS */
 .nav-link {
   color: white !important;
   font-weight: 600;
   padding: 10px 12px;
   border-radius: 6px;
-  transition: 0.25s;
-  font-size: 0.9rem;
 }
 
-.nav-link:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-/* ── MAIN HEADER / NAVBAR ── */
+/* Header */
 .site-header {
   position: fixed;
   top: 44px;
@@ -91,73 +65,16 @@ body.menu-open {
   z-index: 1100;
   background: white;
   min-height: 70px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.site-header .container-fluid {
-  padding-top: 8px;
-  padding-bottom: 8px;
-}
-
-.logo-container {
-  flex-shrink: 0;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-/* NAV MENU (top horizontal links) */
-.menu {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-left: auto;
-}
-
-.menu a {
-  text-decoration: none;
-  color: var(--green-main);
-  font-weight: bold;
-  transition: 0.2s;
-  font-size: 0.95rem;
-}
-
-.menu a:hover {
-  transform: scale(1.08);
-  color: var(--green-dark);
-}
-
-/* CART */
-.cart-link {
-  position: relative;
-}
-
-#cart-count {
-  background: red;
-  color: white;
-  font-size: 11px;
-  padding: 2px 6px;
-  border-radius: 50%;
-  margin-left: 5px;
-}
-
-/* ── PERMANENT HAMBURGER (always visible, below header) ── */
-.permanent-hamburger-container {
+/* Hamburger - Responsive & outside header */
+.hamburger-wrapper {
   position: fixed;
-  top: 110px; /* ← adjust this to sit nicely below your header */
-  left: 16px;
+  top: 114px; /* Below header */
+  left: 20px;
   z-index: 1150;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  transition: top 0.3s ease;
 }
 
 .hamburger {
@@ -166,34 +83,24 @@ body.menu-open {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
 .hamburger div {
   height: 4px;
-  background-color: var(--green-main);
+  background: var(--green-main);
   border-radius: 3px;
   transition: all 0.35s ease;
 }
 
-.hamburger.active div:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-}
-
-.hamburger.active div:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active div:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* ── SIDE MENU (slides from left, starts below header) ── */
+/* Side Menu */
 .side-menu {
   position: fixed;
-  top: 110px; /* must match hamburger top */
+  top: 114px;
   left: -300px;
   width: 300px;
-  height: calc(100% - 110px);
+  height: calc(100% - 114px);
   background: rgb(135, 243, 162);
   z-index: 1100;
   transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -210,8 +117,7 @@ body.menu-open {
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .side-menu-header h3 {
@@ -219,37 +125,30 @@ body.menu-open {
   font-size: 1.35rem;
   color: #111;
 }
-
 .close-btn {
   font-size: 2.2rem;
-  font-weight: bold;
   cursor: pointer;
   color: #222;
-  line-height: 1;
 }
 
 .side-menu ul {
   list-style: none;
   padding: 12px 0;
-  margin: 0;
 }
-
 .side-menu li a {
   display: block;
   padding: 16px 28px;
   color: #111;
   font-weight: 600;
   text-decoration: none;
-  font-size: 1.05rem;
-  transition: all 0.2s;
+  transition: 0.2s;
 }
-
 .side-menu li a:hover {
   background: rgba(10, 138, 74, 0.15);
   color: var(--green-main);
 }
 
-/* ── OVERLAY when menu is open ── */
+/* Overlay */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -258,29 +157,16 @@ body.menu-open {
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s ease;
-  pointer-events: none;
 }
-
 .menu-overlay.active {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
 }
 
-/* ── RESPONSIVE ADJUSTMENTS ── */
-
-@media (max-width: 991px) {
-  .menu {
-    gap: 14px;
-  }
-  .menu a {
-    font-size: 0.92rem;
-  }
-}
-
+/* Responsive - Hamburger moves with header */
 @media (max-width: 768px) {
   body {
-    padding-top: 120px;
+    padding-top: 115px;
   }
   #pcrr-submenu {
     height: 42px;
@@ -289,27 +175,24 @@ body.menu-open {
     top: 42px;
     min-height: 68px;
   }
-  .permanent-hamburger-container,
+
+  .hamburger-wrapper,
   .side-menu {
-    top: 105px;
+    top: 110px;
   }
   .side-menu {
-    height: calc(100% - 105px);
+    height: calc(100% - 110px);
     width: 280px;
     left: -280px;
   }
   body.menu-open {
     padding-left: 280px;
   }
-  .scroll-track {
-    gap: 22px;
-    animation-duration: 14s;
-  }
 }
 
 @media (max-width: 576px) {
   body {
-    padding-top: 110px;
+    padding-top: 108px;
   }
   #pcrr-submenu {
     height: 38px;
@@ -318,35 +201,17 @@ body.menu-open {
     top: 38px;
     min-height: 64px;
   }
-  .permanent-hamburger-container,
+
+  .hamburger-wrapper,
   .side-menu {
-    top: 98px;
+    top: 102px;
   }
   .side-menu {
-    top: 98px;
-    height: calc(100% - 98px);
+    height: calc(100% - 102px);
     width: 260px;
     left: -260px;
   }
   body.menu-open {
     padding-left: 260px;
-  }
-  .logo {
-    font-size: 1.3rem;
-  }
-  .menu a {
-    font-size: 0.85rem;
-  }
-  .hamburger {
-    width: 30px;
-    height: 24px;
-  }
-  .scroll-track {
-    gap: 18px;
-    animation-duration: 16s;
-  }
-  .nav-link {
-    font-size: 0.8rem;
-    padding: 8px 10px;
   }
 }
