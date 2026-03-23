@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,8 +16,9 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<body>
 
-<body">
+    <!-- 1. Rotating top bar -->
     <nav id="pcrr-submenu" class="navbar navbar-dark overflow-hidden">
         <div class="container-fluid px-3 px-lg-4">
             <div class="scroll-wrapper">
@@ -38,38 +38,58 @@
             </div>
         </div>
     </nav>
-    <header class="site-header bg-warning">
-        <div class="logo-container">
-            <a href="https://jwt-jwt.eu/"><img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo"
-                    height="30">-</a>
-            <span class="logo text-success">EUWEB GREEN <a href=""><button
-                        class="head-button btn btn-success rounded-5 fw-bold">jwt</button></a></span>
-        </div>
-        <nav class="menu">
-            <a href="#">safety</a>
-            <a href="#about-us">About</a>
-            <a href="#services-offer">Services</a>
-            <a href="#contact-us">Contact</a>
-            <a href="#">overview</a>
-            <a href="#about-us">About</a>
-            <a href="#services-offer">Services</a>
-            <a href="#contact-us">Contact</a>
-            <button class="rounded-4 p-1"><a href="/cart" class="cart-link">
-                    Cart <span id="cart-count">0</span>
-                </a>
-            </button>
 
-        </nav>
+    <!-- 2. Main header / top navigation -->
+    <header class="site-header bg-warning">
+        <div class="container-fluid px-3 px-lg-4">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 py-2">
+
+                <div class="logo-container d-flex align-items-center flex-shrink-0">
+                    <a href="https://jwt-jwt.eu/">
+                        <img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="36">
+                    </a>
+                    <span class="logo text-success ms-2 fw-bold">EUWEB GREEN
+                        <a href=""><button class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-2">jwt</button></a>
+                    </span>
+                </div>
+
+                <nav class="menu d-flex flex-wrap gap-3 align-items-center">
+                    <a href="https://www.aias-sicurezza.it/presentazione-aias/">safety</a>
+                    <a href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/">jwt security</a>
+                    <a href="https://sdgc-jwt.eu/comm/">Dream Zone</a>
+                    <a href="https://www.jwt-jwt.it/team/">About Us</a>
+                    <a href="https://www.jwt-jwt.it/vision/">Vision</a>
+                    <a href="https://www.jwt-jwt.it/mission/">MIssion</a> 
+                    <a href="#">overview</a>
+                    <a href="#about-us">About</a>
+                    <a href="#services-offer">Services</a>
+                    <a href="#contact-us">Contact</a>
+                    <button class="rounded-4 p-1">
+                        <a href="/cart" class="cart-link">
+                            Cart <span id="cart-count">0</span>
+                        </a>
+                    </button>
+                </nav>
+
+            </div>
+        </div>
     </header>
-    <!-- Hamburger Icon -->
-    <div id="hamburger" class="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
+
+    <!-- Permanent hamburger container (always visible, below header) -->
+    <div class="permanent-hamburger-container">
+        <div id="hamburger" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 
-    <!-- Side Menu -->
+    <!-- Side menu (slides from left) -->
     <nav id="side-menu" class="side-menu">
+        <div class="side-menu-header">
+            <h3>Menu</h3>
+            <span class="close-btn">×</span>
+        </div>
         <ul>
             <li><a href="#">JWT</a></li>
             <li><a href="#">PCRR</a></li>
@@ -83,30 +103,57 @@
         </ul>
     </nav>
 
+    <!-- Overlay when side menu is open -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <main>
+        <!-- Your page content goes here -->
+        <div style="padding: 2rem; min-height: 100vh;">
+            <h1>Main content area</h1>
+            <p>This area shifts right when the side menu opens.</p>
+        </div>
+    </main>
+
     <script>
+        // === Rotating bar pause on hover ===
         const track = document.querySelector('.scroll-track');
+        if (track) {
+            track.addEventListener('mouseenter', () => {
+                track.style.animationPlayState = 'paused';
+            });
+            track.addEventListener('mouseleave', () => {
+                track.style.animationPlayState = 'running';
+            });
+        }
 
-        let isPaused = false;
-
-        track.addEventListener('mouseenter', () => {
-            track.style.animationPlayState = 'paused';
-            isPaused = true;
-        });
-
-        track.addEventListener('mouseleave', () => {
-            track.style.animationPlayState = 'running';
-            isPaused = false;
-        });
-        // Get hamburger icon and side menu
+        // === Side menu controls ===
         const hamburger = document.getElementById('hamburger');
         const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('menu-overlay');
+        const closeBtn = document.querySelector('.close-btn');
 
-        // Toggle menu on click
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active'); // animate hamburger
-            sideMenu.classList.toggle('active');  // slide menu in/out
+        function openMenu() {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+            document.body.classList.add('menu-open');
+            hamburger.classList.add('active');
+        }
+
+        function closeMenu() {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            hamburger.classList.remove('active');
+        }
+
+        hamburger.addEventListener('click', openMenu);
+        overlay.addEventListener('click', closeMenu);
+        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+        // Close when clicking any link in the side menu
+        sideMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
         });
     </script>
-    </body>
-
+</body>
 </html>
