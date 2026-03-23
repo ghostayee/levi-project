@@ -1,8 +1,11 @@
+/* ROOT */
 :root {
   --green-main: #0a8a4a;
   --green-dark: #086c3a;
+  --text-main: #2d2d2d;
 }
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -10,25 +13,33 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
-  padding-top: 118px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  padding-top: 125px;
   transition: padding-left 0.4s ease;
 }
 
 body.menu-open {
   padding-left: 300px;
+  transition: padding-left 0.4s ease;
 }
 
-/* Rotating Banner */
+/* ── ROTATING TOP BANNER ── */
 #pcrr-submenu {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   height: 44px;
   background: var(--green-dark);
   z-index: 1200;
   overflow: hidden;
+}
+
+.scroll-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  height: 100%;
 }
 
 .scroll-track {
@@ -40,23 +51,31 @@ body.menu-open {
   padding: 0 1.5rem;
 }
 
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.scroll-wrapper:hover .scroll-track,
+.scroll-track:hover {
+  animation-play-state: paused;
 }
 
+@keyframes scroll-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* BANNER LINKS */
 .nav-link {
   color: white !important;
   font-weight: 600;
   padding: 10px 12px;
   border-radius: 6px;
+  transition: 0.25s;
+  font-size: 0.9rem;
 }
 
-/* Header */
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ── MAIN HEADER / NAVBAR ── */
 .site-header {
   position: fixed;
   top: 44px;
@@ -64,17 +83,70 @@ body.menu-open {
   right: 0;
   z-index: 1100;
   background: white;
-  min-height: 70px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Hamburger - Responsive & outside header */
-.hamburger-wrapper {
+.site-header .container-fluid {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.logo-container {
+  flex-shrink: 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* NAV MENU */
+.menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--green-main);
+  font-weight: bold;
+  transition: 0.2s;
+  font-size: 0.95rem;
+}
+
+.menu a:hover {
+  transform: scale(1.08);
+  color: var(--green-dark);
+}
+
+/* CART */
+.cart-link {
+  position: relative;
+}
+
+#cart-count {
+  background: red;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+/* ── PERMANENT HAMBURGER ── */
+.permanent-hamburger-container {
   position: fixed;
-  top: 114px; /* Below header */
-  left: 20px;
+  left: 16px;
   z-index: 1150;
-  transition: top 0.3s ease;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .hamburger {
@@ -83,24 +155,33 @@ body.menu-open {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
 }
 
 .hamburger div {
   height: 4px;
-  background: var(--green-main);
+  background-color: var(--green-main);
   border-radius: 3px;
   transition: all 0.35s ease;
 }
 
-/* Side Menu */
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ── SIDE MENU ── */
 .side-menu {
   position: fixed;
-  top: 114px;
   left: -300px;
   width: 300px;
-  height: calc(100% - 114px);
+  height: calc(100% - 120px);
   background: rgb(135, 243, 162);
   z-index: 1100;
   transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -117,7 +198,8 @@ body.menu-open {
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .side-menu-header h3 {
@@ -125,30 +207,37 @@ body.menu-open {
   font-size: 1.35rem;
   color: #111;
 }
+
 .close-btn {
   font-size: 2.2rem;
+  font-weight: bold;
   cursor: pointer;
   color: #222;
+  line-height: 1;
 }
 
 .side-menu ul {
   list-style: none;
   padding: 12px 0;
+  margin: 0;
 }
+
 .side-menu li a {
   display: block;
   padding: 16px 28px;
   color: #111;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.2s;
+  font-size: 1.05rem;
+  transition: all 0.2s;
 }
+
 .side-menu li a:hover {
   background: rgba(10, 138, 74, 0.15);
   color: var(--green-main);
 }
 
-/* Overlay */
+/* ── OVERLAY ── */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -157,61 +246,43 @@ body.menu-open {
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s ease;
+  pointer-events: none;
 }
+
 .menu-overlay.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
-/* Responsive - Hamburger moves with header */
-@media (max-width: 768px) {
-  body {
-    padding-top: 115px;
-  }
-  #pcrr-submenu {
-    height: 42px;
-  }
-  .site-header {
-    top: 42px;
-    min-height: 68px;
-  }
+/* RESPONSIVE */
+@media (max-width: 991px) {
+  .menu { gap: 14px; }
+  .menu a { font-size: 0.92rem; }
+}
 
-  .hamburger-wrapper,
-  .side-menu {
-    top: 110px;
-  }
-  .side-menu {
-    height: calc(100% - 110px);
-    width: 280px;
-    left: -280px;
-  }
-  body.menu-open {
-    padding-left: 280px;
-  }
+@media (max-width: 768px) {
+  body { padding-top: 120px; }
+  #pcrr-submenu { height: 42px; }
+  .site-header { top: 42px; }
 }
 
 @media (max-width: 576px) {
-  body {
-    padding-top: 108px;
+  body { padding-top: 110px; }
+  #pcrr-submenu { height: 38px; }
+  .site-header { top: 38px; }
+  .logo { font-size: 1.3rem; }
+  .menu a { font-size: 0.85rem; }
+  .hamburger {
+    width: 30px;
+    height: 24px;
   }
-  #pcrr-submenu {
-    height: 38px;
+  .scroll-track {
+    gap: 18px;
+    animation-duration: 16s;
   }
-  .site-header {
-    top: 38px;
-    min-height: 64px;
-  }
-
-  .hamburger-wrapper,
-  .side-menu {
-    top: 102px;
-  }
-  .side-menu {
-    height: calc(100% - 102px);
-    width: 260px;
-    left: -260px;
-  }
-  body.menu-open {
-    padding-left: 260px;
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 8px 10px;
   }
 }
