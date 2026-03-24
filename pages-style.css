@@ -430,8 +430,7 @@ body.menu-open #hamburger-container {
 .hero {
   background:
     linear-gradient(rgba(0, 100, 0, 0.82), rgba(10, 61, 42, 0.88)),
-    url("/jwt/cub-energy-renewable-water-unit.jpg")
-      center/cover no-repeat;
+    url("/jwt/cub-energy-renewable-water-unit.jpg") center/cover no-repeat;
   color: #ffffff;
   text-align: center;
   padding: 140px 20px 110px;
@@ -588,4 +587,146 @@ body.menu-open #hamburger-container {
     padding: 100px 20px 80px;
   }
 }
+/* the kyc buttons */
+.kyc-access-section {
+    width: 100%;
+    padding: 100px 5% 120px;
+    text-align: center;
+    background: #FFFFFF;
+  }
 
+  .section-header h2 {
+    color: #006400;
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+  }
+
+  .section-header p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+
+  .main-btn {
+    padding: 18px 45px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .main-btn {
+    background: #FF6200;
+    color: white;
+  }
+
+  .main-btn.strong {
+    background: #006400;
+  }
+
+  .main-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content {
+    background: #FFFFFF;
+    padding: 40px 50px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 520px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+  }
+
+  .close-btn:hover {
+    color: #FF6200;
+  }
+
+  .modal h3 {
+    color: #FF6200;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.85rem;
+  }
+
+  .modal input,
+  .modal textarea {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  .modal input:focus,
+  .modal textarea:focus {
+    border-color: #FF6200;
+  }
+
+  .checkbox-group label {
+    display: block;
+    margin: 12px 0;
+    font-size: 1.05rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+
+  .submit-btn {
+    background: #FF6200;
+    color: white;
+  }
+
+  .submit-btn.strong {
+    background: #006400;
+  }
+
+  .modal-explain {
+    margin-top: 25px;
+    font-size: 0.96rem;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+  }
