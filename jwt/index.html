@@ -131,9 +131,93 @@
     <div id="menu-overlay" class="menu-overlay"></div>
     <!--the tittle -->
     <main>
+
+        <!--section on kyc -->
+        <section class="kyc-access-section" id="kyc-access">
+
+            <div class="section-header">
+                <h2>Verification & Access</h2>
+                <p>Choose the level that best suits your interest in GREEN Rights</p>
+            </div>
+
+            <div class="forms-grid">
+
+                <!-- KYC Light -->
+                <div class="form-card">
+                    <h3>KYC Light</h3>
+                    <form id="kyc-light-form" action="https://xxxx-jwt.eu/comm/kyc-l" method="POST">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="tel" name="phone" placeholder="Phone Number (optional)">
+                        <textarea name="message" rows="3"
+                            placeholder="Briefly describe your interest (Broker, Investor, Agent, Operator...)"></textarea>
+
+                        <button type="submit" class="submit-btn">Submit KYC Light</button>
+                    </form>
+                    <div class="form-explain">
+                        <strong>KYC Light</strong> – Quick verification for basic access to public information,
+                        Dream.ZONE selector, and general GREEN Rights overview.
+                        Your data will be used only for contact and qualification purposes.
+                    </div>
+                </div>
+
+                <!-- KYC Strong -->
+                <div class="form-card">
+                    <h3>KYC Strong</h3>
+                    <form id="kyc-strong-form" action="https://xxxx-jwt.eu/comm/kyc-s" method="POST">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="text" name="company" placeholder="Company / Entity (if applicable)">
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                        <textarea name="message" rows="4"
+                            placeholder="Describe your role and intended use of GREEN Rights (Investment, License, Brokerage, etc.)"
+                            required></textarea>
+
+                        <button type="submit" class="submit-btn strong">Submit KYC Strong</button>
+                    </form>
+                    <div class="form-explain">
+                        <strong>KYC Strong</strong> – Enhanced verification required for commercial proposals, exclusive
+                        zone rights, NFT/NFW purchases, and agent/broker programs.
+                        Includes identity and intent validation.
+                    </div>
+                </div>
+
+                <!-- Access Form -->
+                <div class="form-card">
+                    <h3>Access Request</h3>
+                    <form id="access-form" action="https://xxxx-jwt.eu/comm/access" method="POST">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="functions[]" value="AI.Text"> AI.Text Editor</label>
+                            <label><input type="checkbox" name="functions[]" value="Dream.ZONE"> Dream.ZONE
+                                Selector</label>
+                            <label><input type="checkbox" name="functions[]" value="Sell.Function"> Sell.Function /
+                                Cart</label>
+                            <label><input type="checkbox" name="functions[]" value="Blog/Chat"> Blog / Chat
+                                Moderation</label>
+                            <label><input type="checkbox" name="functions[]" value="NFT"> NFT/NFW Management</label>
+                        </div>
+
+                        <textarea name="message" rows="3"
+                            placeholder="Additional notes or specific access requirements..."></textarea>
+
+                        <button type="submit" class="submit-btn">Request Access</button>
+                    </form>
+                    <div class="form-explain">
+                        <strong>Access</strong> – Select the tools and functions you need (AI.Text, Dream.ZONE,
+                        Sell.Function, Blog/Chat, etc.).
+                        After validation you will receive login credentials and reserved access rights.
+                    </div>
+                </div>
+
+            </div>
+        </section>
         <div class="my-5">
             <h1 class="text-center">
-                <span class="text-warning">J</span><span class="text-primary">W</span><span>T</span> – Joules Water Team
+                <span class="text-warning">J</span><span class="text-primary">W</span><span
+                    class="text-success">T</span> – Joules Water Team
             </h1>
             <h3 class="text-center">
                 <span class="text-success">GREEN</span> Industrial Rights for Your Land – EU, BRICS & World
@@ -232,8 +316,7 @@
                 <!-- Block 5 – Commercial Proposals -->
                 <div class="block">
                     <div class="block-image">
-                        <img src="cub-energy-renewable-water-unit.jpg"
-                            alt="Commercial Proposals">
+                        <img src="cub-energy-renewable-water-unit.jpg" alt="Commercial Proposals">
                     </div>
                     <div class="block-content">
                         <h2>Commercial Proposals (KYC-gated)</h2>
