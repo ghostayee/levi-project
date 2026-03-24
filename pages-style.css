@@ -13,7 +13,10 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   color: var(--text-main);
   padding-top: 125px;
   transition: padding-left 0.4s ease;
@@ -57,8 +60,12 @@ body.menu-open {
 }
 
 @keyframes scroll-left {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* BANNER LINKS */
@@ -182,7 +189,7 @@ body.menu-open {
   left: -300px;
   width: 300px;
   height: calc(100% - 120px);
-  background: rgb(135, 243, 162);
+  background: rgb(204, 221, 208);
   z-index: 1100;
   transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   overflow-y: auto;
@@ -257,22 +264,42 @@ body.menu-open {
 
 /* RESPONSIVE */
 @media (max-width: 991px) {
-  .menu { gap: 14px; }
-  .menu a { font-size: 0.92rem; }
+  .menu {
+    gap: 14px;
+  }
+  .menu a {
+    font-size: 0.92rem;
+  }
 }
 
 @media (max-width: 768px) {
-  body { padding-top: 120px; }
-  #pcrr-submenu { height: 42px; }
-  .site-header { top: 42px; }
+  body {
+    padding-top: 120px;
+  }
+  #pcrr-submenu {
+    height: 42px;
+  }
+  .site-header {
+    top: 42px;
+  }
 }
 
 @media (max-width: 576px) {
-  body { padding-top: 110px; }
-  #pcrr-submenu { height: 38px; }
-  .site-header { top: 38px; }
-  .logo { font-size: 1.3rem; }
-  .menu a { font-size: 0.85rem; }
+  body {
+    padding-top: 110px;
+  }
+  #pcrr-submenu {
+    height: 38px;
+  }
+  .site-header {
+    top: 38px;
+  }
+  .logo {
+    font-size: 1.3rem;
+  }
+  .menu a {
+    font-size: 0.85rem;
+  }
   .hamburger {
     width: 30px;
     height: 24px;
@@ -289,4 +316,105 @@ body.menu-open {
 
 body.menu-open #hamburger-container {
   display: none;
+}
+/* ====================== UNIVERSAL JWT FOOTER ====================== */
+.footer-jwt {
+  background: var(--green-main);
+  color: #ffffff;
+  padding: 60px 20px 30px;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  border-top: 4px solid #ff6200;
+  width: 100%;
+}
+
+.footer-jwt .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer-jwt .footer-col {
+  flex: 1;
+  min-width: 260px;
+}
+
+.footer-jwt h3,
+.footer-jwt h4 {
+  color: #ff6200;
+  margin-bottom: 18px;
+  font-size: 1.35em;
+}
+
+.footer-jwt p {
+  margin: 8px 0;
+  line-height: 1.65;
+  font-size: 0.95em;
+  opacity: 0.95;
+}
+
+.footer-jwt a {
+  color: #ffcc80;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-jwt a:hover {
+  color: #ff6200;
+}
+
+.footer-jwt ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.93em;
+}
+
+.footer-jwt ul li {
+  margin-bottom: 8px;
+}
+
+.footer-jwt .cart-btn {
+  display: inline-block;
+  background: #ff6200;
+  color: #ffffff;
+  padding: 14px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.footer-jwt .cart-btn:hover {
+  background: #ff8c00;
+  transform: translateY(-2px);
+}
+
+.footer-jwt .green-message {
+  font-size: 1.15em;
+  color: #a8e6a1;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* Bottom bar */
+.footer-jwt .footer-bottom {
+  border-top: 1px solid #113311;
+  margin-top: 50px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.82em;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-jwt .footer-container {
+    flex-direction: column;
+    gap: 35px;
+    text-align: center;
+  }
 }
