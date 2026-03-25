@@ -133,7 +133,88 @@
     <div id="menu-overlay" class="menu-overlay"></div>
     <!--the tittle -->
     <main>
+        <!--section on kyc -->
+        <section class="kyc-access-section">
 
+            <div class="section-header">
+                <h2>Verification & Access</h2>
+                <p>Choose the level that best suits your interest in GREEN Rights</p>
+            </div>
+
+            <!-- Trigger Buttons -->
+            <div class="button-group">
+                <button class="main-btn" data-modal="kyc-light-modal">KYC Light</button>
+                <button class="main-btn strong" data-modal="kyc-strong-modal">KYC Strong</button>
+                <button class="main-btn" data-modal="access-modal">Access Request</button>
+            </div>
+
+        </section>
+
+        <!-- ====================== POP-UP MODALS ====================== -->
+
+        <!-- KYC Light Modal -->
+        <div id="kyc-light-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3>KYC Light</h3>
+                <form id="kyc-light-form" action="https://xxxx-jwt.eu/comm/kyc-l" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="tel" name="phone" placeholder="Phone Number (optional)">
+                    <textarea name="message" rows="3"
+                        placeholder="Briefly describe your interest (Broker, Investor, Agent...)"></textarea>
+                    <button type="submit" class="submit-btn">Submit KYC Light</button>
+                </form>
+                <div class="modal-explain">
+                    Quick verification for basic access to information and Dream.ZONE selector.
+                </div>
+            </div>
+        </div>
+
+        <!-- KYC Strong Modal -->
+        <div id="kyc-strong-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3>KYC Strong</h3>
+                <form id="kyc-strong-form" action="https://xxxx-jwt.eu/comm/kyc-s" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="text" name="company" placeholder="Company / Entity">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <textarea name="message" rows="4" placeholder="Describe your role and intended use of GREEN Rights"
+                        required></textarea>
+                    <button type="submit" class="submit-btn strong">Submit KYC Strong</button>
+                </form>
+                <div class="modal-explain">
+                    Enhanced verification required for commercial proposals, exclusive rights and NFT purchases.
+                </div>
+            </div>
+        </div>
+
+        <!-- Access Request Modal -->
+        <div id="access-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3>Access Request</h3>
+                <form id="access-form" action="https://xxxx-jwt.eu/comm/access" method="POST">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="functions[]" value="Dream.ZONE"> Dream.ZONE</label>
+                        <label><input type="checkbox" name="functions[]" value="Sell.Function"> Sell
+                            Cart</label>
+                        <label><input type="checkbox" name="functions[]" value="Blog/Chat"> Blog / Chat</label>
+                    </div>
+
+                    <textarea name="message" rows="3" placeholder="Additional notes..."></textarea>
+                    <button type="submit" class="submit-btn">Request Access</button>
+                </form>
+                <div class="modal-explain">
+                    Select the tools you need. After validation you will receive login credentials.
+                </div>
+            </div>
+        </div>
     </main>
     <footer
         style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
