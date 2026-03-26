@@ -97,7 +97,8 @@
                         <img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="36">
                     </a>
                     <span class="logo text-success ms-2 fw-bold">EUWEB GREEN
-                        <a href="/jwt/"><button class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-2">jwt</button></a>
+                        <a href="/jwt/"><button
+                                class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-2">jwt</button></a>
                     </span>
                 </div>
                 <nav class="menu d-flex flex-wrap gap-3 align-items-center">
@@ -109,7 +110,8 @@
                     <a href="https://www.jwt-jwt.it/mission/">Mission</a>
                     <a href="#services-offer">Services</a>
                     <a href="#contact-us">Contact</a>
-                    <a href="#kyc-1"><button class="head-button btn btn-success rounded-1 fw-bold btn-sm ms-2">KYC</button></a>
+                    <a href="#kyc-1"><button
+                            class="head-button btn btn-success rounded-1 fw-bold btn-sm ms-2">KYC</button></a>
                     <button class="rounded-4 p-1">
                         <a href="/com/cart" class="cart-link">
                             Cart <span id="cart-count">0</span>
@@ -176,7 +178,8 @@
                             <span id="total-price">€ 0</span>
                         </div>
                         <button class="btn btn-success w-100 py-3 fw-bold mb-3">Proceed to Checkout</button>
-                        <a href="/com/products/index.html" class="btn btn-outline-secondary w-100 py-3">Continue Shopping</a>
+                        <a href="/com/products/index.html" class="btn btn-outline-secondary w-100 py-3">Continue
+                            Shopping</a>
                     </div>
                 </div>
             </div>
@@ -191,8 +194,10 @@
     </main>
 
     <!-- Footer -->
-    <footer style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+    <footer
+        style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
+        <div
+            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
             <div style="flex: 1; min-width: 280px;">
                 <h3 style="color: #FF6200; margin-bottom: 15px; font-size: 1.4em;">PCRR JWTeam Srls</h3>
                 <p style="margin: 8px 0; line-height: 1.6; font-size: 0.95em;">
@@ -224,7 +229,8 @@
                     <li><a href="/jwt" style="color: #FFFFFF; text-decoration: none;">JWT Home</a></li>
                     <li><a href="/pcrr" style="color: #FFFFFF; text-decoration: none;">PCRR Commercial Plan</a></li>
                     <li><a href="/comm" style="color: #FFFFFF; text-decoration: none;">Common Services</a></li>
-                    <li><a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" target="_blank" style="color: #FFCC80;">GREEN Rights for the World</a></li>
+                    <li><a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" target="_blank"
+                            style="color: #FFCC80;">GREEN Rights for the World</a></li>
                 </ul>
             </div>
             <div style="flex: 1; min-width: 280px; text-align: center;">
@@ -232,7 +238,8 @@
                     From 100% fossil to ZERO.<br>
                     GREEN Industrial Rights • NFT/NFW • Ecological Transition
                 </p>
-                <a href="/comm/cart" style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
+                <a href="/comm/cart"
+                    style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
                     Open Shopping Cart
                 </a>
                 <p style="font-size: 0.85em; opacity: 0.85; margin-top: 30px;">
@@ -267,7 +274,7 @@
         overlay.addEventListener('click', closeMenu);
         if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-        // Cart Logic with Images
+        // Cart Logic with Images (updated to use stored image path)
         let cart = JSON.parse(localStorage.getItem('jwtCart')) || [];
 
         function renderCart() {
@@ -287,20 +294,14 @@
 
             let html = '';
             cart.forEach((item, index) => {
-                total += item.price;
-
-                // Map product ID to image path (update these paths with your actual images)
-                let imgSrc = '';
-                if (item.id === "1") imgSrc = "starter_Kit.webp";
-                else if (item.id === "2") imgSrc = "images.jpg";
-                else if (item.id === "3") imgSrc = "Lgem-mei-2022-LO-res-23.jpg";
+                total += Number(item.price) || 0;
 
                 html += `
                     <div class="cart-item d-flex align-items-center">
-                        <img src="${imgSrc}" alt="${item.name}" class="me-4">
+                        <img src="${item.image || 'starter_Kit.webp'}" alt="${item.name}" class="me-4">
                         <div class="flex-grow-1">
                             <h5>${item.name}</h5>
-                            <p class="text-success fw-bold">€ ${item.price.toLocaleString()}</p>
+                            <p class="text-success fw-bold">€ ${Number(item.price || 0).toLocaleString()}</p>
                         </div>
                         <button class="btn btn-outline-danger remove-btn" data-index="${index}">Remove</button>
                     </div>
@@ -314,7 +315,7 @@
 
             // Remove functionality
             document.querySelectorAll('.remove-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const index = parseInt(this.dataset.index);
                     cart.splice(index, 1);
                     localStorage.setItem('jwtCart', JSON.stringify(cart));
@@ -335,4 +336,5 @@
         });
     </script>
 </body>
+
 </html>
