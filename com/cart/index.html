@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/pages-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="icon" href="/images/faviconservices--32x32.png" type="image/x-icon" sizes="32x32">
 
     <!-- Internal CSS for Cart Page -->
     <style>
@@ -21,8 +22,15 @@
             background: white;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-            padding: 25px;
+            padding: 20px;
             margin-bottom: 20px;
+        }
+
+        .cart-item img {
+            width: 110px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .cart-summary {
@@ -52,7 +60,7 @@
 
         .empty-message {
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
         }
     </style>
 </head>
@@ -89,8 +97,7 @@
                         <img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="36">
                     </a>
                     <span class="logo text-success ms-2 fw-bold">EUWEB GREEN
-                        <a href="/jwt/"><button
-                                class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-2">jwt</button></a>
+                        <a href="/jwt/"><button class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-2">jwt</button></a>
                     </span>
                 </div>
                 <nav class="menu d-flex flex-wrap gap-3 align-items-center">
@@ -102,10 +109,9 @@
                     <a href="https://www.jwt-jwt.it/mission/">Mission</a>
                     <a href="#services-offer">Services</a>
                     <a href="#contact-us">Contact</a>
-                    <a href="#kyc-1"><button
-                            class="head-button btn btn-success rounded-1 fw-bold btn-sm ms-2">KYC</button></a>
+                    <a href="#kyc-1"><button class="head-button btn btn-success rounded-1 fw-bold btn-sm ms-2">KYC</button></a>
                     <button class="rounded-4 p-1">
-                        <a href="/cart" class="cart-link">
+                        <a href="/com/cart" class="cart-link">
                             Cart <span id="cart-count">0</span>
                         </a>
                     </button>
@@ -170,7 +176,7 @@
                             <span id="total-price">€ 0</span>
                         </div>
                         <button class="btn btn-success w-100 py-3 fw-bold mb-3">Proceed to Checkout</button>
-                        <a href="/shop" class="btn btn-outline-secondary w-100 py-3">Continue Shopping</a>
+                        <a href="/com/products/index.html" class="btn btn-outline-secondary w-100 py-3">Continue Shopping</a>
                     </div>
                 </div>
             </div>
@@ -179,16 +185,14 @@
             <div id="empty-cart" class="empty-message d-none">
                 <h3>You have not selected any product yet</h3>
                 <p class="lead text-muted mb-4">Browse our GREEN Rights Marketplace and add items to your cart.</p>
-                <a href="/shop" class="btn btn-success btn-lg">Browse Products</a>
+                <a href="/com/products/index.html" class="btn btn-success btn-lg">Browse Products</a>
             </div>
         </div>
     </main>
 
-    <!-- Footer (your exact footer) -->
-    <footer
-        style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
-        <div
-            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+    <!-- Footer -->
+    <footer style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
             <div style="flex: 1; min-width: 280px;">
                 <h3 style="color: #FF6200; margin-bottom: 15px; font-size: 1.4em;">PCRR JWTeam Srls</h3>
                 <p style="margin: 8px 0; line-height: 1.6; font-size: 0.95em;">
@@ -220,8 +224,7 @@
                     <li><a href="/jwt" style="color: #FFFFFF; text-decoration: none;">JWT Home</a></li>
                     <li><a href="/pcrr" style="color: #FFFFFF; text-decoration: none;">PCRR Commercial Plan</a></li>
                     <li><a href="/comm" style="color: #FFFFFF; text-decoration: none;">Common Services</a></li>
-                    <li><a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" target="_blank"
-                            style="color: #FFCC80;">GREEN Rights for the World</a></li>
+                    <li><a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" target="_blank" style="color: #FFCC80;">GREEN Rights for the World</a></li>
                 </ul>
             </div>
             <div style="flex: 1; min-width: 280px; text-align: center;">
@@ -229,8 +232,7 @@
                     From 100% fossil to ZERO.<br>
                     GREEN Industrial Rights • NFT/NFW • Ecological Transition
                 </p>
-                <a href="/comm/cart"
-                    style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
+                <a href="/comm/cart" style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
                     Open Shopping Cart
                 </a>
                 <p style="font-size: 0.85em; opacity: 0.85; margin-top: 30px;">
@@ -243,7 +245,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Hamburger & Menu
+        // Hamburger & Side Menu
         const hamburger = document.getElementById('hamburger');
         const sideMenu = document.getElementById('side-menu');
         const overlay = document.getElementById('menu-overlay');
@@ -265,7 +267,7 @@
         overlay.addEventListener('click', closeMenu);
         if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-        // Cart Logic
+        // Cart Logic with Images
         let cart = JSON.parse(localStorage.getItem('jwtCart')) || [];
 
         function renderCart() {
@@ -286,9 +288,17 @@
             let html = '';
             cart.forEach((item, index) => {
                 total += item.price;
+
+                // Map product ID to image path (update these paths with your actual images)
+                let imgSrc = '';
+                if (item.id === "1") imgSrc = "starter_Kit.webp";
+                else if (item.id === "2") imgSrc = "images.jpg";
+                else if (item.id === "3") imgSrc = "Lgem-mei-2022-LO-res-23.jpg";
+
                 html += `
-                    <div class="cart-item d-flex justify-content-between align-items-center">
-                        <div>
+                    <div class="cart-item d-flex align-items-center">
+                        <img src="${imgSrc}" alt="${item.name}" class="me-4">
+                        <div class="flex-grow-1">
                             <h5>${item.name}</h5>
                             <p class="text-success fw-bold">€ ${item.price.toLocaleString()}</p>
                         </div>
@@ -302,9 +312,9 @@
             document.getElementById('total-items').textContent = cart.length;
             document.getElementById('total-price').textContent = `€ ${total.toLocaleString()}`;
 
-            // Remove buttons
+            // Remove functionality
             document.querySelectorAll('.remove-btn').forEach(btn => {
-                btn.addEventListener('click', function () {
+                btn.addEventListener('click', function() {
                     const index = parseInt(this.dataset.index);
                     cart.splice(index, 1);
                     localStorage.setItem('jwtCart', JSON.stringify(cart));
@@ -313,18 +323,16 @@
             });
         }
 
-        // Update cart count in header
         function updateCartCount() {
             const countEl = document.getElementById('cart-count');
             if (countEl) countEl.textContent = cart.length;
         }
 
-        // Load cart on page open
+        // Initialize on page load
         window.addEventListener('load', () => {
             renderCart();
             updateCartCount();
         });
     </script>
 </body>
-
 </html>
