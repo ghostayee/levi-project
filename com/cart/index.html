@@ -238,7 +238,7 @@
                     From 100% fossil to ZERO.<br>
                     GREEN Industrial Rights • NFT/NFW • Ecological Transition
                 </p>
-                <a href="/comm/cart"
+                <a href="/com/cart"
                     style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
                     Open Shopping Cart
                 </a>
@@ -274,7 +274,7 @@
         overlay.addEventListener('click', closeMenu);
         if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-        // Cart Logic with Images (updated to use stored image path)
+        // Cart Logic with Images
         let cart = JSON.parse(localStorage.getItem('jwtCart')) || [];
 
         function renderCart() {
@@ -296,16 +296,19 @@
             cart.forEach((item, index) => {
                 total += Number(item.price) || 0;
 
+                // Use stored image or fallback safely
+                const imgSrc = item.image || '/images/starter_Kit.webp';
+
                 html += `
-                    <div class="cart-item d-flex align-items-center">
-                        <img src="${item.image || 'starter_Kit.webp'}" alt="${item.name}" class="me-4">
-                        <div class="flex-grow-1">
-                            <h5>${item.name}</h5>
-                            <p class="text-success fw-bold">€ ${Number(item.price || 0).toLocaleString()}</p>
-                        </div>
-                        <button class="btn btn-outline-danger remove-btn" data-index="${index}">Remove</button>
+                <div class="cart-item d-flex align-items-center">
+                    <img src="${imgSrc}" alt="${item.name || 'Product'}" class="me-4">
+                    <div class="flex-grow-1">
+                        <h5>${item.name || 'Unknown Product'}</h5>
+                        <p class="text-success fw-bold">€ ${Number(item.price || 0).toLocaleString()}</p>
                     </div>
-                `;
+                    <button class="btn btn-outline-danger remove-btn" data-index="${index}">Remove</button>
+                </div>
+            `;
             });
 
             container.innerHTML = html;
@@ -320,6 +323,7 @@
                     cart.splice(index, 1);
                     localStorage.setItem('jwtCart', JSON.stringify(cart));
                     renderCart();
+                    updateCartCount();
                 });
             });
         }
@@ -329,7 +333,7 @@
             if (countEl) countEl.textContent = cart.length;
         }
 
-        // Initialize on page load
+        // Initialize when page loads
         window.addEventListener('load', () => {
             renderCart();
             updateCartCount();
