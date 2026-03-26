@@ -4,55 +4,54 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Cart - EUWEB GREEN</title>
+    <title>Shop - GREEN Rights | EUWEB</title>
     <link rel="stylesheet" href="/pages-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
-    <!-- Internal CSS for Cart Page -->
     <style>
-        .cart-page {
+        .shop-page {
             background: #f8f9fa;
-            min-height: 100vh;
-            padding: 40px 0 80px;
+            padding-bottom: 80px;
         }
 
-        .cart-item {
-            background: white;
+        .product-card {
+            transition: all 0.4s ease;
+            border: none;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-            padding: 25px;
-            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            height: 100%;
         }
 
-        .cart-summary {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 130px;
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .total-row {
+        .product-image {
+            height: 240px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .price {
             font-size: 1.45rem;
             font-weight: 700;
             color: #006400;
         }
 
-        .remove-btn {
-            color: #dc3545;
-            border-color: #dc3545;
-        }
-
-        .remove-btn:hover {
-            background: #dc3545;
+        .add-to-cart-btn {
+            background: #FF6200;
             color: white;
+            border: none;
+            padding: 12px 0;
+            font-weight: 600;
+            border-radius: 6px;
         }
 
-        .empty-message {
-            text-align: center;
-            padding: 80px 20px;
+        .add-to-cart-btn:hover {
+            background: #FF8C00;
         }
     </style>
 </head>
@@ -105,7 +104,7 @@
                     <a href="#kyc-1"><button
                             class="head-button btn btn-success rounded-1 fw-bold btn-sm ms-2">KYC</button></a>
                     <button class="rounded-4 p-1">
-                        <a href="/cart" class="cart-link">
+                        <a href="/com/cart/index.html" class="cart-link">
                             Cart <span id="cart-count">0</span>
                         </a>
                     </button>
@@ -146,40 +145,59 @@
     <!-- Overlay -->
     <div id="menu-overlay" class="menu-overlay"></div>
 
-    <!-- Cart Content -->
-    <main class="cart-page">
+    <!-- Shop Content -->
+    <main class="shop-page py-5">
         <div class="container">
-            <h1 class="text-center mb-5">Your Shopping Cart</h1>
-
-            <div class="row">
-                <!-- Cart Items -->
-                <div class="col-lg-8" id="cart-items">
-                    <!-- Populated by JavaScript -->
-                </div>
-
-                <!-- Summary -->
-                <div class="col-lg-4">
-                    <div class="cart-summary p-4">
-                        <h4 class="mb-4">Order Summary</h4>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span>Total Items</span>
-                            <strong id="total-items">0</strong>
-                        </div>
-                        <div class="d-flex justify-content-between total-row mb-4">
-                            <span>Total Amount</span>
-                            <span id="total-price">€ 0</span>
-                        </div>
-                        <button class="btn btn-success w-100 py-3 fw-bold mb-3">Proceed to Checkout</button>
-                        <a href="/shop" class="btn btn-outline-secondary w-100 py-3">Continue Shopping</a>
-                    </div>
-                </div>
+            <div class="text-center mb-5">
+                <h1 class="display-5 fw-bold">GREEN Rights Marketplace</h1>
+                <p class="lead">Browse and select patents, zone licenses and technology packages</p>
             </div>
 
-            <!-- Empty Cart Message -->
-            <div id="empty-cart" class="empty-message d-none">
-                <h3>You have not selected any product yet</h3>
-                <p class="lead text-muted mb-4">Browse our GREEN Rights Marketplace and add items to your cart.</p>
-                <a href="/shop" class="btn btn-success btn-lg">Browse Products</a>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card card">
+                        <img src="YOUR_IMAGE_1.jpg" class="product-image" alt="ITEG Rotor">
+                        <div class="card-body d-flex flex-column">
+                            <h5>ITEG – Integrated Turbine Energy Generator (Rotor)</h5>
+                            <p class="text-muted small">Patented rotor for clean energy production</p>
+                            <p class="price">€ 2,500,000</p>
+                            <button class="add-to-cart-btn btn mt-auto" data-id="1" data-name="ITEG Rotor License"
+                                data-price="2500000">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card card">
+                        <img src="YOUR_IMAGE_2.jpg" class="product-image" alt="MBGC Biogas">
+                        <div class="card-body d-flex flex-column">
+                            <h5>MBGC – Mini BioGas Cogeneration</h5>
+                            <p class="text-muted small">Waste-to-energy & fertilizer system</p>
+                            <p class="price">€ 1,800,000</p>
+                            <button class="add-to-cart-btn btn mt-auto" data-id="2" data-name="MBGC Mini Biogas Plant"
+                                data-price="1800000">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card card">
+                        <img src="YOUR_IMAGE_3.jpg" class="product-image" alt="PBRC Algae">
+                        <div class="card-body d-flex flex-column">
+                            <h5>PBRC – PhotoBioReactor Micro Algae</h5>
+                            <p class="text-muted small">Food + Energy + CO₂ Capture System</p>
+                            <p class="price">€ 2,200,000</p>
+                            <button class="add-to-cart-btn btn mt-auto" data-id="3" data-name="PBRC Micro Algae System"
+                                data-price="2200000">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -229,7 +247,7 @@
                     From 100% fossil to ZERO.<br>
                     GREEN Industrial Rights • NFT/NFW • Ecological Transition
                 </p>
-                <a href="/comm/cart"
+                <a href="/com/cart/index.html"
                     style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
                     Open Shopping Cart
                 </a>
@@ -243,7 +261,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Hamburger & Menu
+        // Hamburger & Menu Scripts
         const hamburger = document.getElementById('hamburger');
         const sideMenu = document.getElementById('side-menu');
         const overlay = document.getElementById('menu-overlay');
@@ -265,65 +283,36 @@
         overlay.addEventListener('click', closeMenu);
         if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-        // Cart Logic
+        // Add to Cart
         let cart = JSON.parse(localStorage.getItem('jwtCart')) || [];
 
-        function renderCart() {
-            const container = document.getElementById('cart-items');
-            const emptyDiv = document.getElementById('empty-cart');
-            let total = 0;
-
-            if (cart.length === 0) {
-                container.innerHTML = '';
-                emptyDiv.classList.remove('d-none');
-                document.getElementById('total-items').textContent = '0';
-                document.getElementById('total-price').textContent = '€ 0';
-                return;
-            }
-
-            emptyDiv.classList.add('d-none');
-
-            let html = '';
-            cart.forEach((item, index) => {
-                total += item.price;
-                html += `
-                    <div class="cart-item d-flex justify-content-between align-items-center">
-                        <div>
-                            <h5>${item.name}</h5>
-                            <p class="text-success fw-bold">€ ${item.price.toLocaleString()}</p>
-                        </div>
-                        <button class="btn btn-outline-danger remove-btn" data-index="${index}">Remove</button>
-                    </div>
-                `;
-            });
-
-            container.innerHTML = html;
-
-            document.getElementById('total-items').textContent = cart.length;
-            document.getElementById('total-price').textContent = `€ ${total.toLocaleString()}`;
-
-            // Remove buttons
-            document.querySelectorAll('.remove-btn').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const index = parseInt(this.dataset.index);
-                    cart.splice(index, 1);
-                    localStorage.setItem('jwtCart', JSON.stringify(cart));
-                    renderCart();
-                });
-            });
-        }
-
-        // Update cart count in header
         function updateCartCount() {
             const countEl = document.getElementById('cart-count');
             if (countEl) countEl.textContent = cart.length;
         }
 
-        // Load cart on page open
-        window.addEventListener('load', () => {
-            renderCart();
-            updateCartCount();
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const product = {
+                    id: this.dataset.id,
+                    name: this.dataset.name,
+                    price: parseFloat(this.dataset.price)
+                };
+                cart.push(product);
+                localStorage.setItem('jwtCart', JSON.stringify(cart));
+                updateCartCount();
+
+                const original = this.textContent;
+                this.textContent = "✓ Added";
+                this.disabled = true;
+                setTimeout(() => {
+                    this.textContent = original;
+                    this.disabled = false;
+                }, 1500);
+            });
         });
+
+        updateCartCount();
     </script>
 </body>
 
