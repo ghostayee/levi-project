@@ -152,35 +152,40 @@
     </nav>
 
     <!-- Compact Header (reduced by half) -->
-    <header class="site-header py-1">
+    <header class="site-header">
         <div class="container-fluid px-3 px-lg-4">
-            <div class="header-inner d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <div class="header-inner d-flex justify-content-between align-items-center flex-wrap gap-3 py-2">
+
+                <!-- Logo -->
                 <div class="logo-container d-flex align-items-center flex-shrink-0">
                     <a href="https://jwt-jwt.eu/">
-                        <img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="26">
+                        <img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="36">
                     </a>
-                    <span class="logo text-success ms-2 fw-bold fs-6">EUWEB GREEN
-                        <button
-                            class="head-button btn btn-success rounded-5 fw-bold btn-sm py-1 px-3 ms-1">pcrr</button>
+                    <span class="logo text-success ms-2 fw-bold">EUWEB GREEN
+                        <a href="/jwt/"><button
+                                class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-2">jwt</button></a>
                     </span>
                 </div>
-                <nav class="menu d-flex flex-wrap gap-2 align-items-center small">
+
+                <!-- Top Navigation Menu -->
+                <nav class="menu d-flex flex-wrap gap-3 align-items-center">
                     <a href="https://www.aias-sicurezza.it/presentazione-aias/">safety</a>
                     <a href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/">jwt security</a>
                     <a href="https://sdgc-jwt.eu/comm/">Dream Zone</a>
                     <a href="https://www.jwt-jwt.it/team/">About Us</a>
                     <a href="https://www.jwt-jwt.it/vision/">Vision</a>
-                    <a href="https://www.jwt-jwt.it/mission/">Mission</a>
+                    <a href="https://www.jwt-jwt.it/mission/">MIssion</a>
                     <a href="#services-offer">Services</a>
-                    <a href="#contact">Contact</a>
-                    <button class="head-button btn btn-success rounded-1 fw-bold btn-sm py-1 px-3"
-                        data-modal="kyc-light-modal">KYC</button>
+                    <a href="#contact-us">Contact</a>
+                    <a href="#kyc-1"><button
+                            class="head-button btn btn-success rounded-1 fw-bold btn-sm ms-2">KYC</button></a>
                     <button class="rounded-4 p-1">
                         <a href="/cart" class="cart-link">
                             Cart <span id="cart-count">0</span>
                         </a>
                     </button>
                 </nav>
+
             </div>
         </div>
     </header>
