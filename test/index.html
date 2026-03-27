@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GFSS – ElectroMagnetic Gravity Separation (EMGS)</title>
+    <title>PCRR – Piano Commerciale di Ripresa e Resilienza</title>
     <link rel="stylesheet" href="/pages-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
@@ -70,6 +70,78 @@
         th {
             background: #006400;
             color: white;
+        }
+
+        .pcrr-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            padding: 35px 28px;
+            height: 100%;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .pcrr-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pcrr-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .pcrr-card h3 {
+            color: #006400;
+            margin-bottom: 18px;
+        }
+
+        .section-label {
+            color: #FF6200;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+        }
+
+        .chart-wrap {
+            height: 220px;
+            position: relative;
+        }
+
+        .jwt-diagram {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .jwt-node {
+            position: absolute;
+            padding: 8px 14px;
+            background: white;
+            border: 2px solid #006400;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .jwt-node:hover {
+            transform: scale(1.08);
+            border-color: #FF6200;
+        }
+
+        .jwt-node.center {
+            background: #006400;
+            color: white;
+            border-color: #FF6200;
         }
     </style>
 </head>
@@ -167,138 +239,522 @@
     <main class="gfss-page py-5">
         <div class="container" style="max-width: 1180px;">
             <div class="text-center mb-5">
-                <h1 class="display-5 fw-bold hi">GFSS – ElectroMagnetic Gravity Separation (EMGS)</h1>
-                <p class="lead">Advanced mineral processing technology that combines gravity, magnetic, and
-                    electrostatic forces for high-efficiency, chemical-free separation with reduced environmental
-                    impact.</p>
+                <h1 class="display-5 fw-bold hi">PCRR – Piano Commerciale di Ripresa e Resilienza</h1>
+                <p class="lead">The commercial backbone of JWT — scaling 342 green patents through licensing,
+                    auctions, and zero-cost adoption models.</p>.</p>
             </div>
 
-            <!-- Introduction Card -->
-            <div class="row g-4 mb-5">
-                <div class="col-12">
+            <!-- Overview -->
+            <section class="full-section bg-white" id="overview">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <span class="section-label">Strategic Foundation</span>
+                        <h2 class="display-8 fw-bold">Why PCRR Exists</h2>
+                    </div>
+                    <!-- Introduction Card -->
                     <div class="gfss-card card">
                         <img src="/images/gfss-hero.jpg" alt="GFSS Technology" class="img-fluid rounded mb-3">
                         <h3>Introduction</h3>
-                        <p>GFSS integrates gravity separation with electromagnetic and electrostatic fields to exploit
-                            differences in density, magnetic susceptibility, and electrical conductivity. This results
-                            in superior recovery rates while minimizing water and energy use — a key technology for
-                            sustainable mining and recycling.</p>
+                        <p class="lead text-center max-w-3xl mx-auto">PCRR transforms JWT’s 342 patented GREEN
+                            innovations
+                            into
+                            deployable, revenue-generating solutions aligned with PNRR Mission 2 and the EU Green Deal.
+                        </p>
                     </div>
                 </div>
-            </div>
+            </section>
+        </div>
 
-            <!-- How It Works -->
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="gfss-card card h-100">
-                        <img src="/images/feed.webp" alt="Feed System" class="img-fluid rounded mb-3">
-                        <h3>1. Feed System</h3>
-                        <p>Crushed ore or material slurry is introduced into the separator.</p>
+        <!-- Licensing Models -->
+        <section class="full-section bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Commercial & Licensing Models</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Exclusive Zone Rights</h3>
+                            <p>Exclusive territorial rights for defined zones (1M+ inhabitants).</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="gfss-card card h-100">
-                        <img src="/images/gravity module.jpg" alt="Gravity Module" class="img-fluid rounded mb-3">
-                        <h3>2. Gravity Module</h3>
-                        <p>Particles are stratified by density using centrifugal or settling forces.</p>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>3% DOA Broker Model</h3>
+                            <p>Earn 3% commission as broker on zone licenses and deals.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="gfss-card card h-100">
-                        <img src="/images/elctromagnetic.jpg" alt="Electromagnetic Module"
-                            class="img-fluid rounded mb-3">
-                        <h3>3. Electromagnetic Module</h3>
-                        <p>High-intensity magnetic fields separate ferromagnetic and paramagnetic particles.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="gfss-card card h-100">
-                        <img src="/images/static.jpg" alt="Electrostatic Module" class="img-fluid rounded mb-3">
-                        <h3>4. Electrostatic Module</h3>
-                        <p>Electric fields differentiate particles based on conductivity.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="gfss-card card h-100">
-                        <img src="/images/collection.jpg" alt="Collection System" class="img-fluid rounded mb-3">
-                        <h3>5. Collection System</h3>
-                        <p>Output is divided into concentrates, middlings, and tailings.</p>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Zero-Cost Deployment</h3>
+                            <p>Operators deploy at zero upfront cost via revenue sharing.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Performance Statistics -->
-            <div class="row g-4 mt-5">
-                <div class="col-12">
-                    <div class="gfss-card card">
-                        <h3>Performance Statistics</h3>
-                        <table class="table table-bordered mt-3">
-                            <thead>
-                                <tr>
-                                    <th>Separation Method</th>
-                                    <th>Efficiency (%)</th>
-                                    <th>Particle Size Range</th>
-                                    <th>Energy Use</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Gravity Only</td>
-                                    <td>60–70%</td>
-                                    <td>>75 µm</td>
-                                    <td>Low</td>
-                                </tr>
-                                <tr>
-                                    <td>Magnetic Only</td>
-                                    <td>70–80%</td>
-                                    <td>10–200 µm</td>
-                                    <td>Medium</td>
-                                </tr>
-                                <tr>
-                                    <td>Electrostatic Only</td>
-                                    <td>65–75%</td>
-                                    <td>
-                                        100 µm</td>
-                                    <td>Medium</td>
-                                </tr>
-                                <tr class="table-success">
-                                    <td><strong>GFSS – EMGS</strong></td>
-                                    <td><strong>85–95%</strong></td>
-                                    <td><strong>10–500 µm</strong></td>
-                                    <td><strong>Optimized</strong></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p class="mt-3"><strong>Key Benefits:</strong> Up to 95% recovery for fine particles • 20–30%
-                            energy savings • Water-free or low-water operation</p>
+        <!-- Performance Charts -->
+        <section class="full-section bg-white" id="performance">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Data-Driven Results</span>
+                    <h2 class="display-5 fw-bold">Economic Impact</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card">
+                            <h4>Revenue by Region (€M by 2030)</h4>
+                            <div class="chart-wrap"><canvas id="chartRevenue"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card">
+                            <h4>Adoption Rate (%)</h4>
+                            <div class="chart-wrap"><canvas id="chartAdoption"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card">
+                            <h4>Cost Savings vs Traditional</h4>
+                            <div class="chart-wrap"><canvas id="chartSavings"></canvas></div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Applications -->
-            <div class="row g-4 mt-5">
-                <div class="col-lg-6">
-                    <div class="gfss-card card h-100">
-                        <img src="/images/mining.jpg" alt="Mining Applications" class="img-fluid rounded mb-3">
-                        <h3>Applications</h3>
-                        <p>• Rare earth and critical mineral extraction<br>
-                            • Iron ore, gold, and base metal beneficiation<br>
-                            • E-waste and metal recycling<br>
-                            • Advanced water purification in arid regions<br>
-                            • Future concepts for space material separation</p>
-                    </div>
+        <!-- JWT Integration -->
+        <section class="full-section bg-light" id="integration">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Technology Ecosystem</span>
+                    <h2 class="display-5 fw-bold">JWT Integration</h2>
                 </div>
-                <div class="col-lg-6">
-                    <div class="gfss-card card h-100">
-                        <h3>Next Steps</h3>
-                        <p>1. Complete KYC verification<br>
-                            2. Select your Dream.ZONE<br>
-                            3. Acquire exclusive GFSS rights<br>
-                            4. Deploy with full technical support from JWT / ExpoTV1</p>
-                        <a href="/comm" class="btn btn-success mt-3">Access Common Services →</a>
+                <div class="pcrr-card card text-center mx-auto" style="max-width: 480px;">
+                    <div class="jwt-diagram" id="jwtDiagram"></div>
+                    <div id="jwtNodeDetail" class="mt-4 text-start"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Advantages -->
+        <section class="full-section bg-white" id="advantages">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Competitive Edge</span>
+                    <h2 class="display-5 fw-bold">Key Advantages</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Scalable & Modular</h3>
+                            <p>Rapid replication across zones without redesign.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Zero Upfront Cost</h3>
+                            <p>Operators deploy with no capex – pay via revenue share.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Fast Implementation</h3>
+                            <p>Time-to-deployment reduced from years to months.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Global Sustainability</h3>
+                            <p>Full alignment with UN SDGs, EU Green Deal & ESG.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Governance Framework -->
+        <section class="full-section bg-light" id="governance">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Risk & Oversight</span>
+                    <h2 class="display-5 fw-bold">Governance Framework</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Regulatory Compliance</h3>
+                            <p>Adheres to EU regulations, GDPR, and international IP law with continuous monitoring.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Risk Mitigation</h3>
+                            <p>Diversified zones, phased rollout, and pre-commitment agreements reduce market risks.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Operational Coordination</h3>
+                            <p>Central management with regional teams for smooth execution.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Three-Tier Structure</h3>
+                            <p>Strategic Board, Operations Council, and Regional Committees ensure transparency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="full-section bg-white" id="cases">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Proven Results</span>
+                    <h2 class="display-5 fw-bold">Case Studies</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card h-100">
+                            <h3>Rhine-Ruhr (Germany)</h3>
+                            <p class="text-success">GSMF Deployment</p>
+                            <p>Reduced 340,000 tonnes CO₂ annually across 14 sites with zero-cost operator model.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card h-100">
+                            <h3>Baltic Biogas Network</h3>
+                            <p class="text-success">MBGC Units</p>
+                            <p>230 modular units generated €12M annual revenue while supplying free energy to rural
+                                areas.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card h-100">
+                            <h3>Mediterranean Solar Grid</h3>
+                            <p class="text-success">SDGC Integration</p>
+                            <p>Increased grid efficiency by 28% and saved €45M in energy waste.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join the Green Revolution -->
+        <section class="full-section bg-light text-center" id="cta">
+            <div class="container">
+                <div class="pcrr-card card mx-auto" style="max-width: 820px;">
+                    <h2>Join the Green Revolution</h2>
+                    <p class="lead">Investor, government, broker or operator — PCRR offers a clear path with near-zero
+                        upfront cost and strong ESG returns.</p>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-success btn-lg me-3">Request Partnership</a>
+                        <a href="#licensing" class="btn btn-outline-success btn-lg">Explore Licensing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us -->
+        <section class="full-section bg-white" id="contact">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Get in Touch</span>
+                    <h2 class="display-5 fw-bold">Contact Us</h2>
+                </div>
+                <div class="pcrr-card card mx-auto" style="max-width: 720px;">
+                    <form id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name"
+                                    required></div>
+                            <div class="col-md-6"><input type="text" class="form-control"
+                                    placeholder="Company / Entity"></div>
+                            <div class="col-md-6"><input type="text" class="form-control" placeholder="Region"></div>
+                            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="col-12">
+                                <select class="form-select">
+                                    <option value="">Select Interest</option>
+                                    <option>Zone Licensing</option>
+                                    <option>Investment Partnership</option>
+                                    <option>Broker Role</option>
+                                    <option>Operator Deployment</option>
+                                </select>
+                            </div>
+                            <div class="col-12"><textarea class="form-control" rows="4"
+                                    placeholder="Your message..."></textarea></div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 mt-4">Send Message – Reply within 48
+                            hours</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Licensing Models -->
+        <section class="full-section bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Commercial & Licensing Models</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Exclusive Zone Rights</h3>
+                            <p>Exclusive territorial rights for defined zones (1M+ inhabitants).</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>3% DOA Broker Model</h3>
+                            <p>Earn 3% commission as broker on zone licenses and deals.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Zero-Cost Deployment</h3>
+                            <p>Operators deploy at zero upfront cost via revenue sharing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Charts -->
+        <section class="full-section bg-white" id="performance">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Data-Driven Results</span>
+                    <h2 class="display-5 fw-bold">Economic Impact</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card">
+                            <h4>Revenue by Region (€M by 2030)</h4>
+                            <div class="chart-wrap"><canvas id="chartRevenue"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card">
+                            <h4>Adoption Rate (%)</h4>
+                            <div class="chart-wrap"><canvas id="chartAdoption"></canvas></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card">
+                            <h4>Cost Savings vs Traditional</h4>
+                            <div class="chart-wrap"><canvas id="chartSavings"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- JWT Integration -->
+        <section class="full-section bg-light" id="integration">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Technology Ecosystem</span>
+                    <h2 class="display-5 fw-bold">JWT Integration</h2>
+                </div>
+                <div class="pcrr-card card text-center mx-auto" style="max-width: 480px;">
+                    <div class="jwt-diagram" id="jwtDiagram"></div>
+                    <div id="jwtNodeDetail" class="mt-4 text-start"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Advantages -->
+        <section class="full-section bg-white" id="advantages">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Competitive Edge</span>
+                    <h2 class="display-5 fw-bold">Key Advantages</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Scalable & Modular</h3>
+                            <p>Rapid replication across zones without redesign.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Zero Upfront Cost</h3>
+                            <p>Operators deploy with no capex – pay via revenue share.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Fast Implementation</h3>
+                            <p>Time-to-deployment reduced from years to months.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Global Sustainability</h3>
+                            <p>Full alignment with UN SDGs, EU Green Deal & ESG.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Governance Framework -->
+        <section class="full-section bg-light" id="governance">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Risk & Oversight</span>
+                    <h2 class="display-5 fw-bold">Governance Framework</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Regulatory Compliance</h3>
+                            <p>Adheres to EU regulations, GDPR, and international IP law with continuous monitoring.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Risk Mitigation</h3>
+                            <p>Diversified zones, phased rollout, and pre-commitment agreements reduce market risks.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Operational Coordination</h3>
+                            <p>Central management with regional teams for smooth execution.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pcrr-card card h-100">
+                            <h3>Three-Tier Structure</h3>
+                            <p>Strategic Board, Operations Council, and Regional Committees ensure transparency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Case Studies -->
+        <section class="full-section bg-white" id="cases">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Proven Results</span>
+                    <h2 class="display-5 fw-bold">Case Studies</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card h-100">
+                            <h3>Rhine-Ruhr (Germany)</h3>
+                            <p class="text-success">GSMF Deployment</p>
+                            <p>Reduced 340,000 tonnes CO₂ annually across 14 sites with zero-cost operator model.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card h-100">
+                            <h3>Baltic Biogas Network</h3>
+                            <p class="text-success">MBGC Units</p>
+                            <p>230 modular units generated €12M annual revenue while supplying free energy to rural
+                                areas.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pcrr-card card h-100">
+                            <h3>Mediterranean Solar Grid</h3>
+                            <p class="text-success">SDGC Integration</p>
+                            <p>Increased grid efficiency by 28% and saved €45M in energy waste.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join the Green Revolution -->
+        <section class="full-section bg-light text-center" id="cta">
+            <div class="container">
+                <div class="pcrr-card card mx-auto" style="max-width: 820px;">
+                    <h2>Join the Green Revolution</h2>
+                    <p class="lead">Investor, government, broker or operator — PCRR offers a clear path with
+                        near-zero
+                        upfront cost and strong ESG returns.</p>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-success btn-lg me-3">Request Partnership</a>
+                        <a href="#licensing" class="btn btn-outline-success btn-lg">Explore Licensing</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Us -->
+        <section class="full-section bg-white" id="contact">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="section-label">Get in Touch</span>
+                    <h2 class="display-5 fw-bold">Contact Us</h2>
+                </div>
+                <div class="pcrr-card card mx-auto" style="max-width: 720px;">
+                    <form id="contactForm">
+                        <div class="row g-3">
+                            <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name"
+                                    required></div>
+                            <div class="col-md-6"><input type="text" class="form-control"
+                                    placeholder="Company / Entity"></div>
+                            <div class="col-md-6"><input type="text" class="form-control" placeholder="Region">
+                            </div>
+                            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="col-12">
+                                <select class="form-select">
+                                    <option value="">Select Interest</option>
+                                    <option>Zone Licensing</option>
+                                    <option>Investment Partnership</option>
+                                    <option>Broker Role</option>
+                                    <option>Operator Deployment</option>
+                                </select>
+                            </div>
+                            <div class="col-12"><textarea class="form-control" rows="4"
+                                    placeholder="Your message..."></textarea></div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100 mt-4">Send Message – Reply within 48
+                            hours</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications -->
+        <div class="row g-4 mt-5">
+            <div class="col-lg-6">
+                <div class="gfss-card card h-100">
+                    <img src="/images/mining.jpg" alt="Mining Applications" class="img-fluid rounded mb-3">
+                    <h3>Applications</h3>
+                    <p>• Rare earth and critical mineral extraction<br>
+                        • Iron ore, gold, and base metal beneficiation<br>
+                        • E-waste and metal recycling<br>
+                        • Advanced water purification in arid regions<br>
+                        • Future concepts for space material separation</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="gfss-card card h-100">
+                    <h3>Next Steps</h3>
+                    <p>1. Complete KYC verification<br>
+                        2. Select your Dream.ZONE<br>
+                        3. Acquire exclusive GFSS rights<br>
+                        4. Deploy with full technical support from JWT / ExpoTV1</p>
+                    <a href="/comm" class="btn btn-success mt-3">Access Common Services →</a>
+                </div>
+            </div>
+        </div>
         </div>
     </main>
     <div>
@@ -495,6 +951,49 @@
                 form.reset();
                 this.closest('.modal').style.display = 'none';
             });
+        });
+        // Scroll reveal + Charts + JWT Diagram
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.pcrr-card').forEach(card => observer.observe(card));
+
+        function initCharts() {
+            const opts = { responsive: true, maintainAspectRatio: false };
+            new Chart(document.getElementById('chartRevenue'), { type: 'bar', data: { labels: ['Northern', 'Western', 'Central', 'Southern', 'Eastern'], datasets: [{ data: [420, 680, 540, 320, 440], backgroundColor: '#006400' }] }, options: opts });
+            new Chart(document.getElementById('chartAdoption'), { type: 'line', data: { labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'], datasets: [{ data: [5, 18, 35, 55, 72, 85, 94], borderColor: '#006400', fill: true }] }, options: opts });
+            new Chart(document.getElementById('chartSavings'), {
+                type: 'line', data: {
+                    labels: ['2024', '2025', '2026', '2027', '2028'], datasets: [
+                        { label: 'Traditional', data: [100, 105, 112, 118, 125], borderColor: '#dc3545' },
+                        { label: 'PCRR', data: [82, 68, 55, 42, 30], borderColor: '#006400' }
+                    ]
+                }, options: opts
+            });
+        }
+
+        function initJWTDiagram() {
+            const container = document.getElementById('jwtDiagram');
+            const nodes = [
+                { id: "PCRR", x: "50%", y: "50%", desc: "Central commercial engine for all JWT GREEN patents." },
+                { id: "GSMF", x: "25%", y: "30%", desc: "Gas Separation Membrane Filtration – CO₂ capture & biogas upgrading." },
+                { id: "GFSS", x: "75%", y: "30%", desc: "ElectroMagnetic Gravity Separation – advanced mineral processing." },
+                { id: "MBGC", x: "25%", y: "70%", desc: "Mini BioGas Cogeneration – waste-to-energy solutions." },
+                { id: "SDGC", x: "75%", y: "70%", desc: "Sea & Desert Green Conversion – sustainable land restoration." }
+            ];
+            nodes.forEach(node => {
+                const el = document.createElement('div');
+                el.className = `jwt-node ${node.id === 'PCRR' ? 'center' : ''}`;
+                el.style.left = node.x; el.style.top = node.y;
+                el.textContent = node.id;
+                el.onclick = () => document.getElementById('jwtNodeDetail').innerHTML = `<strong>${node.id}</strong><p>${node.desc}</p>`;
+                container.appendChild(el);
+            });
+        }
+
+        window.addEventListener('load', () => {
+            initCharts();
+            initJWTDiagram();
         });
     </script>
 </body>
