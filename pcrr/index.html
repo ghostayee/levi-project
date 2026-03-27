@@ -2,720 +2,722 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PCRR – Piano Commerciale di Ripresa e Resilienza</title>
-    <link rel="stylesheet" href="/pages-style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        crossorigin="anonymous">
-    <link rel="icon" href="faviconservices--32x32.png" type="image/x-icon" sizes="32x32">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PCRR – Piano Commerciale di Ripresa e Resilienza</title>
+  <link rel="stylesheet" href="/pages-style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    crossorigin="anonymous">
+  <link rel="icon" href="faviconservices--32x32.png" type="image/x-icon" sizes="32x32">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 
-    <style>
-        .pcrr-page {
-            background: #f8f9fa;
-        }
+  <style>
+    .pcrr-page {
+      background: #f8f9fa;
+    }
 
-        .full-section {
-            min-height: 100vh;
-            padding: 90px 20px 70px;
-            display: flex;
-            align-items: center;
-        }
+    .full-section {
+      min-height: 100vh;
+      padding: 90px 20px 70px;
+      display: flex;
+      align-items: center;
+    }
 
-        /* Header reduced by half */
-        .site-header {
-            padding: 6px 0 !important;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
+    /* Header reduced by half */
+    .site-header {
+      padding: 6px 0 !important;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
 
-        .logo-container img {
-            height: 26px !important;
-        }
+    .logo-container img {
+      height: 26px !important;
+    }
 
-        .head-button {
-            font-size: 0.78rem !important;
-            padding: 4px 11px !important;
-        }
+    .head-button {
+      font-size: 0.78rem !important;
+      padding: 4px 11px !important;
+    }
 
-        .pcrr-hero {
-            background: linear-gradient(rgba(0, 100, 0, 0.85), rgba(10, 61, 42, 0.9)),
-                url('https://source.unsplash.com/1600x900/?green,finance,innovation') center/cover no-repeat;
-            color: white;
-            padding-top: 70px;
-        }
+    .pcrr-hero {
+      background: linear-gradient(rgba(0, 100, 0, 0.85), rgba(10, 61, 42, 0.9)),
+        url('https://source.unsplash.com/1600x900/?green,finance,innovation') center/cover no-repeat;
+      color: white;
+      padding-top: 70px;
+    }
 
-        .pcrr-hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
+    .pcrr-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
 
-        .pcrr-card {
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            padding: 35px 28px;
-            height: 100%;
-            transition: all 0.4s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
+    .pcrr-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      padding: 35px 28px;
+      height: 100%;
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
 
-        .pcrr-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .pcrr-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        .pcrr-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
+    .pcrr-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
 
-        .pcrr-card h3 {
-            color: #006400;
-            margin-bottom: 18px;
-        }
+    .pcrr-card h3 {
+      color: #006400;
+      margin-bottom: 18px;
+    }
 
-        .section-label {
-            color: #FF6200;
-            font-size: 0.82rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.6rem;
-        }
+    .section-label {
+      color: #FF6200;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
+    }
 
-        .chart-wrap {
-            height: 220px;
-            position: relative;
-        }
+    .chart-wrap {
+      height: 220px;
+      position: relative;
+    }
 
-        .jwt-diagram {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            height: 300px;
-            margin: 0 auto;
-        }
+    .jwt-diagram {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      height: 300px;
+      margin: 0 auto;
+    }
 
-        .jwt-node {
-            position: absolute;
-            padding: 8px 14px;
-            background: white;
-            border: 2px solid #006400;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
+    .jwt-node {
+      position: absolute;
+      padding: 8px 14px;
+      background: white;
+      border: 2px solid #006400;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
 
-        .jwt-node:hover {
-            transform: scale(1.08);
-            border-color: #FF6200;
-        }
+    .jwt-node:hover {
+      transform: scale(1.08);
+      border-color: #FF6200;
+    }
 
-        .jwt-node.center {
-            background: #006400;
-            color: white;
-            border-color: #FF6200;
-        }
-    </style>
+    .jwt-node.center {
+      background: #006400;
+      color: white;
+      border-color: #FF6200;
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- Rotating top banner (exactly as in your reference code) -->
-    <nav id="pcrr-submenu" class="navbar navbar-dark overflow-hidden">
-        <div class="container-fluid px-3 px-lg-4">
-            <div class="scroll-wrapper">
-                <ul class="navbar-nav flex-row gap-4 scroll-track">
-                    <li class="nav-item"><a class="nav-link" href="#">WIPO/UN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">EPO/EU</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">UIBM/IT</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">inPASS/IN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">CNIPA/CN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">USPTO/US</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">EAPO/RU</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">ARIPO/AIPO</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">ESG/UN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">SDGs/UN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">ZONE1</a></li>
-                </ul>
+  <!-- Rotating top banner (orange background + your exact list) -->
+  <nav id="pcrr-submenu" class="navbar navbar-dark overflow-hidden"
+    style="background: linear-gradient(90deg, #FF6200, #FF8C00);">
+    <div class="container-fluid px-3 px-lg-4">
+      <div class="scroll-wrapper">
+        <ul class="navbar-nav flex-row gap-4 scroll-track">
+          <li class="nav-item"><a class="nav-link" href="#">WIPO/UN</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">EPO/EU</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">UIBM/IT</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">inPASS/IN</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">CNIPA/CN</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">USPTO/US</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">EAPO/RU</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">ARIPO/AIPO</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">ESG/UN</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">SDGs/UN</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">ZONE1</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Compact Header (reduced by half) -->
+  <header class="site-header py-1">
+    <div class="container-fluid px-3 px-lg-4">
+      <div class="header-inner d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <div class="logo-container d-flex align-items-center flex-shrink-0">
+          <a href="https://jwt-jwt.eu/">
+            <img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="26">
+          </a>
+          <span class="logo text-success ms-2 fw-bold fs-6">EUWEB GREEN
+            <button class="head-button btn btn-success rounded-5 fw-bold btn-sm py-1 px-3 ms-1">pcrr</button>
+          </span>
+        </div>
+        <nav class="menu d-flex flex-wrap gap-2 align-items-center small">
+          <a href="https://www.aias-sicurezza.it/presentazione-aias/">safety</a>
+          <a href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/">jwt security</a>
+          <a href="https://sdgc-jwt.eu/comm/">Dream Zone</a>
+          <a href="https://www.jwt-jwt.it/team/">About Us</a>
+          <a href="https://www.jwt-jwt.it/vision/">Vision</a>
+          <a href="https://www.jwt-jwt.it/mission/">Mission</a>
+          <a href="#services-offer">Services</a>
+          <a href="#contact">Contact</a>
+          <button class="head-button btn btn-success rounded-1 fw-bold btn-sm py-1 px-3"
+            data-modal="kyc-light-modal">KYC</button>
+          <button class="rounded-4 p-1">
+            <a href="/cart" class="cart-link">
+              Cart <span id="cart-count">0</span>
+            </a>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hamburger -->
+  <div id="hamburger-container" class="permanent-hamburger-container">
+    <div id="hamburger" class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Side Menu -->
+  <nav id="side-menu" class="side-menu">
+    <div class="side-menu-header">
+      <h3 class="bg-success">Menu</h3>
+      <span class="close-btn">×</span>
+    </div>
+    <ul>
+      <li><a href="/jwt">JWT – Joules Water Team</a></li>
+      <li><a href="/pcrr">PCRR – Piano Commerciale di Ripresa e Resilienza</a></li>
+      <li><a href="/comm">COMM – Common Services</a></li>
+      <li><a href="/iteg">ITEG</a></li>
+      <li><a href="/mbgc">MBGC</a></li>
+      <li><a href="/pbrc">PBRC</a></li>
+      <li><a href="/sidr">SIDR</a></li>
+      <li><a href="/sdgc">SDGC</a></li>
+      <li><a href="/gsmf">GSMF</a></li>
+      <li><a href="/gfss">GFSS</a></li>
+    </ul>
+  </nav>
+  <div id="menu-overlay" class="menu-overlay"></div>
+
+  <main class="pcrr-page">
+
+    <!-- Hero -->
+    <section class="full-section pcrr-hero">
+      <div class="container text-center">
+        <h1>PCRR – Piano Commerciale di Ripresa e Resilienza</h1>
+        <p class="lead fs-5 mt-3">The commercial backbone of JWT — scaling 342 green patents through licensing,
+          auctions, and zero-cost adoption models.</p>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="full-section bg-white" id="overview">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-label">Strategic Foundation</span>
+          <h2 class="display-5 fw-bold">Why PCRR Exists</h2>
+        </div>
+        <p class="lead text-center max-w-3xl mx-auto">PCRR transforms JWT’s 342 patented GREEN innovations into
+          deployable, revenue-generating solutions aligned with PNRR Mission 2 and the EU Green Deal.</p>
+      </div>
+    </section>
+
+    <!-- Licensing Models -->
+    <section class="full-section bg-light">
+      <div class="container">
+        <h2 class="text-center mb-5">Commercial & Licensing Models</h2>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="pcrr-card card h-100">
+              <h3>Exclusive Zone Rights</h3>
+              <p>Exclusive territorial rights for defined zones (1M+ inhabitants).</p>
             </div>
-        </div>
-    </nav>
-
-    <!-- Compact Header (reduced by half) -->
-    <header class="site-header">
-        <div class="container-fluid px-3 px-lg-4">
-            <div class="header-inner d-flex justify-content-between align-items-center flex-wrap gap-3 py-2">
-
-                <!-- Logo -->
-                <div class="logo-container d-flex align-items-center flex-shrink-0">
-                    <a href="https://jwt-jwt.eu/">
-                        <img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="36">
-                    </a>
-                    <span class="logo text-success ms-2 fw-bold">EUWEB GREEN
-                        <a href="/jwt/"><button
-                                class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-2">jwt</button></a>
-                    </span>
-                </div>
-
-                <!-- Top Navigation Menu -->
-                <nav class="menu d-flex flex-wrap gap-3 align-items-center">
-                    <a href="https://www.aias-sicurezza.it/presentazione-aias/">safety</a>
-                    <a href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/">jwt security</a>
-                    <a href="https://sdgc-jwt.eu/comm/">Dream Zone</a>
-                    <a href="https://www.jwt-jwt.it/team/">About Us</a>
-                    <a href="https://www.jwt-jwt.it/vision/">Vision</a>
-                    <a href="https://www.jwt-jwt.it/mission/">MIssion</a>
-                    <a href="#services-offer">Services</a>
-                    <a href="#contact-us">Contact</a>
-                    <a href="#kyc-1"><button
-                            class="head-button btn btn-success rounded-1 fw-bold btn-sm ms-2">KYC</button></a>
-                    <button class="rounded-4 p-1">
-                        <a href="/cart" class="cart-link">
-                            Cart <span id="cart-count">0</span>
-                        </a>
-                    </button>
-                </nav>
-
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="pcrr-card card h-100">
+              <h3>3% DOA Broker Model</h3>
+              <p>Earn 3% commission as broker on zone licenses and deals.</p>
             </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="pcrr-card card h-100">
+              <h3>Zero-Cost Deployment</h3>
+              <p>Operators deploy at zero upfront cost via revenue sharing.</p>
+            </div>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <!-- Hamburger -->
-    <div id="hamburger-container" class="permanent-hamburger-container">
-        <div id="hamburger" class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
+    <!-- Performance Charts -->
+    <section class="full-section bg-white" id="performance">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-label">Data-Driven Results</span>
+          <h2 class="display-5 fw-bold">Economic Impact</h2>
         </div>
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="pcrr-card card">
+              <h4>Revenue by Region (€M by 2030)</h4>
+              <div class="chart-wrap"><canvas id="chartRevenue"></canvas></div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="pcrr-card card">
+              <h4>Adoption Rate (%)</h4>
+              <div class="chart-wrap"><canvas id="chartAdoption"></canvas></div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="pcrr-card card">
+              <h4>Cost Savings vs Traditional</h4>
+              <div class="chart-wrap"><canvas id="chartSavings"></canvas></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JWT Integration -->
+    <section class="full-section bg-light" id="integration">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-label">Technology Ecosystem</span>
+          <h2 class="display-5 fw-bold">JWT Integration</h2>
+        </div>
+        <div class="pcrr-card card text-center mx-auto" style="max-width: 480px;">
+          <div class="jwt-diagram" id="jwtDiagram"></div>
+          <div id="jwtNodeDetail" class="mt-4 text-start"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Advantages -->
+    <section class="full-section bg-white" id="advantages">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-label">Competitive Edge</span>
+          <h2 class="display-5 fw-bold">Key Advantages</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="pcrr-card card h-100">
+              <h3>Scalable & Modular</h3>
+              <p>Rapid replication across zones without redesign.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="pcrr-card card h-100">
+              <h3>Zero Upfront Cost</h3>
+              <p>Operators deploy with no capex – pay via revenue share.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="pcrr-card card h-100">
+              <h3>Fast Implementation</h3>
+              <p>Time-to-deployment reduced from years to months.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="pcrr-card card h-100">
+              <h3>Global Sustainability</h3>
+              <p>Full alignment with UN SDGs, EU Green Deal & ESG.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Governance Framework -->
+    <section class="full-section bg-light" id="governance">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-label">Risk & Oversight</span>
+          <h2 class="display-5 fw-bold">Governance Framework</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="pcrr-card card h-100">
+              <h3>Regulatory Compliance</h3>
+              <p>Adheres to EU regulations, GDPR, and international IP law with continuous monitoring.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="pcrr-card card h-100">
+              <h3>Risk Mitigation</h3>
+              <p>Diversified zones, phased rollout, and pre-commitment agreements reduce market risks.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="pcrr-card card h-100">
+              <h3>Operational Coordination</h3>
+              <p>Central management with regional teams for smooth execution.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="pcrr-card card h-100">
+              <h3>Three-Tier Structure</h3>
+              <p>Strategic Board, Operations Council, and Regional Committees ensure transparency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="full-section bg-white" id="cases">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-label">Proven Results</span>
+          <h2 class="display-5 fw-bold">Case Studies</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="pcrr-card card h-100">
+              <h3>Rhine-Ruhr (Germany)</h3>
+              <p class="text-success">GSMF Deployment</p>
+              <p>Reduced 340,000 tonnes CO₂ annually across 14 sites with zero-cost operator model.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="pcrr-card card h-100">
+              <h3>Baltic Biogas Network</h3>
+              <p class="text-success">MBGC Units</p>
+              <p>230 modular units generated €12M annual revenue while supplying free energy to rural
+                areas.</p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="pcrr-card card h-100">
+              <h3>Mediterranean Solar Grid</h3>
+              <p class="text-success">SDGC Integration</p>
+              <p>Increased grid efficiency by 28% and saved €45M in energy waste.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join the Green Revolution -->
+    <section class="full-section bg-light text-center" id="cta">
+      <div class="container">
+        <div class="pcrr-card card mx-auto" style="max-width: 820px;">
+          <h2>Join the Green Revolution</h2>
+          <p class="lead">Investor, government, broker or operator — PCRR offers a clear path with near-zero
+            upfront cost and strong ESG returns.</p>
+          <div class="mt-4">
+            <a href="#contact" class="btn btn-success btn-lg me-3">Request Partnership</a>
+            <a href="#licensing" class="btn btn-outline-success btn-lg">Explore Licensing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="full-section bg-white" id="contact">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-label">Get in Touch</span>
+          <h2 class="display-5 fw-bold">Contact Us</h2>
+        </div>
+        <div class="pcrr-card card mx-auto" style="max-width: 720px;">
+          <form id="contactForm">
+            <div class="row g-3">
+              <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div>
+              <div class="col-md-6"><input type="text" class="form-control" placeholder="Company / Entity"></div>
+              <div class="col-md-6"><input type="text" class="form-control" placeholder="Region"></div>
+              <div class="col-md-6"><input type="email" class="form-control" placeholder="Email" required>
+              </div>
+              <div class="col-12">
+                <select class="form-select">
+                  <option value="">Select Interest</option>
+                  <option>Zone Licensing</option>
+                  <option>Investment Partnership</option>
+                  <option>Broker Role</option>
+                  <option>Operator Deployment</option>
+                </select>
+              </div>
+              <div class="col-12"><textarea class="form-control" rows="4" placeholder="Your message..."></textarea>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success w-100 mt-4">Send Message – Reply within 48
+              hours</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- KYC Section (exactly from your reference code) -->
+    <section class="kyc-access-section py-5 bg-white">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2>Verification & Access</h2>
+          <p class="lead">Choose the level that best suits your interest in GREEN Rights</p>
+        </div>
+        <div class="button-group text-center">
+          <button class="main-btn btn btn-success me-2" data-modal="kyc-light-modal">KYC Light</button>
+          <button class="main-btn btn btn-success me-2" data-modal="kyc-strong-modal">KYC Strong</button>
+          <button class="main-btn btn btn-success" data-modal="access-modal">Access Request</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- KYC Modals (exactly from your reference code) -->
+    <div id="kyc-light-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>KYC Light</h3>
+        <form id="kyc-light-form" action="https://xxxx-jwt.eu/comm/kyc-l" method="POST">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="tel" name="phone" placeholder="Phone Number (optional)">
+          <textarea name="message" rows="3" placeholder="Briefly describe your interest..."></textarea>
+          <button type="submit" class="submit-btn">Submit KYC Light</button>
+        </form>
+        <div class="modal-explain">Quick verification for basic access to information and Dream.ZONE selector.
+        </div>
+      </div>
     </div>
 
-    <!-- Side Menu -->
-    <nav id="side-menu" class="side-menu">
-        <div class="side-menu-header">
-            <h3 class="bg-success">Menu</h3>
-            <span class="close-btn">×</span>
-        </div>
-        <ul>
-            <li><a href="/jwt">JWT – Joules Water Team</a></li>
-            <li><a href="/pcrr">PCRR – Piano Commerciale di Ripresa e Resilienza</a></li>
-            <li><a href="/comm">COMM – Common Services</a></li>
-            <li><a href="/iteg">ITEG</a></li>
-            <li><a href="/mbgc">MBGC</a></li>
-            <li><a href="/pbrc">PBRC</a></li>
-            <li><a href="/sidr">SIDR</a></li>
-            <li><a href="/sdgc">SDGC</a></li>
-            <li><a href="/gsmf">GSMF</a></li>
-            <li><a href="/gfss">GFSS</a></li>
+    <div id="kyc-strong-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>KYC Strong</h3>
+        <form id="kyc-strong-form" action="https://xxxx-jwt.eu/comm/kyc-s" method="POST">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="text" name="company" placeholder="Company / Entity">
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <textarea name="message" rows="4" placeholder="Describe your role and intended use of GREEN Rights"
+            required></textarea>
+          <button type="submit" class="submit-btn strong">Submit KYC Strong</button>
+        </form>
+        <div class="modal-explain">Enhanced verification required for commercial proposals, exclusive rights and
+          NFT purchases.</div>
+      </div>
+    </div>
+
+    <div id="access-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>Access Request</h3>
+        <form id="access-form" action="https://xxxx-jwt.eu/comm/access" method="POST">
+          <input type="text" name="name" placeholder="Full Name" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="functions[]" value="Dream.ZONE"> Dream.ZONE</label>
+            <label><input type="checkbox" name="functions[]" value="Sell.Function"> Sell Cart</label>
+            <label><input type="checkbox" name="functions[]" value="Blog/Chat"> Blog / Chat</label>
+          </div>
+          <textarea name="message" rows="3" placeholder="Additional notes..."></textarea>
+          <button type="submit" class="submit-btn">Request Access</button>
+        </form>
+        <div class="modal-explain">Select the tools you need. After validation you will receive login
+          credentials.</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Your original Footer -->
+  <footer
+    style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
+    <div
+      style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+      <div style="flex: 1; min-width: 280px;">
+        <h3 style="color: #FF6200; margin-bottom: 15px; font-size: 1.4em;">PCRR JWTeam Srls</h3>
+        <p style="margin: 8px 0; line-height: 1.6; font-size: 0.95em;">
+          Joules Water Team<br>
+          Research, Development & Innovation in Joules, Water and Primary Renewable Resources
+        </p>
+        <p style="margin: 15px 0 8px; font-size: 0.9em;">
+          Sede Legale: Via Terrazzano 85<br>20017 Rho (MI), Italy
+        </p>
+        <p style="margin: 5px 0; font-size: 0.9em;">
+          C.F. e P.I. 12092970966 | Cap.Soc. € 200
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 280px;">
+        <h4 style="color: #FF6200; margin-bottom: 15px;">Legal & Contact</h4>
+        <p style="margin: 8px 0; font-size: 0.92em;">
+          PEC: <a href="mailto:pcrrjwt@pec.it" style="color: #FFCC80; text-decoration: none;">pcrrjwt@pec.it</a><br>
+          Info: <a href="mailto:info@jwt-jwt.eu" style="color: #FFCC80; text-decoration: none;">info@jwt-jwt.eu</a><br>
+          Commercial: <a href="mailto:comm@pcrr-jwt.it"
+            style="color: #FFCC80; text-decoration: none;">comm@pcrr-jwt.it</a>
+        </p>
+        <p style="margin: 15px 0 8px; font-size: 0.9em;">
+          IBAN: IT73H0306909412100000002247<br>
+          BIC: BCITITMM
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 280px;">
+        <h4 style="color: #FF6200; margin-bottom: 15px;">Quick Access</h4>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.92em; line-height: 2;">
+          <li><a href="/jwt" style="color: #FFFFFF; text-decoration: none;">JWT Home</a></li>
+          <li><a href="/pcrr" style="color: #FFFFFF; text-decoration: none;">PCRR Commercial Plan</a></li>
+          <li><a href="/comm" style="color: #FFFFFF; text-decoration: none;">Common Services</a></li>
+          <li><a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" target="_blank"
+              style="color: #FFCC80; text-decoration: none;">GREEN Rights for the World</a></li>
         </ul>
-    </nav>
-    <div id="menu-overlay" class="menu-overlay"></div>
-
-    <main class="pcrr-page">
-
-        <!-- Hero -->
-        <section class="full-section pcrr-hero">
-            <div class="container text-center">
-                <h1>PCRR – Piano Commerciale di Ripresa e Resilienza</h1>
-                <p class="lead fs-5 mt-3">The commercial backbone of JWT — scaling 342 green patents through licensing,
-                    auctions, and zero-cost adoption models.</p>
-            </div>
-        </section>
-
-        <!-- Overview -->
-        <section class="full-section bg-white" id="overview">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <span class="section-label">Strategic Foundation</span>
-                    <h2 class="display-5 fw-bold">Why PCRR Exists</h2>
-                </div>
-                <p class="lead text-center max-w-3xl mx-auto">PCRR transforms JWT’s 342 patented GREEN innovations into
-                    deployable, revenue-generating solutions aligned with PNRR Mission 2 and the EU Green Deal.</p>
-            </div>
-        </section>
-
-        <!-- Licensing Models -->
-        <section class="full-section bg-light">
-            <div class="container">
-                <h2 class="text-center mb-5">Commercial & Licensing Models</h2>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Exclusive Zone Rights</h3>
-                            <p>Exclusive territorial rights for defined zones (1M+ inhabitants).</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>3% DOA Broker Model</h3>
-                            <p>Earn 3% commission as broker on zone licenses and deals.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Zero-Cost Deployment</h3>
-                            <p>Operators deploy at zero upfront cost via revenue sharing.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Performance Charts -->
-        <section class="full-section bg-white" id="performance">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <span class="section-label">Data-Driven Results</span>
-                    <h2 class="display-5 fw-bold">Economic Impact</h2>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4">
-                        <div class="pcrr-card card">
-                            <h4>Revenue by Region (€M by 2030)</h4>
-                            <div class="chart-wrap"><canvas id="chartRevenue"></canvas></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="pcrr-card card">
-                            <h4>Adoption Rate (%)</h4>
-                            <div class="chart-wrap"><canvas id="chartAdoption"></canvas></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="pcrr-card card">
-                            <h4>Cost Savings vs Traditional</h4>
-                            <div class="chart-wrap"><canvas id="chartSavings"></canvas></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- JWT Integration -->
-        <section class="full-section bg-light" id="integration">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <span class="section-label">Technology Ecosystem</span>
-                    <h2 class="display-5 fw-bold">JWT Integration</h2>
-                </div>
-                <div class="pcrr-card card text-center mx-auto" style="max-width: 480px;">
-                    <div class="jwt-diagram" id="jwtDiagram"></div>
-                    <div id="jwtNodeDetail" class="mt-4 text-start"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Advantages -->
-        <section class="full-section bg-white" id="advantages">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <span class="section-label">Competitive Edge</span>
-                    <h2 class="display-5 fw-bold">Key Advantages</h2>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Scalable & Modular</h3>
-                            <p>Rapid replication across zones without redesign.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Zero Upfront Cost</h3>
-                            <p>Operators deploy with no capex – pay via revenue share.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Fast Implementation</h3>
-                            <p>Time-to-deployment reduced from years to months.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Global Sustainability</h3>
-                            <p>Full alignment with UN SDGs, EU Green Deal & ESG.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Governance Framework -->
-        <section class="full-section bg-light" id="governance">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <span class="section-label">Risk & Oversight</span>
-                    <h2 class="display-5 fw-bold">Governance Framework</h2>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Regulatory Compliance</h3>
-                            <p>Adheres to EU regulations, GDPR, and international IP law with continuous monitoring.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Risk Mitigation</h3>
-                            <p>Diversified zones, phased rollout, and pre-commitment agreements reduce market risks.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Operational Coordination</h3>
-                            <p>Central management with regional teams for smooth execution.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="pcrr-card card h-100">
-                            <h3>Three-Tier Structure</h3>
-                            <p>Strategic Board, Operations Council, and Regional Committees ensure transparency.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Case Studies -->
-        <section class="full-section bg-white" id="cases">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <span class="section-label">Proven Results</span>
-                    <h2 class="display-5 fw-bold">Case Studies</h2>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4">
-                        <div class="pcrr-card card h-100">
-                            <h3>Rhine-Ruhr (Germany)</h3>
-                            <p class="text-success">GSMF Deployment</p>
-                            <p>Reduced 340,000 tonnes CO₂ annually across 14 sites with zero-cost operator model.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="pcrr-card card h-100">
-                            <h3>Baltic Biogas Network</h3>
-                            <p class="text-success">MBGC Units</p>
-                            <p>230 modular units generated €12M annual revenue while supplying free energy to rural
-                                areas.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="pcrr-card card h-100">
-                            <h3>Mediterranean Solar Grid</h3>
-                            <p class="text-success">SDGC Integration</p>
-                            <p>Increased grid efficiency by 28% and saved €45M in energy waste.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Join the Green Revolution -->
-        <section class="full-section bg-light text-center" id="cta">
-            <div class="container">
-                <div class="pcrr-card card mx-auto" style="max-width: 820px;">
-                    <h2>Join the Green Revolution</h2>
-                    <p class="lead">Investor, government, broker or operator — PCRR offers a clear path with near-zero
-                        upfront cost and strong ESG returns.</p>
-                    <div class="mt-4">
-                        <a href="#contact" class="btn btn-success btn-lg me-3">Request Partnership</a>
-                        <a href="#licensing" class="btn btn-outline-success btn-lg">Explore Licensing</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Us -->
-        <section class="full-section bg-white" id="contact">
-            <div class="container">
-                <div class="text-center mb-5">
-                    <span class="section-label">Get in Touch</span>
-                    <h2 class="display-5 fw-bold">Contact Us</h2>
-                </div>
-                <div class="pcrr-card card mx-auto" style="max-width: 720px;">
-                    <form id="contactForm">
-                        <div class="row g-3">
-                            <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name"
-                                    required></div>
-                            <div class="col-md-6"><input type="text" class="form-control"
-                                    placeholder="Company / Entity"></div>
-                            <div class="col-md-6"><input type="text" class="form-control" placeholder="Region"></div>
-                            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email" required>
-                            </div>
-                            <div class="col-12">
-                                <select class="form-select">
-                                    <option value="">Select Interest</option>
-                                    <option>Zone Licensing</option>
-                                    <option>Investment Partnership</option>
-                                    <option>Broker Role</option>
-                                    <option>Operator Deployment</option>
-                                </select>
-                            </div>
-                            <div class="col-12"><textarea class="form-control" rows="4"
-                                    placeholder="Your message..."></textarea></div>
-                        </div>
-                        <button type="submit" class="btn btn-success w-100 mt-4">Send Message – Reply within 48
-                            hours</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- KYC Section -->
-        <section class="kyc-access-section py-5 bg-white">
-            <div class="container">
-                <div class="text-center mb-4">
-                    <h2>Verification & Access</h2>
-                    <p class="lead">Choose the level that best suits your interest in GREEN Rights</p>
-                </div>
-                <div class="button-group text-center">
-                    <button class="main-btn btn btn-success me-2" data-modal="kyc-light-modal">KYC Light</button>
-                    <button class="main-btn btn btn-success me-2" data-modal="kyc-strong-modal">KYC Strong</button>
-                    <button class="main-btn btn btn-success" data-modal="access-modal">Access Request</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- KYC Modals -->
-        <div id="kyc-light-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h3>KYC Light</h3>
-                <form id="kyc-light-form" action="https://xxxx-jwt.eu/comm/kyc-l" method="POST">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="tel" name="phone" placeholder="Phone Number (optional)">
-                    <textarea name="message" rows="3" placeholder="Briefly describe your interest..."></textarea>
-                    <button type="submit" class="submit-btn">Submit KYC Light</button>
-                </form>
-                <div class="modal-explain">Quick verification for basic access.</div>
-            </div>
+      </div>
+      <div style="flex: 1; min-width: 280px; text-align: center;">
+        <p style="font-size: 1.1em; margin-bottom: 20px; color: #A8E6A1;">
+          From 100% fossil to ZERO.<br>
+          GREEN Industrial Rights • NFT/NFW • Ecological Transition
+        </p>
+        <div style="margin: 25px 0;">
+          <a href="/comm/cart"
+            style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
+            Open Shopping Cart
+          </a>
         </div>
+        <p style="font-size: 0.85em; opacity: 0.85; margin-top: 30px;">
+          © 2026 PCRR JWTeam Srls – All Rights Reserved<br>
+          Qualified visitors receive reply within 48 hours
+        </p>
+      </div>
+    </div>
 
-        <div id="kyc-strong-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h3>KYC Strong</h3>
-                <form id="kyc-strong-form" action="https://xxxx-jwt.eu/comm/kyc-s" method="POST">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="text" name="company" placeholder="Company / Entity">
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
-                    <textarea name="message" rows="4" placeholder="Describe your role and intended use..."
-                        required></textarea>
-                    <button type="submit" class="submit-btn strong">Submit KYC Strong</button>
-                </form>
-                <div class="modal-explain">Enhanced verification for commercial proposals and exclusive rights.</div>
-            </div>
-        </div>
+    <div
+      style="border-top: 1px solid #113311; margin-top: 50px; padding-top: 20px; text-align: center; font-size: 0.8em; opacity: 0.75;">
+      Site built with Hostinger WordPress • Aligned with UN SDGs, ESG & PNRR Mission 2
+    </div>
+  </footer>
 
-        <div id="access-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h3>Access Request</h3>
-                <form id="access-form" action="https://xxxx-jwt.eu/comm/access" method="POST">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="functions[]" value="Dream.ZONE"> Dream.ZONE</label>
-                        <label><input type="checkbox" name="functions[]" value="Sell.Function"> Sell Cart</label>
-                        <label><input type="checkbox" name="functions[]" value="Blog/Chat"> Blog / Chat</label>
-                    </div>
-                    <textarea name="message" rows="3" placeholder="Additional notes..."></textarea>
-                    <button type="submit" class="submit-btn">Request Access</button>
-                </form>
-                <div class="modal-explain">Select the tools you need. After validation you will receive login
-                    credentials.</div>
-            </div>
-        </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Rotating banner pause on hover
+    const track = document.querySelector('.scroll-track');
+    if (track) {
+      track.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
+      track.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+    }
 
-    </main>
+    // Hamburger & Side Menu
+    const hamburger = document.getElementById('hamburger');
+    const sideMenu = document.getElementById('side-menu');
+    const overlay = document.getElementById('menu-overlay');
+    const closeBtn = document.querySelector('.close-btn');
+    const hamburgerContainer = document.getElementById('hamburger-container');
+    const siteHeader = document.querySelector('.site-header');
 
-    <!-- Your original Footer -->
-    <footer
-        style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
-        <div
-            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
-            <div style="flex: 1; min-width: 280px;">
-                <h3 style="color: #FF6200; margin-bottom: 15px; font-size: 1.4em;">PCRR JWTeam Srls</h3>
-                <p style="margin: 8px 0; line-height: 1.6; font-size: 0.95em;">
-                    Joules Water Team<br>
-                    Research, Development & Innovation in Joules, Water and Primary Renewable Resources
-                </p>
-                <p style="margin: 15px 0 8px; font-size: 0.9em;">
-                    Sede Legale: Via Terrazzano 85<br>20017 Rho (MI), Italy
-                </p>
-                <p style="margin: 5px 0; font-size: 0.9em;">
-                    C.F. e P.I. 12092970966 | Cap.Soc. € 200
-                </p>
-            </div>
-            <div style="flex: 1; min-width: 280px;">
-                <h4 style="color: #FF6200; margin-bottom: 15px;">Legal & Contact</h4>
-                <p style="margin: 8px 0; font-size: 0.92em;">
-                    PEC: <a href="mailto:pcrrjwt@pec.it"
-                        style="color: #FFCC80; text-decoration: none;">pcrrjwt@pec.it</a><br>
-                    Info: <a href="mailto:info@jwt-jwt.eu"
-                        style="color: #FFCC80; text-decoration: none;">info@jwt-jwt.eu</a><br>
-                    Commercial: <a href="mailto:comm@pcrr-jwt.it"
-                        style="color: #FFCC80; text-decoration: none;">comm@pcrr-jwt.it</a>
-                </p>
-                <p style="margin: 15px 0 8px; font-size: 0.9em;">
-                    IBAN: IT73H0306909412100000002247<br>
-                    BIC: BCITITMM
-                </p>
-            </div>
-            <div style="flex: 1; min-width: 280px;">
-                <h4 style="color: #FF6200; margin-bottom: 15px;">Quick Access</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.92em; line-height: 2;">
-                    <li><a href="/jwt" style="color: #FFFFFF; text-decoration: none;">JWT Home</a></li>
-                    <li><a href="/pcrr" style="color: #FFFFFF; text-decoration: none;">PCRR Commercial Plan</a></li>
-                    <li><a href="/comm" style="color: #FFFFFF; text-decoration: none;">Common Services</a></li>
-                    <li><a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" target="_blank"
-                            style="color: #FFCC80; text-decoration: none;">GREEN Rights for the World</a></li>
-                </ul>
-            </div>
-            <div style="flex: 1; min-width: 280px; text-align: center;">
-                <p style="font-size: 1.1em; margin-bottom: 20px; color: #A8E6A1;">
-                    From 100% fossil to ZERO.<br>
-                    GREEN Industrial Rights • NFT/NFW • Ecological Transition
-                </p>
-                <div style="margin: 25px 0;">
-                    <a href="/comm/cart"
-                        style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
-                        Open Shopping Cart
-                    </a>
-                </div>
-                <p style="font-size: 0.85em; opacity: 0.85; margin-top: 30px;">
-                    © 2026 PCRR JWTeam Srls – All Rights Reserved<br>
-                    Qualified visitors receive reply within 48 hours
-                </p>
-            </div>
-        </div>
+    function openMenu() {
+      sideMenu.classList.add('active');
+      overlay.classList.add('active');
+      hamburger.classList.add('active');
+    }
 
-        <div
-            style="border-top: 1px solid #113311; margin-top: 50px; padding-top: 20px; text-align: center; font-size: 0.8em; opacity: 0.75;">
-            Site built with Hostinger WordPress • Aligned with UN SDGs, ESG & PNRR Mission 2
-        </div>
-    </footer>
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+      overlay.classList.remove('active');
+      hamburger.classList.remove('active');
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Hamburger, side menu, overlay
-        const hamburger = document.getElementById('hamburger');
-        const sideMenu = document.getElementById('side-menu');
-        const overlay = document.getElementById('menu-overlay');
-        const closeBtn = document.querySelector('.close-btn');
-        const hamburgerContainer = document.getElementById('hamburger-container');
-        const siteHeader = document.querySelector('.site-header');
+    hamburger.addEventListener('click', openMenu);
+    overlay.addEventListener('click', closeMenu);
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-        function openMenu() {
-            sideMenu.classList.add('active');
-            overlay.classList.add('active');
-            hamburger.classList.add('active');
-        }
+    sideMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 
-        function closeMenu() {
-            sideMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            hamburger.classList.remove('active');
-        }
+    function updateHamburgerPosition() {
+      const bannerHeight = document.getElementById('pcrr-submenu').offsetHeight;
+      const headerHeight = siteHeader.offsetHeight;
+      hamburgerContainer.style.top = `${bannerHeight + headerHeight + 8}px`;
+    }
 
-        hamburger.addEventListener('click', openMenu);
-        overlay.addEventListener('click', closeMenu);
-        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+    window.addEventListener('load', updateHamburgerPosition);
+    window.addEventListener('resize', updateHamburgerPosition);
 
-        function updateHamburgerPosition() {
-            const bannerHeight = document.getElementById('pcrr-submenu').offsetHeight;
-            const headerHeight = siteHeader.offsetHeight;
-            hamburgerContainer.style.top = `${bannerHeight + headerHeight + 8}px`;
-        }
+    // KYC Modals
+    document.querySelectorAll('.main-btn').forEach(btn => {
+      btn.addEventListener('click', function () {
+        const modalId = this.getAttribute('data-modal');
+        document.getElementById(modalId).style.display = 'flex';
+      });
+    });
 
-        window.addEventListener('load', updateHamburgerPosition);
-        window.addEventListener('resize', updateHamburgerPosition);
+    document.querySelectorAll('.close-btn').forEach(close => {
+      close.addEventListener('click', function () {
+        this.closest('.modal').style.display = 'none';
+      });
+    });
 
-        // KYC Modals
-        document.querySelectorAll('.main-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const modalId = this.getAttribute('data-modal');
-                document.getElementById(modalId).style.display = 'flex';
-            });
-        });
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) modal.style.display = 'none';
+      });
+    });
 
-        document.querySelectorAll('.close-btn').forEach(close => {
-            close.addEventListener('click', function () {
-                this.closest('.modal').style.display = 'none';
-            });
-        });
+    document.querySelectorAll('form').forEach(form => {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('Thank you! Your request has been received.\nWe will contact you shortly.');
+        form.reset();
+        this.closest('.modal').style.display = 'none';
+      });
+    });
 
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', function (e) {
-                if (e.target === modal) modal.style.display = 'none';
-            });
-        });
+    // Scroll reveal + Charts + JWT Diagram
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.pcrr-card').forEach(card => observer.observe(card));
 
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('Thank you! Your request has been received.\nWe will contact you shortly.');
-                form.reset();
-                this.closest('.modal').style.display = 'none';
-            });
-        });
+    function initCharts() {
+      const opts = { responsive: true, maintainAspectRatio: false };
+      new Chart(document.getElementById('chartRevenue'), { type: 'bar', data: { labels: ['Northern', 'Western', 'Central', 'Southern', 'Eastern'], datasets: [{ data: [420, 680, 540, 320, 440], backgroundColor: '#006400' }] }, options: opts });
+      new Chart(document.getElementById('chartAdoption'), { type: 'line', data: { labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'], datasets: [{ data: [5, 18, 35, 55, 72, 85, 94], borderColor: '#006400', fill: true }] }, options: opts });
+      new Chart(document.getElementById('chartSavings'), {
+        type: 'line', data: {
+          labels: ['2024', '2025', '2026', '2027', '2028'], datasets: [
+            { label: 'Traditional', data: [100, 105, 112, 118, 125], borderColor: '#dc3545' },
+            { label: 'PCRR', data: [82, 68, 55, 42, 30], borderColor: '#006400' }
+          ]
+        }, options: opts
+      });
+    }
 
-        // Scroll reveal + Charts + JWT Diagram
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('.pcrr-card').forEach(card => observer.observe(card));
+    function initJWTDiagram() {
+      const container = document.getElementById('jwtDiagram');
+      const nodes = [
+        { id: "PCRR", x: "50%", y: "50%", desc: "Central commercial engine for all JWT GREEN patents." },
+        { id: "GSMF", x: "25%", y: "30%", desc: "Gas Separation Membrane Filtration – CO₂ capture & biogas upgrading." },
+        { id: "GFSS", x: "75%", y: "30%", desc: "ElectroMagnetic Gravity Separation – advanced mineral processing." },
+        { id: "MBGC", x: "25%", y: "70%", desc: "Mini BioGas Cogeneration – waste-to-energy solutions." },
+        { id: "SDGC", x: "75%", y: "70%", desc: "Sea & Desert Green Conversion – sustainable land restoration." }
+      ];
+      nodes.forEach(node => {
+        const el = document.createElement('div');
+        el.className = `jwt-node ${node.id === 'PCRR' ? 'center' : ''}`;
+        el.style.left = node.x; el.style.top = node.y;
+        el.textContent = node.id;
+        el.onclick = () => document.getElementById('jwtNodeDetail').innerHTML = `<strong>${node.id}</strong><p>${node.desc}</p>`;
+        container.appendChild(el);
+      });
+    }
 
-        function initCharts() {
-            const opts = { responsive: true, maintainAspectRatio: false };
-            new Chart(document.getElementById('chartRevenue'), { type: 'bar', data: { labels: ['Northern', 'Western', 'Central', 'Southern', 'Eastern'], datasets: [{ data: [420, 680, 540, 320, 440], backgroundColor: '#006400' }] }, options: opts });
-            new Chart(document.getElementById('chartAdoption'), { type: 'line', data: { labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'], datasets: [{ data: [5, 18, 35, 55, 72, 85, 94], borderColor: '#006400', fill: true }] }, options: opts });
-            new Chart(document.getElementById('chartSavings'), {
-                type: 'line', data: {
-                    labels: ['2024', '2025', '2026', '2027', '2028'], datasets: [
-                        { label: 'Traditional', data: [100, 105, 112, 118, 125], borderColor: '#dc3545' },
-                        { label: 'PCRR', data: [82, 68, 55, 42, 30], borderColor: '#006400' }
-                    ]
-                }, options: opts
-            });
-        }
-
-        function initJWTDiagram() {
-            const container = document.getElementById('jwtDiagram');
-            const nodes = [
-                { id: "PCRR", x: "50%", y: "50%", desc: "Central commercial engine for all JWT GREEN patents." },
-                { id: "GSMF", x: "25%", y: "30%", desc: "Gas Separation Membrane Filtration – CO₂ capture & biogas upgrading." },
-                { id: "GFSS", x: "75%", y: "30%", desc: "ElectroMagnetic Gravity Separation – advanced mineral processing." },
-                { id: "MBGC", x: "25%", y: "70%", desc: "Mini BioGas Cogeneration – waste-to-energy solutions." },
-                { id: "SDGC", x: "75%", y: "70%", desc: "Sea & Desert Green Conversion – sustainable land restoration." }
-            ];
-            nodes.forEach(node => {
-                const el = document.createElement('div');
-                el.className = `jwt-node ${node.id === 'PCRR' ? 'center' : ''}`;
-                el.style.left = node.x; el.style.top = node.y;
-                el.textContent = node.id;
-                el.onclick = () => document.getElementById('jwtNodeDetail').innerHTML = `<strong>${node.id}</strong><p>${node.desc}</p>`;
-                container.appendChild(el);
-            });
-        }
-
-        window.addEventListener('load', () => {
-            initCharts();
-            initJWTDiagram();
-        });
-    </script>
+    window.addEventListener('load', () => {
+      initCharts();
+      initJWTDiagram();
+    });
+  </script>
 </body>
 
 </html>
