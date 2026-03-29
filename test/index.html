@@ -113,7 +113,34 @@
             margin-bottom: 25px;
         }
 
-        /* Hamburger & Menu */
+        /* PresentationSpace vertical menu */
+        .presentation-sidebar {
+            background: #f8f9fa;
+            padding: 20px;
+            border-right: 2px solid #FF6200;
+            min-height: 600px;
+        }
+
+        .presentation-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .presentation-sidebar li {
+            margin-bottom: 12px;
+        }
+
+        .presentation-sidebar a {
+            color: #006400;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .presentation-sidebar a:hover {
+            color: #FF6200;
+        }
+
+        /* Hamburger push */
         body {
             transition: padding-left 0.4s ease;
         }
@@ -157,8 +184,22 @@
 
 <body>
 
-    <!-- Rotating top banner -->
-    <nav id="pcrr-submenu" class="navbar navbar-dark overflow-hidden">
+    <!-- 1. JWT - Horizontal General Menu (green) -->
+    <nav id="jwt-menu" class="navbar navbar-dark bg-success">
+        <div class="container-fluid">
+            <ul class="navbar-nav flex-row gap-4 mx-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="/jwt">JWT Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Vision</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Mission</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">GREEN Rights</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#">Worldwide</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 2. PCRR - Horizontal Sub-menu (orange rotating banner) -->
+    <nav id="pcrr-submenu" class="navbar navbar-dark overflow-hidden"
+        style="background: linear-gradient(90deg, #FF6200, #FF8C00);">
         <div class="container-fluid px-3 px-lg-4">
             <div class="scroll-wrapper">
                 <ul class="navbar-nav flex-row gap-4 scroll-track">
@@ -202,9 +243,7 @@
                     <a href="#kyc-1"><button
                             class="head-button btn btn-success rounded-1 fw-bold btn-sm ms-2">KYC</button></a>
                     <button class="rounded-4 p-1">
-                        <a href="/com/cart/" class="cart-link">
-                            Cart <span id="cart-count">0</span>
-                        </a>
+                        <a href="/com/cart/" class="cart-link">Cart <span id="cart-count">0</span></a>
                     </button>
                 </nav>
             </div>
@@ -220,7 +259,7 @@
         </div>
     </div>
 
-    <!-- Side Menu -->
+    <!-- Side Menu (your original links) -->
     <nav id="side-menu" class="side-menu">
         <div class="side-menu-header">
             <h3 class="bg-success">Menu</h3>
@@ -245,44 +284,68 @@
 
     <main class="gfss-page py-5">
         <div class="container" style="max-width: 1180px;">
-            <div class="text-center mb-5">
-                <h1 class="display-5 fw-bold hi">PCRR – Piano Commerciale di Ripresa e Resilienza</h1>
-                <p class="lead">The commercial backbone of JWT — scaling 342 green patents through licensing, auctions,
-                    and zero-cost adoption models.</p>
-            </div>
-
-            <!-- Overview with Image -->
-            <section class="full-section bg-white" id="overview">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <span class="section-label">Strategic Foundation</span>
-                        <h2 class="display-5 fw-bold">Why PCRR Exists</h2>
-                    </div>
-                    <div class="gfss-card card">
-                        <img src="/pcrr/images/solar.jpg" alt="PCRR Overview" class="img-fluid rounded mb-3">
-                        <p class="lead text-center max-w-3xl mx-auto">PCRR transforms JWT’s 342 patented GREEN
-                            innovations into deployable, revenue-generating solutions aligned with PNRR Mission 2 and
-                            the EU Green Deal.</p>
+            <div class="row">
+                <!-- PresentationSpace - Vertical Sub-menu -->
+                <div class="col-lg-3">
+                    <div class="presentation-sidebar">
+                        <h5 class="mb-3">PresentationSpace</h5>
+                        <ul>
+                            <li><a href="#overview">Overview</a></li>
+                            <li><a href="#licensing">Licensing Models</a></li>
+                            <li><a href="#performance">Economic Impact</a></li>
+                            <li><a href="#integration">JWT Integration</a></li>
+                            <li><strong>IP - Intellectual Property</strong></li>
+                            <li><a href="#">Patents & Licenses</a></li>
+                            <li><a href="#">NFW/NFT Contracts</a></li>
+                            <li><strong>ExpoTV1 - Media & TV</strong></li>
+                            <li><a href="#">GREEN Rights Video</a></li>
+                            <li><a href="#">Project Documentaries</a></li>
+                        </ul>
                     </div>
                 </div>
-            </section>
 
-            <!-- All your other sections (Licensing, Charts, JWT Integration, Advantages, Governance, Case Studies, CTA, Contact, PDF viewer) remain unchanged -->
+                <!-- Main Content Area (your original content) -->
+                <div class="col-lg-9">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bold hi">PCRR – Piano Commerciale di Ripresa e Resilienza</h1>
+                        <p class="lead">The commercial backbone of JWT — scaling 342 green patents through licensing,
+                            auctions, and zero-cost adoption models.</p>
+                    </div>
 
-            <!-- KYC Section and Modals remain unchanged -->
+                    <!-- Overview with Image -->
+                    <section class="full-section bg-white" id="overview">
+                        <div class="container">
+                            <div class="text-center mb-5">
+                                <span class="section-label">Strategic Foundation</span>
+                                <h2 class="display-5 fw-bold">Why PCRR Exists</h2>
+                            </div>
+                            <div class="gfss-card card">
+                                <img src="/pcrr/images/solar.jpg" alt="PCRR Overview" class="img-fluid rounded mb-3">
+                                <p class="lead text-center max-w-3xl mx-auto">PCRR transforms JWT’s 342 patented GREEN
+                                    innovations into deployable, revenue-generating solutions aligned with PNRR Mission
+                                    2 and the EU Green Deal.</p>
+                            </div>
+                        </div>
+                    </section>
 
+                    <!-- All your other sections (Licensing Models, Performance Charts, JWT Integration, Key Advantages, Governance Framework, Case Studies, Join the Green Revolution, Contact Us, PDF viewer) remain exactly as you had them in your code -->
+
+                    <!-- KYC Section and Modals remain exactly as you had them -->
+
+                </div>
+            </div>
         </div>
     </main>
 
     <!-- Your original Footer -->
     <footer
         style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
-        <!-- your full footer code here - unchanged -->
+        <!-- paste your full footer here - unchanged -->
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // FIXED HAMBURGER with content push
+        // FIXED Hamburger with content push
         const hamburger = document.getElementById('hamburger');
         const sideMenu = document.getElementById('side-menu');
         const overlay = document.getElementById('menu-overlay');
@@ -311,15 +374,13 @@
             const bannerHeight = document.getElementById('pcrr-submenu').offsetHeight;
             const headerHeight = document.querySelector('.site-header').offsetHeight;
             const hamburgerContainer = document.getElementById('hamburger-container');
-            if (hamburgerContainer) {
-                hamburgerContainer.style.top = `${bannerHeight + headerHeight + 8}px`;
-            }
+            if (hamburgerContainer) hamburgerContainer.style.top = `${bannerHeight + headerHeight + 8}px`;
         }
 
         window.addEventListener('load', updateHamburgerPosition);
         window.addEventListener('resize', updateHamburgerPosition);
 
-        // KYC Modals (unchanged)
+        // KYC Modals
         document.querySelectorAll('.main-btn').forEach(btn => {
             btn.addEventListener('click', function () {
                 const modalId = this.getAttribute('data-modal');
@@ -348,7 +409,7 @@
             });
         });
 
-        // Scroll reveal + Charts + JWT Diagram (unchanged)
+        // Scroll reveal + Charts + JWT Diagram
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.15 });
@@ -371,7 +432,6 @@
         function initJWTDiagram() {
             const container = document.getElementById('jwtDiagram');
             if (!container) return;
-
             const nodes = [
                 { id: "PCRR", x: "50%", y: "50%", desc: "Central commercial engine for all JWT GREEN patents." },
                 { id: "GSMF", x: "25%", y: "30%", desc: "Gas Separation Membrane Filtration – CO₂ capture & biogas upgrading." },
@@ -379,7 +439,6 @@
                 { id: "MBGC", x: "25%", y: "70%", desc: "Mini BioGas Cogeneration – waste-to-energy solutions." },
                 { id: "SDGC", x: "75%", y: "70%", desc: "Sea & Desert Green Conversion – sustainable land restoration." }
             ];
-
             nodes.forEach(node => {
                 const el = document.createElement('div');
                 el.className = `jwt-node ${node.id === 'PCRR' ? 'center' : ''}`;
