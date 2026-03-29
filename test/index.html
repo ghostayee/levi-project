@@ -113,6 +113,17 @@
             border-radius: 12px;
             margin-bottom: 25px;
         }
+
+        .pdf-button {
+            padding: 12px 24px;
+            background: green;
+            color: var(--orange-main);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -422,6 +433,24 @@
                     </div>
                 </div>
             </section>
+            <div style="max-width:900px; margin:auto;">
+
+                <!-- PDF Viewer -->
+                <div style="height:600px; overflow-y:auto; border:1px solid #a1ebc6; border-radius:8px;">
+                    <iframe src="your-file.pdf" width="100%" height="100%" style="border:none;">
+                    </iframe>
+                </div>
+
+                <!-- Download Button -->
+                <div style="text-align:center; margin-top:15px;">
+                    <a href="" download>
+                        <button class="pdf-button">
+                            Download PDF
+                        </button>
+                    </a>
+                </div>
+
+            </div>
 
             <!-- Contact Us -->
             <section class="full-section bg-white" id="contact">
