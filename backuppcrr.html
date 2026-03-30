@@ -2,33 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PCRR – GREEN Industrial Property Rights | Patents & Licensing Worldwide</title>
     <meta name="description"
-        content="PCRR JWTeam Srls — Commercial engine for GREEN industrial property. Distributing patents, licenses, and projects globally for sustainable development.">
+        content="PCRR JWTeam Srls — Commercial engine for GREEN industrial property. Distributing patents, licenses, and projects globally for sustainable development." />
 
     <!-- Font Imports -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
 
     <style>
         :root {
-            /* New Color Theme */
-            --primary-green: #22c55e;
-            --primary-blue: #3b82f6;
-            --primary-yellow: #eab308;
+            /* New Yellow, Blue, Green Theme */
+            --primary: #22c55e;
+            /* Green - main accent */
+            --secondary: #3b82f6;
+            /* Blue */
+            --accent: #eab308;
+            /* Yellow */
 
             --bg: #0a0a0a;
-            --card-bg: #111111;
+            --card: #111111;
             --border: #27272a;
-            --text: #f4f4f5;
-            --muted: #a1a1aa;
+            --fg: #f4f4f5;
+            --muted-fg: #a1a1aa;
 
             --gradient: linear-gradient(135deg, #22c55e, #3b82f6, #eab308);
-            --glow: 0 0 40px -10px rgba(34, 197, 94, 0.5);
+            --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+            --shadow-glow: 0 0 40px -10px rgba(34, 197, 94, 0.4);
         }
 
         *,
@@ -45,10 +49,10 @@
 
         body {
             background: var(--bg);
-            color: var(--text);
+            color: var(--fg);
             font-family: 'Space Grotesk', sans-serif;
-            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
         }
 
         h1,
@@ -77,7 +81,12 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: 16px;
-            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+            box-shadow: var(--shadow-card);
+        }
+
+        .glow-border {
+            border: 1px solid rgba(34, 197, 94, 0.35);
+            box-shadow: var(--shadow-glow);
         }
 
         .section-padding {
@@ -127,14 +136,14 @@
         }
 
         .text-primary {
-            color: var(--primary-green);
+            color: var(--primary);
         }
 
         .text-muted {
-            color: var(--muted);
+            color: var(--muted-fg);
         }
 
-        /* Navigation */
+        /* NAV */
         nav {
             position: fixed;
             top: 0;
@@ -142,7 +151,7 @@
             right: 0;
             z-index: 50;
             padding: 1.25rem 1rem;
-            transition: all 0.3s ease;
+            transition: all .3s;
         }
 
         nav.scrolled {
@@ -160,25 +169,19 @@
             justify-content: space-between;
         }
 
-        .nav-brand {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
-
         .nav-links {
             display: none;
             gap: 1.5rem;
         }
 
         .nav-links a {
-            font-size: 0.9rem;
-            color: var(--muted);
-            transition: color 0.2s;
+            font-size: 0.875rem;
+            color: var(--muted-fg);
+            transition: color .2s;
         }
 
         .nav-links a:hover {
-            color: var(--primary-green);
+            color: var(--primary);
         }
 
         @media (min-width: 768px) {
@@ -187,11 +190,20 @@
             }
         }
 
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
         .hamburger {
             background: none;
             border: none;
-            color: var(--text);
-            font-size: 1.8rem;
+            color: var(--fg);
+            font-size: 1.5rem;
             cursor: pointer;
         }
 
@@ -215,11 +227,12 @@
 
         .mobile-menu a {
             display: block;
-            padding: 0.75rem 0;
-            color: var(--muted);
+            padding: 0.5rem 0;
+            color: var(--muted-fg);
+            font-size: 0.875rem;
         }
 
-        /* Hero */
+        /* HERO */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -227,13 +240,13 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #111111);
+            background: linear-gradient(135deg, #0a0a0a, #111111, #1a1a1a);
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(10, 10, 10, 0.5);
+            background: rgba(10, 10, 10, 0.6);
         }
 
         .hero-content {
@@ -246,28 +259,22 @@
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
         }
 
         @media (min-width: 768px) {
             .hero h1 {
-                font-size: 4rem;
+                font-size: 3.75rem;
             }
         }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1.25rem;
-            border-radius: 9999px;
-            border: 1px solid var(--primary-yellow);
-            background: rgba(234, 179, 8, 0.1);
-            color: var(--primary-yellow);
-            font-weight: 500;
-            margin-bottom: 2rem;
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--muted-fg);
+            max-width: 48rem;
+            margin: 0 auto 2.5rem;
         }
 
         .btn-row {
@@ -289,19 +296,19 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem 2rem;
-            border-radius: 9999px;
-            background: var(--primary-green);
+            border-radius: 12px;
+            background: var(--primary);
             color: #000;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.125rem;
             border: none;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all .3s;
         }
 
         .btn-primary:hover {
-            background: var(--primary-blue);
-            box-shadow: var(--glow);
+            filter: brightness(1.1);
+            box-shadow: var(--shadow-glow);
         }
 
         .btn-outline {
@@ -309,46 +316,125 @@
             align-items: center;
             gap: 0.5rem;
             padding: 1rem 2rem;
-            border-radius: 9999px;
-            border: 1px solid var(--primary-yellow);
-            color: var(--primary-yellow);
+            border-radius: 12px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
             font-weight: 600;
+            font-size: 1.125rem;
             background: transparent;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all .3s;
         }
 
         .btn-outline:hover {
             background: rgba(234, 179, 8, 0.1);
         }
 
-        /* Cards */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid var(--accent);
+            background: rgba(234, 179, 8, 0.1);
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        .urls-row {
+            margin-top: 3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            color: var(--muted-fg);
+            font-size: 0.875rem;
+        }
+
+        .urls-row span::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        /* CARDS */
         .card {
             padding: 1.5rem;
-            transition: all 0.3s;
+            transition: all .3s;
         }
 
         .card:hover {
-            transform: translateY(-6px);
-            border-color: var(--primary-green);
+            border-color: var(--primary);
+            transform: translateY(-4px);
         }
 
         .card-lg {
             padding: 2rem;
         }
 
+        .card-header {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            transition: transform .3s;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
         .tag {
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
+            font-family: 'Space Grotesk', monospace;
             background: rgba(234, 179, 8, 0.15);
-            color: var(--primary-yellow);
+            color: var(--accent);
             border: 1px solid rgba(234, 179, 8, 0.3);
         }
 
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            padding: 0.25rem 0;
+        }
+
+        .detail-label {
+            color: var(--muted-fg);
+        }
+
+        .detail-value {
+            color: #e4e4e7;
+        }
+
+        .card-footer {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--muted-fg);
+        }
+
         .nft-bar {
-            height: 5px;
-            border-radius: 4px;
+            height: 4px;
+            border-radius: 2px;
             position: absolute;
             top: 0;
             left: 0;
@@ -371,56 +457,182 @@
             background: linear-gradient(to right, #22c55e, #3b82f6);
         }
 
-        /* Form */
+        .icon-wrap {
+            padding: 0.75rem;
+            border-radius: 12px;
+            background: rgba(34, 197, 94, 0.1);
+            transition: background .3s;
+            display: inline-flex;
+        }
+
+        .card:hover .icon-wrap {
+            background: rgba(34, 197, 94, 0.2);
+        }
+
+        .mono {
+            font-family: 'Space Grotesk', monospace;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgba(34, 197, 94, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -1.5rem;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+        }
+
+        .timeline-label {
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-family: 'Space Grotesk', monospace;
+            margin-right: 0.5rem;
+        }
+
+        /* FORM */
         .form-group {
             margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .form-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
         }
 
         input,
         textarea {
             width: 100%;
-            padding: 0.85rem 1.25rem;
-            border-radius: 12px;
-            background: var(--card-bg);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            background: var(--card);
             border: 1px solid var(--border);
-            color: var(--text);
+            color: var(--fg);
+            font-size: 0.875rem;
             font-family: 'Space Grotesk', sans-serif;
+            outline: none;
+            transition: border-color .2s;
         }
 
         input:focus,
         textarea:focus {
-            border-color: var(--primary-green);
-            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea {
+            resize: none;
         }
 
         .btn-submit {
-            background: var(--primary-green);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            border-radius: 12px;
+            background: var(--primary);
             color: #000;
-            padding: 0.85rem 2rem;
-            border-radius: 9999px;
             font-weight: 600;
             border: none;
             cursor: pointer;
+            transition: all .3s;
+            font-family: 'Space Grotesk', sans-serif;
         }
 
-        /* Footer */
+        .btn-submit:hover {
+            filter: brightness(1.1);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            font-size: 0.875rem;
+            color: var(--muted-fg);
+        }
+
+        .contact-links a:hover {
+            color: var(--primary);
+        }
+
+        /* FOOTER */
         footer {
             padding: 2.5rem 1rem;
             border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--muted);
         }
 
-        /* Reveal Animation */
+        .footer-inner {
+            max-width: 72rem;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--muted-fg);
+        }
+
+        @media (min-width: 768px) {
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        /* REVEAL ANIMATION */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition: opacity 0.7s ease, transform 0.7s ease;
         }
 
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .bg-muted-20 {
+            background: rgba(17, 17, 17, 0.6);
         }
     </style>
 </head>
@@ -430,7 +642,7 @@
     <!-- NAV -->
     <nav id="navbar">
         <div class="nav-inner">
-            <a href="#" class="nav-brand gradient-text">🌿 PCRR</a>
+            <a href="#" class="nav-brand"><span class="gradient-text">🌿 PCRR</span></a>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
@@ -460,31 +672,28 @@
                 Industrial Property</h1>
             <p>Distributing patents, licenses, and projects globally to support sustainable development and
                 profitability. Made with love in Milan, Italy.</p>
-
             <div class="btn-row">
                 <a href="#opportunities" class="btn-primary">Explore Opportunities →</a>
                 <a href="#contact" class="btn-outline">Submit Proposal</a>
             </div>
-
-            <div
-                style="margin-top: 3rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; color: var(--muted); font-size: 0.9rem;">
-                <span>jwt-jwt.eu</span>
-                <span>expotv1.eu</span>
-                <span>pcrr-jwt.eu</span>
+            <div class="urls-row">
+                <span>jwt-jwt.eu</span><span>expotv1.eu</span><span>pcrr-jwt.eu</span>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
         </div>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section-padding">
         <div class="max-w">
-            <div class="reveal text-center" style="margin-bottom: 4rem;">
-                <h2 class="text-3xl" style="font-weight: 700;">About <span class="gradient-text">PCRR</span></h2>
-                <p class="text-muted" style="max-width: 40rem; margin: 1.5rem auto 0;">Piano Commerciale di Ripresa e
-                    Resilienza — accelerating M&A, licensing, and global distribution of GREEN patents.</p>
+            <div class="reveal text-center mb-16">
+                <h2 class="text-3xl md-text-5xl font-bold mb-4">About <span class="gradient-text">PCRR</span></h2>
+                <p class="text-muted" style="max-width:40rem;margin:0 auto">Piano Commerciale di Ripresa e Resilienza —
+                    accelerating M&A, licensing, and global distribution of GREEN patents.</p>
             </div>
-
-            <div class="grid-2">
+            <div class="grid-2 mb-12">
                 <div class="reveal glass-card card-lg">
                     <h3 class="text-xl font-semibold mb-4 text-primary">Our Mission</h3>
                     <p class="text-muted mb-4">PCRR serves as the commercial engine for JWT, dedicated to promoting
@@ -494,68 +703,126 @@
                         which we love as you do. Our standard goal: €2M revenue per 1M population, achieved through
                         innovative licensing structures.</p>
                 </div>
-
                 <div class="reveal glass-card card-lg">
                     <h3 class="text-xl font-semibold mb-4 text-primary">Legal Information</h3>
-                    <div style="color: var(--muted); line-height: 1.8;">
-                        <p>🏢 <strong>Company:</strong> PCRR JWTeam Srls</p>
-                        <p>🛡️ <strong>Owner:</strong> Lavanga Vito</p>
-                        <p>🌍 <strong>HQ:</strong> Milan, Italy</p>
-                        <p>✉️ <strong>Contact:</strong> info@pcrr-jwt.it</p>
-                        <p
-                            style="margin-top: 1.5rem; font-size: 0.85rem; border-top: 1px solid var(--border); padding-top: 1rem;">
-                            IBAN: IT64H0306901603100000108455 — BIC: BCITITMM
-                        </p>
-                        <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.75rem;">
-                            © Copyright — This document is authentic, confidential, and protected by intellectual
-                            property rights.
-                        </p>
+                    <div class="text-sm" style="color:var(--muted-fg)">
+                        <p class="mb-2">🏢 <strong style="color:#e4e4e7">Company:</strong> PCRR JWTeam Srls</p>
+                        <p class="mb-2">🛡️ <strong style="color:#e4e4e7">Owner:</strong> Lavanga Vito</p>
+                        <p class="mb-2">🌍 <strong style="color:#e4e4e7">HQ:</strong> Milan, Italy</p>
+                        <p class="mb-3">✉️ <strong style="color:#e4e4e7">Contact:</strong> info@pcrr-jwt.it</p>
+                        <div style="border-top:1px solid var(--border);padding-top:0.75rem">
+                            <p class="text-xs text-muted">IBAN: IT64H0306901603100000108455 — BIC: BCITITMM</p>
+                        </div>
+                        <div style="padding-top:0.5rem">
+                            <p class="text-xs text-muted" style="font-style:italic">© Copyright — This document is
+                                authentic, confidential, and protected by intellectual property rights.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="reveal glass-card glow-border text-center" style="padding:1.5rem">
+                <p class="text-sm text-muted"><span class="text-primary font-medium">Confidentiality Notice:</span>
+                    Strategic and organizational data is subject to NDA. For due diligence, reference Lavanga Vito:
+                    WIPO/World-Geneva, EPO/Europe-Munich, Full Google Search.</p>
             </div>
         </div>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="section-padding" style="background: rgba(17,17,17,0.6);">
+    <section id="services" class="section-padding bg-muted-20">
         <div class="max-w">
-            <div class="reveal text-center" style="margin-bottom: 4rem;">
-                <h2 class="text-3xl" style="font-weight: 700;">Core <span class="gradient-text">Services</span></h2>
-                <p class="text-muted" style="max-width: 40rem; margin: 1rem auto 0;">EU & worldwide operations spanning
-                    IT, M&A, licensing, and distribution.</p>
+            <div class="reveal text-center mb-16">
+                <h2 class="text-3xl md-text-5xl font-bold mb-4">Core <span class="gradient-text">Services</span></h2>
+                <p class="text-muted" style="max-width:40rem;margin:0 auto">EU & worldwide operations spanning IT, M&A,
+                    licensing, and distribution.</p>
             </div>
-            <div class="grid-3">
+            <div class="grid-3 mb-16">
                 <div class="reveal glass-card card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">⚖️</div>
-                    <h3 class="font-semibold mb-2">M&A Strategy</h3>
+                    <div class="card-icon">⚖️</div>
+                    <h3 class="text-lg font-semibold mb-2">M&A Strategy</h3>
                     <p class="text-sm text-muted">Mergers & acquisitions for GREEN patents across 193 WIPO/UN member
                         states.</p>
                 </div>
                 <div class="reveal glass-card card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">🌐</div>
-                    <h3 class="font-semibold mb-2">Global Distribution</h3>
+                    <div class="card-icon">🌐</div>
+                    <h3 class="text-lg font-semibold mb-2">Global Distribution</h3>
                     <p class="text-sm text-muted">Licensing and distribution of industrial property rights worldwide.
                     </p>
                 </div>
                 <div class="reveal glass-card card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">💼</div>
-                    <h3 class="font-semibold mb-2">Unit of Work (UoW)</h3>
+                    <div class="card-icon">💼</div>
+                    <h3 class="text-lg font-semibold mb-2">Unit of Work (UoW)</h3>
                     <p class="text-sm text-muted">Structured 4-hour task blocks for strategy planning and execution.</p>
                 </div>
                 <div class="reveal glass-card card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">🔧</div>
-                    <h3 class="font-semibold mb-2">IT & Digital Ops</h3>
+                    <div class="card-icon">🔧</div>
+                    <h3 class="text-lg font-semibold mb-2">IT & Digital Ops</h3>
                     <p class="text-sm text-muted">Blockchain registration, smart contracts, and NFW/NFT issuance.</p>
                 </div>
                 <div class="reveal glass-card card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">🤝</div>
-                    <h3 class="font-semibold mb-2">Agent Network</h3>
+                    <div class="card-icon">🤝</div>
+                    <h3 class="text-lg font-semibold mb-2">Agent Network</h3>
                     <p class="text-sm text-muted">Mandate-based agent partnerships with or without exclusivity.</p>
                 </div>
                 <div class="reveal glass-card card">
-                    <div style="font-size: 2rem; margin-bottom: 1rem;">👥</div>
-                    <h3 class="font-semibold mb-2">BB Programs</h3>
+                    <div class="card-icon">👥</div>
+                    <h3 class="text-lg font-semibold mb-2">BB Programs</h3>
                     <p class="text-sm text-muted">Broker/Bookmaker referral programs with 10% fees on deals.</p>
+                </div>
+            </div>
+            <div class="reveal text-center mb-8">
+                <h3 class="text-2xl font-semibold">Unit of Work <span class="gradient-text">Pipeline</span></h3>
+            </div>
+            <div class="timeline">
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            01</span><span class="text-sm">Market Analysis & Target Identification</span></div>
+                </div>
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            02</span><span class="text-sm">Legal Framework & IP Mapping</span></div>
+                </div>
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            03</span><span class="text-sm">Territory Population Assessment</span></div>
+                </div>
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            04</span><span class="text-sm">NFW/NFT Structure Design</span></div>
+                </div>
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            05</span><span class="text-sm">Smart Contract Drafting</span></div>
+                </div>
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            06</span><span class="text-sm">Blockchain Registration Setup</span></div>
+                </div>
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            07</span><span class="text-sm">BB Network Outreach</span></div>
+                </div>
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            08</span><span class="text-sm">NDA & Teaser Distribution</span></div>
+                </div>
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            09</span><span class="text-sm">Counterparty KYC Process</span></div>
+                </div>
+                <div class="reveal timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card timeline-content" style="padding:1rem"><span class="timeline-label">UoW
+                            10</span><span class="text-sm">License Agreement Finalization</span></div>
                 </div>
             </div>
         </div>
@@ -564,65 +831,260 @@
     <!-- PATENTS -->
     <section id="patents" class="section-padding">
         <div class="max-w">
-            <div class="reveal text-center" style="margin-bottom: 3rem;">
-                <h2 class="text-3xl" style="font-weight: 700;">GREEN <span class="gradient-text">Patents 2025</span>
+            <div class="reveal text-center mb-12">
+                <h2 class="text-3xl md-text-5xl font-bold mb-4">GREEN <span class="gradient-text">Patents 2025</span>
                 </h2>
-                <p class="text-muted" style="max-width: 40rem; margin: 1rem auto;">Industrial property rights across
+                <p class="text-muted mb-6" style="max-width:40rem;margin:0 auto">Industrial property rights across
                     Italy, Europe, and worldwide — referenced in 193 WIPO/UN States.</p>
-                <a href="https://www.expotv1.com/ESCP_Patent.htm" target="_blank" class="text-primary"
-                    style="text-decoration: underline;">ESCP Patents ↗</a>
+                <a href="https://www.expotv1.com/ESCP_Patent.htm" target="_blank" rel="noopener noreferrer"
+                    class="text-sm text-primary" style="text-decoration:underline">ESCP Patents ↗</a>
             </div>
             <div class="grid-2">
                 <div class="reveal glass-card card">
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <h3 class="font-semibold">JWT GREEN Right 2025</h3>
-                        <span class="tag">NFTr</span>
+                    <div class="card-header">
+                        <h3 class="font-semibold text-lg">JWT GREEN Right 2025</h3><span class="tag">NFTr</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; padding: 0.5rem 0;">
-                        <span class="text-muted">Territory</span><span>Italy</span></div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; padding: 0.5rem 0;">
-                        <span class="text-muted">Price</span><span class="text-primary font-semibold">€2M / 1M
-                            pop.</span></div>
-                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; padding: 0.5rem 0;">
-                        <span class="text-muted">Rights</span><span>Production & Distribution</span></div>
-                    <div
-                        style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--muted);">
-                        NFW Price: 0.5% of nominal value · 1% advance on royalties · 8% on turnover</div>
+                    <div class="detail-row"><span class="detail-label">Territory</span><span
+                            class="detail-value">Italy</span></div>
+                    <div class="detail-row"><span class="detail-label">Price</span><span
+                            class="text-primary font-medium">€2M / 1M pop.</span></div>
+                    <div class="detail-row"><span class="detail-label">Rights</span><span
+                            class="detail-value">Production & Distribution</span></div>
+                    <div class="card-footer">NFW Price: 0.5% of nominal value · 1% advance on royalties · 8% on turnover
+                    </div>
                 </div>
-                <!-- Similar cards for other patents (Europe, Worldwide, ESCP) can be added following the same pattern -->
+                <div class="reveal glass-card card">
+                    <div class="card-header">
+                        <h3 class="font-semibold text-lg">JWT GREEN Right 2025</h3><span class="tag">NFTs</span>
+                    </div>
+                    <div class="detail-row"><span class="detail-label">Territory</span><span class="detail-value">Europe
+                            (EPO)</span></div>
+                    <div class="detail-row"><span class="detail-label">Price</span><span
+                            class="text-primary font-medium">€2M / 1M pop.</span></div>
+                    <div class="detail-row"><span class="detail-label">Rights</span><span class="detail-value">Exclusive
+                            IP-Legacy Use</span></div>
+                    <div class="card-footer">NFW Price: 0.5% of nominal value · 1% advance on royalties · 8% on turnover
+                    </div>
+                </div>
+                <div class="reveal glass-card card">
+                    <div class="card-header">
+                        <h3 class="font-semibold text-lg">JWT GREEN Right 2025</h3><span class="tag">NFTt</span>
+                    </div>
+                    <div class="detail-row"><span class="detail-label">Territory</span><span
+                            class="detail-value">Worldwide (WIPO)</span></div>
+                    <div class="detail-row"><span class="detail-label">Price</span><span
+                            class="text-primary font-medium">€2M / 1M pop.</span></div>
+                    <div class="detail-row"><span class="detail-label">Rights</span><span class="detail-value">Income
+                            Investment</span></div>
+                    <div class="card-footer">NFW Price: 0.5% of nominal value · 1% advance on royalties · 8% on turnover
+                    </div>
+                </div>
+                <div class="reveal glass-card card">
+                    <div class="card-header">
+                        <h3 class="font-semibold text-lg">ESCP Patent Portfolio</h3><span class="tag">NFTu</span>
+                    </div>
+                    <div class="detail-row"><span class="detail-label">Territory</span><span class="detail-value">193 UN
+                            States</span></div>
+                    <div class="detail-row"><span class="detail-label">Price</span><span
+                            class="text-primary font-medium">€2M / 1M pop.</span></div>
+                    <div class="detail-row"><span class="detail-label">Rights</span><span class="detail-value">Joint
+                            Venture (30/21)</span></div>
+                    <div class="card-footer">NFW Price: 0.5% of nominal value · 1% advance on royalties · 8% on turnover
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- NFW/NFT -->
-    <section id="nft" class="section-padding" style="background: rgba(17,17,17,0.6);">
+    <!-- NFT/NFW -->
+    <section id="nft" class="section-padding bg-muted-20">
         <div class="max-w">
-            <div class="reveal text-center" style="margin-bottom: 3rem;">
-                <h2 class="text-3xl" style="font-weight: 700;"><span class="gradient-text">NFW / NFT</span> Framework
+            <div class="reveal text-center mb-6">
+                <h2 class="text-3xl md-text-5xl font-bold mb-4"><span class="gradient-text">NFW / NFT</span> Framework
                 </h2>
-                <p class="text-muted" style="max-width: 48rem; margin: 1rem auto;">Each smart contract — in PDF with
+                <p class="text-muted mb-6" style="max-width:48rem;margin:0 auto">Each smart contract — in PDF with
                     attached bank payment receipt — is registered on public blockchain, preserving the underlying
                     securities freely negotiable in fiat or crypto.</p>
             </div>
+            <div class="reveal glass-card text-center mb-16" style="padding:1rem;max-width:40rem;margin:0 auto 4rem">
+                <p class="text-sm text-muted"><span class="text-primary font-medium">NFW — Not Fungible Warrant:</span>
+                    Option to access, within six months, the related NFT, choosing the form most suited. Purchase
+                    involves OPTION RIGHT over the territory for at least 1M inhabitants.</p>
+            </div>
             <div class="grid-2">
-                <!-- NFW/NFT cards go here with .nft-bar classes -->
+                <div class="reveal glass-card card-lg card" style="position:relative;overflow:hidden">
+                    <div class="nft-bar nft-0"></div>
+                    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+                        <div class="icon-wrap">🔑</div>
+                        <div><span class="mono text-xs text-primary">NFTr</span>
+                            <h3 class="text-xl font-semibold">License</h3>
+                        </div>
+                    </div>
+                    <p class="text-sm text-primary font-medium mb-3">IP or Name/IP</p>
+                    <p class="text-sm text-muted mb-4">Right to exercise a license to produce in the specific territory
+                        and distribute everywhere.</p>
+                    <div class="card-footer mono">1% min/year, 8% on turnover, Fee BB 10%, IW1y 2×</div>
+                </div>
+                <div class="reveal glass-card card-lg card" style="position:relative;overflow:hidden">
+                    <div class="nft-bar nft-1"></div>
+                    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+                        <div class="icon-wrap">🛒</div>
+                        <div><span class="mono text-xs text-primary">NFTs</span>
+                            <h3 class="text-xl font-semibold">Sell Right</h3>
+                        </div>
+                    </div>
+                    <p class="text-sm text-primary font-medium mb-3">Full Autonomy</p>
+                    <p class="text-sm text-muted mb-4">Real, freely transactable right to act with full and total
+                        autonomy in the specific territory.</p>
+                    <div class="card-footer mono">IW1y 3×, 1%, Fee BB 10% on B&C, Sale</div>
+                </div>
+                <div class="reveal glass-card card-lg card" style="position:relative;overflow:hidden">
+                    <div class="nft-bar nft-2"></div>
+                    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+                        <div class="icon-wrap">📈</div>
+                        <div><span class="mono text-xs text-primary">NFTt</span>
+                            <h3 class="text-xl font-semibold">Income Investment</h3>
+                        </div>
+                    </div>
+                    <p class="text-sm text-primary font-medium mb-3">SRB Structure</p>
+                    <p class="text-sm text-muted mb-4">Inside presence in business project with pre-emptive rights on
+                        assets. IRR 3%, Sh 5%, Pre-E.</p>
+                    <div class="card-footer mono">IW1y 1×, 1%, Fee BB 2%, II (SRB)</div>
+                </div>
+                <div class="reveal glass-card card-lg card" style="position:relative;overflow:hidden">
+                    <div class="nft-bar nft-3"></div>
+                    <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem">
+                        <div class="icon-wrap">👥</div>
+                        <div><span class="mono text-xs text-primary">NFTu</span>
+                            <h3 class="text-xl font-semibold">Joint Venture</h3>
+                        </div>
+                    </div>
+                    <p class="text-sm text-primary font-medium mb-3">30/21 Structure</p>
+                    <p class="text-sm text-muted mb-4">Significant initial internal presence with a 5-year control
+                        option. JV (30/21) model.</p>
+                    <div class="card-footer mono">IW1y 1×, 1%, Fee BB 2%, JV (30/21)</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- OPPORTUNITIES & CONTACT sections follow the same clean pattern -->
+    <!-- OPPORTUNITIES -->
+    <section id="opportunities" class="section-padding">
+        <div class="max-w">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-3xl md-text-5xl font-bold mb-4">Global <span class="gradient-text">Opportunities</span>
+                </h2>
+                <p class="text-muted" style="max-width:40rem;margin:0 auto">For Brokers/Bookmakers (BB) and everyone
+                    interested in sustainable development — 10% referral fees on deals.</p>
+            </div>
+            <div class="grid-3 mb-12">
+                <div class="reveal glass-card card">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem"><span
+                            class="text-primary">📍</span>
+                        <h3 class="font-semibold">Italy</h3>
+                    </div>
+                    <p class="text-sm text-muted">👥 Population: 60M</p>
+                    <p class="text-sm text-primary font-medium">💶 Potential: €120M</p>
+                    <p class="text-xs text-muted" style="padding-top:0.25rem">Key cities: Milan, Rome, Naples</p>
+                </div>
+                <div class="reveal glass-card card">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem"><span
+                            class="text-primary">📍</span>
+                        <h3 class="font-semibold">Germany</h3>
+                    </div>
+                    <p class="text-sm text-muted">👥 Population: 84M</p>
+                    <p class="text-sm text-primary font-medium">💶 Potential: €168M</p>
+                    <p class="text-xs text-muted" style="padding-top:0.25rem">Key cities: Berlin, Munich, Hamburg</p>
+                </div>
+                <div class="reveal glass-card card">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem"><span
+                            class="text-primary">📍</span>
+                        <h3 class="font-semibold">India</h3>
+                    </div>
+                    <p class="text-sm text-muted">👥 Population: 1,400M</p>
+                    <p class="text-sm text-primary font-medium">💶 Potential: €2,800M</p>
+                    <p class="text-xs text-muted" style="padding-top:0.25rem">Key cities: Mumbai, Delhi, Kolkata</p>
+                </div>
+                <div class="reveal glass-card card">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem"><span
+                            class="text-primary">📍</span>
+                        <h3 class="font-semibold">Brazil</h3>
+                    </div>
+                    <p class="text-sm text-muted">👥 Population: 215M</p>
+                    <p class="text-sm text-primary font-medium">💶 Potential: €430M</p>
+                    <p class="text-xs text-muted" style="padding-top:0.25rem">Key cities: São Paulo, Rio, Brasília</p>
+                </div>
+                <div class="reveal glass-card card">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem"><span
+                            class="text-primary">📍</span>
+                        <h3 class="font-semibold">USA</h3>
+                    </div>
+                    <p class="text-sm text-muted">👥 Population: 335M</p>
+                    <p class="text-sm text-primary font-medium">💶 Potential: €670M</p>
+                    <p class="text-xs text-muted" style="padding-top:0.25rem">Key cities: New York, LA, Chicago</p>
+                </div>
+                <div class="reveal glass-card card">
+                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem"><span
+                            class="text-primary">📍</span>
+                        <h3 class="font-semibold">Japan</h3>
+                    </div>
+                    <p class="text-sm text-muted">👥 Population: 125M</p>
+                    <p class="text-sm text-primary font-medium">💶 Potential: €250M</p>
+                    <p class="text-xs text-muted" style="padding-top:0.25rem">Key cities: Tokyo, Osaka, Yokohama</p>
+                </div>
+            </div>
+            <div class="reveal btn-row">
+                <a href="#contact" class="btn-primary">📄 Request NDA</a>
+                <a href="#contact" class="btn-outline">Submit Interest</a>
+                <a href="https://www.expotv1.com/ESCP_Patent.htm" target="_blank" rel="noopener noreferrer"
+                    class="btn-outline" style="border-color:var(--border);color:var(--muted-fg)">Access Teaser Docs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-padding bg-muted-20">
+        <div class="max-w-sm">
+            <div class="reveal text-center mb-12">
+                <h2 class="text-3xl md-text-5xl font-bold mb-4">Get in <span class="gradient-text">Touch</span></h2>
+                <p class="text-muted" style="max-width:32rem;margin:0 auto">Contact us for licensing opportunities, NDA
+                    requests, or partnership inquiries.</p>
+            </div>
+            <div class="reveal glass-card" style="padding:2rem 2.5rem">
+                <form
+                    onsubmit="event.preventDefault();alert('Message sent! We will get back to you shortly.');this.reset()">
+                    <div class="form-row mb-6">
+                        <div><label>Name</label><input type="text" required placeholder="Your name" /></div>
+                        <div><label>Email</label><input type="email" required placeholder="your@email.com" /></div>
+                    </div>
+                    <div class="form-group"><label>URL / Test Reference</label><input type="url"
+                            placeholder="https://..." /></div>
+                    <div class="form-group"><label>Message</label><textarea rows="4" required
+                            placeholder="Tell us about your interest..."></textarea></div>
+                    <button type="submit" class="btn-submit">✉️ Send Message</button>
+                </form>
+            </div>
+            <div class="reveal contact-links">
+                <a href="mailto:info@pcrr-jwt.it">✉️ info@pcrr-jwt.it</a>
+                <a href="https://www.pcrr-jwt.it" target="_blank">🌐 www.pcrr-jwt.it</a>
+                <a href="https://www.expotv1.com" target="_blank">🌐 expotv1.com</a>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>
-        <div class="max-w">
-            🌿 © 2025 PCRR JWTeam Srls — All rights reserved<br>
-            IBAN: IT64H0306901603100000108455 — BIC: BCITITMM
+        <div class="footer-inner">
+            <span>🌿 © 2025 PCRR JWTeam Srls — All rights reserved</span>
+            <div style="display:flex;gap:1rem">
+                <span>IBAN: IT64H0306901603100000108455</span>
+                <span>BIC: BCITITMM</span>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
+        // Scroll nav
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
@@ -631,16 +1093,17 @@
             document.getElementById('mob').classList.remove('open');
         }
 
-        // Reveal animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+        // Scroll reveal
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
                 }
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
 </body>
 
