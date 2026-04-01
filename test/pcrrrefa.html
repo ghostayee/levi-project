@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCRR – Piano Commerciale di Ripresa e Resilienza</title>
+    <link rel="stylesheet" href="/pages-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="icon" href="/pcrr/images/faviconservices--32x32.png" type="image/x-icon" sizes="32x32">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+    <style>
+        :root {
+            --green-main: #006400;
+            --orange-main: #FF6200;
+        }
+
+        .pcrr-page {
+            background: #f8f9fa;
+        }
+
+        .full-section {
+            min-height: 100vh;
+            padding: 90px 20px 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pcrr-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            padding: 35px 28px;
+            height: 100%;
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .pcrr-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .pcrr-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .pcrr-card h3 {
+            color: #006400;
+            margin-bottom: 18px;
+        }
+
+        .section-label {
+            color: #FF6200;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+        }
+
+        .chart-wrap {
+            height: 220px;
+            position: relative;
+        }
+
+        .jwt-diagram {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        .jwt-node {
+            position: absolute;
+            padding: 8px 14px;
+            background: white;
+            border: 2px solid #006400;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .jwt-node:hover {
+            transform: scale(1.08);
+            border-color: #FF6200;
+        }
+
+        .jwt-node.center {
+            background: #006400;
+            color: white;
+            border-color: #FF6200;
+        }
+
+        .presentation-sidebar {
+            background: #f8f9fa;
+            padding: 25px;
+            border-right: 3px solid #FF6200;
+            min-height: 700px;
+            border-radius: 12px;
+        }
+
+        .presentation-sidebar h5 {
+            color: #006400;
+        }
+
+        .presentation-sidebar p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .presentation-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .presentation-sidebar li {
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .presentation-sidebar a {
+            color: #006400;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .presentation-sidebar a:hover {
+            color: #FF6200;
+        }
+
+        .pdf-button {
+            padding: 12px 24px;
+            background: #006400;
+            color: #FF6200;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="pcrr-page">
+
+    <!-- 0) Rotating Top Banner - General Entities -->
+    <nav id="pcrr-submenu" class="navbar navbar-dark overflow-hidden" style="background: #086c3a;">
+        <div class="container-fluid px-3 px-lg-4">
+            <div class="scroll-wrapper">
+                <ul class="navbar-nav flex-row gap-4 scroll-track">
+                    <li class="nav-item"><a class="nav-link" href="#">WIPO/UN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">EPO/EU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">UIBM/IT</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">inPASS/IN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">CNIPA/CN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">USPTO/US</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">EAPO/RU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ARIPO/AIPO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ESG/UN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">SDGs/UN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ZONE1 / Your Dream.ZONE</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1) JWT Horizontal Menu -->
+    <nav id="jwt-menu" class="navbar navbar-dark bg-success">
+        <div class="container-fluid">
+            <ul class="navbar-nav flex-row gap-4 mx-auto">
+                <li class="nav-item"><a class="nav-link text-white" href="https://www.jwt-jwt.eu/jwt">JWT Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white"
+                        href="https://www.aias-sicurezza.it/presentazione-aias/">Safety</a></li>
+                <li class="nav-item"><a class="nav-link text-white"
+                        href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/">Security</a></li>
+                <li class="nav-item"><a class="nav-link text-white"
+                        href="https://xxxx-jwt.eu/comm/dream.zone">Dream.ZONE</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="https://www.jwt-jwt.it/team/">About Us</a>
+                </li>
+                <li class="nav-item"><a class="nav-link text-white" href="https://www.jwt-jwt.it/vision/">Vision</a>
+                </li>
+                <li class="nav-item"><a class="nav-link text-white" href="https://www.jwt-jwt.it/mission/">Mission</a>
+                </li>
+                <li class="nav-item"><a class="nav-link text-white" href="#kyc-1">KYC</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Header with Logo and Menu -->
+    <header class="site-header">
+        <div class="container-fluid px-3 px-lg-4">
+            <div class="header-inner d-flex justify-content-between align-items-center flex-wrap gap-3 py-2">
+                <div class="logo-container d-flex align-items-center">
+                    <a href="https://www.jwt-jwt.eu/">
+                        <img src="/pcrr/images/faviconservices--32x32.png" alt="JWT Logo" height="40">
+                    </a>
+                    <span class="logo text-success ms-2 fw-bold">EUWEB GREEN <button
+                            class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-2">PCRR</button></span>
+                </div>
+                <nav class="menu d-flex flex-wrap gap-3 align-items-center">
+                    <a href="#services-offer">Services</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#kyc-1"><button
+                            class="head-button btn btn-success rounded-1 fw-bold btn-sm">KYC</button></a>
+                    <button class="rounded-4 p-1">
+                        <a href="https://xxxx-jwt.eu/comm/cart/" class="cart-link text-white">
+                            Cart <span id="cart-count">0</span>
+                        </a>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hamburger & Side Menu (kept for mobile) -->
+    <div id="hamburger-container" class="permanent-hamburger-container">...</div>
+    <nav id="side-menu" class="side-menu">...</nav>
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <main class="py-5">
+        <div class="container" style="max-width: 1180px;">
+            <div class="row">
+                <!-- Enhanced PresentationSpace - Vertical Menu -->
+                <div class="col-lg-3">
+                    <div class="presentation-sidebar">
+                        <h5 class="mb-3">PresentationSpace – PCRR</h5>
+                        <p><strong>PCRR (Piano Commerciale di Ripresa e Resilienza)</strong> is the commercial backbone
+                            of JWT. It scales 342 patented GREEN innovations through licensing, exclusive zone rights,
+                            3% broker commissions, and zero-upfront-cost deployment models, fully aligned with EU PNRR
+                            Mission 2 and the Green Deal.</p>
+
+                        <ul class="mt-4">
+                            <li><a href="#overview">Overview</a> – Why PCRR exists and its strategic role in GREEN
+                                transition.</li>
+                            <li><a href="#licensing">Licensing Models</a> – Exclusive Zone Rights, 3% DOA Broker,
+                                Zero-Cost Deployment.</li>
+                            <li><a href="#performance">Economic Impact</a> – Revenue forecasts, adoption rates, and cost
+                                savings by 2030.</li>
+                            <li><a href="#integration">JWT Integration</a> – How PCRR connects with all JWT GREEN
+                                patents and technologies.</li>
+
+                            <li class="mt-3"><strong>IP - Intellectual Property</strong></li>
+                            <li><a href="https://xxxx-jwt.eu/iteg">ITEG (Rotor)</a> – Energy conversion systems.</li>
+                            <li><a href="https://xxxx-jwt.eu/mbgc">MBGC (Mini BioGas Cogeneration)</a> – Waste-to-energy
+                                solutions.</li>
+                            <li><a href="https://xxxx-jwt.eu/pbrc">PBRC (Micro Algae)</a> – Sustainable biomass
+                                production.</li>
+                            <li><a href="https://xxxx-jwt.eu/sidr">SIDR (Agro & Sport)</a> – Agriculture and
+                                recreational applications.</li>
+                            <li><a href="https://xxxx-jwt.eu/sdgc">SDGC (Sea & Desert Green Conversion)</a> – Land and
+                                water restoration.</li>
+                            <li><a href="https://xxxx-jwt.eu/gsmf">GSMF (Gas Separation)</a> – CO₂ capture and biogas
+                                upgrading.</li>
+                            <li><a href="https://xxxx-jwt.eu/gfss">GFSS (ElectroMagnetic Gravity Separation)</a> –
+                                Advanced mineral processing.</li>
+                            <li><a href="https://xxxx-jwt.eu/pcrr">PCRR</a> – Recovery & Resilience commercial plan.
+                            </li>
+
+                            <li class="mt-3"><strong>ExpoTV1 - Media & TV</strong></li>
+                            <li><a href="https://xxxx-jwt.eu/comm">IT&C Support Group</a></li>
+                            <li><a href="#">EDU / FAD Training</a></li>
+                            <li><a href="#">Editorial Plan & GhostWriter</a></li>
+                            <li><a href="#">Marketing & Commercial Goals</a></li>
+                            <li><a href="#">MKT & IP Communication</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Main Content Area (col-lg-9) - Your original sections kept with minor refinements -->
+                <div class="col-lg-9">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bold" style="color:#006400;">PCRR – Piano Commerciale di Ripresa e
+                            Resilienza</h1>
+                        <p class="lead">The commercial engine scaling JWT’s 342 GREEN patents through licensing,
+                            auctions, zero-cost adoption, and zone-based deployment.</p>
+                    </div>
+
+                    <!-- All your original sections (Overview, Licensing Models, Economic Impact, JWT Integration, Advantages, Governance, Case Studies, CTA, PDF Viewer, Contact, KYC) remain here -->
+                    <!-- ... (copy-paste your original sections from <section id="overview"> to the KYC modals) ... -->
+
+                    <!-- Example: Keep your PDF embed and download -->
+                    <div style="max-width:900px; margin:auto;">
+                        <div style="height:600px; overflow-y:auto; border:1px solid #a1ebc6; border-radius:8px;">
+                            <iframe src="/pcrr/pdf/pcrr_project_EN.pdf" width="100%" height="100%"
+                                style="border:none;"></iframe>
+                        </div>
+                        <div style="text-align:center; margin-top:15px;">
+                            <a href="/pcrr/pdf/pcrr_project_EN.pdf" target="_blank">
+                                <button class="pdf-button">Download Full PCRR Project PDF</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Contact & KYC sections remain as in your original code -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Updated Footer aligned with pcrr-jwt.it -->
+    <footer
+        style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
+        <div
+            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
+            <div style="flex: 1; min-width: 280px;">
+                <h3 style="color: #FF6200; margin-bottom: 15px;">PCRR JWTeam Srls</h3>
+                <p style="margin: 8px 0; line-height: 1.6;">
+                    Joules Water Team – Research, Development & Innovation in Joules, Water and Primary Renewable
+                    Resources
+                </p>
+                <p>Sede Legale: Via Terrazzano 85, 20017 Rho (MI), Italy</p>
+                <p>C.F. e P.I. 12092970966 | Cap.Soc. € 200</p>
+            </div>
+            <div style="flex: 1; min-width: 280px;">
+                <h4 style="color: #FF6200; margin-bottom: 15px;">Legal & Contact</h4>
+                <p>PEC: <a href="mailto:pcrrjwt@pec.it" style="color:#FFCC80;">pcrrjwt@pec.it</a><br>
+                    Info: <a href="mailto:info@jwt-jwt.eu" style="color:#FFCC80;">info@jwt-jwt.eu</a><br>
+                    Commercial: <a href="mailto:comm@pcrr-jwt.it" style="color:#FFCC80;">comm@pcrr-jwt.it</a></p>
+                <p>IBAN: IT73H0306909412100000002247<br>BIC: BCITITMM</p>
+            </div>
+            <div style="flex: 1; min-width: 280px;">
+                <h4 style="color: #FF6200; margin-bottom: 15px;">Quick Access</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+                    <li><a href="https://www.jwt-jwt.eu/jwt" style="color:#FFFFFF;">JWT Home</a></li>
+                    <li><a href="#" style="color:#FFFFFF;">NFT/NFW</a></li>
+                    <li><a href="#" style="color:#FFFFFF;">Master Plan</a></li>
+                    <li><a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" target="_blank"
+                            style="color:#FFCC80;">GREEN Rights for the World</a></li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 280px; text-align: center;">
+                <p style="font-size: 1.1em; margin-bottom: 20px; color: #A8E6A1;">
+                    From 100% fossil to ZERO.<br>
+                    GREEN Industrial Rights • NFT/NFW • Ecological Transition
+                </p>
+                <a href="https://xxxx-jwt.eu/comm/cart/"
+                    style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold;">Open
+                    Shopping Cart</a>
+                <p style="font-size: 0.85em; opacity: 0.85; margin-top: 30px;">
+                    © 2026 PCRR JWTeam Srls – All Rights Reserved<br>
+                    Qualified visitors receive reply within 48 hours
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts (your original Chart.js, JWT Diagram, modals, hamburger, etc. remain the same) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ... paste your original <script> block here ... -->
+</body>
+
+</html>
