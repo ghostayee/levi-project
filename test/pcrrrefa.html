@@ -246,9 +246,11 @@
                 </div>
 
                 <nav class="menu d-flex flex-wrap gap-3 align-items-center">
-                    <a href="https://www.aias-sicurezza.it/presentazione-aias/">safety</a>
+                    <button class="main-btn btn btn-info btn-sm fw-bold" data-modal="dreamzone-modal">
+                        Dream Zone
+                    </button>
+                    <a href="https://www.aias-sicurezza.it/presentazione-aias/">jwt safety</a>
                     <a href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/">jwt security</a>
-                    <a href="https://sdgc-jwt.eu/comm/">Dream Zone</a>
                     <a href="https://www.jwt-jwt.it/team/">About Us</a>
                     <a href="https://www.jwt-jwt.it/vision/">Vision</a>
                     <a href="https://www.jwt-jwt.it/mission/">Mission</a>
@@ -610,6 +612,25 @@
                     </form>
                     <div class="modal-explain">Quick verification for basic access to information and Dream.ZONE
                         selector.</div>
+                </div>
+            </div>
+            <div id="dreamzone-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h3>Dream Zone</h3>
+                    <form id="dreamzone-form">
+                        <input type="text" name="name" placeholder="Full Name" required>
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="text" name="country" placeholder="Country" required>
+                        <input type="text" name="state" placeholder="State / Province">
+                        <input type="text" name="iso" placeholder="ISO Code (e.g. IT, DE, US)" maxlength="3">
+                        <input type="text" name="city" placeholder="Your City" required>
+                        <textarea name="message" rows="3"
+                            placeholder="Tell us about your interest in Dream Zone..."></textarea>
+                        <button type="submit" class="submit-btn">Submit Dream Zone Request</button>
+                    </form>
+                    <div class="modal-explain">Join the Dream Zone community and get access to exclusive GREEN
+                        opportunities.</div>
                 </div>
             </div>
 
