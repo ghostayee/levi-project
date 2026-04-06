@@ -720,9 +720,13 @@
 
                 <!-- Fixed Vertical Menu -->
                 <nav class="vertical-sidebar">
-                    <div class="sidebar-card active">
+                    <div class="sidebar-header">
                         <h5 style="color:#FF6200;">JWT Ecosystem</h5>
                     </div>
+
+                    <!-- Welcome is now the first item -->
+                    <a href="#" class="sidebar-card active" data-id="welcome">Welcome to JWT Ecosystem</a>
+
                     <a href="#" class="sidebar-card" data-id="iteg">ITEG - Rotor</a>
                     <a href="#" class="sidebar-card" data-id="mbgc">MBGC - Biogas</a>
                     <a href="#" class="sidebar-card" data-id="pbrc">PBRC - Micro Algae</a>
@@ -731,11 +735,10 @@
                     <a href="#" class="sidebar-card" data-id="gsmf">GSMF - Separation</a>
                     <a href="#" class="sidebar-card" data-id="gfss">GFSS - Ems Separation</a>
                     <a href="#" class="sidebar-card" data-id="pcrr">PCRR - Recovery & Resilience</a>
-                    <div class="sidebar-card active">
+                    <div class="sidebar-header">
                         <h5 style="color:#FF6200;">eport tv1 - Media</h5>
                     </div>
-                    <div class="sidebar-divider"></div>
-
+                    <a href="#" class="sidebar-card" data-id="eport">eport tv1 - Media</a>
                     <a href="#" class="sidebar-card" data-id="it-support">IT & Support</a>
                     <a href="#" class="sidebar-card" data-id="edu">EDU/FAD</a>
                     <a href="#" class="sidebar-card" data-id="editorial">Editorial Plan</a>
@@ -1287,6 +1290,12 @@
 
         // ====================== SIDEBAR CONTENT DATA ======================
         const contentData = {
+            "welcome": {
+                title: "Welcome to JWT Ecosystem",
+                heroBg: "https://source.unsplash.com/random/1200x280/?future,green,earth,sustainability",
+                sideImage: "/images/hands-together-unity-stockcake.webp",
+                text: "Welcome to the JWT Ecosystem — a revolutionary alliance of 342 patented green technologies working in harmony to accelerate humanity's transition to a sustainable, zero-carbon future."
+            },
             "iteg": { title: "ITEG - Rotor", heroBg: "/images/starter_Kit.webp", sideImage: "/images/starter_Kit.webp", text: "Advanced high-efficiency rotor technology engineered for energy generation, water treatment, and industrial applications." },
             "mbgc": { title: "MBGC - Biogas", heroBg: "https://source.unsplash.com/random/1200x280/?biogas,energy", sideImage: "https://source.unsplash.com/random/600x400/?biogas,plant", text: "Mini BioGas Cogeneration systems that convert organic waste into clean electricity and heat." },
             "pbrc": { title: "PBRC - Micro Algae", heroBg: "https://source.unsplash.com/random/1200x280/?algae,bioreactor", sideImage: "https://source.unsplash.com/random/600x400/?microalgae,lab", text: "State-of-the-art photobioreactor systems for high-density micro-algae cultivation." },
@@ -1307,7 +1316,6 @@
 
         const presentationArea = document.getElementById('presentationArea');
 
-        // Sidebar Click Handler
         document.querySelectorAll('.sidebar-card').forEach(card => {
             card.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1318,20 +1326,27 @@
                 const data = contentData[id];
 
                 if (data && presentationArea) {
-                    presentationArea.innerHTML = `
-                    <div class="module-hero" style="background-image: url('${data.heroBg}')">
-                        <h2 class="module-title">${data.title}</h2>
-                    </div>
-                    <div class="side-content">
-                        <div class="side-image"><img src="${data.sideImage}" alt="${data.title}"></div>
-                        <div class="side-text">
-                            <h4>Introduction</h4>
-                            <p>${data.text}</p>
-                        </div>
-                    </div>
 
+                    let extraHTML = '';
+
+                    if (id === "welcome") {
+                        // Welcome module - NO 3 cards
+                        extraHTML = `
+                    <div class="interactive-demo" style="padding:40px; background:#f8f9fa; text-align:center;">
+                        <h4 style="color:#006400; margin-bottom:20px;">🌍 Welcome Experience</h4>
+                        <p style="font-size:1.1rem; max-width:700px; margin:0 auto 25px;">
+                            Explore how our interconnected green technologies are shaping a sustainable future.
+                        </p>
+                        <button class="btn btn-success btn-lg" onclick="exploreEcosystem()">
+                            Begin Your Journey →
+                        </button>
+                    </div>
+                `;
+                    } else {
+                        // All other modules - show 3 feature cards
+                        extraHTML = `
                     <div class="interactive-demo" style="padding: 30px 40px; background:#f8f9fa; border-top: 1px solid #eee;">
-                        <h4 style="color:#006400; margin-bottom:20px;">Running Statistics</h4>
+                        <h4 style="color:#006400; margin-bottom:20px;">Interactive Demo</h4>
                         <div id="demo-content-${id}"></div>
                     </div>
 
@@ -1362,7 +1377,25 @@
                         </div>
                     </div>
                 `;
-                    renderInteractiveDemo(id);
+                    }
+
+                    presentationArea.innerHTML = `
+                <div class="module-hero" style="background-image: url('${data.heroBg}')">
+                    <h2 class="module-title">${data.title}</h2>
+                </div>
+                <div class="side-content">
+                    <div class="side-image"><img src="${data.sideImage}" alt="${data.title}"></div>
+                    <div class="side-text">
+                        <h4>Introduction</h4>
+                        <p>${data.text}</p>
+                    </div>
+                </div>
+                ${extraHTML}
+            `;
+
+                    if (id !== "welcome") {
+                        renderInteractiveDemo(id);
+                    }
                 }
             });
         });
