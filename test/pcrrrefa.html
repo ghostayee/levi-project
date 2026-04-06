@@ -1298,24 +1298,24 @@
             },
             "mbgc": {
                 title: "MBGC - Biogas",
-                heroBg: "https://source.unsplash.com/random/1200x280/?biogas,energy",
-                sideImage: "https://source.unsplash.com/random/600x400/?biogas,plant",
+                heroBg: "/images/biogas-bg.webp",
+                sideImage: "/images/biogas.jpg",
                 text: "Mini BioGas Cogeneration systems that convert organic waste into clean electricity and heat.",
                 cards: [
-                    { img: "https://source.unsplash.com/random/400x180/?biogas", title: "Waste to Energy", desc: "Convert agricultural waste into usable power." },
-                    { img: "https://source.unsplash.com/random/400x180/?electricity", title: "Cogeneration", desc: "Produces both electricity and heat simultaneously." },
-                    { img: "https://source.unsplash.com/random/400x180/?eco", title: "Carbon Reduction", desc: "Reduces methane emissions by up to 90%." }
+                    { img: "/images/waste.webp", title: "Waste to Energy", desc: "Convert agricultural waste into usable power." },
+                    { img: "/images/cogenerazione_2400x1160.jpg", title: "Cogeneration", desc: "Produces both electricity and heat simultaneously." },
+                    { img: "/images/carbon.jpg", title: "Carbon Reduction", desc: "Reduces methane emissions by up to 90%." }
                 ]
             },
             "pbrc": {
                 title: "PBRC - Micro Algae",
-                heroBg: "https://source.unsplash.com/random/1200x280/?algae,bioreactor",
-                sideImage: "https://source.unsplash.com/random/600x400/?microalgae,lab",
+                heroBg: "/images/algaebg.webp",
+                sideImage: "/images/algae.webp",
                 text: "State-of-the-art photobioreactor systems for high-density micro-algae cultivation.",
                 cards: [
-                    { img: "https://source.unsplash.com/random/400x180/?algae", title: "High Yield Cultivation", desc: "Produces large amounts of biomass in controlled environments." },
-                    { img: "https://source.unsplash.com/random/400x180/?carbon", title: "CO₂ Capture", desc: "Excellent natural carbon sequestration technology." },
-                    { img: "https://source.unsplash.com/random/400x180/?biofuel", title: "Biofuel Production", desc: "Source material for sustainable biofuels and bioplastics." }
+                    { img: "/images/yield.webp", title: "High Yield Cultivation", desc: "Produces large amounts of biomass in controlled environments." },
+                    { img: "/images/co capture.webp", title: "CO₂ Capture", desc: "Excellent natural carbon sequestration technology." },
+                    { img: "/images/biofuel.avif", title: "Biofuel Production", desc: "Source material for sustainable biofuels and bioplastics." }
                 ]
             },
             "sidr": {
@@ -1449,8 +1449,42 @@
 
         // Interactive Demo Functions (keep your existing ones)
         function renderInteractiveDemo(id) {
-            // Your existing demo code...
+            const container = document.getElementById(`demo-content-${id}`);
+            if (!container) return;
+
+            let html = '';
+
+            switch (id) {
+                case "iteg":
+                    html = `<p><strong>Rotor Energy Simulator</strong></p><button class="btn btn-success mb-3" onclick="simulateEnergy(this)">Run Simulation</button><div id="energy-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
+                    break;
+                case "mbgc":
+                    html = `<p><strong>Waste to Energy Converter</strong></p><button class="btn btn-success mb-3" onclick="simulateBiogas(this)">Process 1 Ton Waste</button><div id="biogas-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
+                    break;
+                case "pbrc":
+                    html = `<p><strong>Algae Growth Simulator</strong></p><button class="btn btn-success mb-3" onclick="simulateAlgae(this)">Start Growth Cycle</button><div id="algae-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
+                    break;
+                case "sdgc":
+                    html = `<p><strong>Desalination Estimator</strong></p><button class="btn btn-info mb-3" onclick="waterDemo()">Generate 30 Days Output</button><div id="water-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
+                    break;
+                case "pcrr":
+                    html = `<p><strong>Zone Revenue Calculator</strong></p><input type="number" id="zone-pop" placeholder="Population (e.g. 1500000)" style="padding:10px;width:100%;margin-bottom:10px;"><button class="btn btn-success" onclick="calculateRevenue()">Calculate Revenue</button><div id="revenue-result" style="margin-top:15px;font-weight:bold;"></div>`;
+                    break;
+                default:
+                    html = `<p>Interactive demo for this module is active.</p>`;
+            }
+            container.innerHTML = html;
         }
+        window.simulateEnergy = function (btn) { btn.innerHTML = "Running..."; setTimeout(() => { document.getElementById('energy-result').innerHTML = `✅ Peak Output: <span style="color:#FF6200;">2.84 MW</span><br>Efficiency: 94.7%`; btn.innerHTML = "Run Again"; }, 1400); };
+        window.simulateBiogas = function (btn) { btn.innerHTML = "Processing..."; setTimeout(() => { document.getElementById('biogas-result').innerHTML = `✅ 1.85 MWh electricity + 420 m³ biogas`; btn.innerHTML = "Process Again"; }, 1300); };
+        window.simulateAlgae = function (btn) { btn.innerHTML = "Growing..."; setTimeout(() => { document.getElementById('algae-result').innerHTML = `✅ Biomass: 18.4 kg/m²<br>CO₂ Captured: 42 tons`; btn.innerHTML = "New Cycle"; }, 1600); };
+        window.waterDemo = function () { document.getElementById('water-result').innerHTML = `🌊 <strong>28,450,000 Liters</strong> of fresh water produced`; };
+        window.calculateRevenue = function () {
+            const pop = document.getElementById('zone-pop').value;
+            if (!pop) return alert("Please enter population");
+            const revenue = (parseInt(pop) / 1000000 * 680).toFixed(1);
+            document.getElementById('revenue-result').innerHTML = `Estimated Annual Revenue: <strong>€${revenue} Million</strong>`;
+        };
 
         window.exploreEcosystem = function () {
             alert("🌍 Welcome to the JWT Ecosystem!\n\nYou are now exploring the future of green innovation.");
