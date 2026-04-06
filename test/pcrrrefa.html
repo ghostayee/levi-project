@@ -315,10 +315,140 @@
             overflow: hidden;
         }
 
+        .presentation-area {
+            flex: 1;
+            min-width: 320px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+            padding: 0;
+            overflow: hidden;
+            min-height: 620px;
+            position: relative;
+        }
+
+        .presentation-content {
+            padding: 0px;
+        }
+
+        .presentation-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .presentation-content h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--orange-main);
+            border-radius: 4px;
+        }
+
+        .presentation-image {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-bottom: 5px solid var(--orange-main);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--green-main);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h5 {
+            color: var(--green-main);
+            margin-bottom: 8px;
+        }
+
         /* Different background styles for each section */
         #iteg {
-            background: linear-gradient(135deg, #006400 0%, #004d00 100%);
+            background-image: url("/images/starter_Kit.webp");
             color: white;
+        }
+
+        /* Hero Image */
+        .module-hero {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .module-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+        }
+
+        .module-title {
+            position: absolute;
+            bottom: 25px;
+            left: 40px;
+            color: white;
+            font-size: 2.4rem;
+            font-weight: 700;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        /* Side-by-Side Content */
+        .side-content {
+            display: flex;
+            gap: 40px;
+            padding: 40px;
+            flex-wrap: wrap;
+        }
+
+        .side-image {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .side-image img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .side-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .side-text h4 {
+            color: var(--green-main);
+            margin-bottom: 15px;
+        }
+
+        .side-text p {
+            line-height: 1.75;
+            font-size: 1.05rem;
         }
 
         #mbgc {
@@ -474,9 +604,9 @@
             <span class="close-btn">×</span>
         </div>
         <ul>
-            <li><a href="/jwt">JWT – Joules Water Team</a></li>
-            <li><a href="/pcrr">PCRR – Piano Commerciale di Ripresa e Resilienza</a></li>
-            <li><a href="/comm">COMM – Common Services</a></li>
+            <li><a href="/jwt">JWT</a></li>
+            <li><a href="/pcrr">PCRR</a></li>
+            <li><a href="/comm">COMM</a></li>
             <li><a href="/iteg">ITEG</a></li>
             <li><a href="/mbgc">MBGC</a></li>
             <li><a href="/pbrc">PBRC</a></li>
@@ -503,10 +633,10 @@
 
                 <!-- Fixed Vertical Menu -->
                 <nav class="vertical-sidebar">
-                    <div class="sidebar-header">
+                    <div class="sidebar-card active">
                         <h5 style="color:#FF6200;">JWT Ecosystem</h5>
                     </div>
-                    <a href="#" class="sidebar-card active" data-id="iteg">ITEG - Rotor</a>
+                    <a href="#" class="sidebar-card" data-id="iteg">ITEG - Rotor</a>
                     <a href="#" class="sidebar-card" data-id="mbgc">MBGC - Biogas</a>
                     <a href="#" class="sidebar-card" data-id="pbrc">PBRC - Micro Algae</a>
                     <a href="#" class="sidebar-card" data-id="sidr">SIDR - Agro & Sport</a>
@@ -514,8 +644,9 @@
                     <a href="#" class="sidebar-card" data-id="gsmf">GSMF - Separation</a>
                     <a href="#" class="sidebar-card" data-id="gfss">GFSS - Ems Separation</a>
                     <a href="#" class="sidebar-card" data-id="pcrr">PCRR - Recovery & Resilience</a>
-                    <a href="#" class="sidebar-card" data-id="eport">eport tv1 - Media</a>
-
+                    <div class="sidebar-card active">
+                        <h5 style="color:#FF6200;">eport tv1 - Media</h5>
+                    </div>
                     <div class="sidebar-divider"></div>
 
                     <a href="#" class="sidebar-card" data-id="it-support">IT & Support</a>
@@ -1066,6 +1197,213 @@
             initCharts();
             initJWTDiagram();
         });
+        // Rich Content + Interactive Demos
+        const contentData = {
+            "iteg": {
+                title: "ITEG - Rotor",
+                heroBg: "https://via.placeholder.com/1200x280/006400/ffffff?text=ITEG+Rotor",
+                sideImage: "/images/starter_Kit.webp",
+                text: "Advanced high-efficiency rotor technology engineered for energy generation, water treatment, and industrial applications."
+            },
+            "mbgc": {
+                title: "MBGC - Biogas",
+                heroBg: "https://via.placeholder.com/1200x280/228B22/ffffff?text=MBGC+Biogas",
+                sideImage: "https://via.placeholder.com/600x400/006400/ffffff?text=MBGC+Biogas",
+                text: "Mini BioGas Cogeneration systems that convert organic waste into clean electricity and heat."
+            },
+            "pbrc": {
+                title: "PBRC - Micro Algae",
+                heroBg: "https://via.placeholder.com/1200x280/20B2AA/ffffff?text=PBRC+Micro+Algae",
+                sideImage: "https://via.placeholder.com/600x400/008080/ffffff?text=Micro+Algae",
+                text: "State-of-the-art photobioreactor systems for high-density micro-algae cultivation."
+            },
+            "sidr": {
+                title: "SIDR - Agro & Sport",
+                heroBg: "https://via.placeholder.com/1200x280/FFA500/ffffff?text=SIDR+Agro+Sport",
+                sideImage: "https://via.placeholder.com/600x400/FF6200/ffffff?text=Agro+Sport",
+                text: "Integrated development solutions combining smart agriculture with sports infrastructure."
+            },
+            "sdgc": {
+                title: "SDGC - Desalination",
+                heroBg: "https://via.placeholder.com/1200x280/00BFFF/ffffff?text=SDGC+Desalination",
+                sideImage: "https://via.placeholder.com/600x400/1E90FF/ffffff?text=Desalination",
+                text: "Sea & Desert Green Conversion technology providing low-energy desalination."
+            },
+            "gsmf": {
+                title: "GSMF - Separation",
+                heroBg: "https://via.placeholder.com/1200x280/8B4513/ffffff?text=GSMF+Separation",
+                sideImage: "https://via.placeholder.com/600x400/654321/ffffff?text=Gas+Separation",
+                text: "Advanced Gas Separation Membrane Filtration systems."
+            },
+            "gfss": {
+                title: "GFSS - Ems Separation",
+                heroBg: "https://via.placeholder.com/1200x280/4B0082/ffffff?text=GFSS+Ems",
+                sideImage: "https://via.placeholder.com/600x400/6A0DAD/ffffff?text=EM+Separation",
+                text: "ElectroMagnetic Gravity Separation – revolutionary chemical-free technology."
+            },
+            "pcrr": {
+                title: "PCRR - Recovery & Resilience",
+                heroBg: "https://via.placeholder.com/1200x280/006400/FF6200?text=PCRR",
+                sideImage: "https://via.placeholder.com/600x400/006400/ffffff?text=PCRR",
+                text: "The commercial backbone of JWT’s 342 green patents."
+            },
+            "eport": {
+                title: "eport tv1 - Media",
+                heroBg: "https://via.placeholder.com/1200x280/DC143C/ffffff?text=eport+TV1",
+                sideImage: "https://via.placeholder.com/600x400/B22222/ffffff?text=Media",
+                text: "Digital media platform dedicated to green innovation."
+            },
+            "it-support": {
+                title: "IT & Support",
+                heroBg: "https://via.placeholder.com/1200x280/2F4F4F/ffffff?text=IT+Support",
+                sideImage: "https://via.placeholder.com/600x400/1C2C2C/ffffff?text=IT",
+                text: "Comprehensive technical infrastructure and support."
+            },
+            "edu": {
+                title: "EDU/FAD",
+                heroBg: "https://via.placeholder.com/1200x280/228B22/ffffff?text=EDU+FAD",
+                sideImage: "https://via.placeholder.com/600x400/006400/ffffff?text=Education",
+                text: "Education and professional training in green technologies."
+            },
+            "editorial": {
+                title: "Editorial Plan",
+                heroBg: "https://via.placeholder.com/1200x280/006400/ffffff?text=Editorial",
+                sideImage: "https://via.placeholder.com/600x400/004d00/ffffff?text=Content",
+                text: "Strategic content planning and management."
+            },
+            "mktg": {
+                title: "MKTG Commercial Goods",
+                heroBg: "https://via.placeholder.com/1200x280/FF6200/ffffff?text=MKTG",
+                sideImage: "https://via.placeholder.com/600x400/FF8C00/ffffff?text=Marketing",
+                text: "Marketing and commercialization of green solutions."
+            },
+            "mkt-jp": {
+                title: "MKT & JP",
+                heroBg: "https://via.placeholder.com/1200x280/FF4500/ffffff?text=Joint+Promotion",
+                sideImage: "https://via.placeholder.com/600x400/FF6200/ffffff?text=Partnerships",
+                text: "Joint promotion and strategic marketing collaborations."
+            },
+            "iisrb": {
+                title: "II & SRB",
+                heroBg: "https://via.placeholder.com/1200x280/2F4F4F/ffffff?text=International",
+                sideImage: "https://via.placeholder.com/600x400/1C2C2C/ffffff?text=Institutions",
+                text: "Building strategic relationships with global institutions."
+            },
+            "jv": {
+                title: "JV & 30/21",
+                heroBg: "https://via.placeholder.com/1200x280/006400/FF6200?text=Joint+Ventures",
+                sideImage: "https://via.placeholder.com/600x400/006400/ffffff?text=JV",
+                text: "Joint Ventures and strategic sustainability programs."
+            }
+        };
+
+        // Main Rendering Function with Interactive Demos
+        const presentationArea = document.getElementById('presentationArea');
+
+        document.querySelectorAll('.sidebar-card').forEach(card => {
+            card.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelectorAll('.sidebar-card').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+
+                const id = this.getAttribute('data-id');
+                const data = contentData[id];
+
+                if (data) {
+                    presentationArea.innerHTML = `
+                <div class="module-hero" style="background-image: url('${data.heroBg}')">
+                    <h2 class="module-title">${data.title}</h2>
+                </div>
+                
+                <div class="side-content">
+                    <div class="side-image">
+                        <img src="${data.sideImage}" alt="${data.title}">
+                    </div>
+                    <div class="side-text">
+                        <h4>Detailed Overview</h4>
+                        <p>${data.text}</p>
+                    </div>
+                </div>
+
+                <!-- INTERACTIVE DEMO SECTION -->
+                <div class="interactive-demo" style="padding: 30px 40px; background:#f8f9fa; border-top: 1px solid #eee;">
+                    <h4 style="color:#006400; margin-bottom:20px;">Interactive Demo</h4>
+                    <div id="demo-content-${id}"></div>
+                </div>
+            `;
+
+                    // Call specific interactive demo based on module
+                    renderInteractiveDemo(id);
+                }
+            });
+        });
+
+        function renderInteractiveDemo(id) {
+            const demoContainer = document.getElementById(`demo-content-${id}`);
+            if (!demoContainer) return;
+
+            let demoHTML = '';
+
+            switch (id) {
+                case "iteg":
+                case "mbgc":
+                    demoHTML = `
+                <p><strong>Energy Output Simulator</strong></p>
+                <button class="btn btn-success mb-3" onclick="simulateEnergy(this)">Start Simulation</button>
+                <div id="energy-result" style="font-size:1.4rem; font-weight:bold; color:#006400;"></div>
+            `;
+                    break;
+
+                case "pcrr":
+                    demoHTML = `
+                <p><strong>Zone Revenue Calculator</strong></p>
+                <input type="number" id="zone-pop" placeholder="Population (e.g. 1500000)" style="padding:10px; width:100%; margin-bottom:10px;">
+                <button class="btn btn-success" onclick="calculateRevenue()">Calculate Potential Revenue</button>
+                <div id="revenue-result" style="margin-top:15px; font-weight:bold;"></div>
+            `;
+                    break;
+
+                case "sdgc":
+                    demoHTML = `
+                <p><strong>Water Production Estimator</strong></p>
+                <button class="btn btn-info" onclick="waterDemo()">Generate 1 Month Output</button>
+                <div id="water-result" style="margin-top:15px;"></div>
+            `;
+                    break;
+
+                default:
+                    demoHTML = `
+                <p>Interactive features coming soon for this module.</p>
+                <button class="btn btn-outline-success" onclick="alert('Demo activated! In real version this would show live data.')">Launch Demo</button>
+            `;
+            }
+
+            demoContainer.innerHTML = demoHTML;
+        }
+
+        // Demo Functions
+        window.simulateEnergy = function (btn) {
+            btn.innerHTML = "Running...";
+            setTimeout(() => {
+                document.getElementById('energy-result').innerHTML =
+                    `✅ Peak Output: <span style="color:#FF6200;">2.84 MW</span><br> Efficiency: 94.7%`;
+                btn.innerHTML = "Restart Simulation";
+            }, 1200);
+        };
+
+        window.calculateRevenue = function () {
+            const pop = document.getElementById('zone-pop').value;
+            if (!pop) return alert("Please enter population");
+            const revenue = (parseInt(pop) / 1000000 * 680).toFixed(1);
+            document.getElementById('revenue-result').innerHTML =
+                `Estimated Annual Revenue by 2030: <strong>€${revenue} Million</strong>`;
+        };
+
+        window.waterDemo = function () {
+            const result = document.getElementById('water-result');
+            result.innerHTML = `🌊 <strong>28,450,000 Liters</strong> of fresh water produced in 30 days`;
+        };
     </script>
 </body>
 
