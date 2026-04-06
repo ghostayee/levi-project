@@ -19,7 +19,7 @@
         }
 
         .pcrr-page {
-            background: #f8f9fa;
+            background: #a2e0b7;
         }
 
         .full-section {
@@ -668,7 +668,7 @@
     <div id="menu-overlay" class="menu-overlay"></div>
 
     <main class="gfss-page py-5 mt-5">
-        <div class="container" style="max-width: 1180px;">
+        <div class="container" style="max-width: 1180px; margin: 0 auto; padding: 0 15px;">
             <div class="text-center mt-5">
                 <h1 class="display-5 fw-bold hi">PCRR – Piano Commerciale di Ripresa e Resilienza</h1>
                 <p class="lead">The commercial backbone of JWT — scaling 342 green patents through licensing, auctions,
@@ -709,8 +709,6 @@
                 <div class="presentation-area" id="presentationArea">
                     <!-- Default content (will change on click) -->
                     <div class="presentation-content">
-                        <h2>Welcome to JWT Ecosystem</h2>
-                        <p>Select any module from the left menu to explore details.</p>
                     </div>
                 </div>
             </div>
@@ -1121,8 +1119,7 @@
                     Open Shopping Cart
                 </a>
                 <p style="font-size: 0.85em; opacity: 0.85; margin-top: 30px;">
-                    © 2026 PCRR JWTeam Srls – All Rights Reserved<br>
-                    Qualified visitors receive reply within 48 hours
+                    © 2026 All Rights Reserved<br>
                 </p>
             </div>
         </div>
@@ -1130,8 +1127,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // ====================== ORIGINAL FUNCTIONS ======================
-        // Hamburger Menu
+        // ====================== HAMBURGER MENU ======================
         const hamburger = document.getElementById('hamburger');
         const sideMenu = document.getElementById('side-menu');
         const overlay = document.getElementById('menu-overlay');
@@ -1159,14 +1155,10 @@
             const bannerHeight = document.getElementById('pcrr-submenu').offsetHeight;
             const headerHeight = document.querySelector('.site-header').offsetHeight;
             const hamburgerContainer = document.getElementById('hamburger-container');
-            if (hamburgerContainer) {
-                hamburgerContainer.style.top = `${bannerHeight + headerHeight + 8}px`;
-            }
+            if (hamburgerContainer) hamburgerContainer.style.top = `${bannerHeight + headerHeight + 8}px`;
         }
-        window.addEventListener('load', updateHamburgerPosition);
-        window.addEventListener('resize', updateHamburgerPosition);
 
-        // KYC & Dream Zone Modals
+        // ====================== MODALS ======================
         document.querySelectorAll('.main-btn').forEach(btn => {
             btn.addEventListener('click', function () {
                 const modalId = this.getAttribute('data-modal');
@@ -1196,39 +1188,31 @@
             });
         });
 
-        // Scroll Reveal
+        // ====================== SCROLL REVEAL ======================
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.15 });
-
         document.querySelectorAll('.pcrr-card').forEach(card => observer.observe(card));
 
-        // Charts & JWT Diagram
+        // ====================== CHARTS & JWT DIAGRAM ======================
         function initCharts() {
             const opts = { responsive: true, maintainAspectRatio: false };
             new Chart(document.getElementById('chartRevenue'), {
                 type: 'bar',
-                data: {
-                    labels: ['Northern', 'Western', 'Central', 'Southern', 'Eastern'],
-                    datasets: [{ data: [420, 680, 540, 320, 440], backgroundColor: '#006400' }]
-                },
+                data: { labels: ['Northern', 'Western', 'Central', 'Southern', 'Eastern'], datasets: [{ data: [420, 680, 540, 320, 440], backgroundColor: '#006400' }] },
                 options: opts
             });
             new Chart(document.getElementById('chartAdoption'), {
                 type: 'line',
-                data: {
-                    labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
-                    datasets: [{ data: [5, 18, 35, 55, 72, 85, 94], borderColor: '#006400', fill: true }]
-                },
+                data: { labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'], datasets: [{ data: [5, 18, 35, 55, 72, 85, 94], borderColor: '#006400', fill: true }] },
                 options: opts
             });
             new Chart(document.getElementById('chartSavings'), {
                 type: 'line',
                 data: {
-                    labels: ['2024', '2025', '2026', '2027', '2028'],
-                    datasets: [
+                    labels: ['2024', '2025', '2026', '2027', '2028'], datasets: [
                         { label: 'Traditional', data: [100, 105, 112, 118, 125], borderColor: '#dc3545' },
                         { label: 'PCRR', data: [82, 68, 55, 42, 30], borderColor: '#006400' }
                     ]
@@ -1240,107 +1224,45 @@
         function initJWTDiagram() {
             const container = document.getElementById('jwtDiagram');
             if (!container) return;
-            // ... (your existing JWT diagram code remains unchanged)
+            const nodes = [
+                { id: "PCRR", x: "50%", y: "50%", desc: "Central commercial engine for all JWT GREEN patents." },
+                { id: "GSMF", x: "25%", y: "30%", desc: "Gas Separation Membrane Filtration – CO₂ capture & biogas upgrading." },
+                { id: "GFSS", x: "75%", y: "30%", desc: "ElectroMagnetic Gravity Separation – advanced mineral processing." },
+                { id: "MBGC", x: "25%", y: "70%", desc: "Mini BioGas Cogeneration – waste-to-energy solutions." },
+                { id: "SDGC", x: "75%", y: "70%", desc: "Sea & Desert Green Conversion – sustainable land restoration." }
+            ];
+            nodes.forEach(node => {
+                const el = document.createElement('div');
+                el.className = `jwt-node ${node.id === 'PCRR' ? 'center' : ''}`;
+                el.style.left = node.x;
+                el.style.top = node.y;
+                el.textContent = node.id;
+                el.onclick = () => {
+                    const detail = document.getElementById('jwtNodeDetail');
+                    if (detail) detail.innerHTML = `<strong>${node.id}</strong><p>${node.desc}</p>`;
+                };
+                container.appendChild(el);
+            });
         }
 
-        // ====================== NEW SIDEBAR PRESENTATION SYSTEM ======================
+        // ====================== SIDEBAR CONTENT DATA ======================
         const contentData = {
-            "iteg": {
-                title: "ITEG - Rotor",
-                heroBg: "/images/starter_Kit.webp",
-                sideImage: "/images/starter_Kit.webp",
-                text: "Advanced high-efficiency rotor technology engineered for energy generation, water treatment, and industrial applications."
-            },
-            "mbgc": {
-                title: "MBGC - Biogas",
-                heroBg: "https://source.unsplash.com/random/1200x280/?biogas,energy",
-                sideImage: "https://source.unsplash.com/random/600x400/?biogas,plant",
-                text: "Mini BioGas Cogeneration systems that convert organic waste into clean electricity and heat."
-            },
-            "pbrc": {
-                title: "PBRC - Micro Algae",
-                heroBg: "https://source.unsplash.com/random/1200x280/?algae,bioreactor",
-                sideImage: "https://source.unsplash.com/random/600x400/?microalgae,lab",
-                text: "State-of-the-art photobioreactor systems for high-density micro-algae cultivation."
-            },
-            "sidr": {
-                title: "SIDR - Agro & Sport",
-                heroBg: "https://source.unsplash.com/random/1200x280/?agriculture,sports",
-                sideImage: "https://source.unsplash.com/random/600x400/?farm,sportsfield",
-                text: "Integrated development solutions combining smart agriculture with sports infrastructure."
-            },
-            "sdgc": {
-                title: "SDGC - Desalination",
-                heroBg: "https://source.unsplash.com/random/1200x280/?desalination,desert",
-                sideImage: "https://source.unsplash.com/random/600x400/?desert,water",
-                text: "Sea & Desert Green Conversion technology providing low-energy desalination."
-            },
-            "gsmf": {
-                title: "GSMF - Separation",
-                heroBg: "https://source.unsplash.com/random/1200x280/?membrane,filtration",
-                sideImage: "https://source.unsplash.com/random/600x400/?industrial,filter",
-                text: "Advanced Gas Separation Membrane Filtration systems."
-            },
-            "gfss": {
-                title: "GFSS - Ems Separation",
-                heroBg: "https://source.unsplash.com/random/1200x280/?magnetic,separation",
-                sideImage: "https://source.unsplash.com/random/600x400/?mineral,processing",
-                text: "ElectroMagnetic Gravity Separation – revolutionary chemical-free technology."
-            },
-            "pcrr": {
-                title: "PCRR - Recovery & Resilience",
-                heroBg: "https://source.unsplash.com/random/1200x280/?green,economy",
-                sideImage: "https://source.unsplash.com/random/600x400/?sustainable,business",
-                text: "The commercial backbone of JWT’s 342 green patents."
-            },
-            "eport": {
-                title: "eport tv1 - Media",
-                heroBg: "https://source.unsplash.com/random/1200x280/?broadcast,studio",
-                sideImage: "https://source.unsplash.com/random/600x400/?media,television",
-                text: "Digital media platform dedicated to green innovation."
-            },
-            "it-support": {
-                title: "IT & Support",
-                heroBg: "https://source.unsplash.com/random/1200x280/?data,center",
-                sideImage: "https://source.unsplash.com/random/600x400/?server,technology",
-                text: "Comprehensive technical infrastructure and support."
-            },
-            "edu": {
-                title: "EDU/FAD",
-                heroBg: "https://source.unsplash.com/random/1200x280/?education,learning",
-                sideImage: "https://source.unsplash.com/random/600x400/?classroom,training",
-                text: "Education and professional training in green technologies."
-            },
-            "editorial": {
-                title: "Editorial Plan",
-                heroBg: "https://source.unsplash.com/random/1200x280/?publishing,content",
-                sideImage: "https://source.unsplash.com/random/600x400/?writing,books",
-                text: "Strategic content planning and management."
-            },
-            "mktg": {
-                title: "MKTG Commercial Goods",
-                heroBg: "https://source.unsplash.com/random/1200x280/?marketing,green",
-                sideImage: "https://source.unsplash.com/random/600x400/?marketing,product",
-                text: "Marketing and commercialization of green solutions."
-            },
-            "mkt-jp": {
-                title: "MKT & JP",
-                heroBg: "https://source.unsplash.com/random/1200x280/?partnership,collaboration",
-                sideImage: "https://source.unsplash.com/random/600x400/?business,handshake",
-                text: "Joint promotion and strategic marketing collaborations."
-            },
-            "iisrb": {
-                title: "II & SRB",
-                heroBg: "https://source.unsplash.com/random/1200x280/?international,conference",
-                sideImage: "https://source.unsplash.com/random/600x400/?meeting,global",
-                text: "Building strategic relationships with global institutions."
-            },
-            "jv": {
-                title: "JV & 30/21",
-                heroBg: "https://source.unsplash.com/random/1200x280/?joint,venture",
-                sideImage: "https://source.unsplash.com/random/600x400/?business,strategy",
-                text: "Joint Ventures and strategic sustainability programs."
-            }
+            "iteg": { title: "ITEG - Rotor", heroBg: "/images/starter_Kit.webp", sideImage: "/images/starter_Kit.webp", text: "Advanced high-efficiency rotor technology engineered for energy generation, water treatment, and industrial applications." },
+            "mbgc": { title: "MBGC - Biogas", heroBg: "https://source.unsplash.com/random/1200x280/?biogas,energy", sideImage: "https://source.unsplash.com/random/600x400/?biogas,plant", text: "Mini BioGas Cogeneration systems that convert organic waste into clean electricity and heat." },
+            "pbrc": { title: "PBRC - Micro Algae", heroBg: "https://source.unsplash.com/random/1200x280/?algae,bioreactor", sideImage: "https://source.unsplash.com/random/600x400/?microalgae,lab", text: "State-of-the-art photobioreactor systems for high-density micro-algae cultivation." },
+            "sidr": { title: "SIDR - Agro & Sport", heroBg: "https://source.unsplash.com/random/1200x280/?agriculture,sports", sideImage: "https://source.unsplash.com/random/600x400/?farm,sportsfield", text: "Integrated development solutions combining smart agriculture with sports infrastructure." },
+            "sdgc": { title: "SDGC - Desalination", heroBg: "https://source.unsplash.com/random/1200x280/?desalination,desert", sideImage: "https://source.unsplash.com/random/600x400/?desert,water", text: "Sea & Desert Green Conversion technology providing low-energy desalination." },
+            "gsmf": { title: "GSMF - Separation", heroBg: "https://source.unsplash.com/random/1200x280/?membrane,filtration", sideImage: "https://source.unsplash.com/random/600x400/?industrial,filter", text: "Advanced Gas Separation Membrane Filtration systems." },
+            "gfss": { title: "GFSS - Ems Separation", heroBg: "https://source.unsplash.com/random/1200x280/?magnetic,separation", sideImage: "https://source.unsplash.com/random/600x400/?mineral,processing", text: "ElectroMagnetic Gravity Separation – revolutionary chemical-free technology." },
+            "pcrr": { title: "PCRR - Recovery & Resilience", heroBg: "https://source.unsplash.com/random/1200x280/?green,economy", sideImage: "https://source.unsplash.com/random/600x400/?sustainable,business", text: "The commercial backbone of JWT’s 342 green patents." },
+            "eport": { title: "eport tv1 - Media", heroBg: "https://source.unsplash.com/random/1200x280/?broadcast,studio", sideImage: "https://source.unsplash.com/random/600x400/?media,television", text: "Digital media platform dedicated to green innovation." },
+            "it-support": { title: "IT & Support", heroBg: "https://source.unsplash.com/random/1200x280/?data,center", sideImage: "https://source.unsplash.com/random/600x400/?server,technology", text: "Comprehensive technical infrastructure and support." },
+            "edu": { title: "EDU/FAD", heroBg: "https://source.unsplash.com/random/1200x280/?education,learning", sideImage: "https://source.unsplash.com/random/600x400/?classroom,training", text: "Education and professional training in green technologies." },
+            "editorial": { title: "Editorial Plan", heroBg: "https://source.unsplash.com/random/1200x280/?publishing,content", sideImage: "https://source.unsplash.com/random/600x400/?writing,books", text: "Strategic content planning and management." },
+            "mktg": { title: "MKTG Commercial Goods", heroBg: "https://source.unsplash.com/random/1200x280/?marketing,green", sideImage: "https://source.unsplash.com/random/600x400/?marketing,product", text: "Marketing and commercialization of green solutions." },
+            "mkt-jp": { title: "MKT & JP", heroBg: "https://source.unsplash.com/random/1200x280/?partnership,collaboration", sideImage: "https://source.unsplash.com/random/600x400/?business,handshake", text: "Joint promotion and strategic marketing collaborations." },
+            "iisrb": { title: "II & SRB", heroBg: "https://source.unsplash.com/random/1200x280/?international,conference", sideImage: "https://source.unsplash.com/random/600x400/?meeting,global", text: "Building strategic relationships with global institutions." },
+            "jv": { title: "JV & 30/21", heroBg: "https://source.unsplash.com/random/1200x280/?joint,venture", sideImage: "https://source.unsplash.com/random/600x400/?business,strategy", text: "Joint Ventures and strategic sustainability programs." }
         };
 
         const presentationArea = document.getElementById('presentationArea');
@@ -1349,7 +1271,6 @@
         document.querySelectorAll('.sidebar-card').forEach(card => {
             card.addEventListener('click', function (e) {
                 e.preventDefault();
-
                 document.querySelectorAll('.sidebar-card').forEach(c => c.classList.remove('active'));
                 this.classList.add('active');
 
@@ -1358,24 +1279,55 @@
 
                 if (data && presentationArea) {
                     presentationArea.innerHTML = `
-    <div class="module-hero" style="background-image: url('${data.heroBg}')">
-        <h2 class="module-title">${data.title}</h2>
-    </div>
-    
-    <div class="side-content"> ... </div>
+                    <div class="module-hero" style="background-image: url('${data.heroBg}')">
+                        <h2 class="module-title">${data.title}</h2>
+                    </div>
+                    <div class="side-content">
+                        <div class="side-image"><img src="${data.sideImage}" alt="${data.title}"></div>
+                        <div class="side-text">
+                            <h4>Introduction</h4>
+                            <p>${data.text}</p>
+                        </div>
+                    </div>
 
-    <!-- INTERACTIVE DEMO SECTION -->
-    <div class="interactive-demo" style="padding: 30px 40px; background:#f8f9fa; border-top: 1px solid #eee;">
-        ...
-    </div>
-`;
+                    <div class="interactive-demo" style="padding: 30px 40px; background:#f8f9fa; border-top: 1px solid #eee;">
+                        <h4 style="color:#006400; margin-bottom:20px;">Running Statistics</h4>
+                        <div id="demo-content-${id}"></div>
+                    </div>
 
+                    <div class="feature-cards">
+                        <div class="feature-card">
+                            <img src="https://source.unsplash.com/random/400x180/?technology" alt="">
+                            <div class="feature-card-body">
+                                <h5>Core Technology</h5>
+                                <p>Advanced engineering with proven efficiency and reliability.</p>
+                                <button class="btn btn-success btn-sm">Learn More</button>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <img src="https://source.unsplash.com/random/400x180/?sustainability" alt="">
+                            <div class="feature-card-body">
+                                <h5>Environmental Impact</h5>
+                                <p>Significant reduction in CO₂ emissions and resource consumption.</p>
+                                <button class="btn btn-success btn-sm">Learn More</button>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <img src="https://source.unsplash.com/random/400x180/?business" alt="">
+                            <div class="feature-card-body">
+                                <h5>Commercial Model</h5>
+                                <p>Zero upfront cost deployment with strong ROI and licensing options.</p>
+                                <button class="btn btn-success btn-sm">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
                     renderInteractiveDemo(id);
                 }
             });
         });
 
-        // Interactive Demos
+        // ====================== INTERACTIVE DEMOS ======================
         function renderInteractiveDemo(id) {
             const demoContainer = document.getElementById(`demo-content-${id}`);
             if (!demoContainer) return;
@@ -1383,61 +1335,42 @@
             let demoHTML = '';
 
             switch (id) {
-                case "iteg":
-                case "mbgc":
-                    demoHTML = `<p><strong>Energy Output Simulator</strong></p>
-                            <button class="btn btn-success mb-3" onclick="simulateEnergy(this)">Start Simulation</button>
-                            <div id="energy-result" style="font-size:1.4rem; font-weight:bold; color:#006400;"></div>`;
-                    break;
-
-                case "pcrr":
-                    demoHTML = `<p><strong>Zone Revenue Calculator</strong></p>
-                            <input type="number" id="zone-pop" placeholder="Population (e.g. 1500000)" style="padding:10px; width:100%; margin-bottom:10px;">
-                            <button class="btn btn-success" onclick="calculateRevenue()">Calculate Potential Revenue</button>
-                            <div id="revenue-result" style="margin-top:15px; font-weight:bold;"></div>`;
-                    break;
-
-                case "sdgc":
-                    demoHTML = `<p><strong>Water Production Estimator</strong></p>
-                            <button class="btn btn-info" onclick="waterDemo()">Generate 1 Month Output</button>
-                            <div id="water-result" style="margin-top:15px;"></div>`;
-                    break;
-
-                default:
-                    demoHTML = `<p>Interactive features coming soon for this module.</p>
-                            <button class="btn btn-outline-success" onclick="alert('Demo activated!')">Launch Demo</button>`;
+                case "iteg": demoHTML = `<p><strong>Rotor Energy Simulator</strong></p><button class="btn btn-success mb-3" onclick="simulateEnergy(this)">Run Simulation</button><div id="energy-result" style="font-size:1.3rem;font-weight:bold;color:#006400;margin-top:10px;"></div>`; break;
+                case "mbgc": demoHTML = `<p><strong>Waste to Energy Converter</strong></p><button class="btn btn-success mb-3" onclick="simulateBiogas(this)">Process 1 Ton Waste</button><div id="biogas-result" style="font-size:1.3rem;font-weight:bold;color:#006400;margin-top:10px;"></div>`; break;
+                case "pbrc": demoHTML = `<p><strong>Algae Growth Simulator</strong></p><button class="btn btn-success mb-3" onclick="simulateAlgae(this)">Start Growth Cycle</button><div id="algae-result" style="font-size:1.3rem;font-weight:bold;color:#006400;margin-top:10px;"></div>`; break;
+                case "sdgc": demoHTML = `<p><strong>Desalination Estimator</strong></p><button class="btn btn-info mb-3" onclick="waterDemo()">Generate 30 Days Output</button><div id="water-result" style="font-size:1.3rem;font-weight:bold;color:#006400;margin-top:10px;"></div>`; break;
+                case "pcrr": demoHTML = `<p><strong>Zone Revenue Calculator</strong></p><input type="number" id="zone-pop" placeholder="Population (e.g. 1500000)" style="padding:10px;width:100%;margin-bottom:10px;"><button class="btn btn-success" onclick="calculateRevenue()">Calculate Revenue</button><div id="revenue-result" style="margin-top:15px;font-weight:bold;"></div>`; break;
+                case "gsmf":
+                case "gfss": demoHTML = `<p><strong>Separation Efficiency</strong></p><button class="btn btn-success mb-3" onclick="simulateSeparation(this)">Run Process</button><div id="separation-result" style="font-size:1.3rem;font-weight:bold;color:#006400;margin-top:10px;"></div>`; break;
+                case "eport": demoHTML = `<p><strong>Media Reach Simulator</strong></p><button class="btn btn-success mb-3" onclick="simulateMedia(this)">Broadcast Live</button><div id="media-result" style="font-size:1.3rem;font-weight:bold;color:#006400;margin-top:10px;"></div>`; break;
+                default: demoHTML = `<p>Interactive demo coming soon for this module.</p>`;
             }
-
             demoContainer.innerHTML = demoHTML;
         }
 
         // Demo Functions
-        window.simulateEnergy = function (btn) {
-            btn.innerHTML = "Running...";
-            setTimeout(() => {
-                document.getElementById('energy-result').innerHTML = `✅ Peak Output: <span style="color:#FF6200;">2.84 MW</span><br>Efficiency: 94.7%`;
-                btn.innerHTML = "Restart Simulation";
-            }, 1200);
-        };
+        window.simulateEnergy = function (btn) { btn.innerHTML = "Running..."; setTimeout(() => { document.getElementById('energy-result').innerHTML = `✅ Peak Output: <span style="color:#FF6200;">2.84 MW</span><br>Efficiency: 94.7%`; btn.innerHTML = "Run Again"; }, 1400); };
+        window.simulateBiogas = function (btn) { btn.innerHTML = "Processing..."; setTimeout(() => { document.getElementById('biogas-result').innerHTML = `✅ 1.85 MWh + 420 m³ biogas`; btn.innerHTML = "Process Again"; }, 1300); };
+        window.simulateAlgae = function (btn) { btn.innerHTML = "Growing..."; setTimeout(() => { document.getElementById('algae-result').innerHTML = `✅ Biomass: 18.4 kg/m²<br>CO₂ Captured: 42 tons`; btn.innerHTML = "New Cycle"; }, 1600); };
+        window.simulateSeparation = function (btn) { btn.innerHTML = "Processing..."; setTimeout(() => { document.getElementById('separation-result').innerHTML = `✅ Efficiency: 98.7%`; btn.innerHTML = "Run Again"; }, 1100); };
+        window.simulateMedia = function (btn) { btn.innerHTML = "Broadcasting..."; setTimeout(() => { document.getElementById('media-result').innerHTML = `✅ Live Reach: 248,000 viewers`; btn.innerHTML = "Broadcast Again"; }, 1200); };
 
         window.calculateRevenue = function () {
             const pop = document.getElementById('zone-pop').value;
             if (!pop) return alert("Please enter population");
             const revenue = (parseInt(pop) / 1000000 * 680).toFixed(1);
-            document.getElementById('revenue-result').innerHTML = `Estimated Annual Revenue by 2030: <strong>€${revenue} Million</strong>`;
+            document.getElementById('revenue-result').innerHTML = `Estimated Annual Revenue: <strong>€${revenue} Million</strong>`;
         };
 
         window.waterDemo = function () {
             const result = document.getElementById('water-result');
-            result.innerHTML = `🌊 <strong>28,450,000 Liters</strong> of fresh water produced in 30 days`;
+            result.innerHTML = `🌊 <strong>28,450,000 Liters</strong> of fresh water produced`;
         };
 
-        // Initialize everything
+        // ====================== INITIALIZE EVERYTHING ======================
         window.addEventListener('load', () => {
             initCharts();
             initJWTDiagram();
-
-            // Auto-select first item in sidebar on load
             const firstCard = document.querySelector('.sidebar-card');
             if (firstCard) firstCard.click();
         });
