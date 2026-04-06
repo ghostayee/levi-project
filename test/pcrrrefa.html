@@ -235,6 +235,142 @@
             color: var(--green-main);
             transform: translateY(-3px);
         }
+
+        /* ====================== VERTICAL SIDEBAR ====================== */
+        .sidebar-presentation-wrapper {
+            display: flex;
+            gap: 20px;
+            max-width: 1280px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .vertical-sidebar {
+            width: 260px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            padding: 15px 10px;
+            height: fit-content;
+            position: sticky;
+            top: 30px;
+            z-index: 900;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #FF6200;
+        }
+
+        .sidebar-header h5 {
+            margin: 0;
+            font-weight: 700;
+            color: var(--green-main);
+        }
+
+        .sidebar-card {
+            display: block;
+            padding: 14px 18px;
+            margin: 6px 8px;
+            border-radius: 12px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .sidebar-card:hover {
+            background: #f8f9fa;
+            transform: translateX(6px);
+            color: var(--green-main);
+        }
+
+        .sidebar-card.active {
+            background: var(--green-main);
+            color: white;
+            border-color: var(--orange-main);
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background: #eee;
+            margin: 15px 10px;
+        }
+
+        /* ====================== PRESENTATION AREA ====================== */
+        .presentation-area {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Different background styles for each section */
+        #iteg {
+            background: linear-gradient(135deg, #006400 0%, #004d00 100%);
+            color: white;
+        }
+
+        #mbgc {
+            background: linear-gradient(135deg, #228B22 0%, #006400 100%);
+            color: white;
+        }
+
+        #pbrc {
+            background: linear-gradient(135deg, #20B2AA 0%, #008080 100%);
+            color: white;
+        }
+
+        #sidr {
+            background: linear-gradient(135deg, #FFA500 0%, #FF6200 100%);
+            color: white;
+        }
+
+        #sdgc {
+            background: linear-gradient(135deg, #00BFFF 0%, #1E90FF 100%);
+            color: white;
+        }
+
+        #gsmf {
+            background: linear-gradient(135deg, #8B4513 0%, #654321 100%);
+            color: white;
+        }
+
+        #gfss {
+            background: linear-gradient(135deg, #4B0082 0%, #6A0DAD 100%);
+            color: white;
+        }
+
+        #pcrr {
+            background: linear-gradient(135deg, #006400 0%, #FF6200 100%);
+            color: white;
+        }
+
+        #eport {
+            background: linear-gradient(135deg, #DC143C 0%, #B22222 100%);
+            color: white;
+        }
+
+        #it-support,
+        #edu,
+        #editorial,
+        #mktg,
+        #mkt-jp,
+        #iisrb,
+        #jv {
+            background: linear-gradient(135deg, #2F4F4F 0%, #1C2C2C 100%);
+            color: white;
+        }
     </style>
 </head>
 
@@ -354,12 +490,51 @@
     <!-- Overlay -->
     <div id="menu-overlay" class="menu-overlay"></div>
 
-    <main class="gfss-page py-5">
+    <main class="gfss-page py-5 mt-5">
         <div class="container" style="max-width: 1180px;">
-            <div class="text-center mb-2 mt-5">
+            <div class="text-center mt-5">
                 <h1 class="display-5 fw-bold hi">PCRR – Piano Commerciale di Ripresa e Resilienza</h1>
                 <p class="lead">The commercial backbone of JWT — scaling 342 green patents through licensing, auctions,
                     and zero-cost adoption models.</p>
+            </div>
+
+            <!-- NEW VERTICAL SIDEBAR + PRESENTATION AREA -->
+            <div class="sidebar-presentation-wrapper">
+
+                <!-- Fixed Vertical Menu -->
+                <nav class="vertical-sidebar">
+                    <div class="sidebar-header">
+                        <h5 style="color:#FF6200;">JWT Ecosystem</h5>
+                    </div>
+                    <a href="#" class="sidebar-card active" data-id="iteg">ITEG - Rotor</a>
+                    <a href="#" class="sidebar-card" data-id="mbgc">MBGC - Biogas</a>
+                    <a href="#" class="sidebar-card" data-id="pbrc">PBRC - Micro Algae</a>
+                    <a href="#" class="sidebar-card" data-id="sidr">SIDR - Agro & Sport</a>
+                    <a href="#" class="sidebar-card" data-id="sdgc">SDGC - Desalination</a>
+                    <a href="#" class="sidebar-card" data-id="gsmf">GSMF - Separation</a>
+                    <a href="#" class="sidebar-card" data-id="gfss">GFSS - Ems Separation</a>
+                    <a href="#" class="sidebar-card" data-id="pcrr">PCRR - Recovery & Resilience</a>
+                    <a href="#" class="sidebar-card" data-id="eport">eport tv1 - Media</a>
+
+                    <div class="sidebar-divider"></div>
+
+                    <a href="#" class="sidebar-card" data-id="it-support">IT & Support</a>
+                    <a href="#" class="sidebar-card" data-id="edu">EDU/FAD</a>
+                    <a href="#" class="sidebar-card" data-id="editorial">Editorial Plan</a>
+                    <a href="#" class="sidebar-card" data-id="mktg">MKTG Commercial Goods</a>
+                    <a href="#" class="sidebar-card" data-id="mkt-jp">MKT & JP</a>
+                    <a href="#" class="sidebar-card" data-id="iisrb">II & SRB</a>
+                    <a href="#" class="sidebar-card" data-id="jv">JV & 30/21</a>
+                </nav>
+
+                <!-- Dynamic Presentation Area -->
+                <div class="presentation-area" id="presentationArea">
+                    <!-- Default content (will change on click) -->
+                    <div class="presentation-content">
+                        <h2>Welcome to JWT Ecosystem</h2>
+                        <p>Select any module from the left menu to explore details.</p>
+                    </div>
+                </div>
             </div>
 
             <!-- Overview with Image (restored) -->
