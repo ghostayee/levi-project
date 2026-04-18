@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWTeam | Commercial Plan of Recovery and Resilience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        :root {
+            --green-main: #0a8a4a;
+            --green-dark: #086c3a;
+            --orange: #ff6200;
+            --text-main: #2d2d2d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text-main);
+            background: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* ── TOP SCROLLING BANNER ── */
+        #pcrr-submenu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 44px;
+            background: var(--green-dark);
+            z-index: 1200;
+            overflow: hidden;
+        }
+
+        .scroll-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            height: 100%;
+        }
+
+        .scroll-track {
+            display: inline-flex;
+            gap: 40px;
+            height: 100%;
+            align-items: center;
+            animation: scroll-left 15s linear infinite;
+            padding: 0 2rem;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .nav-link {
+            color: white;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ── HEADER ── */
+        .site-header {
+            position: fixed;
+            top: 44px;
+            left: 0;
+            right: 0;
+            background: var(--orange);
+            z-index: 1100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: white;
+        }
+
+        .menu a {
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #fff9;
+            transform: scale(1.05);
+        }
+
+        /* ── CONTENT ── */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 180px 20px 80px;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(10, 138, 74, 0.92), rgba(8, 108, 58, 0.9)),
+                url('https://source.unsplash.com/1600x900/?eco,renewable,green-technology') center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px 80px;
+            margin: -40px -20px 60px;
+            border-bottom: 6px solid var(--orange);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+            color: #ff6200;
+        }
+
+        .section-title {
+            color: var(--green-main);
+            font-size: 2.4rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--orange);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .project-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .project-card:hover {
+            border-color: var(--green-main);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(10, 138, 74, 0.15);
+        }
+
+        .pitch-tag {
+            background: var(--orange);
+            color: white;
+            font-size: 0.85rem;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .budget {
+            color: var(--green-dark);
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .van {
+            color: var(--green-main);
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .footer-jwt {
+            background: var(--green-main);
+            color: white;
+            padding: 70px 20px 40px;
+            margin-top: 100px;
+            border-top: 6px solid var(--orange);
+        }
+
+        .footer-jwt h3 {
+            color: #ff6200;
+            margin-bottom: 20px;
+        }
+
+        .footer-jwt a {
+            color: #a8e6a1;
+        }
+
+        .footer-jwt a:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP SCROLLING BANNER -->
+    <div id="pcrr-submenu">
+        <div class="scroll-wrapper">
+            <div class="scroll-track">
+                <span class="nav-link">ECOLOGICAL TRANSITION • PNRR • TRANSITION 4.0</span>
+                <span class="nav-link">ZERO COST INNOVATIVE SUPPLIES • OPEN TO INVESTORS</span>
+                <span class="nav-link">®GUPC Lab • 60 Centers of Green Excellence</span>
+                <span class="nav-link">ECOLOGICAL TRANSITION • PNRR • TRANSITION 4.0</span>
+                <span class="nav-link">ZERO COST INNOVATIVE SUPPLIES • OPEN TO INVESTORS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-3xl font-bold text-[#0a8a4a]">
+                    JW
+                </div>
+                <div>
+                    <div class="logo">JWTeam</div>
+                    <div class="text-xs text-white/90 -mt-1">Joules Water Team</div>
+                </div>
+            </div>
+
+            <nav class="menu hidden md:flex items-center">
+                <a href="#">Our Projects</a>
+                <a href="#">®GUPC Lab</a>
+                <a href="#">Investors</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content">
+
+        <!-- HERO -->
+        <div class="hero">
+            <div class="max-w-4xl mx-auto">
+                <h1>Commercial Plan of Recovery and Resilience</h1>
+                <p class="text-xl max-w-2xl mx-auto">Srls PCRR • JWTeam Srls — Ecological Transition powered by
+                    Innovation</p>
+            </div>
+        </div>
+
+        <!-- COMPANY INFO -->
+        <div class="max-w-4xl mx-auto text-center mb-16">
+            <p><strong>Registered Office:</strong> Via Terrazzano 85 - 20017 Rho (MI)</p>
+            <p>CF &amp; PI 12092970966 | Share Capital € 200,000</p>
+            <p class="mt-3">Pec: pcrrjwt@pec.it • <a href="https://www.jwt-jwt.it"
+                    class="text-orange-600">www.jwt-jwt.it</a></p>
+            <p class="text-sm text-gray-600 mt-6">Reserved Document • Milan, 09-02-2023 • Jurisdiction: Milan (Italy)
+            </p>
+        </div>
+
+        <!-- INTRODUCTION -->
+        <div class="max-w-4xl mx-auto mb-20">
+            <h2 class="section-title">A New Model for Ecological Transition</h2>
+            <p class="text-lg text-gray-700">
+                JWTeam opens to investors and partners (shareholdings &lt;15%, FIFO, Open 30/21) both against share
+                capital
+                and with sales of innovative supplies at virtually <strong>“ZERO cost”</strong> for counterparties.
+            </p>
+            <p class="text-xl mt-6 font-medium text-green-800">
+                Open to Full-Partners for <span class="text-orange-600">15 M€</span> out of every million inhabitants
+                towards a sober
+                <strong>ECOLOGICAL TRANSITION</strong>.
+            </p>
+        </div>
+
+        <!-- PROJECTS -->
+        <h2 class="section-title text-center mx-auto mb-12">8 Strategic Projects</h2>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto" id="projects-container">
+            <!-- JS injected cards -->
+        </div>
+
+        <!-- GUPC LAB -->
+        <div class="max-w-5xl mx-auto mt-24 bg-white border-2 border-green-800 rounded-2xl p-12 shadow-xl">
+            <h2 class="section-title text-3xl">®GUPC Lab — 60 Centers of Excellence</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-gray-700">
+                    <p>Supported by DL Budget 2020, DL Relaunch and MISE - Transition 4.0.</p>
+                    <p>Strong invitation to Real Estate Operators with access to credit lines to lead the green
+                        transformation of the built environment.</p>
+                </div>
+                <div class="text-center bg-green-50 border border-green-200 rounded-xl py-10">
+                    <div class="text-7xl font-bold text-orange-600">300 M€</div>
+                    <p class="text-green-800 mt-3 font-semibold">Target Credit Line</p>
+                    <p class="text-sm mt-8 text-gray-600">Restored in 2-3 years • 30% margin • Transition 4.0 benefits
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-jwt">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <h3>JWTeam Srls</h3>
+                    <p>Commercial Plan of Recovery and Resilience</p>
+                    <p class="mt-6">info@pcrr-jwt.it</p>
+                    <p>www.pcrr-jwt.it</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul class="space-y-2 mt-4">
+                        <li><a href="#">All Projects</a></li>
+                        <li><a href="#">®GUPC Lab</a></li>
+                        <li><a href="#">Investor Opportunities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Bank Details</h3>
+                    <p class="mt-4">IBAN: IT73H0306909412100000002247</p>
+                    <p>BIC: BCITITMM</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-16 pt-8 border-t border-green-700 text-center text-sm">
+                © 2023 JWTeam Srls • Confidential Document • All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const projects = [
+            { title: "ITEG - Rotor Systems", pitch: "Pitch-Bm1", budget: "2.0 M€", van: "55 M€", domain: "iteg-jwt.it", desc: "Advanced rotor systems for fluids in propulsion and energy applications." },
+            { title: "MBGC - Anaerobic Digestion", pitch: "Pitch-Bb1", budget: "1.0 M€", van: "38 M€", domain: "mbgc-jwt.it", desc: "Distributed small-scale anaerobic digestion for urban and peri-urban areas." },
+            { title: "PBRC - Microalgae Cultivation", pitch: "Pitch-Bc1", budget: "2.0 M€", van: "44 M€", domain: "pbrc-jwt.it", desc: "CO₂ capture and production of biofuels & proteins via microalgae." },
+            { title: "SIDR - Crop Window Expansion", pitch: "Pitch-Bl1", budget: "1.0 M€", van: "19 M€", domain: "sidr-jwt.it", desc: "Renewable-powered climate control for extended agriculture windows." },
+            { title: "SDGC - Desalination Systems", pitch: "Pitch-Bd1", budget: "1.0 M€", van: "30 M€", domain: "sdgc-jwt.it", desc: "Renewable energy desalination for fresh water production." },
+            { title: "GSMF - Gravimetric Separation", pitch: "Pitch-Bh1", budget: "1.0 M€", van: "37 M€", domain: "gsmf-jwt.it", desc: "Advanced gravimetric separation for purification and carbon capture." },
+            { title: "PCRR - Commercial Plan", pitch: "Pitch-Ba1", budget: "1.0 M€", van: "83 M€", domain: "pcrr-jwt.it", desc: "Digital circular economy platform supporting PNRR Ecological Transition." },
+            { title: "GFSS - Mixture Separation", pitch: "Pitch-Bn1", budget: "2.0 M€", van: "58 M€", domain: "gfss-jwt.it", desc: "High-resolution separation using gravity, electric and magnetic fields." }
+        ];
+
+        let html = '';
+        projects.forEach(p => {
+            html += `
+        <div class="project-card">
+          <div class="flex justify-between items-start mb-6">
+            <span class="pitch-tag">${p.pitch}</span>
+            <div class="text-right">
+              <div class="text-xs text-gray-500">BUDGET</div>
+              <div class="budget">${p.budget}</div>
+            </div>
+          </div>
+          <h3 class="text-2xl font-semibold mb-2">${p.title}</h3>
+          <div class="text-sm text-gray-500 mb-4">${p.domain}</div>
+          <p class="text-gray-600 mb-6">${p.desc}</p>
+          <div class="flex justify-between items-end">
+            <div>
+              <div class="text-xs text-gray-500">VAN (8%, 20y)</div>
+              <div class="van">${p.van}</div>
+            </div>
+            <a href="#" class="text-orange-600 font-semibold hover:text-orange-700">Learn more →</a>
+          </div>
+        </div>
+      `;
+        });
+        document.getElementById('projects-container').innerHTML = html;
+    </script>
+</body>
+
+</html>
