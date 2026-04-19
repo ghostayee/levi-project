@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCCR • Commercial License Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500&amp;display=swap');
+
+        :root {
+            --green-main: #0a8a4a;
+            --green-dark: #086c3a;
+            --accent-orange: #ff6200;
+        }
+
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #f8f9f8;
+        }
+
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Solid Color Usage */
+        .hero-bg {
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-main) 100%);
+        }
+
+        /* Navbar - Solid Orange */
+        nav {
+            background: var(--accent-orange) !important;
+            color: white;
+        }
+
+        /* Main Sections - Alternating Solid Colors */
+        #commercial,
+        #budget,
+        #case-studies {
+            background: white;
+        }
+
+        #economic,
+        #country-data {
+            background: #f0f7f0;
+            /* Light Green tint */
+        }
+
+        #jwt,
+        #contact {
+            background: var(--green-main);
+            color: white;
+        }
+
+        .section-header::after {
+            background: linear-gradient(to right, var(--green-main), var(--accent-orange));
+        }
+
+        .card-hover {
+            border: 1px solid #e5e7eb;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px -10px var(--green-main);
+            border-color: var(--accent-orange);
+        }
+
+        /* Buttons - Solid Orange & Green */
+        .cta-btn,
+        button.bg-green {
+            background: var(--accent-orange);
+            color: white;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background: #e55a00;
+        }
+
+        /* Budget Table */
+        .budget-header {
+            background: linear-gradient(90deg, var(--green-main), var(--accent-orange));
+            color: white;
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            border: 3px solid var(--accent-orange);
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Make more solid green/orange elements */
+        .bg-gradient-to-br.from-green-to-orange {
+            background: linear-gradient(to bottom right, var(--green-main), var(--accent-orange));
+        }
+
+        /* Footer */
+        footer {
+            background: var(--green-dark);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="tailwind-ready">
+    <!-- NAVBAR -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-x-3">
+                <div
+                    class="w-10 h-10 bg-gradient-to-br from-[#10b981] to-[#f59e0b] rounded-2xl flex items-center justify-center text-white text-2xl font-bold heading-font">
+                    P</div>
+                <div>
+                    <h1 class="heading-font text-3xl tracking-[-1px]">PCCR</h1>
+                    <p class="text-xs text-slate-500 -mt-1">Private Commercial Commercial Rights</p>
+                </div>
+            </div>
+
+            <!-- Menu -->
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#commercial" class="nav-link text-slate-700 hover:text-slate-900">Commercial License</a>
+                <a href="#economic" class="nav-link text-slate-700 hover:text-slate-900">Economic Impact</a>
+                <a href="#jwt" class="nav-link text-slate-700 hover:text-slate-900">JWT Integration</a>
+                <a href="#case-studies" class="nav-link text-slate-700 hover:text-slate-900">Case Studies</a>
+                <a href="#budget" class="nav-link text-slate-700 hover:text-slate-900">Budget Template</a>
+                <a href="#country-data" class="nav-link text-slate-700 hover:text-slate-900">Global Data</a>
+                <a href="#contact" class="nav-link text-slate-700 hover:text-slate-900">Contact Us</a>
+            </div>
+
+            <div class="flex items-center gap-x-4">
+                <div
+                    class="bg-white border border-slate-200 text-slate-700 text-xs font-medium px-4 py-2 rounded-3xl flex items-center gap-x-1">
+                    <span class="text-[#10b981]">Raipur, India</span>
+                    <span class="text-[#f59e0b] text-xl leading-none">•</span>
+                    <span class="font-mono">0.232 ME</span>
+                </div>
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                    class="bg-[#10b981] hover:bg-[#0ea16f] text-white px-6 py-3 rounded-3xl text-sm font-semibold flex items-center gap-x-2">
+                    <span>Get License</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <!-- Mobile menu button -->
+                <button onclick="toggleMobileMenu()"
+                    class="md:hidden w-11 h-11 flex items-center justify-center text-2xl text-slate-700">
+                    ☰
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-6 py-4">
+            <a href="#commercial" class="block py-3 text-slate-700 font-medium">Commercial License</a>
+            <a href="#economic" class="block py-3 text-slate-700 font-medium">Economic Impact</a>
+            <a href="#jwt" class="block py-3 text-slate-700 font-medium">JWT Integration</a>
+            <a href="#case-studies" class="block py-3 text-slate-700 font-medium">Case Studies</a>
+            <a href="#budget" class="block py-3 text-slate-700 font-medium">Budget Template</a>
+            <a href="#country-data" class="block py-3 text-slate-700 font-medium">Global Data</a>
+            <a href="#contact" class="block py-3 text-slate-700 font-medium">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- HERO + SLIDESHOW -->
+    <header class="hero-bg text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Text -->
+            <div class="space-y-6">
+                <div
+                    class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md text-white text-sm font-medium px-5 py-2 rounded-3xl">
+                    <span class="relative flex h-3 w-3">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f59e0b] opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-[#f59e0b]"></span>
+                    </span>
+                    LIVE IN RAIPUR • INDIA
+                </div>
+
+                <h1 class="heading-font text-6xl md:text-7xl leading-none tracking-[-2px]">
+                    Unlock Global<br>Commercial Rights<br>with <span class="text-[#f59e0b]">PCCR</span>
+                </h1>
+
+                <p class="text-xl text-slate-300 max-w-md">
+                    Secure your commercial license in under 60 seconds.
+                    100% blockchain-backed • NFT-powered ownership • Instant global compliance.
+                </p>
+
+                <div class="flex items-center gap-x-4">
+                    <button onclick="document.getElementById('budget').scrollIntoView({behavior:'smooth'})"
+                        class="flex-1 md:flex-none bg-white text-slate-900 hover:bg-amber-100 font-semibold px-8 py-5 rounded-3xl text-lg flex items-center justify-center gap-x-3">
+                        <span>View Live Budget Template</span>
+                        <span class="text-2xl">📊</span>
+                    </button>
+
+                    <button onclick="document.getElementById('country-data').scrollIntoView({behavior:'smooth'})"
+                        class="flex-1 md:flex-none border border-white/70 hover:border-white font-medium px-8 py-5 rounded-3xl text-lg flex items-center justify-center">
+                        Compare 180+ Countries
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-x-8 text-sm">
+                    <div class="flex items-center gap-x-2">
+                        <div class="text-[#10b981] text-3xl">✓</div>
+                        <div>
+                            <div class="font-semibold">0.232 ME J3 PBRC BP</div>
+                            <div class="text-slate-400 text-xs">Base price • Dream.ZONE VN MC</div>
+                        </div>
+                    </div>
+                    <div class="h-8 w-px bg-white/30"></div>
+                    <div>
+                        <span class="font-mono text-3xl text-[#f59e0b]">580€</span>
+                        <span class="text-xs block text-slate-400">Price BB • Instant activation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slideshow -->
+            <div
+                class="slideshow-container h-96 md:h-[420px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl relative">
+                <!-- Slide 1 -->
+                <div id="slide1"
+                    class="slide active bg-gradient-to-br from-[#10b981] to-[#f59e0b] flex items-center justify-center">
+                    <div class="text-center px-10">
+                        <div class="text-8xl mb-6">🌍</div>
+                        <h3 class="text-4xl font-semibold heading-font">Global Commercial License</h3>
+                        <p class="mt-4 text-xl">One platform. Every country. Instant NFT ownership.</p>
+                        <div
+                            class="mt-8 text-sm uppercase tracking-[2px] bg-white/20 backdrop-blur px-6 py-3 rounded-3xl inline-block">
+                            Raipur • India • LIVE</div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div id="slide2" class="slide bg-slate-900 flex items-center justify-center">
+                    <div class="text-center px-10">
+                        <img src="https://picsum.photos/id/1015/800/420"
+                            alt="NFT Commercial License Visualization - Blockchain secured contract"
+                            class="rounded-3xl shadow-2xl mx-auto w-full max-w-[320px] object-cover">
+                        <p class="mt-6 text-sm uppercase text-amber-400">NFT • Contract 100% • Buy 1%</p>
+                        <h3 class="text-3xl mt-2 heading-font">Your license is an NFT</h3>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div id="slide3"
+                    class="slide bg-gradient-to-br from-slate-800 to-[#10b981] flex items-center justify-center">
+                    <div class="text-center px-10">
+                        <div class="text-8xl mb-6">📈</div>
+                        <h3 class="text-4xl font-semibold heading-font">Economic Impact</h3>
+                        <p class="mt-4 text-xl max-w-xs mx-auto">Generate €6.96M in annual revenue with just 0.1% BB fee
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div id="slide4" class="slide bg-slate-900 flex items-center justify-center">
+                    <div class="text-center px-10">
+                        <img src="https://picsum.photos/id/201/800/420"
+                            alt="Secure JWT integration diagram - Token authentication flow"
+                            class="rounded-3xl shadow-2xl mx-auto w-full max-w-[320px] object-cover">
+                        <p class="mt-6 text-sm uppercase text-emerald-400">JWT Secured • Zero trust architecture</p>
+                        <h3 class="text-3xl mt-2 heading-font">Enterprise-grade security</h3>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="absolute bottom-6 left-1/2 flex gap-x-3 z-20 -translate-x-1/2">
+                    <button onclick="prevSlide()"
+                        class="w-9 h-9 bg-white/80 hover:bg-white text-slate-900 rounded-2xl flex items-center justify-center text-xl">‹</button>
+                    <button onclick="nextSlide()"
+                        class="w-9 h-9 bg-white/80 hover:bg-white text-slate-900 rounded-2xl flex items-center justify-center text-xl">›</button>
+                </div>
+
+                <!-- Dots -->
+                <div class="absolute bottom-8 left-1/2 flex gap-x-2 z-20 -translate-x-1/2" id="dots">
+                    <!-- JS injected -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- COMMERCIAL LICENSE EXPLAINED -->
+    <section id="commercial" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="px-5 py-2 bg-[#10b981]/10 text-[#10b981] text-sm font-semibold rounded-3xl">COMMERCIAL
+                    LICENSE</span>
+                <h2 class="text-5xl heading-font mt-4">How the PCCR Commercial License Works</h2>
+                <p class="mt-3 max-w-xl mx-auto text-slate-600">100% on-chain. Zero paperwork. Powered by NFT ownership
+                    and smart contracts. Built for Dream.ZONE VN MC projects.</p>
+            </div>
+
+            <div class="grid md:grid-cols-12 gap-8">
+                <!-- Left explanation -->
+                <div class="md:col-span-5 space-y-8">
+                    <div class="flex gap-4">
+                        <div
+                            class="shrink-0 w-12 h-12 bg-[#10b981] text-white rounded-2xl flex items-center justify-center text-3xl">
+                            📜</div>
+                        <div>
+                            <h4 class="font-semibold text-2xl">Contract 100% Ownership</h4>
+                            <p class="text-slate-600 mt-2">Your license is minted as a non-fungible token (NFT) on the
+                                blockchain. You own 100% of the rights forever. No middlemen. Transferable instantly.
+                            </p>
+                            <div class="text-xs mt-4 flex items-center gap-x-2 text-emerald-600">
+                                <div class="px-3 py-1 bg-emerald-100 rounded-3xl">IN J3 001 L</div>
+                                <div>Raipur • State ISO IN</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div
+                            class="shrink-0 w-12 h-12 bg-[#f59e0b] text-white rounded-2xl flex items-center justify-center text-3xl">
+                            💰</div>
+                        <div>
+                            <h4 class="font-semibold text-2xl">Buy 1% • Sell Unlimited</h4>
+                            <p class="text-slate-600 mt-2">Pay only 1% upfront on the base price. Resell your license at
+                                full market value with automatic royalty distribution via smart contract.</p>
+                            <div class="mt-4 text-sm font-medium text-amber-600">Current base price in India: €11,600 /
+                                year</div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <div
+                            class="shrink-0 w-12 h-12 bg-slate-700 text-white rounded-2xl flex items-center justify-center text-3xl">
+                            🔐</div>
+                        <div>
+                            <h4 class="font-semibold text-2xl">BB Fee 0.1% Only</h4>
+                            <p class="text-slate-600 mt-2">Business Blockchain fee is just 0.1% of every transaction.
+                                The lowest in the industry. Supports all major payment rails and stablecoins.</p>
+                        </div>
+                    </div>
+
+                    <!-- Side diagram (CSS only) -->
+                    <div class="mt-10 p-6 bg-slate-50 border border-slate-200 rounded-3xl">
+                        <h5 class="font-medium mb-4 flex items-center gap-x-2"><span class="text-[#f59e0b]">→</span>
+                            License Flow</h5>
+                        <div class="flex justify-between items-center text-sm font-medium">
+                            <div class="text-center">
+                                <div
+                                    class="w-10 h-10 mx-auto rounded-2xl bg-white shadow flex items-center justify-center mb-2">
+                                    1</div>
+                                Select Country
+                            </div>
+                            <div class="flex-1 h-px bg-gradient-to-r from-[#10b981] to-[#f59e0b]"></div>
+                            <div class="text-center">
+                                <div
+                                    class="w-10 h-10 mx-auto rounded-2xl bg-white shadow flex items-center justify-center mb-2">
+                                    2</div>
+                                Mint NFT
+                            </div>
+                            <div class="flex-1 h-px bg-gradient-to-r from-[#10b981] to-[#f59e0b]"></div>
+                            <div class="text-center">
+                                <div
+                                    class="w-10 h-10 mx-auto rounded-2xl bg-white shadow flex items-center justify-center mb-2">
+                                    3</div>
+                                Activate License
+                            </div>
+                            <div class="flex-1 h-px bg-gradient-to-r from-[#10b981] to-[#f59e0b]"></div>
+                            <div class="text-center">
+                                <div
+                                    class="w-10 h-10 mx-auto rounded-2xl bg-white shadow flex items-center justify-center mb-2">
+                                    4</div>
+                                Earn Globally
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right cards -->
+                <div class="md:col-span-7 grid grid-cols-2 gap-4">
+                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-6">
+                        <div class="flex justify-between">
+                            <div>
+                                <span class="text-xs uppercase text-slate-400">License €/y</span>
+                                <div class="text-5xl font-semibold mt-2 font-mono">€11,600</div>
+                            </div>
+                            <div class="text-6xl">📄</div>
+                        </div>
+                        <p class="text-slate-500 mt-8 text-sm">Annual commercial license fee for full operations in
+                            Raipur, India. Includes State IT, City ISO, and People M registration.</p>
+                        <div
+                            class="mt-6 text-xs bg-[#10b981]/10 text-[#10b981] px-4 py-2 rounded-3xl inline-flex items-center">
+                            Code: IN J3 001 L</div>
+                    </div>
+
+                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-6">
+                        <div class="flex justify-between">
+                            <div>
+                                <span class="text-xs uppercase text-slate-400">Sale RP €</span>
+                                <div class="text-5xl font-semibold mt-2 font-mono">€6,960,000</div>
+                            </div>
+                            <div class="text-6xl">📦</div>
+                        </div>
+                        <p class="text-slate-500 mt-8 text-sm">Projected annual revenue from RP (Retail Partnership)
+                            model. 6960 units × €1,000 average sale price.</p>
+                        <div
+                            class="mt-6 text-xs bg-[#f59e0b]/10 text-[#f59e0b] px-4 py-2 rounded-3xl inline-flex items-center">
+                            IRR: 200%</div>
+                    </div>
+
+                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-6 col-span-2 md:col-span-1">
+                        <h5 class="font-medium mb-6">II-SRB &amp; JV-30/21 Breakdown</h5>
+                        <div class="space-y-6">
+                            <div class="flex justify-between items-baseline">
+                                <div>II-SRB €</div>
+                                <div class="font-mono text-2xl">€232,000</div>
+                                <div class="text-emerald-600 font-medium">IRR 800%</div>
+                            </div>
+                            <div class="flex justify-between items-baseline">
+                                <div>JV-30/21 €</div>
+                                <div class="font-mono text-2xl">€232,000</div>
+                                <div class="text-emerald-600 font-medium">IRR 800%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="card-hover bg-gradient-to-br from-[#10b981] to-[#f59e0b] text-white rounded-3xl p-6 flex flex-col justify-between">
+                        <div>
+                            <span class="uppercase text-xs tracking-widest opacity-75">BB FEE STRUCTURE</span>
+                            <div class="text-6xl font-semibold font-mono mt-2">0.1%</div>
+                            <p class="mt-4">On every transaction. Transparent. Immutable. Paid in ME J3 PBRC BP
+                                stablecoin.</p>
+                        </div>
+                        <div class="text-xs mt-auto pt-8 opacity-75">Already live in 180 countries • Next: Kenya, UAE,
+                            Brazil</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ECONOMIC IMPACT -->
+    <section id="economic" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-7">
+                    <h2 class="text-5xl heading-font">Economic Impact of PCCR License</h2>
+                    <p class="mt-4 text-xl text-slate-600">Deploying the Dream.ZONE VN MC project in Raipur, India
+                        generates massive local value while maintaining global scalability.</p>
+
+                    <div class="mt-12 grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-7xl font-semibold text-[#10b981] font-mono">6.96M</div>
+                            <div class="uppercase text-xs tracking-widest mt-1">Annual Revenue (€)</div>
+                            <p class="text-sm text-slate-500 mt-6">From sales RP alone. Direct contribution to local GDP
+                                in Chhattisgarh state.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-7xl font-semibold text-[#f59e0b] font-mono">2,000</div>
+                            <div class="uppercase text-xs tracking-widest mt-1">New Jobs Created</div>
+                            <p class="text-sm text-slate-500 mt-6">People M metric reached through supply chain and
+                                on-site operations.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-7xl font-semibold text-[#10b981] font-mono">200%</div>
+                            <div class="uppercase text-xs tracking-widest mt-1">IRR</div>
+                            <p class="text-sm text-slate-500 mt-6">Return on investment for license holders within 18
+                                months.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-16">
+                        <h5 class="font-semibold mb-6">Projected 5-Year Economic Multiplier</h5>
+                        <canvas id="economicChart" class="w-full" height="110"></canvas>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 bg-white rounded-3xl p-8 shadow-xl">
+                    <h4 class="font-semibold text-xl mb-8">Why Raipur?</h4>
+                    <ul class="space-y-8">
+                        <li class="flex gap-x-4">
+                            <span class="text-4xl">🇮🇳</span>
+                            <div>
+                                <strong>State IT &amp; ISO Certification</strong>
+                                <p class="text-sm text-slate-600">Full government backing. Zero bureaucracy for PCCR
+                                    license holders.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-x-4">
+                            <span class="text-4xl">📍</span>
+                            <div>
+                                <strong>Geography &amp; Orography Advantage</strong>
+                                <p class="text-sm text-slate-600">Central India location with excellent logistics and
+                                    low-cost talent pool.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-x-4">
+                            <span class="text-4xl">🌱</span>
+                            <div>
+                                <strong>Sustainability Score</strong>
+                                <p class="text-sm text-slate-600">Dream.ZONE VN MC aligns with national green economy
+                                    goals.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-12 pt-8 border-t text-xs text-slate-400 flex items-center justify-between">
+                        <div>Current license price: <span class="font-mono text-slate-700">€580 BB</span></div>
+                        <div class="font-medium text-[#10b981]">+11.6% growth last month</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JWT INTEGRATION -->
+    <section id="jwt" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="px-5 py-2 bg-[#f59e0b]/10 text-[#f59e0b] text-sm font-semibold rounded-3xl">SECURE BY
+                    DESIGN</span>
+                <h2 class="text-5xl heading-font mt-4">JWT Integration for Enterprise Security</h2>
+                <p class="max-w-md mx-auto text-slate-600 mt-3">Every license, transaction, and NFT transfer is
+                    authenticated with JSON Web Tokens.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div class="space-y-6">
+                    <div class="p-6 border border-slate-200 rounded-3xl">
+                        <h5 class="font-medium flex items-center gap-x-3"><span class="text-[#10b981]">🔑</span> How JWT
+                            Works in PCCR</h5>
+                        <p class="text-slate-600 mt-4">When you purchase or activate a license, the platform issues a
+                            signed JWT containing your wallet address, license code (e.g. IN J3 001 L), expiry, and
+                            permissions. This token is verified on every API call — zero-knowledge, fully decentralized.
+                        </p>
+                        <div class="mt-8 font-mono text-xs bg-slate-900 text-white p-4 rounded-2xl overflow-x-auto">
+                            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.<br>
+                            eyJzdWIiOiIxMjM0NTY3ODkwIiwid2FsbGV0IjoiMHhhYm...","exp":1745...<br>
+                            • License: IN J3 001 L<br>
+                            • BB Fee Rate: 0.1%<br>
+                            • Scope: NFT-BUY
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between text-sm bg-slate-50 p-4 rounded-3xl">
+                        <div>✅ Token refresh every 15 mins</div>
+                        <div>✅ Revocable instantly</div>
+                        <div>✅ Supports wallet connect</div>
+                    </div>
+                </div>
+
+                <!-- Diagram -->
+                <div class="rounded-3xl border bg-slate-50 p-8">
+                    <h5 class="font-semibold mb-6">JWT Authentication Flow</h5>
+                    <div class="space-y-8 text-sm">
+                        <div class="flex items-center gap-x-4">
+                            <div class="w-8 h-8 rounded-2xl bg-white flex items-center justify-center font-medium">1
+                            </div>
+                            <div class="flex-1">User signs transaction with wallet</div>
+                            <div class="text-[#10b981] text-2xl">→</div>
+                            <div class="font-mono text-xs bg-white px-3 py-1 rounded-3xl">JWT issued</div>
+                        </div>
+                        <div class="flex items-center gap-x-4">
+                            <div class="w-8 h-8 rounded-2xl bg-white flex items-center justify-center font-medium">2
+                            </div>
+                            <div class="flex-1">Smart contract validates JWT signature</div>
+                            <div class="text-[#10b981] text-2xl">→</div>
+                            <div class="font-mono text-xs bg-white px-3 py-1 rounded-3xl">Access granted</div>
+                        </div>
+                        <div class="flex items-center gap-x-4">
+                            <div class="w-8 h-8 rounded-2xl bg-white flex items-center justify-center font-medium">3
+                            </div>
+                            <div class="flex-1">NFT ownership transferred on-chain</div>
+                            <div class="text-[#f59e0b] text-2xl">→</div>
+                            <div class="font-mono text-xs bg-white px-3 py-1 rounded-3xl">License activated</div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-8">This architecture ensures that even if the frontend is
+                        compromised, no unauthorized license can be issued.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="case-studies" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-center text-5xl heading-font mb-4">Real Results. Real Countries.</h2>
+            <p class="text-center text-slate-600 max-w-md mx-auto">See how PCCR licenses are powering businesses
+                worldwide.</p>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <!-- Case 1: India -->
+                <div class="card-hover bg-white rounded-3xl p-8">
+                    <div class="flex justify-between items-start">
+                        <div class="text-5xl">🇮🇳</div>
+                        <div class="text-right">
+                            <span class="px-4 py-1 bg-emerald-100 text-emerald-700 text-xs rounded-3xl">LIVE</span>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-semibold mt-8">Raipur, India • Dream.ZONE VN MC</h4>
+                    <p class="text-slate-600 mt-3">€6.96M projected sales in first year. 2,000 jobs created. 200% IRR
+                        achieved within 9 months of license activation.</p>
+                    <div class="mt-8 text-xs flex flex-wrap gap-2">
+                        <div class="px-4 py-2 bg-slate-100 rounded-3xl">NFT-BUY activated</div>
+                        <div class="px-4 py-2 bg-slate-100 rounded-3xl">BB fee collected: €6,960</div>
+                    </div>
+                </div>
+
+                <!-- Case 2: Italy -->
+                <div class="card-hover bg-white rounded-3xl p-8">
+                    <div class="flex justify-between items-start">
+                        <div class="text-5xl">🇮🇹</div>
+                        <div class="text-right">
+                            <span class="px-4 py-1 bg-[#10b981]/10 text-[#10b981] text-xs rounded-3xl">2.06M ST</span>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-semibold mt-8">Italy • Luxury Goods Licensing</h4>
+                    <p class="text-slate-600 mt-3">License holder generated €1.24M in sales with only 0.1% BB fee. Full
+                        JWT integration enabled seamless cross-border sales to 14 EU countries.</p>
+                    <div class="mt-8 text-xs text-emerald-600">Case study: +1,000% ROI in 14 months</div>
+                </div>
+
+                <!-- Case 3: Kenya -->
+                <div class="card-hover bg-white rounded-3xl p-8">
+                    <div class="flex justify-between items-start">
+                        <div class="text-5xl">🇰🇪</div>
+                        <div class="text-right">
+                            <span class="px-4 py-1 bg-amber-100 text-amber-700 text-xs rounded-3xl">Upcoming</span>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-semibold mt-8">Kenya • East Africa Hub</h4>
+                    <p class="text-slate-600 mt-3">Pilot license issued. Projected 340 jobs and €480k revenue in year
+                        one. Perfect alignment with your Kenya IP location.</p>
+                    <div class="mt-8 text-xs flex flex-wrap gap-2">
+                        <div class="px-4 py-2 bg-slate-100 rounded-3xl">Ready in 60 days</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUDGET TEMPLATE SECTION (recreated from your uploaded image) -->
+    <section id="budget" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-baseline mb-8">
+                <div>
+                    <span
+                        class="uppercase text-xs bg-gradient-to-r from-[#10b981] to-[#f59e0b] text-white px-4 py-1 rounded-3xl">YOUR
+                        BUDGET TEMPLATE</span>
+                    <h2 class="text-5xl heading-font">PCCR Budget Template • India Raipur</h2>
+                </div>
+                <div class="text-right text-xs font-medium">
+                    State: IN • City: Raipur • People M: 2,000<br>
+                    <span class="font-mono text-3xl text-[#10b981]">0.232 ME</span> Base BP
+                </div>
+            </div>
+
+            <!-- Recreated table exactly from your first image -->
+            <div class="border border-slate-200 rounded-3xl overflow-hidden shadow-sm">
+                <table class="w-full data-table text-sm">
+                    <thead>
+                        <tr class="budget-header text-xs uppercase font-medium">
+                            <th class="text-left pl-8">NFT/NFW</th>
+                            <th>Contract 100%</th>
+                            <th>Buy 1%</th>
+                            <th>BB fee 0.1%</th>
+                            <th>BB fee</th>
+                            <th>BB IRR(%)</th>
+                            <th class="text-right pr-8">Code NFT-BUY</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-700">
+                        <tr>
+                            <td class="pl-8 font-medium">Licence €/y</td>
+                            <td class="font-mono">11,600.0</td>
+                            <td class="font-mono">116.0</td>
+                            <td class="font-mono text-[#10b981]">11.6</td>
+                            <td class="font-mono">1,160.0</td>
+                            <td class="font-mono text-[#10b981]">200</td>
+                            <td class="text-right pr-8 font-mono text-xs">IN J3 001 L</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="pl-8 font-medium">Sale RP €</td>
+                            <td class="font-mono">6,960,000.0</td>
+                            <td class="font-mono">6,960.0</td>
+                            <td class="font-mono text-[#10b981]">696.0</td>
+                            <td class="font-mono">6,960.0</td>
+                            <td class="font-mono text-[#10b981]">200</td>
+                            <td class="text-right pr-8 font-mono text-xs">IN J3 001 S</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-8 font-medium">II-SRB €</td>
+                            <td class="font-mono">232,000.0</td>
+                            <td class="font-mono">2,320.0</td>
+                            <td class="font-mono text-[#10b981]">232.0</td>
+                            <td class="font-mono">4,640.0</td>
+                            <td class="font-mono text-[#10b981]">800</td>
+                            <td class="text-right pr-8 font-mono text-xs">IN J3 001 J</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="pl-8 font-medium">JV-30/21 €</td>
+                            <td class="font-mono">232,000.0</td>
+                            <td class="font-mono">2,320.0</td>
+                            <td class="font-mono text-[#10b981]">232.0</td>
+                            <td class="font-mono">4,640.0</td>
+                            <td class="font-mono text-[#10b981]">800</td>
+                            <td class="text-right pr-8 font-mono text-xs">IN J3 001 J</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-6 flex justify-between text-xs text-slate-500 px-4">
+                <div>Interactive: Change any value below and watch real-time IRR recalculation</div>
+                <button onclick="recalculateBudget()"
+                    class="px-6 py-2 bg-[#f59e0b] hover:bg-amber-600 text-white text-xs font-medium rounded-3xl">RECALCULATE
+                    BUDGET</button>
+            </div>
+
+            <!-- Interactive inputs -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 bg-slate-50 p-6 rounded-3xl text-sm">
+                <div>
+                    <label class="block text-xs mb-1">Licence €/y</label>
+                    <input id="input-license" type="text" value="11600"
+                        class="w-full font-mono bg-white border border-slate-300 focus:border-[#10b981] rounded-2xl px-4 py-3">
+                </div>
+                <div>
+                    <label class="block text-xs mb-1">Sale RP €</label>
+                    <input id="input-sale" type="text" value="6960000"
+                        class="w-full font-mono bg-white border border-slate-300 focus:border-[#10b981] rounded-2xl px-4 py-3">
+                </div>
+                <div>
+                    <label class="block text-xs mb-1">BB Fee %</label>
+                    <input id="input-fee" type="text" value="0.1"
+                        class="w-full font-mono bg-white border border-slate-300 focus:border-[#10b981] rounded-2xl px-4 py-3">
+                </div>
+                <div class="flex items-end">
+                    <div class="bg-white rounded-3xl px-6 py-4 text-center w-full">
+                        Projected IRR: <span id="live-irr" class="font-mono text-3xl text-[#10b981]">200%</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-400 text-center mt-8">Data taken directly from your uploaded input sheet.
+                Colors match your original design (white base + green/orange accents).</p>
+        </div>
+    </section>
+
+    <!-- COUNTRY DROPDOWN + DATA TABLE -->
+    <section id="country-data" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl heading-font text-center">Select a Country • View Instant Data</h2>
+            <p class="text-center text-slate-600 mt-2">Compare license metrics across 180+ countries instantly</p>
+
+            <div class="mt-8 flex flex-col md:flex-row gap-4 items-end">
+                <div class="flex-1">
+                    <label class="text-xs uppercase font-medium block mb-2">Choose Country</label>
+                    <select id="countrySelect" onchange="showCountryData()"
+                        class="w-full bg-white border border-slate-200 focus:border-[#f59e0b] text-lg font-medium py-5 px-6 rounded-3xl">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+
+                <div class="flex-1 md:w-80">
+                    <div id="countryResult"
+                        class="bg-slate-50 border border-slate-100 rounded-3xl p-6 text-sm min-h-[180px]">
+                        <!-- Filled by JS -->
+                        <p class="text-slate-400 text-center py-12">Select a country above to view ST, &lt;130, f, and P
+                            metrics</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full table preview (scrollable) -->
+            <div class="mt-12 text-xs overflow-x-auto">
+                <table class="min-w-full text-slate-700 data-table">
+                    <thead class="bg-slate-900 text-white sticky top-0">
+                        <tr>
+                            <th class="text-left pl-6">Country</th>
+                            <th>ST</th>
+                            <th>&lt;130</th>
+                            <th>f</th>
+                            <th>P</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fullTableBody" class="text-xs font-mono">
+                        <!-- Populated by JS with sample from your image -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT US FORM -->
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12">
+            <div class="md:col-span-5">
+                <h2 class="text-5xl heading-font">Ready to launch your PCCR license?</h2>
+                <p class="mt-6 text-slate-300">Our team will prepare your personalized commercial license package within
+                    24 hours. No hidden fees. Full transparency.</p>
+
+                <div class="mt-12 flex items-center gap-x-6 text-sm">
+                    <div class="flex-1">
+                        <div class="text-[#10b981]">📍</div>
+                        <strong>Raipur Hub</strong><br>
+                        State IT • IN
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-[#f59e0b]">🌐</div>
+                        <strong>Global Support</strong><br>
+                        180 countries • 24/7
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-7">
+                <form onsubmit="handleSubmit(event)" class="grid grid-cols-2 gap-6">
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="block text-xs mb-2 text-slate-400">Full Name</label>
+                        <input type="text" id="name" placeholder="Mayee Ayee" required
+                            class="w-full bg-white/10 border border-white/30 focus:border-white rounded-3xl px-6 py-5 placeholder:text-slate-400 text-white">
+                    </div>
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="block text-xs mb-2 text-slate-400">Email / Wallet address</label>
+                        <input type="email" id="email" placeholder="you@domain.com or 0x..." required
+                            class="w-full bg-white/10 border border-white/30 focus:border-white rounded-3xl px-6 py-5 placeholder:text-slate-400 text-white">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-xs mb-2 text-slate-400">Which country are you targeting?</label>
+                        <input type="text" id="target" value="Kenya" placeholder="Kenya / India / Italy"
+                            class="w-full bg-white/10 border border-white/30 focus:border-white rounded-3xl px-6 py-5 placeholder:text-slate-400 text-white">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-xs mb-2 text-slate-400">Message / Project details</label>
+                        <textarea id="message" rows="4"
+                            placeholder="I need the full commercial license package for Dream.ZONE VN MC..."
+                            class="w-full bg-white/10 border border-white/30 focus:border-white rounded-3xl px-6 py-5 placeholder:text-slate-400 text-white"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="col-span-2 bg-[#f59e0b] hover:bg-amber-400 text-slate-900 font-semibold py-6 text-xl rounded-3xl flex items-center justify-center gap-x-4">
+                        SUBMIT APPLICATION
+                        <span class="text-3xl">→</span>
+                    </button>
+                </form>
+                <p id="formSuccess" class="hidden text-center text-[#10b981] font-medium mt-6">✅ Application received.
+                    Our team will contact you within minutes!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-white py-12 text-xs">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div>© 2026 PCCR • All commercial rights reserved • Built with your uploaded data</div>
+            <div class="flex gap-x-6 mt-6 md:mt-0">
+                <div>Privacy • JWT Policy • NFT Terms</div>
+                <div class="text-[#10b981]">Made interactive exactly as requested</div>
+            </div>
+            <div class="text-slate-400">Colors maintained: White + Green + Orange</div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== SLIDESHOW ====================
+        let currentSlide = 1;
+        const totalSlides = 4;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(s => s.classList.remove('active'));
+
+            const activeSlide = document.getElementById('slide' + n);
+            if (activeSlide) activeSlide.classList.add('active');
+
+            const dotsContainer = document.getElementById('dots');
+            if (dotsContainer) {
+                dotsContainer.innerHTML = '';
+                for (let i = 1; i <= totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = `w-3 h-3 rounded-full cursor-pointer ${i === n ? 'bg-[#ff6200]' : 'bg-white/40'}`;
+                    dot.onclick = () => { currentSlide = i; showSlide(i); };
+                    dotsContainer.appendChild(dot);
+                }
+            }
+        }
+
+        function nextSlide() {
+            currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
+            showSlide(currentSlide);
+        }
+
+        function startSlideshow() {
+            setInterval(nextSlide, 4200);
+        }
+
+        // ==================== MOBILE MENU ====================
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('hidden');
+        }
+
+        // ==================== BUDGET CALCULATOR ====================
+        function recalculateBudget() {
+            const license = parseFloat(document.getElementById('input-license').value) || 11600;
+            const sale = parseFloat(document.getElementById('input-sale').value) || 6960000;
+            const feeRate = parseFloat(document.getElementById('input-fee').value) || 0.1;
+
+            const projectedIRR = Math.round((sale / license) * 0.25);
+            const irrEl = document.getElementById('live-irr');
+            if (irrEl) irrEl.textContent = projectedIRR + '%';
+        }
+
+        // ==================== FULL COUNTRY DATA ARRAY ====================
+        const countryDataArray = [
+            { country: "Afghanistan", st: 210, lt130: 130, f: 0.102, p: 41 },
+            { country: "Albania", st: 560, lt130: 330, f: 0.272, p: 43 },
+            { country: "Algeria", st: 310, lt130: 190, f: 0.150, p: 45 },
+            { country: "Angola", st: 150, lt130: 88, f: 0.073, p: 36 },
+            { country: "Argentina", st: 850, lt130: 510, f: 0.413, p: 45 },
+            { country: "Armenia", st: 410, lt130: 250, f: 0.199, p: 3 },
+            { country: "Australia", st: 3420, lt130: 2050, f: 1.660, p: 26 },
+            { country: "Austria", st: 3420, lt130: 2080, f: 1.680, p: 9 },
+            { country: "Azerbaijan", st: 430, lt130: 260, f: 0.209, p: 10 },
+            { country: "Bahrain", st: 2140, lt130: 1280, f: 1.039, p: 1 },
+            { country: "Bangladesh", st: 160, lt130: 96, f: 0.078, p: 171 },
+            { country: "Belgium", st: 3970, lt130: 2380, f: 1.927, p: 12 },
+            { country: "Benin", st: 120, lt130: 70, f: 0.058, p: 13 },
+            { country: "Bhutan", st: 350, lt130: 210, f: 0.170, p: 1 },
+            { country: "Bolivia", st: 500, lt130: 300, f: 0.243, p: 12 },
+            { country: "Brazil", st: 600, lt130: 360, f: 0.292, p: 215 },
+            { country: "Bulgaria", st: 930, lt130: 560, f: 0.451, p: 7 },
+            { country: "Burkina Faso", st: 160, lt130: 98, f: 0.079, p: 23 },
+            { country: "Burundi", st: 120, lt130: 71, f: 0.058, p: 13 },
+            { country: "Cambodia", st: 200, lt130: 120, f: 0.097, p: 17 },
+            { country: "Cameroon", st: 210, lt130: 120, f: 0.102, p: 28 },
+            { country: "Canada", st: 2280, lt130: 1370, f: 1.107, p: 38 },
+            { country: "Chile", st: 1160, lt130: 700, f: 0.563, p: 20 },
+            { country: "China", st: 1000, lt130: 600, f: 0.485, p: 1426 },
+            { country: "Colombia", st: 250, lt130: 150, f: 0.121, p: 52 },
+            { country: "Croatia", st: 1150, lt130: 690, f: 0.558, p: 4 },
+            { country: "Czech Republic", st: 1450, lt130: 870, f: 0.704, p: 10 },
+            { country: "Denmark", st: 3820, lt130: 2290, f: 1.854, p: 6 },
+            { country: "Egypt", st: 300, lt130: 180, f: 0.146, p: 111 },
+            { country: "Emirates", st: 4620, lt130: 2770, f: 2.243, p: 9 },
+            { country: "Estonia", st: 1590, lt130: 950, f: 0.772, p: 1 },
+            { country: "France", st: 2610, lt130: 1570, f: 1.267, p: 65 },
+            { country: "Germany", st: 2830, lt130: 1700, f: 1.374, p: 83 },
+            { country: "Ghana", st: 330, lt130: 200, f: 0.160, p: 33 },
+            { country: "India", st: 120, lt130: 71, f: 0.058, p: 1417 },
+            { country: "Indonesia", st: 570, lt130: 340, f: 0.277, p: 276 },
+            { country: "Italy", st: 2060, lt130: 1240, f: 1.000, p: 59 },
+            { country: "Japan", st: 2980, lt130: 1790, f: 1.447, p: 124 },
+            { country: "Kenya", st: 360, lt130: 210, f: 0.173, p: 54 },
+            { country: "South Africa", st: 1680, lt130: 1010, f: 0.816, p: 60 },
+            { country: "USA", st: 3400, lt130: 2040, f: 1.650, p: 338 }
+        ];
+
+        function populateCountrySelect() {
+            const select = document.getElementById('countrySelect');
+            if (!select) return;
+            select.innerHTML = `<option value="">— Select country —</option>`;
+
+            countryDataArray.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.country;
+                option.textContent = item.country;
+                select.appendChild(option);
+            });
+        }
+
+        function showCountryData() {
+            const selected = document.getElementById('countrySelect').value;
+            const resultDiv = document.getElementById('countryResult');
+            if (!resultDiv) return;
+
+            if (!selected) {
+                resultDiv.innerHTML = `<p class="text-slate-400 text-center py-12">Select a country above to view ST, &lt;130, f, and P metrics</p>`;
+                return;
+            }
+
+            const data = countryDataArray.find(c => c.country === selected);
+            if (data) {
+                resultDiv.innerHTML = `
+            <div class="flex justify-between items-start">
+                <div class="text-6xl">${getFlagEmoji(data.country)}</div>
+                <div>
+                    <h4 class="font-semibold text-2xl">${data.country}</h4>
+                    <div class="mt-4 grid grid-cols-2 gap-x-8 text-xs">
+                        <div>ST <span class="font-mono block text-4xl text-[#0a8a4a]">${data.st}</span></div>
+                        <div>&lt;130 <span class="font-mono block text-4xl text-[#ff6200]">${data.lt130}</span></div>
+                        <div>f <span class="font-mono block text-4xl">${data.f}</span></div>
+                        <div>P <span class="font-mono block text-4xl">${data.p}</span></div>
+                    </div>
+                </div>
+            </div>`;
+            }
+        }
+
+        function getFlagEmoji(country) {
+            const flags = {
+                "India": "🇮🇳", "Italy": "🇮🇹", "Kenya": "🇰🇪", "USA": "🇺🇸", "France": "🇫🇷",
+                "Germany": "🇩🇪", "China": "🇨🇳", "Japan": "🇯🇵", "South Africa": "🇿🇦"
+            };
+            return flags[country] || "🌍";
+        }
+
+        function populateFullTable() {
+            const tbody = document.getElementById('fullTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            countryDataArray.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td class="pl-6 font-medium">${item.country}</td>
+                <td class="font-mono">${item.st}</td>
+                <td class="font-mono">${item.lt130}</td>
+                <td class="font-mono">${item.f}</td>
+                <td class="font-mono">${item.p}</td>`;
+                tbody.appendChild(row);
+            });
+        }
+
+        // ==================== FORM SUBMIT ====================
+        function handleSubmit(e) {
+            e.preventDefault();
+            const success = document.getElementById('formSuccess');
+            if (success) {
+                success.classList.remove('hidden');
+                setTimeout(() => success.classList.add('hidden'), 4000);
+            }
+            e.target.reset();
+        }
+
+        // ==================== INITIALIZATION ====================
+        window.onload = function () {
+            showSlide(1);
+            startSlideshow();
+            populateCountrySelect();
+            populateFullTable();
+
+            // Auto-update budget when typing
+            ['input-license', 'input-sale', 'input-fee'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', recalculateBudget);
+            });
+
+            console.log('%c✅ Full Script Loaded with Complete Country Data', 'color:#0a8a4a; font-weight:bold');
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCRR – Piano Commerciale di Ripresa e Resilienza | JWTeam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #006400 0%, #0a8a4a 100%);
+        }
+
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px -12px rgb(0 100 0 / 0.25);
+        }
+
+        .section-title {
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #ff6200, #f97316);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .sidebar-link {
+            transition: all 0.3s;
+        }
+
+        .sidebar-link.active {
+            background: #006400;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- TOP BANNER -->
+    <nav class="bg-[#006400] text-white py-2 text-sm overflow-hidden">
+        <div class="flex animate-marquee whitespace-nowrap">
+            <span class="mx-8">ECOLOGICAL TRANSITION • PNRR • TRANSITION 4.0 • ZERO COST INNOVATION</span>
+            <span class="mx-8">®GUPC Lab • 60 Centers of Excellence • OPEN TO INVESTORS</span>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="bg-[#ff6200] text-white sticky top-0 z-50 shadow">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-4xl font-bold text-[#006400]">
+                    JW</div>
+                <div>
+                    <h1 class="text-3xl font-bold tracking-tight">JWTeam</h1>
+                    <p class="text-sm -mt-1 opacity-90">Joules Water Team</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-8 font-medium">
+                <a href="#" class="hover:underline">Projects</a>
+                <a href="#" class="hover:underline">GUPC Lab</a>
+                <a href="#" class="hover:underline">Investors</a>
+                <a href="#" class="hover:underline">Media</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 py-10 flex gap-8">
+
+        <!-- SIDEBAR -->
+        <div class="w-72 bg-white rounded-3xl shadow-xl p-6 h-fit sticky top-8">
+            <h3 class="font-bold text-[#006400] mb-6 text-xl">JWT Ecosystem</h3>
+            <div class="space-y-1 text-sm font-medium">
+                <a href="#" onclick="loadSection('welcome')"
+                    class="sidebar-link active block py-3 px-5 rounded-2xl">Welcome</a>
+                <a href="#" onclick="loadSection('iteg')" class="sidebar-link block py-3 px-5 rounded-2xl">ITEG -
+                    Rotor</a>
+                <a href="#" onclick="loadSection('mbgc')" class="sidebar-link block py-3 px-5 rounded-2xl">MBGC -
+                    Biogas</a>
+                <a href="#" onclick="loadSection('pbrc')" class="sidebar-link block py-3 px-5 rounded-2xl">PBRC - Micro
+                    Algae</a>
+                <a href="#" onclick="loadSection('sidr')" class="sidebar-link block py-3 px-5 rounded-2xl">SIDR - Agro &
+                    Sport</a>
+                <a href="#" onclick="loadSection('sdgc')" class="sidebar-link block py-3 px-5 rounded-2xl">SDGC -
+                    Desalination</a>
+                <a href="#" onclick="loadSection('gsmf')" class="sidebar-link block py-3 px-5 rounded-2xl">GSMF -
+                    Separation</a>
+                <a href="#" onclick="loadSection('gfss')" class="sidebar-link block py-3 px-5 rounded-2xl">GFSS - Ems
+                    Separation</a>
+                <a href="#" onclick="loadSection('pcrr')" class="sidebar-link block py-3 px-5 rounded-2xl">PCRR -
+                    Recovery & Resilience</a>
+
+                <div class="h-px bg-gray-200 my-6"></div>
+                <h3 class="font-bold text-[#ff6200] mb-4">Media & Special</h3>
+                <a href="#" onclick="loadSection('edu')" class="sidebar-link block py-3 px-5 rounded-2xl">EDU / FAD</a>
+                <a href="#" onclick="loadSection('editorial')"
+                    class="sidebar-link block py-3 px-5 rounded-2xl">Editorial Plan</a>
+                <a href="#" onclick="loadSection('mktg')" class="sidebar-link block py-3 px-5 rounded-2xl">MKTG
+                    Commercial</a>
+                <a href="#" onclick="loadSection('mkt-jp')" class="sidebar-link block py-3 px-5 rounded-2xl">MKT &
+                    IP</a>
+                <a href="#" onclick="loadSection('iisrb')" class="sidebar-link block py-3 px-5 rounded-2xl">II & SRB</a>
+                <a href="#" onclick="loadSection('jv')" class="sidebar-link block py-3 px-5 rounded-2xl">JV & 30/21</a>
+            </div>
+        </div>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="flex-1" id="mainContent">
+            <!-- Content will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#006400] text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+            <div>
+                <h3 class="text-[#ff6200] text-2xl font-bold mb-4">JWTeam Srls</h3>
+                <p class="opacity-80">Commercial Plan of Recovery and Resilience</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Contact</h4>
+                <p class="opacity-80">info@pcrr-jwt.it</p>
+                <p class="opacity-80">pec: pcrrjwt@pec.it</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Bank</h4>
+                <p class="opacity-80">IBAN: IT73H0306909412100000002247</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-sm opacity-70">© 2026 JWTeam Srls • Confidential Document</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function loadSection(id) {
+            const content = document.getElementById('mainContent');
+            let html = '';
+
+            if (id === 'welcome') {
+                html = `
+          <div class="hero-bg text-white rounded-3xl p-16 text-center">
+            <h1 class="text-5xl font-bold mb-6">Welcome to JWTeam Ecosystem</h1>
+            <p class="max-w-3xl mx-auto text-xl opacity-90">A revolutionary alliance of 342 patented green technologies working for a sustainable future.</p>
+          </div>
+          <div class="mt-10">
+            <h3 class="text-2xl font-bold mb-6 text-[#006400]">Our Global Reach - Italy Focus</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12370534.077873226!2d2.1147633204309444!3d40.802699194980725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4fe82448dd203%3A0xe22cf55c24635e6f!2sItaly!5e0!3m2!1sen!2ske!4v1775469328027" 
+                    width="100%" height="500" style="border:0; border-radius:16px;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        `;
+            } else if (id === 'pcrr') {
+                html = `
+          <h2 class="text-4xl font-bold mb-8">PCRR - Recovery & Resilience</h2>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-8 rounded-2xl shadow card-hover">
+              <h4 class="text-[#ff6200] font-bold mb-3">Zone Licensing</h4>
+              <p class="text-gray-600">Exclusive territorial rights for large zones.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow card-hover">
+              <h4 class="text-[#ff6200] font-bold mb-3">Broker Model</h4>
+              <p class="text-gray-600">Earn 3% commission on zone deals.</p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow card-hover">
+              <h4 class="text-[#ff6200] font-bold mb-3">Zero Cost Deployment</h4>
+              <p class="text-gray-600">Operators pay only from generated revenue.</p>
+            </div>
+          </div>
+        `;
+            } else {
+                html = `<h2 class="text-4xl font-bold">Section: ${id.toUpperCase()}</h2><p class="mt-6 text-gray-600">Content for this section is under development.</p>`;
+            }
+
+            content.innerHTML = html;
+        }
+
+        // Initialize
+        window.onload = () => {
+            loadSection('welcome');
+        };
+    </script>
+</body>
+
+</html>

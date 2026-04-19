@@ -491,8 +491,16 @@
             color: white;
         }
 
-        #it-support,
-        #edu,
+        #it-support {
+            background: linear-gradient(135deg, #DC143C 0%, #B22222 100%);
+            color: white;
+        }
+
+        #edu {
+            background: linear-gradient(135deg, #DC143C 0%, #B22222 100%);
+            color: white;
+        }
+
         #editorial,
         #mktg,
         #mkt-jp,
@@ -736,21 +744,21 @@
                     <a href="#" class="sidebar-card" data-id="gfss">GFSS - Ems Separation</a>
                     <a href="#" class="sidebar-card" data-id="pcrr">PCRR - Recovery & Resilience</a>
                     <div class="sidebar-header">
-                        <h5 style="color:#FF6200;">eport tv1 - Media</h5>
+                        <h5 style="color:#FF6200;">Epo tv1 - Media & TV</h5>
                     </div>
-                    <a href="#" class="sidebar-card" data-id="eport">eport tv1 - Media</a>
+                    <a href="#" class="sidebar-card" data-id="eport">export tv1 - Media</a>
                     <a href="#" class="sidebar-card" data-id="it-support">IT & Support</a>
                     <a href="#" class="sidebar-card" data-id="edu">EDU/FAD</a>
                     <a href="#" class="sidebar-card" data-id="editorial">Editorial Plan</a>
                     <a href="#" class="sidebar-card" data-id="mktg">MKTG Commercial Goods</a>
-                    <a href="#" class="sidebar-card" data-id="mkt-jp">MKT & JP</a>
+                    <a href="#" class="sidebar-card" data-id="mkt-jp">MKT & IP</a>
                     <a href="#" class="sidebar-card" data-id="iisrb">II & SRB</a>
                     <a href="#" class="sidebar-card" data-id="jv">JV & 30/21</a>
                 </nav>
 
                 <!-- Dynamic Presentation Area -->
                 <div class="presentation-area" id="presentationArea">
-                    <!-- Default content (will change on click) -->
+                    <!-- default transformation -->
                     <div class="presentation-content">
                     </div>
                 </div>
@@ -764,7 +772,7 @@
                         <h2 class="display-5 fw-bold">Why PCRR Exists</h2>
                     </div>
                     <div class="gfss-card card">
-                        <img src="/pcrr/images/solar.jpg" alt="PCRR Overview" class="img-fluid rounded mb-3">
+                        <img src="images/solar.jpg" alt="PCRR Overview" class="img-fluid rounded mb-3">
                         <p class="lead text-center max-w-3xl mx-auto">PCRR transforms JWT’s 342 patented GREEN
                             innovations into deployable, revenue-generating solutions aligned with PNRR Mission 2 and
                             the EU Green Deal.</p>
@@ -1200,14 +1208,7 @@
         overlay.addEventListener('click', closeMenu);
         if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-        function updateHamburgerPosition() {
-            const bannerHeight = document.getElementById('pcrr-submenu').offsetHeight;
-            const headerHeight = document.querySelector('.site-header').offsetHeight;
-            const hamburgerContainer = document.getElementById('hamburger-container');
-            if (hamburgerContainer) hamburgerContainer.style.top = `${bannerHeight + headerHeight + 8}px`;
-        }
-
-        // ====================== MODALS & SCROLL REVEAL ======================
+        // ====================== MODALS ======================
         document.querySelectorAll('.main-btn').forEach(btn => {
             btn.addEventListener('click', function () {
                 const modalId = this.getAttribute('data-modal');
@@ -1236,13 +1237,6 @@
                 this.closest('.modal').style.display = 'none';
             });
         });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('.pcrr-card').forEach(card => observer.observe(card));
 
         // ====================== CHARTS & JWT DIAGRAM ======================
         function initCharts() {
@@ -1283,7 +1277,7 @@
             });
         }
 
-        // ====================== CONTENT DATA WITH CUSTOM CARDS ======================
+        // ====================== FULL CONTENT DATA ======================
         const contentData = {
             "welcome": {
                 title: "Welcome to JWT Ecosystem",
@@ -1297,7 +1291,7 @@
                 sideImage: "/images/starter_Kit.webp",
                 text: "Advanced high-efficiency rotor technology engineered for energy generation, water treatment, and industrial applications.",
                 cards: [
-                    { img: "/images/efficiencyrotor.jpg", desc: "Up to 40% better energy output than traditional systems." },
+                    { img: "/images/efficiencyrotor.jpg", title: "Efficiency", desc: "Up to 40% better energy output than traditional systems." },
                     { img: "/images/rotor2.webp", title: "Industrial Grade", desc: "Built for harsh environments with minimal maintenance." },
                     { img: "/images/water.jpg", title: "Water Applications", desc: "Ideal for pumping and desalination integration." }
                 ]
@@ -1319,9 +1313,9 @@
                 sideImage: "/images/algae.webp",
                 text: "State-of-the-art photobioreactor systems for high-density micro-algae cultivation.",
                 cards: [
-                    { img: "/images/yield.webp", title: "High Yield Cultivation", desc: "Produces large amounts of biomass in controlled environments." },
+                    { img: "/images/yield.webp", title: "High Yield", desc: "Produces large amounts of biomass in controlled environments." },
                     { img: "/images/co capture.webp", title: "CO₂ Capture", desc: "Excellent natural carbon sequestration technology." },
-                    { img: "/images/biofuel.avif", title: "Biofuel Production", desc: "Source material for sustainable biofuels and bioplastics." }
+                    { img: "/images/biofuel.avif", title: "Biofuel", desc: "Source material for sustainable biofuels and bioplastics." }
                 ]
             },
             "sidr": {
@@ -1330,8 +1324,8 @@
                 sideImage: "/images/agro-side.webp",
                 text: "Integrated development solutions combining smart agriculture with sports infrastructure.",
                 cards: [
-                    { img: "/images/SmartFarming_746x419.jpg", title: "Smart Agriculture", desc: "Precision farming with renewable energy integration. leading to great effieciency" },
-                    { img: "/images/multipurpose.avif", title: "Multi-Purpose Facilities", desc: "Sustainable sports infrastructure for communities." },
+                    { img: "/images/SmartFarming_746x419.jpg", title: "Smart Agriculture", desc: "Precision farming with renewable energy integration." },
+                    { img: "/images/multipurpose.avif", title: "Multi-Purpose", desc: "Sustainable sports infrastructure for communities." },
                     { img: "/images/water optimiztion.jpg", title: "Water Optimization", desc: "Advanced irrigation systems reducing water usage." }
                 ]
             },
@@ -1341,7 +1335,7 @@
                 sideImage: "/images/des sideimage.webp",
                 text: "Sea & Desert Green Conversion technology providing low-energy desalination.",
                 cards: [
-                    { img: "/images/low energy.png", title: "Low Energy Desalination", desc: "Sustainable fresh water production from seawater." },
+                    { img: "/images/low energy.png", title: "Low Energy", desc: "Sustainable fresh water production from seawater." },
                     { img: "/images/desert green.jpg", title: "Desert Greening", desc: "Transforms arid lands into productive green zones." },
                     { img: "/images/restoration.jpg", title: "Eco Restoration", desc: "Restores ecosystems while producing clean water." }
                 ]
@@ -1365,76 +1359,73 @@
                 cards: [
                     { img: "/images/chemical-free.jpg", title: "Chemical-Free", desc: "No chemicals required for separation." },
                     { img: "/images/industrial process.jpg", title: "Mineral Processing", desc: "Efficient extraction of valuable minerals." },
-                    { img: "/images/gravity.jpg", title: "Gravity + EM Fields", desc: "Combines physics for superior results." }
+                    { img: "/images/gravity.jpg", title: "Gravity + EM", desc: "Combines physics for superior results." }
                 ]
             },
-            // Add similar cards structure for other modules as needed...
             "pcrr": {
                 title: "PCRR - Recovery & Resilience",
                 heroBg: "/images/green economy.jpg",
                 sideImage: "/images/sustainable business.jpg",
-                text: "The commercial backbone of JWT’s 342 green patents. Sustainable business practices are increasingly recognised as essential for long-term growth, resilience, and responsibility. The PCRR framework—People, Circularity, Responsibility, and Resilience—offers a structured approach to embedding sustainability into core operations. It emphasizes valuing human capital and community well-being, designing systems that minimise waste through circular models, ensuring accountability in governance and supply chains, and building adaptive strategies that withstand environmental and economic shifts.",
+                text: "The commercial backbone of JWT’s 342 green patents...",
                 cards: [
                     { img: "/images/zone.jpg", title: "Zone Licensing", desc: "Exclusive territorial rights for large zones." },
                     { img: "/images/broker.jpg", title: "Broker Model", desc: "Earn 3% commission on zone deals." },
                     { img: "/images/zero cost.jpg", title: "Zero Cost Deployment", desc: "Operators pay only from generated revenue." }
                 ]
-            }
-            // You can add cards for other modules similarly
+            },
+
+            // ====================== SPECIAL SECTIONS ======================
+            "edu": {
+                title: "EDU / FAD",
+                html: `<div style="padding:40px;"><h4 style="color:#006400;">Education & FAD</h4><ul style="line-height:2.4;
+                    list-style-type: none;"><li><a href="#" target="_blank" style="text-decoration:none; color: green; font-weight: bold; background-color: orange; padding:10px;">Course 1 - Rotor Systems</a>,
+                        <p>introduces the fundamental principles behind rotor dynamics and their applications in modern engineering. This course explores the design, operation, and performance of rotor systems, focusing on how rotating components interact with forces such as vibration, stability, 
+                            and load distribution. Learners gain insight into the mechanical behavior of rotors, the importance of balancing and alignment, and the role these systems play in industries ranging 
+                            from aviation and energy to manufacturing. By the end of the course, participants will have a clear understanding of the essential concepts that underpin rotor technology and its critical role in reliable, 
+                            efficient machinery</p></li><li><a href="#" target="_blank"style="text-decoration:none; color: green; font-weight: bold; background-color: orange; padding:10px;"> Course 2 - Microalgae Technology</a><p>innovative use of microalgae in sustainable industries.
+                                 Learners are introduced to the biological characteristics of microalgae, their cultivation methods, and diverse applications ranging from biofuels and food supplements to wastewater treatment and carbon capture. The course highlights how microalgae contribute to renewable energy, environmental protection,
+                                  and biotechnology, offering practical insights into harnessing these microorganisms for a greener future.</p></li><li><a href="#" target="_blank"style="text-decoration:none; color: green; font-weight: bold; background-color: orange; padding:10px;"> Course 3 - Desalination</a><p>examines the science and technology behind converting seawater into fresh, usable water. The course 
+                                    introduces key desalination methods such as reverse osmosis and thermal processes, highlighting their role in addressing global water scarcity. Learners explore system design, energy requirements, environmental impacts, and innovations that make desalination more efficient and sustainable. By the end, participants gain a clear understanding of how desalination supports communities,
+                                     industries, and ecosystems in regions facing freshwater challenges.</p></li></ul><a href="#" target="_blank" class="btn btn-success btn-lg mt-4">Explore More Educational Content</a></div>`
+            },
+
+            "editorial": {
+                title: "Editorial Plan in", html: `<div style="padding:20px 40px;text-align:center;color:#006400;font-weight:bold;"><h4>Editorial Plan</h4><iframe src="https://www.expotv1.com/JWT_GhostWriter.htm",
+                    width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"><a href="https://www.expotv1.com/JWT_GhostWriter.htm" target="_blank" class="btn btn-success btn-lg me-3">Explore Full,
+                        Plan</a></div></div>`
+            },
+
+            "mktg": {
+                title: "MKTG Commercial Goods",
+                html: `<div style="padding:20px 40px;"><iframe src="https://www.expotv1.com/JWT_mkt.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"><a href="https://www.expotv1.com/JWT_mkt.htm" target="_blank" class="btn btn-success btn-lg">Explore Full Marketing Plan →</a></div></div>`
+            },
+
+            "mkt-jp": { title: "MKT & IP", html: `<div style="padding:20px 40px;text-align:center;color:#006400;"><h4>MKT & IP</h4><div style="padding:4px 5px;"><iframe src="https://www.expotv1.com/JWTeam_to_Ecological_TRANSITION.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"></div></div><a href="https://www.expotv1.com/JWTeam_to_Ecological_TRANSITION.htm" target="_blank" class="btn btn-success btn-lg mt-4">Explore More</a></div>` },
+            "iisrb": { title: "II & SRB", html: `<div style="padding:20px 40px;text-align:center;color:#006400;"><h4>II & SRB</h4><div style="padding:4px 5px;"><iframe src="https://www.expotv1.com/JWT_Rent_Lease_BACK.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"></div></div><a href="https://www.expotv1.com/JWT_Rent_Lease_BACK.htm" target="_blank" class="btn btn-success btn-lg mt-4">Explore</a></div>` },
+            "jv": { title: "JV & 30/21", html: `<div style="padding:20px 40px;text-align:center;color:#006400;"><h4>JV & 30/21</h4><div style="padding:4px 5px;"><iframe src="https://www.expotv1.com/JWT_Lend_Invest_30_21.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"></div></div><a href="https://www.expotv1.com/JWT_Lend_Invest_30_21.htm" target="_blank" class="btn btn-success btn-lg mt-4">View More</a></div>` },
+            "it-support": {
+                title: "IT & SUPPORT", html: `<div style="padding:20px 40px;text-align:center;color:#006400;">IT & Support</h4><div style="padding:4px 5px;"><iframe src="https://www.expotv1.com/ESCP_TSMGO.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"></div></div><a href="https://www.expotv1.com/ESCP_TSMGO.htm" target="_blank" class="btn btn-success btn-lg mt-4">Get Support</a></div>`
+
+            },
         };
 
-        const presentationArea = document.getElementById('presentationArea');
-
+        // ====================== SIDEBAR CLICK HANDLER ======================
         document.querySelectorAll('.sidebar-card').forEach(card => {
             card.addEventListener('click', function (e) {
                 e.preventDefault();
+
                 document.querySelectorAll('.sidebar-card').forEach(c => c.classList.remove('active'));
                 this.classList.add('active');
 
                 const id = this.getAttribute('data-id');
                 const data = contentData[id];
+                const area = document.getElementById('presentationArea');
 
-                if (data && presentationArea) {
-                    let extraHTML = '';
+                if (!data || !area) return;
 
-                    if (id === "welcome") {
-                        extraHTML = `
-                        <div style="padding: 0 40px 30px;">
-                            <h4 style="color:#006400; margin-bottom:15px;">Our Global Reach</h4>
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12370534.077873226!2d2.1147633204309444!3d40.802699194980725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4fe82448dd203%3A0xe22cf55c24635e6f!2sItaly!5e0!3m2!1sen!2ske!4v1775469328027!5m2!1sen!2ske" 
-                                    width="100%" height="450" style="border:0; border-radius:12px;" 
-                                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                        <div style="text-align:center; padding:30px 40px;">
-                            <button class="btn btn-success btn-lg" onclick="exploreEcosystem()">Begin Your Journey →</button>
-                        </div>
-                    `;
-                    } else {
-                        // Dynamic 3 cards for other modules
-                        let cardsHTML = '';
-                        if (data.cards) {
-                            cardsHTML = data.cards.map(card => `
-                            <div class="feature-card">
-                                <img src="${card.img}" alt="">
-                                <div class="feature-card-body">
-                                    <h5>${card.title}</h5>
-                                    <p>${card.desc}</p>
-                                    <button class="btn btn-success btn-sm">Learn More</button>
-                                </div>
-                            </div>
-                        `).join('');
-                        }
-
-                        extraHTML = `
-                        <div class="interactive-demo" style="padding: 30px 40px; background:#f8f9fa; border-top: 1px solid #eee;">
-                            <h4 style="color:#006400; margin-bottom:20px;">interactive statistics </h4>
-                            <div id="demo-content-${id}"></div>
-                        </div>
-                        <div class="feature-cards">${cardsHTML}</div>
-                    `;
-                    }
-
-                    presentationArea.innerHTML = `
+                let htmlContent = '';
+                if (id === "welcome") {
+                    htmlContent = `
                     <div class="module-hero" style="background-image: url('${data.heroBg}')">
                         <h2 class="module-title">${data.title}</h2>
                     </div>
@@ -1445,21 +1436,68 @@
                             <p>${data.text}</p>
                         </div>
                     </div>
-                    ${extraHTML}
+                    <div style="padding:40px;">
+                        <h4 style="color:#006400; margin-bottom:15px;">Our Global Reach - Italy Focus</h4>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12370534.077873226!2d2.1147633204309444!3d40.802699194980725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4fe82448dd203%3A0xe22cf55c24635e6f!2sItaly!5e0!3m2!1sen!2ske!4v1775469328027!5m2!1sen!2ske" 
+                                width="100%" height="480" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
                 `;
-
-                    if (id !== "welcome") renderInteractiveDemo(id);
                 }
+
+
+                else if (data.html) {
+                    // Special sections (EDU, Editorial, MKTG, etc.)
+                    htmlContent = data.html;
+                } else {
+                    // Regular modules - Full layout with hero, introduction & cards
+                    let cardsHTML = '';
+                    if (data.cards && data.cards.length > 0) {
+                        cardsHTML = data.cards.map(c => `
+                        <div class="feature-card">
+                            <img src="${c.img}" alt="${c.title}">
+                            <div class="feature-card-body">
+                                <h5>${c.title}</h5>
+                                <p>${c.desc}</p>
+                                <button class="btn btn-success btn-sm">Learn More</button>
+                            </div>
+                        </div>
+                    `).join('');
+                    }
+
+                    htmlContent = `
+                    <div class="module-hero" style="background-image: url('${data.heroBg}')">
+                        <h2 class="module-title">${data.title}</h2>
+                    </div>
+                    <div class="side-content">
+                        <div class="side-image"><img src="${data.sideImage}" alt="${data.title}"></div>
+                        <div class="side-text">
+                            <h4>Introduction</h4>
+                            <p>${data.text}</p>
+                        </div>
+                    </div>
+                    <div class="interactive-demo" style="padding:30px 40px; background:#f8f9fa; border-top:1px solid #eee;">
+                        <h4 style="color:#006400; margin-bottom:20px;">Interactive Statistics</h4>
+                        <div id="demo-content-${id}"></div>
+                    </div>
+                    <div class="feature-cards" style="padding:0 40px 40px;">${cardsHTML}</div>
+                `;
+                }
+
+                area.innerHTML = htmlContent;
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: "smooth" });
+
+                if (!data.html) renderInteractiveDemo(id);
             });
         });
 
-        // Interactive Demo Functions (keep your existing ones)
+        // ====================== INTERACTIVE DEMO ======================
         function renderInteractiveDemo(id) {
             const container = document.getElementById(`demo-content-${id}`);
             if (!container) return;
 
             let html = '';
-
             switch (id) {
                 case "iteg":
                     html = `<p><strong>Rotor Energy Simulator</strong></p><button class="btn btn-success mb-3" onclick="simulateEnergy(this)">Run Simulation</button><div id="energy-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
@@ -1474,13 +1512,15 @@
                     html = `<p><strong>Desalination Estimator</strong></p><button class="btn btn-info mb-3" onclick="waterDemo()">Generate 30 Days Output</button><div id="water-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
                     break;
                 case "pcrr":
-                    html = `<p><strong>Zone Revenue Calculator</strong></p><input type="number" id="zone-pop" placeholder="Population (e.g. 1500000)" style="padding:10px;width:100%;margin-bottom:10px;"><button class="btn btn-success" onclick="calculateRevenue()">Calculate Revenue</button><div id="revenue-result" style="margin-top:15px;font-weight:bold;"></div>`;
+                    html = `<p><strong>Zone Revenue Calculator</strong></p><input type="number" id="zone-pop" placeholder="Population (e.g. 1,500,000)" style="padding:10px;width:100%;margin-bottom:10px;"><button class="btn btn-success" onclick="calculateRevenue()">Calculate Revenue</button><div id="revenue-result" style="margin-top:15px;font-weight:bold;"></div>`;
                     break;
                 default:
-                    html = `<p>Interactive demo for this module is active.</p>`;
+                    html = `<p>Interactive demo coming soon...</p>`;
             }
             container.innerHTML = html;
         }
+
+        // Demo Functions
         window.simulateEnergy = function (btn) { btn.innerHTML = "Running..."; setTimeout(() => { document.getElementById('energy-result').innerHTML = `✅ Peak Output: <span style="color:#FF6200;">2.84 MW</span><br>Efficiency: 94.7%`; btn.innerHTML = "Run Again"; }, 1400); };
         window.simulateBiogas = function (btn) { btn.innerHTML = "Processing..."; setTimeout(() => { document.getElementById('biogas-result').innerHTML = `✅ 1.85 MWh electricity + 420 m³ biogas`; btn.innerHTML = "Process Again"; }, 1300); };
         window.simulateAlgae = function (btn) { btn.innerHTML = "Growing..."; setTimeout(() => { document.getElementById('algae-result').innerHTML = `✅ Biomass: 18.4 kg/m²<br>CO₂ Captured: 42 tons`; btn.innerHTML = "New Cycle"; }, 1600); };
@@ -1492,14 +1532,11 @@
             document.getElementById('revenue-result').innerHTML = `Estimated Annual Revenue: <strong>€${revenue} Million</strong>`;
         };
 
-        window.exploreEcosystem = function () {
-            alert("🌍 Welcome to the JWT Ecosystem!\n\nYou are now exploring the future of green innovation.");
-        };
-
-        // Initialize
+        // ====================== INITIALIZE ======================
         window.addEventListener('load', () => {
             initCharts();
             initJWTDiagram();
+
             const welcomeCard = document.querySelector('.sidebar-card[data-id="welcome"]');
             if (welcomeCard) welcomeCard.click();
         });
