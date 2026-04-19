@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500&amp;display=swap');
 
@@ -121,117 +122,30 @@
 </head>
 
 <body class="tailwind-ready">
-    <!-- NAVBAR -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <!-- Logo -->
-            <div class="flex items-center gap-x-3">
-                <div
-                    class="w-10 h-10 bg-gradient-to-br from-[#10b981] to-[#f59e0b] rounded-2xl flex items-center justify-center text-white text-2xl font-bold heading-font">
-                    P</div>
-                <div>
-                    <h1 class="heading-font text-3xl tracking-[-1px]">PCCR</h1>
-                    <p class="text-xs text-slate-500 -mt-1">Private Commercial Commercial Rights</p>
-                </div>
-            </div>
-
-            <!-- Menu -->
-            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                <a href="#commercial" class="nav-link text-slate-700 hover:text-slate-900">Commercial License</a>
-                <a href="#economic" class="nav-link text-slate-700 hover:text-slate-900">Economic Impact</a>
-                <a href="#jwt" class="nav-link text-slate-700 hover:text-slate-900">JWT Integration</a>
-                <a href="#case-studies" class="nav-link text-slate-700 hover:text-slate-900">Case Studies</a>
-                <a href="#budget" class="nav-link text-slate-700 hover:text-slate-900">Budget Template</a>
-                <a href="#country-data" class="nav-link text-slate-700 hover:text-slate-900">Global Data</a>
-                <a href="#contact" class="nav-link text-slate-700 hover:text-slate-900">Contact Us</a>
-            </div>
-
-            <div class="flex items-center gap-x-4">
-                <div
-                    class="bg-white border border-slate-200 text-slate-700 text-xs font-medium px-4 py-2 rounded-3xl flex items-center gap-x-1">
-                    <span class="text-[#10b981]">Raipur, India</span>
-                    <span class="text-[#f59e0b] text-xl leading-none">•</span>
-                    <span class="font-mono">0.232 ME</span>
-                </div>
-                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
-                    class="bg-[#10b981] hover:bg-[#0ea16f] text-white px-6 py-3 rounded-3xl text-sm font-semibold flex items-center gap-x-2">
-                    <span>Get License</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7-7 7" />
-                    </svg>
-                </button>
-
-                <!-- Mobile menu button -->
-                <button onclick="toggleMobileMenu()"
-                    class="md:hidden w-11 h-11 flex items-center justify-center text-2xl text-slate-700">
-                    ☰
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-6 py-4">
-            <a href="#commercial" class="block py-3 text-slate-700 font-medium">Commercial License</a>
-            <a href="#economic" class="block py-3 text-slate-700 font-medium">Economic Impact</a>
-            <a href="#jwt" class="block py-3 text-slate-700 font-medium">JWT Integration</a>
-            <a href="#case-studies" class="block py-3 text-slate-700 font-medium">Case Studies</a>
-            <a href="#budget" class="block py-3 text-slate-700 font-medium">Budget Template</a>
-            <a href="#country-data" class="block py-3 text-slate-700 font-medium">Global Data</a>
-            <a href="#contact" class="block py-3 text-slate-700 font-medium">Contact Us</a>
-        </div>
-    </nav>
 
     <!-- HERO + SLIDESHOW -->
     <header class="hero-bg text-white py-16">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div class="max-w-7xl mx-auto px-3 grid md:grid-cols-2 gap-12 items-center">
             <!-- Text -->
             <div class="space-y-6">
-                <div
-                    class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur-md text-white text-sm font-medium px-5 py-2 rounded-3xl">
-                    <span class="relative flex h-3 w-3">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f59e0b] opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-3 w-3 bg-[#f59e0b]"></span>
-                    </span>
-                    LIVE IN RAIPUR • INDIA
+                <div>
+                    <h2 style="font-size: 30px;" class="fw-bold">PCRR, Recovery & Resilience</h2>
                 </div>
-
-                <h1 class="heading-font text-6xl md:text-7xl leading-none tracking-[-2px]">
-                    Unlock Global<br>Commercial Rights<br>with <span class="text-[#f59e0b]">PCCR</span>
-                </h1>
-
-                <p class="text-xl text-slate-300 max-w-md">
-                    Secure your commercial license in under 60 seconds.
-                    100% blockchain-backed • NFT-powered ownership • Instant global compliance.
-                </p>
 
                 <div class="flex items-center gap-x-4">
                     <button onclick="document.getElementById('budget').scrollIntoView({behavior:'smooth'})"
-                        class="flex-1 md:flex-none bg-white text-slate-900 hover:bg-amber-100 font-semibold px-8 py-5 rounded-3xl text-lg flex items-center justify-center gap-x-3">
+                        class="flex-1 md:flex-none bg-white text-slate-900 hover:bg-amber-100 font-semibold px-3 py-2 rounded-3xl text-lg flex items-center justify-center gap-x-3">
                         <span>View Live Budget Template</span>
-                        <span class="text-2xl">📊</span>
+                        <span class="text-2xl"></span>
                     </button>
 
                     <button onclick="document.getElementById('country-data').scrollIntoView({behavior:'smooth'})"
-                        class="flex-1 md:flex-none border border-white/70 hover:border-white font-medium px-8 py-5 rounded-3xl text-lg flex items-center justify-center">
+                        class="flex-1 md:flex-none border border-white/70 hover:border-white font-medium px-3 py-2 rounded-3xl text-lg flex items-center justify-center">
                         Compare 180+ Countries
                     </button>
                 </div>
 
                 <div class="flex items-center gap-x-8 text-sm">
-                    <div class="flex items-center gap-x-2">
-                        <div class="text-[#10b981] text-3xl">✓</div>
-                        <div>
-                            <div class="font-semibold">0.232 ME J3 PBRC BP</div>
-                            <div class="text-slate-400 text-xs">Base price • Dream.ZONE VN MC</div>
-                        </div>
-                    </div>
-                    <div class="h-8 w-px bg-white/30"></div>
-                    <div>
-                        <span class="font-mono text-3xl text-[#f59e0b]">580€</span>
-                        <span class="text-xs block text-slate-400">Price BB • Instant activation</span>
-                    </div>
                 </div>
             </div>
 
