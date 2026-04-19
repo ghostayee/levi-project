@@ -5,12 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PCRR – Piano Commerciale di Ripresa e Resilienza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="icon" href="/pcrr/images/faviconservices--32x32.png" type="image/x-icon" sizes="32x32">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
     <style>
         :root {
@@ -596,10 +598,20 @@
             color: var(--green-main);
             margin-bottom: 10px;
         }
+
+        /*== added css from adopted==*/
+        .hero-bg {
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-main) 100%);
+        }
+
+        /* Slideshow */
+        .slideshow-container {
+            border: 3px solid var(--accent-orange);
+        }
     </style>
 </head>
 
-<body>
+<body class="tailwind-ready">
 
     <!-- Rotating top banner -->
     <nav id="pcrr-submenu" class="navbar navbar-dark overflow-hidden">
@@ -765,17 +777,82 @@
             </div>
 
             <!-- Overview with Image (restored) -->
-            <section class="full-section bg-white" id="overview">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <span class="section-label">Strategic Foundation</span>
-                        <h2 class="display-5 fw-bold">Why PCRR Exists</h2>
+            <section class="hero-bg text-white py-16 mx">
+                <div class="container-fluid max-w-7xl mx-1 px-3 grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Text -->
+                    <div class="space-y-6">
+                        <div>
+                            <h2 style="font-size: 30px; color: #ff6200;" class="fw-bold">PCRR, Recovery & Resilience
+                            </h2>
+                        </div>
+                        <div>
+                            <h4 class="fs-5"> (PCRR) strategies emphasize rebuilding economies with sustainability at
+                                the core.
+                                Green energy
+                                investments such as solar, wind, and bioenergy are central to reducing dependence on
+                                fossil
+                                fuels while creating new jobs and industries. Aligning these initiatives with careful
+                                budget
+                                planning ensures resources are allocated efficiently, balancing immediate recovery needs
+                                with
+                                long‑term resilience. By prioritizing renewable energy in fiscal frameworks, governments
+                                and
+                                organizations can stimulate growth, safeguard the environment, and strengthen
+                                communities
+                                against future shocks.</h4>
+                        </div>
+
+                        <div class="flex items-center gap-x-4">
+                            <button onclick="document.getElementById('budget').scrollIntoView({behavior:'smooth'})"
+                                class="flex-1 md:flex-none bg-white text-slate-900 hover:bg-amber-100 font-semibold px-3 py-2 rounded-3xl text-lg flex items-center justify-center gap-x-3">
+                                <span>View Live Budget Template</span>
+                                <span class="text-2xl"></span>
+                            </button>
+
+                            <button
+                                onclick="document.getElementById('country-data').scrollIntoView({behavior:'smooth'})"
+                                class="flex-1 md:flex-none border border-white/70 hover:border-white font-medium px-3 py-2 rounded-3xl text-lg flex items-center justify-center">
+                                Compare 180+ Countries
+                            </button>
+                        </div>
+
+                        <div class="flex items-center gap-x-8 text-sm">
+                        </div>
                     </div>
-                    <div class="gfss-card card">
-                        <img src="images/solar.jpg" alt="PCRR Overview" class="img-fluid rounded mb-3">
-                        <p class="lead text-center max-w-3xl mx-auto">PCRR transforms JWT’s 342 patented GREEN
-                            innovations into deployable, revenue-generating solutions aligned with PNRR Mission 2 and
-                            the EU Green Deal.</p>
+
+                    <div class="slideshow-container">
+
+                        <div class="slide">
+                            <img src="images/sustainable business.jpg" alt="turbine">
+                        </div>
+
+                        <div class="slide">
+                            <img src="images/biofuel.avif" alt="biofuel">
+                        </div>
+
+                        <div class="slide">
+                            <img src="images/chemical-free.jpg" alt="">
+                        </div>
+
+                        <div class="slide">
+                            <img src="images/solar.jpg" alt="">
+                        </div>
+
+                        <div class="slide">
+                            <img src="images/water optimiztion.jpg" alt="">
+                        </div>
+
+                        <div class="slide">
+                            <img src="images/efficiencyrotor.jpg" alt="">
+                        </div>
+
+                        <div class="controls">
+                            <button onclick="prevSlide()">‹</button>
+                            <button onclick="nextSlide()">›</button>
+                        </div>
+
+                        <div class="dots" id="dots"></div>
+
                     </div>
                 </div>
             </section>

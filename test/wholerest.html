@@ -118,6 +118,84 @@
             background: var(--green-dark);
             color: white;
         }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            height: 420px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gradient-bg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #10b981, #f59e0b);
+        }
+
+        /* controls */
+        .controls {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+
+        .controls button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* dots */
+        .dots {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: white;
+        }
     </style>
 </head>
 
@@ -129,7 +207,17 @@
             <!-- Text -->
             <div class="space-y-6">
                 <div>
-                    <h2 style="font-size: 30px;" class="fw-bold">PCRR, Recovery & Resilience</h2>
+                    <h2 style="font-size: 30px; color: #ff6200;" class="fw-bold">PCRR, Recovery & Resilience</h2>
+                </div>
+                <div>
+                    <h4 class="fs-5"> (PCRR) strategies emphasize rebuilding economies with sustainability at the core.
+                        Green energy
+                        investments such as solar, wind, and bioenergy are central to reducing dependence on fossil
+                        fuels while creating new jobs and industries. Aligning these initiatives with careful budget
+                        planning ensures resources are allocated efficiently, balancing immediate recovery needs with
+                        long‑term resilience. By prioritizing renewable energy in fiscal frameworks, governments and
+                        organizations can stimulate growth, safeguard the environment, and strengthen communities
+                        against future shocks.</h4>
                 </div>
 
                 <div class="flex items-center gap-x-4">
@@ -149,67 +237,39 @@
                 </div>
             </div>
 
-            <!-- Slideshow -->
-            <div
-                class="slideshow-container h-96 md:h-[420px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl relative">
-                <!-- Slide 1 -->
-                <div id="slide1"
-                    class="slide active bg-gradient-to-br from-[#10b981] to-[#f59e0b] flex items-center justify-center">
-                    <div class="text-center px-10">
-                        <div class="text-8xl mb-6">🌍</div>
-                        <h3 class="text-4xl font-semibold heading-font">Global Commercial License</h3>
-                        <p class="mt-4 text-xl">One platform. Every country. Instant NFT ownership.</p>
-                        <div
-                            class="mt-8 text-sm uppercase tracking-[2px] bg-white/20 backdrop-blur px-6 py-3 rounded-3xl inline-block">
-                            Raipur • India • LIVE</div>
-                    </div>
+            <div class="slideshow-container">
+
+                <div class="slide">
+                    <img src="images/sustainable business.jpg" alt="turbine">
                 </div>
 
-                <!-- Slide 2 -->
-                <div id="slide2" class="slide bg-slate-900 flex items-center justify-center">
-                    <div class="text-center px-10">
-                        <img src="https://picsum.photos/id/1015/800/420"
-                            alt="NFT Commercial License Visualization - Blockchain secured contract"
-                            class="rounded-3xl shadow-2xl mx-auto w-full max-w-[320px] object-cover">
-                        <p class="mt-6 text-sm uppercase text-amber-400">NFT • Contract 100% • Buy 1%</p>
-                        <h3 class="text-3xl mt-2 heading-font">Your license is an NFT</h3>
-                    </div>
+                <div class="slide">
+                    <img src="images/biofuel.avif" alt="biofuel">
                 </div>
 
-                <!-- Slide 3 -->
-                <div id="slide3"
-                    class="slide bg-gradient-to-br from-slate-800 to-[#10b981] flex items-center justify-center">
-                    <div class="text-center px-10">
-                        <div class="text-8xl mb-6">📈</div>
-                        <h3 class="text-4xl font-semibold heading-font">Economic Impact</h3>
-                        <p class="mt-4 text-xl max-w-xs mx-auto">Generate €6.96M in annual revenue with just 0.1% BB fee
-                        </p>
-                    </div>
+                <div class="slide">
+                    <img src="images/chemical-free.jpg" alt="">
                 </div>
 
-                <!-- Slide 4 -->
-                <div id="slide4" class="slide bg-slate-900 flex items-center justify-center">
-                    <div class="text-center px-10">
-                        <img src="https://picsum.photos/id/201/800/420"
-                            alt="Secure JWT integration diagram - Token authentication flow"
-                            class="rounded-3xl shadow-2xl mx-auto w-full max-w-[320px] object-cover">
-                        <p class="mt-6 text-sm uppercase text-emerald-400">JWT Secured • Zero trust architecture</p>
-                        <h3 class="text-3xl mt-2 heading-font">Enterprise-grade security</h3>
-                    </div>
+                <div class="slide">
+                    <img src="images/solar.jpg" alt="">
                 </div>
 
-                <!-- Controls -->
-                <div class="absolute bottom-6 left-1/2 flex gap-x-3 z-20 -translate-x-1/2">
-                    <button onclick="prevSlide()"
-                        class="w-9 h-9 bg-white/80 hover:bg-white text-slate-900 rounded-2xl flex items-center justify-center text-xl">‹</button>
-                    <button onclick="nextSlide()"
-                        class="w-9 h-9 bg-white/80 hover:bg-white text-slate-900 rounded-2xl flex items-center justify-center text-xl">›</button>
+                <div class="slide">
+                    <img src="images/water optimiztion.jpg" alt="">
                 </div>
 
-                <!-- Dots -->
-                <div class="absolute bottom-8 left-1/2 flex gap-x-2 z-20 -translate-x-1/2" id="dots">
-                    <!-- JS injected -->
+                <div class="slide">
+                    <img src="images/efficiencyrotor.jpg" alt="">
                 </div>
+
+                <div class="controls">
+                    <button onclick="prevSlide()">‹</button>
+                    <button onclick="nextSlide()">›</button>
+                </div>
+
+                <div class="dots" id="dots"></div>
+
             </div>
         </div>
     </header>
@@ -221,7 +281,7 @@
                 <span class="px-5 py-2 bg-[#10b981]/10 text-[#10b981] text-sm font-semibold rounded-3xl">COMMERCIAL
                     LICENSE</span>
                 <h2 class="text-5xl heading-font mt-4">How the PCCR Commercial License Works</h2>
-                <p class="mt-3 max-w-xl mx-auto text-slate-600">100% on-chain. Zero paperwork. Powered by NFT ownership
+                <p class="mt-3 max-w-xl mx-auto text-slate-600">100% on-chain. Powered by NFT ownership
                     and smart contracts. Built for Dream.ZONE VN MC projects.</p>
             </div>
 
@@ -229,17 +289,14 @@
                 <!-- Left explanation -->
                 <div class="md:col-span-5 space-y-8">
                     <div class="flex gap-4">
-                        <div
-                            class="shrink-0 w-12 h-12 bg-[#10b981] text-white rounded-2xl flex items-center justify-center text-3xl">
-                            📜</div>
+
                         <div>
                             <h4 class="font-semibold text-2xl">Contract 100% Ownership</h4>
                             <p class="text-slate-600 mt-2">Your license is minted as a non-fungible token (NFT) on the
                                 blockchain. You own 100% of the rights forever. No middlemen. Transferable instantly.
                             </p>
                             <div class="text-xs mt-4 flex items-center gap-x-2 text-emerald-600">
-                                <div class="px-3 py-1 bg-emerald-100 rounded-3xl">IN J3 001 L</div>
-                                <div>Raipur • State ISO IN</div>
+                                <div class="px-3 py-1 bg-emerald-100 rounded-3xl">jwt</div>
                             </div>
                         </div>
                     </div>
@@ -247,20 +304,18 @@
                     <div class="flex gap-4">
                         <div
                             class="shrink-0 w-12 h-12 bg-[#f59e0b] text-white rounded-2xl flex items-center justify-center text-3xl">
-                            💰</div>
+                            jwt
+                        </div>
                         <div>
                             <h4 class="font-semibold text-2xl">Buy 1% • Sell Unlimited</h4>
                             <p class="text-slate-600 mt-2">Pay only 1% upfront on the base price. Resell your license at
                                 full market value with automatic royalty distribution via smart contract.</p>
-                            <div class="mt-4 text-sm font-medium text-amber-600">Current base price in India: €11,600 /
+                            <div class="mt-4 text-sm font-medium text-amber-600"> €11,600 /
                                 year</div>
                         </div>
                     </div>
 
                     <div class="flex gap-4">
-                        <div
-                            class="shrink-0 w-12 h-12 bg-slate-700 text-white rounded-2xl flex items-center justify-center text-3xl">
-                            🔐</div>
                         <div>
                             <h4 class="font-semibold text-2xl">BB Fee 0.1% Only</h4>
                             <p class="text-slate-600 mt-2">Business Blockchain fee is just 0.1% of every transaction.
@@ -310,30 +365,22 @@
                         <div class="flex justify-between">
                             <div>
                                 <span class="text-xs uppercase text-slate-400">License €/y</span>
-                                <div class="text-5xl font-semibold mt-2 font-mono">€11,600</div>
+                                <div class="text-5xl font-semibold mt-2 text-success">€11,600</div>
                             </div>
-                            <div class="text-6xl">📄</div>
                         </div>
                         <p class="text-slate-500 mt-8 text-sm">Annual commercial license fee for full operations in
                             Raipur, India. Includes State IT, City ISO, and People M registration.</p>
-                        <div
-                            class="mt-6 text-xs bg-[#10b981]/10 text-[#10b981] px-4 py-2 rounded-3xl inline-flex items-center">
-                            Code: IN J3 001 L</div>
                     </div>
 
                     <div class="card-hover bg-white border border-slate-200 rounded-3xl p-6">
                         <div class="flex justify-between">
                             <div>
                                 <span class="text-xs uppercase text-slate-400">Sale RP €</span>
-                                <div class="text-5xl font-semibold mt-2 font-mono">€6,960,000</div>
+                                <div class="text-5xl font-semibold mt-2 text-success">€6,960,000</div>
                             </div>
-                            <div class="text-6xl">📦</div>
                         </div>
                         <p class="text-slate-500 mt-8 text-sm">Projected annual revenue from RP (Retail Partnership)
                             model. 6960 units × €1,000 average sale price.</p>
-                        <div
-                            class="mt-6 text-xs bg-[#f59e0b]/10 text-[#f59e0b] px-4 py-2 rounded-3xl inline-flex items-center">
-                            IRR: 200%</div>
                     </div>
 
                     <div class="card-hover bg-white border border-slate-200 rounded-3xl p-6 col-span-2 md:col-span-1">
@@ -353,15 +400,15 @@
                     </div>
 
                     <div
-                        class="card-hover bg-gradient-to-br from-[#10b981] to-[#f59e0b] text-white rounded-3xl p-6 flex flex-col justify-between">
+                        class="card-hover bg-gradient-to-br from-[#10b981] to-[#10b981] text-white rounded-3xl p-6 flex flex-col justify-between">
                         <div>
                             <span class="uppercase text-xs tracking-widest opacity-75">BB FEE STRUCTURE</span>
                             <div class="text-6xl font-semibold font-mono mt-2">0.1%</div>
                             <p class="mt-4">On every transaction. Transparent. Immutable. Paid in ME J3 PBRC BP
                                 stablecoin.</p>
                         </div>
-                        <div class="text-xs mt-auto pt-8 opacity-75">Already live in 180 countries • Next: Kenya, UAE,
-                            Brazil</div>
+                        <div class="text-xs mt-auto pt-8 opacity-75">Already live in 180 countries •
+                        </div>
                     </div>
                 </div>
             </div>
@@ -373,7 +420,8 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-16 items-center">
                 <div class="md:col-span-7">
-                    <h2 class="text-5xl heading-font">Economic Impact of PCCR License</h2>
+                    <h2 class="text-5xl heading-font text-center" style="color:#e55a00">Economic Impact of PCCR License
+                    </h2>
                     <p class="mt-4 text-xl text-slate-600">Deploying the Dream.ZONE VN MC project in Raipur, India
                         generates massive local value while maintaining global scalability.</p>
 
@@ -408,7 +456,6 @@
                     <h4 class="font-semibold text-xl mb-8">Why Raipur?</h4>
                     <ul class="space-y-8">
                         <li class="flex gap-x-4">
-                            <span class="text-4xl">🇮🇳</span>
                             <div>
                                 <strong>State IT &amp; ISO Certification</strong>
                                 <p class="text-sm text-slate-600">Full government backing. Zero bureaucracy for PCCR
@@ -416,7 +463,6 @@
                             </div>
                         </li>
                         <li class="flex gap-x-4">
-                            <span class="text-4xl">📍</span>
                             <div>
                                 <strong>Geography &amp; Orography Advantage</strong>
                                 <p class="text-sm text-slate-600">Central India location with excellent logistics and
@@ -424,7 +470,6 @@
                             </div>
                         </li>
                         <li class="flex gap-x-4">
-                            <span class="text-4xl">🌱</span>
                             <div>
                                 <strong>Sustainability Score</strong>
                                 <p class="text-sm text-slate-600">Dream.ZONE VN MC aligns with national green economy
@@ -434,7 +479,7 @@
                     </ul>
 
                     <div class="mt-12 pt-8 border-t text-xs text-slate-400 flex items-center justify-between">
-                        <div>Current license price: <span class="font-mono text-slate-700">€580 BB</span></div>
+                        <div>Current license price: <span class="font-mono text-slate-700"></span></div>
                         <div class="font-medium text-[#10b981]">+11.6% growth last month</div>
                     </div>
                 </div>
@@ -446,8 +491,6 @@
     <section id="jwt" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
-                <span class="px-5 py-2 bg-[#f59e0b]/10 text-[#f59e0b] text-sm font-semibold rounded-3xl">SECURE BY
-                    DESIGN</span>
                 <h2 class="text-5xl heading-font mt-4">JWT Integration for Enterprise Security</h2>
                 <p class="max-w-md mx-auto text-slate-600 mt-3">Every license, transaction, and NFT transfer is
                     authenticated with JSON Web Tokens.</p>
@@ -456,7 +499,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-start">
                 <div class="space-y-6">
                     <div class="p-6 border border-slate-200 rounded-3xl">
-                        <h5 class="font-medium flex items-center gap-x-3"><span class="text-[#10b981]">🔑</span> How JWT
+                        <h5 class="font-medium flex items-center gap-x-3"> How JWT
                             Works in PCCR</h5>
                         <p class="text-slate-600 mt-4">When you purchase or activate a license, the platform issues a
                             signed JWT containing your wallet address, license code (e.g. IN J3 001 L), expiry, and
@@ -471,7 +514,7 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between text-sm bg-slate-50 p-4 rounded-3xl">
+                    <div class="flex items-center justify-between text-sm bg-warning p-4 rounded-3xl">
                         <div>✅ Token refresh every 15 mins</div>
                         <div>✅ Revocable instantly</div>
                         <div>✅ Supports wallet connect</div>
@@ -479,32 +522,33 @@
                 </div>
 
                 <!-- Diagram -->
-                <div class="rounded-3xl border bg-slate-50 p-8">
-                    <h5 class="font-semibold mb-6">JWT Authentication Flow</h5>
+                <div class="rounded-3xl border bg-success p-8">
+                    <h5 class="font-semibold text-warning mb-6">JWT Authentication Flow</h5>
                     <div class="space-y-8 text-sm">
                         <div class="flex items-center gap-x-4">
                             <div class="w-8 h-8 rounded-2xl bg-white flex items-center justify-center font-medium">1
                             </div>
                             <div class="flex-1">User signs transaction with wallet</div>
                             <div class="text-[#10b981] text-2xl">→</div>
-                            <div class="font-mono text-xs bg-white px-3 py-1 rounded-3xl">JWT issued</div>
+                            <div class="font-mono text-xs bg-warning px-3 py-1 rounded-3xl">JWT issued</div>
                         </div>
                         <div class="flex items-center gap-x-4">
                             <div class="w-8 h-8 rounded-2xl bg-white flex items-center justify-center font-medium">2
                             </div>
                             <div class="flex-1">Smart contract validates JWT signature</div>
                             <div class="text-[#10b981] text-2xl">→</div>
-                            <div class="font-mono text-xs bg-white px-3 py-1 rounded-3xl">Access granted</div>
+                            <div class="font-mono text-xs bg-warning px-3 py-1 rounded-3xl">Access granted</div>
                         </div>
                         <div class="flex items-center gap-x-4">
                             <div class="w-8 h-8 rounded-2xl bg-white flex items-center justify-center font-medium">3
                             </div>
                             <div class="flex-1">NFT ownership transferred on-chain</div>
                             <div class="text-[#f59e0b] text-2xl">→</div>
-                            <div class="font-mono text-xs bg-white px-3 py-1 rounded-3xl">License activated</div>
+                            <div class="font-mono text-xs bg-success px-3 py-1 rounded-3xl">License activated</div>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-500 mt-8">This architecture ensures that even if the frontend is
+                    <p class="text-xs text-slate-500 mt-8 text-warning">This architecture ensures that even if the
+                        frontend is
                         compromised, no unauthorized license can be issued.</p>
                 </div>
             </div>
@@ -514,7 +558,7 @@
     <!-- CASE STUDIES -->
     <section id="case-studies" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-center text-5xl heading-font mb-4">Real Results. Real Countries.</h2>
+            <h2 class="text-center text-5xl heading-font mb-4"> Results of Countries.</h2>
             <p class="text-center text-slate-600 max-w-md mx-auto">See how PCCR licenses are powering businesses
                 worldwide.</p>
 
@@ -558,11 +602,10 @@
                             <span class="px-4 py-1 bg-amber-100 text-amber-700 text-xs rounded-3xl">Upcoming</span>
                         </div>
                     </div>
-                    <h4 class="text-2xl font-semibold mt-8">Kenya • East Africa Hub</h4>
+                    <h4 class="text-2xl font-semibold mt-8">East Africa Hub</h4>
                     <p class="text-slate-600 mt-3">Pilot license issued. Projected 340 jobs and €480k revenue in year
                         one. Perfect alignment with your Kenya IP location.</p>
                     <div class="mt-8 text-xs flex flex-wrap gap-2">
-                        <div class="px-4 py-2 bg-slate-100 rounded-3xl">Ready in 60 days</div>
                     </div>
                 </div>
             </div>
@@ -641,7 +684,7 @@
             </div>
 
             <div class="mt-6 flex justify-between text-xs text-slate-500 px-4">
-                <div>Interactive: Change any value below and watch real-time IRR recalculation</div>
+                <div>real-time IRR recalculation</div>
                 <button onclick="recalculateBudget()"
                     class="px-6 py-2 bg-[#f59e0b] hover:bg-amber-600 text-white text-xs font-medium rounded-3xl">RECALCULATE
                     BUDGET</button>
@@ -679,7 +722,7 @@
     <!-- COUNTRY DROPDOWN + DATA TABLE -->
     <section id="country-data" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-5xl heading-font text-center">Select a Country • View Instant Data</h2>
+            <h2 class="text-5xl heading-font text-center">View country Statistics</h2>
             <p class="text-center text-slate-600 mt-2">Compare license metrics across 180+ countries instantly</p>
 
             <div class="mt-8 flex flex-col md:flex-row gap-4 items-end">
@@ -792,40 +835,41 @@
 
     <script>
         // ==================== SLIDESHOW ====================
-        let currentSlide = 1;
-        const totalSlides = 4;
+        let currentSlide = 0;
+        let slideInterval;
 
-        function showSlide(n) {
+        function initSlideshow() {
             const slides = document.querySelectorAll('.slide');
-            slides.forEach(s => s.classList.remove('active'));
-
-            const activeSlide = document.getElementById('slide' + n);
-            if (activeSlide) activeSlide.classList.add('active');
-
             const dotsContainer = document.getElementById('dots');
-            if (dotsContainer) {
-                dotsContainer.innerHTML = '';
-                for (let i = 1; i <= totalSlides; i++) {
-                    const dot = document.createElement('div');
-                    dot.className = `w-3 h-3 rounded-full cursor-pointer ${i === n ? 'bg-[#ff6200]' : 'bg-white/40'}`;
-                    dot.onclick = () => { currentSlide = i; showSlide(i); };
-                    dotsContainer.appendChild(dot);
-                }
+            if (!slides.length) return;
+
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = `w-3 h-3 rounded-full cursor-pointer ${i === 0 ? 'bg-[#ff6200]' : 'bg-white/40'}`;
+                dot.onclick = () => {
+                    currentSlide = i;
+                    showSlide(currentSlide);
+                };
+                dotsContainer.appendChild(dot);
+            });
+
+            function showSlide(index) {
+                slides.forEach(s => s.classList.remove('active'));
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach(d => d.classList.remove('active'));
+
+                if (slides[index]) slides[index].classList.add('active');
+                if (dots[index]) dots[index].classList.add('active');
             }
-        }
 
-        function nextSlide() {
-            currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;
-            showSlide(currentSlide);
-        }
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
 
-        function prevSlide() {
-            currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
-            showSlide(currentSlide);
-        }
-
-        function startSlideshow() {
-            setInterval(nextSlide, 4200);
+            slideInterval = setInterval(nextSlide, 4200);
+            showSlide(0);
         }
 
         // ==================== MOBILE MENU ====================
@@ -836,16 +880,16 @@
 
         // ==================== BUDGET CALCULATOR ====================
         function recalculateBudget() {
-            const license = parseFloat(document.getElementById('input-license').value) || 11600;
-            const sale = parseFloat(document.getElementById('input-sale').value) || 6960000;
-            const feeRate = parseFloat(document.getElementById('input-fee').value) || 0.1;
+            const license = parseFloat(document.getElementById('input-license')?.value) || 11600;
+            const sale = parseFloat(document.getElementById('input-sale')?.value) || 6960000;
+            const feeRate = parseFloat(document.getElementById('input-fee')?.value) || 0.1;
 
             const projectedIRR = Math.round((sale / license) * 0.25);
             const irrEl = document.getElementById('live-irr');
             if (irrEl) irrEl.textContent = projectedIRR + '%';
         }
 
-        // ==================== FULL COUNTRY DATA ARRAY ====================
+        // ==================== FULL COUNTRY DATA ====================
         const countryDataArray = [
             { country: "Afghanistan", st: 210, lt130: 130, f: 0.102, p: 41 },
             { country: "Albania", st: 560, lt130: 330, f: 0.272, p: 43 },
@@ -909,39 +953,40 @@
             if (!resultDiv) return;
 
             if (!selected) {
-                resultDiv.innerHTML = `<p class="text-slate-400 text-center py-12">Select a country above to view ST, &lt;130, f, and P metrics</p>`;
+                resultDiv.innerHTML = `<p class="text-slate-400 text-center py-12">Select a country to view data</p>`;
                 return;
             }
 
             const data = countryDataArray.find(c => c.country === selected);
             if (data) {
                 resultDiv.innerHTML = `
-            <div class="flex justify-between items-start">
-                <div class="text-6xl">${getFlagEmoji(data.country)}</div>
-                <div>
-                    <h4 class="font-semibold text-2xl">${data.country}</h4>
-                    <div class="mt-4 grid grid-cols-2 gap-x-8 text-xs">
-                        <div>ST <span class="font-mono block text-4xl text-[#0a8a4a]">${data.st}</span></div>
-                        <div>&lt;130 <span class="font-mono block text-4xl text-[#ff6200]">${data.lt130}</span></div>
-                        <div>f <span class="font-mono block text-4xl">${data.f}</span></div>
-                        <div>P <span class="font-mono block text-4xl">${data.p}</span></div>
+                <div class="flex justify-between items-start">
+                    <div class="text-6xl">${getFlagEmoji(data.country)}</div>
+                    <div>
+                        <h4 class="font-semibold text-2xl">${data.country}</h4>
+                        <div class="mt-6 grid grid-cols-2 gap-x-12 text-sm">
+                            <div>ST <span class="font-mono block text-4xl text-[#0a8a4a]">${data.st}</span></div>
+                            <div>&lt;130 <span class="font-mono block text-4xl text-[#ff6200]">${data.lt130}</span></div>
+                            <div>f <span class="font-mono block text-4xl">${data.f}</span></div>
+                            <div>P <span class="font-mono block text-4xl">${data.p}</span></div>
+                        </div>
                     </div>
-                </div>
-            </div>`;
+                </div>`;
             }
         }
 
         function getFlagEmoji(country) {
-            const flags = {
-                "India": "🇮🇳", "Italy": "🇮🇹", "Kenya": "🇰🇪", "USA": "🇺🇸", "France": "🇫🇷",
-                "Germany": "🇩🇪", "China": "🇨🇳", "Japan": "🇯🇵", "South Africa": "🇿🇦"
-            };
+            const flags = { "India": "🇮🇳", "Italy": "🇮🇹", "Kenya": "🇰🇪", "USA": "🇺🇸", "France": "🇫🇷", "Germany": "🇩🇪", "China": "🇨🇳", "Japan": "🇯🇵", "South Africa": "🇿🇦" };
             return flags[country] || "🌍";
         }
 
+        // ==================== COUNTRIES TABLE (FIXED VISIBILITY) ====================
         function populateFullTable() {
             const tbody = document.getElementById('fullTableBody');
-            if (!tbody) return;
+            if (!tbody) {
+                console.warn("Table body #fullTableBody not found");
+                return;
+            }
             tbody.innerHTML = '';
 
             countryDataArray.forEach(item => {
@@ -956,31 +1001,31 @@
             });
         }
 
-        // ==================== FORM SUBMIT ====================
+        // ==================== FORM ====================
         function handleSubmit(e) {
             e.preventDefault();
             const success = document.getElementById('formSuccess');
-            if (success) {
-                success.classList.remove('hidden');
-                setTimeout(() => success.classList.add('hidden'), 4000);
-            }
+            if (success) success.classList.remove('hidden');
+            setTimeout(() => {
+                if (success) success.classList.add('hidden');
+            }, 4000);
             e.target.reset();
         }
 
-        // ==================== INITIALIZATION ====================
+        // ==================== INIT ====================
         window.onload = function () {
-            showSlide(1);
-            startSlideshow();
+            initSlideshow();
             populateCountrySelect();
-            populateFullTable();
+            populateFullTable();           // ← This makes the table visible
+            showCountryData();             // Optional: show first country
 
-            // Auto-update budget when typing
+            // Budget live update
             ['input-license', 'input-sale', 'input-fee'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.addEventListener('input', recalculateBudget);
             });
 
-            console.log('%c✅ Full Script Loaded with Complete Country Data', 'color:#0a8a4a; font-weight:bold');
+            console.log('%c✅ All Fixed: Budget working + Countries Table Visible', 'color:#0a8a4a; font-weight:bold');
         };
     </script>
 </body>
