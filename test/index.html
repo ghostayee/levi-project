@@ -957,123 +957,9 @@
                 </div>
             </section>
 
-            <!-- JWT Integration -->
-
-
-            <!-- Key Advantages -->
-
-
-            <!-- Governance Framework -->
-
-
-            <!-- Case Studies -->
-
-
-            <!-- Join the Green Revolution -->
-            <section class="full-section bg-light text-center" id="cta">
-                <div class="container">
-                    <div class="pcrr-card card mx-auto" style="max-width: 820px;">
-                        <h2>Join the Green Revolution</h2>
-                        <p class="lead">Investor, government, broker or operator — PCRR offers a clear path with
-                            near-zero upfront cost and strong ESG returns.</p>
-                        <div class="mt-4">
-                            <a href="#contact" class="btn btn-success btn-lg me-3">Request Partnership</a>
-                            <a href="#licensing" class="btn btn-outline-success btn-lg">Explore Licensing</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Contact Us -->
 
             <p id="kyc-1"></p>
-
-            <!-- KYC Section -->
-            <section class="kyc-access-section">
-                <div class="section-header">
-                    <h2>Verification & Access</h2>
-                    <p>Choose the level that best suits your interest in GREEN Rights</p>
-                </div>
-                <div class="button-group">
-                    <button class="main-btn" data-modal="kyc-light-modal">KYC Light</button>
-                    <button class="main-btn strong" data-modal="kyc-strong-modal">KYC Strong</button>
-                    <button class="main-btn" data-modal="access-modal">Access Request</button>
-                </div>
-            </section>
-
-            <!-- KYC Modals -->
-            <div id="kyc-light-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn">&times;</span>
-                    <h3>KYC Light</h3>
-                    <form id="kyc-light-form" action="https://xxxx-jwt.eu/comm/kyc-l" method="POST">
-                        <input type="text" name="name" placeholder="Full Name" required>
-                        <input type="email" name="email" placeholder="Email Address" required>
-                        <input type="tel" name="phone" placeholder="Phone Number (optional)">
-                        <textarea name="message" rows="3" placeholder="Briefly describe your interest..."></textarea>
-                        <button type="submit" class="submit-btn">Submit KYC Light</button>
-                    </form>
-                    <div class="modal-explain">Quick verification for basic access to information and Dream.ZONE
-                        selector.</div>
-                </div>
-            </div>
-            <div id="dreamzone-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn">&times;</span>
-                    <h3>Dream Zone</h3>
-                    <form id="dreamzone-form">
-                        <input type="text" name="name" placeholder="Full Name" required>
-                        <input type="email" name="email" placeholder="Email Address" required>
-                        <input type="text" name="country" placeholder="Country" required>
-                        <input type="text" name="state" placeholder="State / Province">
-                        <input type="text" name="iso" placeholder="ISO Code (e.g. IT, DE, US)" maxlength="3">
-                        <input type="text" name="city" placeholder="Your City" required>
-                        <textarea name="message" rows="3"
-                            placeholder="Tell us about your interest in Dream Zone..."></textarea>
-                        <button type="submit" class="submit-btn">Submit Dream Zone Request</button>
-                    </form>
-                    <div class="modal-explain">Join the Dream Zone community and get access to exclusive GREEN
-                        opportunities.</div>
-                </div>
-            </div>
-
-            <div id="kyc-strong-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn">&times;</span>
-                    <h3>KYC Strong</h3>
-                    <form id="kyc-strong-form" action="https://xxxx-jwt.eu/comm/kyc-s" method="POST">
-                        <input type="text" name="name" placeholder="Full Name" required>
-                        <input type="email" name="email" placeholder="Email Address" required>
-                        <input type="text" name="company" placeholder="Company / Entity">
-                        <input type="tel" name="phone" placeholder="Phone Number" required>
-                        <textarea name="message" rows="4"
-                            placeholder="Describe your role and intended use of GREEN Rights" required></textarea>
-                        <button type="submit" class="submit-btn strong">Submit KYC Strong</button>
-                    </form>
-                    <div class="modal-explain">Enhanced verification required for commercial proposals, exclusive rights
-                        and NFT purchases.</div>
-                </div>
-            </div>
-
-            <div id="access-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close-btn">&times;</span>
-                    <h3>Access Request</h3>
-                    <form id="access-form" action="https://xxxx-jwt.eu/comm/access" method="POST">
-                        <input type="text" name="name" placeholder="Full Name" required>
-                        <input type="email" name="email" placeholder="Email Address" required>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" name="functions[]" value="Dream.ZONE"> Dream.ZONE</label>
-                            <label><input type="checkbox" name="functions[]" value="Sell.Function"> Sell Cart</label>
-                            <label><input type="checkbox" name="functions[]" value="Blog/Chat"> Blog / Chat</label>
-                        </div>
-                        <textarea name="message" rows="3" placeholder="Additional notes..."></textarea>
-                        <button type="submit" class="submit-btn">Request Access</button>
-                    </form>
-                    <div class="modal-explain">Select the tools you need. After validation you will receive login
-                        credentials.</div>
-                </div>
-            </div>
         </div>
     </main>
 
@@ -1635,7 +1521,87 @@
         </div>
     </section>
 
+    <!-- KYC Section -->
+    <section class="kyc-access-section">
+        <div class="section-header">
+            <h2>Verification & Access</h2>
+            <p>Choose the level that best suits your interest in GREEN Rights</p>
+        </div>
+        <div class="button-group">
+            <button class="main-btn" data-modal="kyc-light-modal">KYC Light</button>
+            <button class="main-btn strong" data-modal="kyc-strong-modal">KYC Strong</button>
+            <button class="main-btn" data-modal="access-modal">Access Request</button>
+        </div>
+    </section>
 
+    <!-- KYC Modals -->
+    <div id="kyc-light-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>KYC Light</h3>
+            <form id="kyc-light-form" action="https://xxxx-jwt.eu/comm/kyc-l" method="POST">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="tel" name="phone" placeholder="Phone Number (optional)">
+                <textarea name="message" rows="3" placeholder="Briefly describe your interest..."></textarea>
+                <button type="submit" class="submit-btn">Submit KYC Light</button>
+            </form>
+            <div class="modal-explain">Quick verification for basic access to information and Dream.ZONE selector.</div>
+        </div>
+    </div>
+
+    <div id="dreamzone-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Dream Zone</h3>
+            <form id="dreamzone-form">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="text" name="country" placeholder="Country" required>
+                <input type="text" name="state" placeholder="State / Province">
+                <input type="text" name="iso" placeholder="ISO Code (e.g. IT, DE, US)" maxlength="3">
+                <input type="text" name="city" placeholder="Your City" required>
+                <textarea name="message" rows="3" placeholder="Tell us about your interest in Dream Zone..."></textarea>
+                <button type="submit" class="submit-btn">Submit Dream Zone Request</button>
+            </form>
+            <div class="modal-explain">Join the Dream Zone community and get access to exclusive GREEN opportunities.</div>
+        </div>
+    </div>
+
+    <div id="kyc-strong-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>KYC Strong</h3>
+            <form id="kyc-strong-form" action="https://xxxx-jwt.eu/comm/kyc-s" method="POST">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="text" name="company" placeholder="Company / Entity">
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <textarea name="message" rows="4" placeholder="Describe your role and intended use of GREEN Rights" required></textarea>
+                <button type="submit" class="submit-btn strong">Submit KYC Strong</button>
+            </form>
+            <div class="modal-explain">Enhanced verification required for commercial proposals, exclusive rights and NFT purchases.</div>
+        </div>
+    </div>
+
+    <div id="access-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Access Request</h3>
+            <form id="access-form" action="https://xxxx-jwt.eu/comm/access" method="POST">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="functions[]" value="Dream.ZONE"> Dream.ZONE</label>
+                    <label><input type="checkbox" name="functions[]" value="Sell.Function"> Sell Cart</label>
+                    <label><input type="checkbox" name="functions[]" value="Blog/Chat"> Blog / Chat</label>
+                </div>
+                <textarea name="message" rows="3" placeholder="Additional notes..."></textarea>
+                <button type="submit" class="submit-btn">Request Access</button>
+            </form>
+            <div class="modal-explain">Select the tools you need. After validation you will receive login credentials.</div>
+        </div>
+    </div>
 
     <!-- Your original Footer - fully restored -->
     <footer
