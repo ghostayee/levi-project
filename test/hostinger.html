@@ -933,9 +933,8 @@
     <main class="gfss-page py-5 mt-5">
         <div class="container" style="max-width: 1180px; margin: 0 auto; padding: 0 15px;">
             <div class="text-center mt-5">
-                <h1 class="display-5 fw-bold hi">PCRR – Piano Commerciale di Ripresa e Resilienza</h1>
-                <p class="lead">The commercial backbone of JWT — scaling 342 green patents through licensing, auctions,
-                    and zero-cost adoption models.</p>
+                <h1 class="display-5 fw-bold hi">PCRR – Commercial Plan for Recovery and Resilience.</h1>
+
             </div>
 
             <!-- NEW VERTICAL SIDEBAR + PRESENTATION AREA -->
@@ -981,6 +980,10 @@
                     </div>
                 </div>
             </div>
+            <div id="doc">.
+
+            </div>
+            <div>.</div>
             <div id="starter-kiti"></div>
             <div class="cointainer-fluid mt-5 mb-5 empty"></div>
 
@@ -990,18 +993,40 @@
             <!-- Licensing Models -->
             <div class="max-w-screen-2xl mx-auto px-2 py-6" id="starter-kit">
 
-                <!-- Starter Kit Navigation Menu -->
+                <!-- Updated Navigation -->
                 <nav class="navbar-expand-lg mb-5"
                     style="position: sticky; top: 70px; z-index: 100; background: white; padding: 10px 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
                     <div class="d-flex justify-content-center flex-wrap gap-2">
-                        <a href="#starter-kiti" class="btn btn-success btn-sm fw-bold px-4" id="starter-kit">Starter
-                            Kit</a>
-                        <a href="#starter-plan" class="btn btn-outline-success btn-sm fw-bold px-4">Business Plan</a>
-                        <a href="#starter-features" class="btn btn-outline-success btn-sm fw-bold px-4">Publication &
-                            Thesis</a>
-                        <a href="#starter-pricing" class="btn btn-outline-success btn-sm fw-bold px-4">Commercial Title</a>
-                        <a href="#starter-faq" class="btn btn-outline-success btn-sm fw-bold px-4">FAQ</a>
-                        <a href="#starter-contact" class="btn btn-outline-success btn-sm fw-bold px-4">Contact</a>
+
+                        <a href="#" onclick="smoothScrollTo('starter-kiti'); return false;"
+                            class="btn btn-success btn-sm fw-bold px-4" id="starter-kit">Starter Kit</a>
+
+                        <a href="#" onclick="smoothScrollTo('starter-plan'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">Business Plan</a>
+
+                        <a href="#" onclick="smoothScrollTo('starter-features'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">Publication & Thesis</a>
+
+                        <a href="#" onclick="smoothScrollTo('starter-pricing'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">Commercial Title</a>
+
+                        <a href="#" onclick="smoothScrollTo('pitch'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">PITCH S&S</a>
+
+                        <a href="#" onclick="smoothScrollTo('patents'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">PATENTS+</a>
+
+                        <a href="#" onclick="smoothScrollTo('voucher'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">VOUCHER</a>
+
+                        <a href="#" onclick="smoothScrollTo('heritage'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">INTANGIBLE HERITAGE</a>
+
+                        <a href="#" onclick="smoothScrollTo('commercial'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">COMMERCIAL LICENSE</a>
+
+                        <a href="#" onclick="smoothScrollTo('statistics'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">COUNTRIES</a>
                     </div>
                 </nav>
 
@@ -1217,6 +1242,29 @@
                             </p>
                         </div>
                     </div>
+                    <!-- Performance Charts -->
+                    <section class=" bg-white" id="starter-features">
+                        <div class="container">
+                            <div class="text-center mb-4 mt-1">
+                                <h2 class="fw-bold">Economic Impact</h2>
+                            </div>
+                            <div class="row g-4">
+
+                                <div class="col-lg-6">
+                                    <div>
+                                        <h4>Adoption Rate (%)</h4>
+                                        <div class="chart-wrap"><canvas id="chartAdoption"></canvas></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div>
+                                        <h4>Cost Savings vs Traditional</h4>
+                                        <div class="chart-wrap"><canvas id="chartSavings"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                     <!-- Bottom Buttons -->
                     <div class="mt-4 d-flex gap-2 justify-content-end">
@@ -1233,35 +1281,8 @@
         </div>
         </div>
 
-
-        <!-- Performance Charts -->
-        <section class=" bg-white" id="starter-features">
-            <div class="container">
-                <div class="text-center mb-4 mt-1">
-                    <h2 class="display-5 fw-bold">Economic Impact</h2>
-                </div>
-                <div class="row g-4">
-
-                    <div class="col-lg-6">
-                        <div>
-                            <h4>Adoption Rate (%)</h4>
-                            <div class="chart-wrap"><canvas id="chartAdoption"></canvas></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div>
-                            <h4>Cost Savings vs Traditional</h4>
-                            <div class="chart-wrap"><canvas id="chartSavings"></canvas></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Pricing -->
         <section class="relative h-[300px] bg-white-700 flex items-center justify-center">
-            <img src="https://via.placeholder.com/1920x600/047857/ffffff?text=Thesis+Background" alt="Background"
-                class="absolute inset-0 w-full h-full object-cover opacity-30">
             <div class="relative text-center">
                 <h1 class="text-5xl font-bold tracking-wide">PUBLICATION & THESIS</h1>
             </div>
@@ -1336,22 +1357,22 @@
                     with PNRR missions and the European Green New Deal objectives.
                     Comparative Studies on Green Technologies – Research comparing the performance, scalability, and
                     sustainability metrics of the eight PCRR technology modules.
-                    <div id="starter-pricing"></div>
+                <div id="starter-pricing"></div>
                 </p>
+            </div>
+            <!-- Bottom Buttons -->
+            <div class="mt-4 d-flex gap-2 justify-content-end">
+                <button class="btn btn-success btn-sm fw-bold">
+                    Explore More
+                </button>
+
+                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
+                    Back Top Menu
+                </a>
             </div>
         </section>
         <div id="starter-pricing"></div>
 
-        <!-- Bottom Buttons -->
-        <div class="mt-4 d-flex gap-2 justify-content-end">
-            <button class="btn btn-success btn-sm fw-bold">
-                Explore More
-            </button>
-
-            <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
-                Back Top Menu
-            </a>
-        </div>
 
         <!-- commercial titles  -->
         <section class="relative h-[280px] bg-white-700 flex items-center justify-center">
@@ -1474,17 +1495,426 @@
                         and sustainable development.</p>
                 </div>
             </div>
+            <div id="pitch">
+
+            </div>
+            <!-- Bottom Buttons -->
+            <div class="mt-4 d-flex gap-2 justify-content-end">
+                <button class="btn btn-success btn-sm fw-bold">
+                    Explore More
+                </button>
+
+                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
+                    Back Top Menu
+                </a>
+            </div>
 
         </section>
-        <div class="mt-4 d-flex gap-2 justify-content-end">
-            <button class="btn btn-success btn-sm fw-bold">
-                Explore More
-            </button>
 
-            <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
-                Back Top Menu
-            </a>
-        </div>
+        <!--pitch-->
+        <section class="relative h-[260px] bg-white-700 flex items-center justify-center">
+            <div class="relative text-center">
+                <h1 class="text-5xl font-bold text-green-800 tracking-wide">PITCH S&S</h1>
+            </div>
+        </section>
+
+        <section class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+            <!-- Text Column -->
+            <div>
+                <p class="text-gray-800 leading-relaxed text-lg">
+                    The <span class="font-semibold text-green-800">Pitch S&S</span> pillar provides powerful,
+                    investor-ready, and partner-focused presentation materials for each PCRR technology module. These
+                    pitches clearly communicate the unique value proposition, market potential, technical advantages,
+                    and
+                    commercial roadmap of every solution.
+                </p>
+                <p class="mt-6 text-gray-800 leading-relaxed text-lg">
+                    Each Pitch S&S is crafted to address the needs of investors, governments, corporations, research
+                    institutions, and international development organizations.
+                </p>
+            </div>
+
+            <!-- Image Card -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+                <img src="images/pitch.webp" alt="Pitch Presentation" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-green-800 mb-2">Investor-Ready Pitch</h3>
+                    <p class="text-gray-700 text-sm">
+                        Professional, high-impact materials designed to secure funding, partnerships, and territorial
+                        contracts.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Key Elements Grid -->
+        <section class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-700">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Problem-Solution</h3>
+                <p class="text-gray-700 text-sm">Shows how each module solves critical sustainability challenges.</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-600">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Market Opportunity</h3>
+                <p class="text-gray-700 text-sm">Highlights market size, growth trends, and alignment with SDGs.</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-black">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Technical Differentiation</h3>
+                <p class="text-gray-700 text-sm">Verified performance data, competitive advantages, and pilot results.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-700">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Commercial Model</h3>
+                <p class="text-gray-700 text-sm">Explains NFT GREEN licensing, zero-cost entry, revenue streams, and
+                    projected returns.</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-600">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Implementation Roadmap</h3>
+                <p class="text-gray-700 text-sm">Details go-to-market strategy, Starter Kit deployment, scaling phases,
+                    and
+                    territorial adaptation.</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-black">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Impact Metrics</h3>
+                <p class="text-gray-700 text-sm">Quantifies expected outcomes in job creation, CO₂ reduction, economic
+                    multiplier effect, and inclusivity.</p>
+            </div>
+            <div id="patents">
+
+            </div>
+            <div>
+
+            </div>
+            <!-- Bottom Buttons -->
+            <div class="mt-4 d-flex gap-2 justify-content-end">
+                <button class="btn btn-success btn-sm fw-bold">
+                    Explore More
+                </button>
+
+                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
+                    Back Top Menu
+                </a>
+            </div>
+
+        </section>
+
+        <!--patents + -->
+        <section class="relative h-[260px] flex items-center justify-center">
+            <div class="relative text-center">
+                <h1 class="text-5xl font-bold text-green-800 tracking-wide">PATENTS+</h1>
+            </div>
+        </section>
+
+        <!-- Intro with Image Card -->
+        <section class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <p class="text-gray-800 leading-relaxed text-lg">
+                    The <span class="font-semibold text-green-800">Patents +</span> pillar represents the core
+                    intellectual
+                    property strength of the PCRR ecosystem. It goes beyond basic patent protection to create a
+                    comprehensive, layered, and strategically managed portfolio of industrial property rights that
+                    maximizes
+                    both defensive protection and commercial value.
+                </p>
+                <p class="mt-6 text-gray-800 leading-relaxed text-lg">
+                    Patents + ensures that every innovative technology developed or integrated within PCRR is properly
+                    protected, documented, and positioned for global licensing, technology transfer, and long-term
+                    revenue
+                    generation.
+                </p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+                <img src="images/global.webp" alt="Patent Portfolio" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-green-800 mb-2">Global IP Strategy</h3>
+                    <p class="text-gray-700 text-sm">A layered patent portfolio aligned with WIPO, EPO, and USPTO
+                        standards.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategic Value Strip -->
+        <section class="max-w-6xl mx-auto px-6 py-12 flex flex-wrap gap-4 justify-center">
+            <span class="bg-green-700 text-white px-4 py-2 rounded-full text-sm font-semibold">Strong Legal
+                Protection</span>
+            <span class="bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold">NFT GREEN
+                Licensing</span>
+            <span class="bg-black text-white px-4 py-2 rounded-full text-sm font-semibold">Investor
+                Attractiveness</span>
+            <span class="bg-green-700 text-white px-4 py-2 rounded-full text-sm font-semibold">Technology
+                Transfer</span>
+            <span class="bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Additional Layers</span>
+        </section>
+
+        <!-- Notes -->
+        <section class="max-w-5xl mx-auto px-6 pb-16">
+            <div class="bg-green-100 border-l-4 border-black p-6 rounded-lg">
+                <h3 class="text-xl font-semibold text-black mb-3">Attributes</h3>
+                <p class="text-gray-800 leading-relaxed">
+                    The Patents + strategy is actively managed to cover core inventions, improvements, and integration
+                    methods. It creates a dynamic intellectual property fortress that supports continuous innovation
+                    while
+                    generating recurring revenue through licensing.
+                </p>
+                <p class="mt-4 text-gray-800 leading-relaxed">
+                    All patents are aligned with international standards (WIPO, EPO, USPTO) and designed to support
+                    European
+                    and global market entry. Regular reviews ensure filings, extensions, and defensive publications keep
+                    PCRR ahead of competitors.
+                </p>
+                <div id="voucher"></div>
+            </div>
+            <!-- Bottom Buttons -->
+            <div class="mt-4 d-flex gap-2 justify-content-end">
+                <button class="btn btn-success btn-sm fw-bold">
+                    Explore More
+                </button>
+
+                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
+                    Back Top Menu
+                </a>
+            </div>
+        </section>
+
+
+        <!--voucher-->
+        <section class="relative h-[260px] flex items-center justify-center">
+            <div class="relative text-center">
+                <h1 class="text-5xl font-bold text-green-800 tracking-wide">VOUCHERS</h1>
+        </section>
+
+        <!-- Intro with Image Card -->
+        <section class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div>
+                <p class="text-gray-800 leading-relaxed text-lg">
+                    <span class="font-semibold text-green-800">Vouchers</span> are a cornerstone of the PCRR
+                    implementation
+                    strategy. They serve as targeted financial and technical support instruments that significantly
+                    lower
+                    the cost and risk of adopting advanced green technologies across different territories and sectors.
+                </p>
+                <p class="mt-6 text-gray-800 leading-relaxed text-lg">
+                    Through carefully selected voucher programs, PCRR enables participants to access grants, subsidies,
+                    and
+                    innovation incentives that complement the core NFT GREEN licensing model, creating highly favorable
+                    economics for both public and private stakeholders.
+                </p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+                <img src="images/voucher.avif" alt="Voucher Support" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-green-800 mb-2">Financial Catalyst</h3>
+                    <p class="text-gray-700 text-sm">Voucher programs reduce costs and accelerate adoption of PCRR
+                        technologies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lifecycle Timeline -->
+        <section class="max-w-6xl mx-auto px-6 py-12">
+            <h2 class="text-2xl font-bold text-green-800 mb-6">Voucher Lifecycle</h2>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex-1 bg-white rounded-lg shadow p-4 border-t-4 border-green-700 text-center">
+                    <h3 class="text-green-800 font-semibold">Early Validation</h3>
+                    <p class="text-gray-600 text-sm">Feasibility studies & prototyping</p>
+                </div>
+                <div class="flex-1 bg-white rounded-lg shadow p-4 border-t-4 border-orange-600 text-center">
+                    <h3 class="text-green-800 font-semibold">Pilot Execution</h3>
+                    <p class="text-gray-600 text-sm">Demonstration projects</p>
+                </div>
+                <div class="flex-1 bg-white rounded-lg shadow p-4 border-t-4 border-black text-center">
+                    <h3 class="text-green-800 font-semibold">Scale-Up</h3>
+                    <p class="text-gray-600 text-sm">Industrialization & deployment</p>
+                </div>
+                <div class="flex-1 bg-white rounded-lg shadow p-4 border-t-4 border-green-700 text-center">
+                    <h3 class="text-green-800 font-semibold">Training</h3>
+                    <p class="text-gray-600 text-sm">Capacity building & ecosystem growth</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voucher Programs Grid -->
+        <section class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-700">
+                <h2 class="text-xl font-bold text-green-800">GPBF</h2>
+                <p class="text-orange-600 font-semibold">Green Project Business Funding</p>
+                <p class="text-gray-700 text-sm">Supports feasibility studies and initial technology demonstration.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-600">
+                <h2 class="text-xl font-bold text-green-800">GFSS & SIRD</h2>
+                <p class="text-orange-600 font-semibold">Scaling & Regional Development</p>
+                <p class="text-gray-700 text-sm">Focused on separation and sustainable regional projects.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-black">
+                <h2 class="text-xl font-bold text-green-800">ACFW</h2>
+                <p class="text-orange-600 font-semibold">Agro-Circular Future Works</p>
+                <p class="text-gray-700 text-sm">Dedicated to bio-based and circular agriculture initiatives.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-700">
+                <h2 class="text-xl font-bold text-green-800">EDU-EBS</h2>
+                <p class="text-orange-600 font-semibold">Education & Knowledge Transfer</p>
+                <p class="text-gray-700 text-sm">Funds training, capacity building, and knowledge programs.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-600">
+                <h2 class="text-xl font-bold text-green-800">COGEA & IT&C</h2>
+                <p class="text-orange-600 font-semibold">Cooperative & Digital Circular</p>
+                <p class="text-gray-700 text-sm">Enable cooperative projects and digital-circular business models.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-l-4 border-black">
+                <h2 class="text-xl font-bold text-green-800">PNRR-Aligned</h2>
+                <p class="text-orange-600 font-semibold">Recovery & Resilience Funding</p>
+                <p class="text-gray-700 text-sm">Direct access to Italy’s PNRR funding lines for green transition.</p>
+            </div>
+        </section>
+
+        <!-- Competitive Edge Badges -->
+        <section class="max-w-6xl mx-auto px-6 py-12 flex flex-wrap gap-4 justify-center">
+            <span class="bg-green-700 text-white px-4 py-2 rounded-full text-sm font-semibold">Reduced Net Costs</span>
+            <span class="bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Accelerated
+                Timelines</span>
+            <span class="bg-black text-white px-4 py-2 rounded-full text-sm font-semibold">Expertise & Mentorship</span>
+            <span class="bg-green-700 text-white px-4 py-2 rounded-full text-sm font-semibold">Tax Incentives</span>
+            <span class="bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Measurable ESG
+                Outcomes</span>
+
+            <div id="heritage"></div>
+
+            <!-- Bottom Buttons -->
+            <div class="mt-4 d-flex gap-2 justify-content-end">
+                <button class="btn btn-success btn-sm fw-bold">
+                    Explore More
+                </button>
+
+                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
+                    Back Top Menu
+                </a>
+            </div>
+        </section>
+
+
+        <!--Itangible heritage-->
+        <section class="relative h-[260px] flex items-center justify-center">
+            <div class="relative text-center">
+                <h1 class="text-5xl font-bold text-green-800 tracking-wide">INTANGIBLE HERITAGE</h1>
+            </div>
+        </section>
+
+        <!-- Intro with Image Card -->
+        <section class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+                <img src="images/heritage.jpg" alt="Heritage Knowledge" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-green-800 mb-2">Invisible Capital</h3>
+                    <p class="text-gray-700 text-sm">Accumulated know-how and cultural strength powering PCRR’s
+                        resilience.
+                    </p>
+                </div>
+            </div>
+            <div>
+                <p class="text-gray-800 leading-relaxed text-lg">
+                    <span class="font-semibold text-green-800">Intangible Heritage</span> represents the accumulated
+                    knowledge, expertise, brand value, organizational culture, and strategic know-how that cannot be
+                    fully
+                    captured by patents or legal documents alone. It is the “invisible capital” that gives long-term
+                    strength and uniqueness to the entire PCRR ecosystem.
+                </p>
+                <p class="mt-6 text-gray-800 leading-relaxed text-lg">
+                    This pillar includes all non-physical assets that drive competitive advantage, trust, and
+                    sustainable
+                    value creation over time.
+                </p>
+            </div>
+        </section>
+
+        <!-- Core Elements Cards -->
+        <section class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-700">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Know-How & Trade Secrets</h3>
+                <p class="text-gray-700 text-sm">Proprietary processes, methodologies, and lessons learned from pilots.
+                </p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-600">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Brand Equity</h3>
+                <p class="text-gray-700 text-sm">Recognition of PCRR JWTeam and its NFT GREEN licensing model.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-black">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Network Capital</h3>
+                <p class="text-gray-700 text-sm">Relationships with WIPO, EU programs, governments, and partners.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-700">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Organizational Culture</h3>
+                <p class="text-gray-700 text-sm">Shared vision, values, and multidisciplinary expertise of PCRR teams.
+                </p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-600">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Data & Digital Assets</h3>
+                <p class="text-gray-700 text-sm">Performance data, market intelligence, and digital platforms.</p>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-black">
+                <h3 class="text-xl font-bold text-green-800 mb-2">ESG Narrative</h3>
+                <p class="text-gray-700 text-sm">Credible impact story aligned with SDGs and Green New Deal.</p>
+            </div>
+        </section>
+
+        <!-- Strategic Importance Timeline -->
+        <section class="max-w-6xl mx-auto px-6 py-12">
+            <h2 class="text-2xl font-bold text-green-800 mb-6">Strategic Importance</h2>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex-1 bg-white rounded-lg shadow p-4 border-l-4 border-green-700">
+                    <h3 class="text-green-800 font-semibold">Global Positioning</h3>
+                    <p class="text-gray-600 text-sm">Stronger presence in international markets.</p>
+                </div>
+                <div class="flex-1 bg-white rounded-lg shadow p-4 border-l-4 border-orange-600">
+                    <h3 class="text-green-800 font-semibold">Trust & Partnerships</h3>
+                    <p class="text-gray-600 text-sm">Faster formation of alliances and collaborations.</p>
+                </div>
+                <div class="flex-1 bg-white rounded-lg shadow p-4 border-l-4 border-black">
+                    <h3 class="text-green-800 font-semibold">Valuation</h3>
+                    <p class="text-gray-600 text-sm">Higher value during investment rounds.</p>
+                </div>
+                <div class="flex-1 bg-white rounded-lg shadow p-4 border-l-4 border-green-700">
+                    <h3 class="text-green-800 font-semibold">Licensing Power</h3>
+                    <p class="text-gray-600 text-sm">Reputation-driven long-term licensing strength.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notes -->
+        <section class="max-w-5xl mx-auto px-6 pb-16">
+            <div class="bg-green-100 border-l-4 border-black p-6 rounded-lg">
+                <h3 class="text-xl font-semibold text-black mb-3">Summery</h3>
+                <p class="text-gray-800 leading-relaxed">
+                    Intangible Heritage is nurtured through documentation, knowledge management, storytelling, and
+                    relationship building. It transforms individual innovations into a cohesive, respected, and
+                    future-proof
+                    ecosystem.
+                </p>
+                <p class="mt-4 text-gray-800 leading-relaxed">
+                    Together with Patents +, Commercial Titles, Vouchers, and the Business Plan, Intangible Heritage
+                    completes the full value stack of PCRR turning technical inventions into a powerful, sustainable,
+                    and
+                    globally relevant green economy platform.
+                </p>
+            </div>
+            <!-- Bottom Buttons -->
+            <div class="mt-4 d-flex gap-2 justify-content-end">
+                <button class="btn btn-success btn-sm fw-bold">
+                    Explore More
+                </button>
+
+                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
+                    Back Top Menu
+                </a>
+            </div>
+        </section>
 
 
         <!-- Contact Us -->
@@ -1496,7 +1926,7 @@
     </main>
 
     <!-- HERO + SLIDESHOW -->
-    <header class="hero-bg text-white py-16">
+    <header class=" text-white py-16">
         <div class="max-w-7xl mx-auto px-3 grid md:grid-cols-2 gap-12 items-center">
             <!-- Text -->
             <div class="space-y-6">
@@ -1504,7 +1934,8 @@
                     <h2 style="font-size: 30px; color: #ff6200;" class="fw-bold">PCRR, Recovery & Resilience</h2>
                 </div>
                 <div>
-                    <h4 class="fs-5"> (PCRR) strategies emphasize rebuilding economies with sustainability at the core.
+                    <h4 class="mt-6 text-gray-800 leading-relaxed text-lg"> (PCRR) strategies emphasize rebuilding
+                        economies with sustainability at the core.
                         Green energy
                         investments such as solar, wind, and bioenergy are central to reducing dependence on fossil
                         fuels while creating new jobs and industries. Aligning these initiatives with careful budget
@@ -1516,18 +1947,18 @@
 
                 <div class="flex items-center gap-x-4">
                     <button onclick="document.getElementById('budget').scrollIntoView({behavior:'smooth'})"
-                        class="flex-1 md:flex-none bg-white text-slate-900 hover:bg-amber-100 font-semibold px-3 py-2 rounded-3xl text-lg flex items-center justify-center gap-x-3">
+                        class="btn btn-success btn-sm fw-bold">
                         <span>View Live Budget Template</span>
                         <span class="text-2xl"></span>
                     </button>
 
                     <button onclick="document.getElementById('country-data').scrollIntoView({behavior:'smooth'})"
-                        class="flex-1 md:flex-none border border-white/70 hover:border-white font-medium px-3 py-2 rounded-3xl text-lg flex items-center justify-center">
+                        class="btn btn-outline-success btn-sm fw-bold">
                         Compare 180+ Countries
                     </button>
                 </div>
 
-                <div class="flex items-center gap-x-8 text-sm">
+                <div class=" flex items-center gap-x-8 text-sm">
                 </div>
             </div>
 
@@ -1566,17 +1997,17 @@
 
             </div>
         </div>
+        <div>
+            .
+        </div>
+        <div>.</div>
+        <div id="commercial"></div>
     </header>
-
     <!-- COMMERCIAL LICENSE EXPLAINED -->
     <section id="commercial" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
-                <span class="px-5 py-2 bg-[#10b981]/10 text-[#10b981] text-sm font-semibold rounded-3xl">COMMERCIAL
-                    LICENSE</span>
-                <h2 class="text-5xl heading-font mt-4">How the PCCR Commercial License Works</h2>
-                <p class="mt-3 max-w-xl mx-auto text-slate-600">100% on-chain. Powered by NFT ownership and smart
-                    contracts. Built for Dream.ZONE VN MC projects.</p>
+                <h1 class="text-5xl font-bold text-green-800 tracking-wide">Commercial License</h1>
             </div>
 
             <div class="grid md:grid-cols-12 gap-8">
@@ -1711,9 +2142,10 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-10 items-center">
                 <div class="md:col-span-7">
-                    <h2 class="text-4xl heading-font text-center" style="color:#e55a00">Economic Impact of PCCR License
+                    <h2 class="text-5 font-bold text-green-800 tracking-wide" style="color:#e55a00">Economic Impact of
+                        PCCR License
                     </h2>
-                    <p class="mt-3 text-base text-slate-600">Deploying the Dream.ZONE VN MC project in Raipur, India
+                    <p>Deploying the Dream.ZONE VN MC project in Raipur, India
                         generates massive local value while maintaining global scalability.</p>
 
                     <div class="mt-8 grid grid-cols-3 gap-4">
@@ -1783,8 +2215,6 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-5xl heading-font mt-4">JWT Integration for Enterprise Security</h2>
-                <p class="max-w-md mx-auto text-slate-600 mt-3">Every license, transaction, and NFT transfer is
-                    authenticated with JSON Web Tokens.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 items-start">
@@ -1802,12 +2232,6 @@
                             • BB Fee Rate: 0.1%<br>
                             • Scope: NFT-BUY
                         </div>
-                    </div>
-
-                    <div class="flex items-center justify-between text-sm bg-warning p-4 rounded-3xl">
-                        <div>✅ Token refresh every 15 mins</div>
-                        <div>✅ Revocable instantly</div>
-                        <div>✅ Supports wallet connect</div>
                     </div>
                 </div>
 
@@ -1840,6 +2264,19 @@
                     <p class="text-xs text-slate-500 mt-8 text-warning">This architecture ensures that even if the
                         frontend is compromised, no unauthorized license can be issued.</p>
                 </div>
+                <div>
+
+                </div>
+                <!-- Bottom Buttons -->
+                <div class="mt-4 d-flex gap-2 justify-content-end">
+                    <button class="btn btn-success btn-sm fw-bold">
+                        Explore More
+                    </button>
+
+                    <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
+                        Back Top Menu
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -1847,48 +2284,33 @@
     <!-- CASE STUDIES -->
     <section id="case-studies" class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-center text-5xl heading-font mb-4"> Results of Countries.</h2>
-            <p class="text-center text-slate-600 max-w-md mx-auto">See how PCCR licenses are powering businesses
-                worldwide.</p>
+            <h1 class="text-5xl font-bold text-green-800 tracking-wide text-center"> Results of Countries.</h1>
 
             <div class="grid md:grid-cols-3 gap-8 mt-12">
                 <!-- Case 1: India -->
                 <div class="card-hover bg-white rounded-3xl p-8">
                     <div class="flex justify-between items-start">
-                        <div class="text-5xl">🇮🇳</div>
                         <div class="text-right">
-                            <span class="px-4 py-1 bg-emerald-100 text-emerald-700 text-xs rounded-3xl">LIVE</span>
                         </div>
                     </div>
-                    <h4 class="text-2xl font-semibold mt-8">Raipur, India • Dream.ZONE VN MC</h4>
+                    <h4 class="text-2xl font-semibold mt-8">Raipur India</h4>
                     <p class="text-slate-600 mt-3">€6.96M projected sales in first year. 2,000 jobs created. 200% IRR
                         achieved within 9 months of license activation.</p>
-                    <div class="mt-8 text-xs flex flex-wrap gap-2">
-                        <div class="px-4 py-2 bg-slate-100 rounded-3xl">NFT-BUY activated</div>
-                        <div class="px-4 py-2 bg-slate-100 rounded-3xl">BB fee collected: €6,960</div>
-                    </div>
                 </div>
 
                 <!-- Case 2: Italy -->
                 <div class="card-hover bg-white rounded-3xl p-8">
                     <div class="flex justify-between items-start">
-                        <div class="text-5xl">🇮🇹</div>
-                        <div class="text-right">
-                            <span class="px-4 py-1 bg-[#10b981]/10 text-[#10b981] text-xs rounded-3xl">2.06M ST</span>
-                        </div>
                     </div>
-                    <h4 class="text-2xl font-semibold mt-8">Italy • Luxury Goods Licensing</h4>
+                    <h4 class="text-2xl font-semibold mt-8">Italy</h4>
                     <p class="text-slate-600 mt-3">License holder generated €1.24M in sales with only 0.1% BB fee. Full
                         JWT integration enabled seamless cross-border sales to 14 EU countries.</p>
-                    <div class="mt-8 text-xs text-emerald-600">Case study: +1,000% ROI in 14 months</div>
                 </div>
 
                 <!-- Case 3: Kenya -->
                 <div class="card-hover bg-white rounded-3xl p-8">
                     <div class="flex justify-between items-start">
-                        <div class="text-5xl">🇰🇪</div>
                         <div class="text-right">
-                            <span class="px-4 py-1 bg-amber-100 text-amber-700 text-xs rounded-3xl">Upcoming</span>
                         </div>
                     </div>
                     <h4 class="text-2xl font-semibold mt-8">East Africa Hub</h4>
@@ -1998,21 +2420,19 @@
                 </div>
                 <div class="flex items-end">
                     <div class="bg-white rounded-3xl px-6 py-4 text-center w-full">
+                        <div id="statistics"></div>
                         Projected IRR: <span id="live-irr" class="font-mono text-3xl text-[#10b981]">200%</span>
                     </div>
                 </div>
             </div>
 
-            <p class="text-xs text-slate-400 text-center mt-8">Data taken directly from your uploaded input sheet.
-                Colors match your original design (white base + green/orange accents).</p>
         </div>
     </section>
 
     <!-- COUNTRY DROPDOWN + DATA TABLE -->
     <section id="country-data" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-5xl heading-font text-center">View country Statistics</h2>
-            <p class="text-center text-slate-600 mt-2">Compare license metrics across 180+ countries instantly</p>
+            <h2 class="text-5xl font-bold text-green-800 tracking-wide text-center">View country Statistics</h2>
 
             <div class="mt-8 flex flex-col md:flex-row gap-4 items-end">
                 <div class="flex-1">
@@ -2052,19 +2472,16 @@
             </div>
         </div>
     </section>
+    <!-- Bottom Buttons -->
+    <div class="mt-4 d-flex gap-2 justify-content-end">
+        <button class="btn btn-success btn-sm fw-bold">
+            Explore More
+        </button>
 
-    <!-- KYC Section -->
-    <section class="kyc-access-section">
-        <div class="section-header">
-            <h2>Verification & Access</h2>
-            <p>Choose the level that best suits your interest in GREEN Rights</p>
-        </div>
-        <div class="button-group">
-            <button class="main-btn" data-modal="kyc-light-modal">KYC Light</button>
-            <button class="main-btn strong" data-modal="kyc-strong-modal">KYC Strong</button>
-            <button class="main-btn" data-modal="access-modal">Access Request</button>
-        </div>
-    </section>
+        <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
+            Back Top Menu
+        </a>
+    </div>
 
     <!-- KYC Modals -->
     <div id="kyc-light-modal" class="modal">
@@ -2564,6 +2981,19 @@
 
     <!-- ==================== NEW CONTENT SECTION SCRIPTS ==================== -->
     <script>
+        function smoothScrollTo(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const navHeight = 100; // Adjust if your sticky nav is taller
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - navHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
         // NAMESPACE: All new functions use pcrr_ prefix to avoid conflicts
 
         // ==================== SLIDESHOW ====================
