@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EUWEB GREEN</title>
-    <link rel="stylesheet" href="/pages-style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="faviconservices--32x32.png" type="image/x-icon" sizes="32x32">
 
     <!-- Bootstrap 5 CSS -->
@@ -296,78 +296,53 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Rotating banner pause on hover
-        const track = document.querySelector('.scroll-track');
-        if (track) {
-            track.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
-            track.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
-        }
-
-        // Side Menu Controls
+        // ====================== HAMBURGER MENU ======================
         const hamburger = document.getElementById('hamburger');
         const sideMenu = document.getElementById('side-menu');
         const overlay = document.getElementById('menu-overlay');
         const closeBtn = document.querySelector('.close-btn');
-        const hamburgerContainer = document.getElementById('hamburger-container');
-        const siteHeader = document.querySelector('.site-header');
 
         function openMenu() {
             sideMenu.classList.add('active');
             overlay.classList.add('active');
-            document.body.classList.add('menu-open');
             hamburger.classList.add('active');
+            document.body.classList.add('menu-open');
         }
 
         function closeMenu() {
             sideMenu.classList.remove('active');
             overlay.classList.remove('active');
-            document.body.classList.remove('menu-open');
             hamburger.classList.remove('active');
+            document.body.classList.remove('menu-open');
         }
 
         hamburger.addEventListener('click', openMenu);
         overlay.addEventListener('click', closeMenu);
         if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-        sideMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
-        // Dynamic Hamburger Position (only change made)
-        function updateHamburgerPosition() {
-            const bannerHeight = document.getElementById('pcrr-submenu').offsetHeight;
-            const headerHeight = siteHeader.offsetHeight;
-            hamburgerContainer.style.top = `${bannerHeight + headerHeight + 8}px`;
-        }
-
-        window.addEventListener('load', updateHamburgerPosition);
-        window.addEventListener('resize', updateHamburgerPosition);
-        // Open modal
+        // ====================== MODALS ======================
         document.querySelectorAll('.main-btn').forEach(btn => {
             btn.addEventListener('click', function () {
                 const modalId = this.getAttribute('data-modal');
-                document.getElementById(modalId).style.display = 'flex';
+                const modal = document.getElementById(modalId);
+                if (modal) modal.style.display = 'flex';
             });
         });
 
-        // Close modal
         document.querySelectorAll('.close-btn').forEach(close => {
             close.addEventListener('click', function () {
                 this.closest('.modal').style.display = 'none';
             });
         });
 
-        // Close modal when clicking outside content
         document.querySelectorAll('.modal').forEach(modal => {
             modal.addEventListener('click', function (e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
+                if (e.target === modal) modal.style.display = 'none';
             });
         });
 
-        // Form submission simulation
         document.querySelectorAll('form').forEach(form => {
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
@@ -376,7 +351,651 @@
                 this.closest('.modal').style.display = 'none';
             });
         });
+
+        // ====================== CHARTS & JWT DIAGRAM ======================
+        function initCharts() {
+            const opts = { responsive: true, maintainAspectRatio: false };
+            new Chart(document.getElementById('chartRevenue'), { type: 'bar', data: { labels: ['Northern', 'Western', 'Central', 'Southern', 'Eastern'], datasets: [{ data: [420, 680, 540, 320, 440], backgroundColor: '#006400' }] }, options: opts });
+            new Chart(document.getElementById('chartAdoption'), { type: 'line', data: { labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'], datasets: [{ data: [5, 18, 35, 55, 72, 85, 94], borderColor: '#006400', fill: true }] }, options: opts });
+            new Chart(document.getElementById('chartSavings'), {
+                type: 'line', data: {
+                    labels: ['2024', '2025', '2026', '2027', '2028'], datasets: [
+                        { label: 'Traditional', data: [100, 105, 112, 118, 125], borderColor: '#dc3545' },
+                        { label: 'PCRR', data: [82, 68, 55, 42, 30], borderColor: '#006400' }
+                    ]
+                }, options: opts
+            });
+        }
+
+        function initJWTDiagram() {
+            const container = document.getElementById('jwtDiagram');
+            if (!container) return;
+            const nodes = [
+                { id: "PCRR", x: "50%", y: "50%", desc: "Central commercial engine for all JWT GREEN patents." },
+                { id: "GSMF", x: "25%", y: "30%", desc: "Gas Separation Membrane Filtration – CO₂ capture & biogas upgrading." },
+                { id: "GFSS", x: "75%", y: "30%", desc: "ElectroMagnetic Gravity Separation – advanced mineral processing." },
+                { id: "MBGC", x: "25%", y: "70%", desc: "Mini BioGas Cogeneration – waste-to-energy solutions." },
+                { id: "SDGC", x: "75%", y: "70%", desc: "Sea & Desert Green Conversion – sustainable land restoration." }
+            ];
+            nodes.forEach(node => {
+                const el = document.createElement('div');
+                el.className = `jwt-node ${node.id === 'PCRR' ? 'center' : ''}`;
+                el.style.left = node.x;
+                el.style.top = node.y;
+                el.textContent = node.id;
+                el.onclick = () => {
+                    const detail = document.getElementById('jwtNodeDetail');
+                    if (detail) detail.innerHTML = `<strong>${node.id}</strong><p>${node.desc}</p>`;
+                };
+                container.appendChild(el);
+            });
+        }
+
+        // ====================== FULL CONTENT DATA ======================
+        const contentData = {
+            "welcome": {
+                title: "Welcome to the Intellectual Property Hub",
+                heroBg: "images/welcome.jpg",
+                sideImage: "images/hands-together-unity-stockcake.webp",
+                text: "Welcome to the JWT Ecosystem — a revolutionary alliance of 342 patented green technologies working in harmony to accelerate humanity's transition to a sustainable, zero-carbon future."
+            },
+            "iteg": {
+                title: "ITEG - Rotor",
+                heroBg: "images/1.0-Brake-Rotors.avif",
+                sideImage: "images/starter_Kit.webp",
+                text: "Advanced high-efficiency rotor technology engineered for energy generation, water treatment, and industrial applications.",
+                cards: [
+                    {
+                        img: "images/efficiencyrotor.jpg",
+                        title: "Efficiency",
+                        desc: "Up to 40% better energy output than traditional systems.",
+                        url: "https://www.pcrr-jwt.eu/iteg/"
+                    },
+                    {
+                        img: "images/rotor2.webp",
+                        title: "Industrial Grade",
+                        desc: "Built for harsh environments with minimal maintenance.",
+                        url: "https://www.pcrr-jwt.eu/iteg/"
+                    },
+                    {
+                        img: "images/water.jpg",
+                        title: "Water Applications",
+                        desc: "Ideal for pumping and desalination integration.",
+                        url: "https://www.pcrr-jwt.eu/iteg/"
+                    }
+                ]
+            },
+            "mbgc": {
+                title: "MBGC - Biogas",
+                heroBg: "images/biogas-bg.webp",
+                sideImage: "images/biogas.jpg",
+                text: "Mini BioGas Cogeneration systems that convert organic waste into clean electricity and heat.",
+                cards: [
+                    {
+                        img: "images/waste.webp",
+                        title: "Waste to Energy",
+                        desc: "Convert agricultural waste into usable power.",
+                        url: "https://www.pcrr-jwt.eu/mbgc/"
+                    },
+                    {
+                        img: "images/cogenerazione_2400x1160.jpg",
+                        title: "Cogeneration",
+                        desc: "Produces both electricity and heat simultaneously.",
+                        url: "https://www.pcrr-jwt.eu/mbgc/"
+                    },
+                    {
+                        img: "images/carbon.jpg",
+                        title: "Carbon Reduction",
+                        desc: "Reduces methane emissions by up to 90%.",
+                        url: "https://www.pcrr-jwt.eu/mbgc/"
+                    }
+                ]
+            },
+            "pbrc": {
+                title: "PBRC - Micro Algae",
+                heroBg: "images/algaebg.webp",
+                sideImage: "images/algae.webp",
+                text: "State-of-the-art photobioreactor systems for high-density micro-algae cultivation.",
+                cards: [
+                    {
+                        img: "images/yield.webp",
+                        title: "High Yield",
+                        desc: "Produces large amounts of biomass in controlled environments.",
+                        url: "https://www.pcrr-jwt.eu/pbrc/"
+                    },
+                    {
+                        img: "images/co capture.webp",
+                        title: "CO₂ Capture",
+                        desc: "Excellent natural carbon sequestration technology.",
+                        url: "https://www.pcrr-jwt.eu/pbrc/"
+                    },
+                    {
+                        img: "images/biofuel.avif",
+                        title: "Biofuel",
+                        desc: "Source material for sustainable biofuels and bioplastics.",
+                        url: "https://www.pcrr-jwt.eu/pbrc/"
+                    }
+                ]
+            },
+            "sidr": {
+                title: "SIDR - Agro & Sport",
+                heroBg: "images/sidrtitle.webp",
+                sideImage: "images/agro-side.webp",
+                text: "Integrated development solutions combining smart agriculture with sports infrastructure.",
+                cards: [
+                    {
+                        img: "images/SmartFarming_746x419.jpg",
+                        title: "Smart Agriculture",
+                        desc: "Precision farming with renewable energy integration.",
+                        url: "https://www.pcrr-jwt.eu/sidr/"
+                    },
+                    {
+                        img: "images/multipurpose.avif",
+                        title: "Multi-Purpose",
+                        desc: "Sustainable sports infrastructure for communities.",
+                        url: "https://www.pcrr-jwt.eu/sidr/"
+                    },
+                    {
+                        img: "images/water optimiztion.jpg",
+                        title: "Water Optimization",
+                        desc: "Advanced irrigation systems reducing water usage.",
+                        url: "https://www.pcrr-jwt.eu/sidr/"
+                    }
+                ]
+            },
+            "sdgc": {
+                title: "SDGC - Desalination",
+                heroBg: "images/desalinatiom title.webp",
+                sideImage: "images/des sideimage.webp",
+                text: "Sea & Desert Green Conversion technology providing low-energy desalination.",
+                cards: [
+                    {
+                        img: "images/low energy.png",
+                        title: "Low Energy",
+                        desc: "Sustainable fresh water production from seawater.",
+                        url: "https://www.pcrr-jwt.eu/sdgc/"
+                    },
+                    {
+                        img: "images/desert green.jpg",
+                        title: "Desert Greening",
+                        desc: "Transforms arid lands into productive green zones.",
+                        url: "https://www.pcrr-jwt.eu/sdgc/"
+                    },
+                    {
+                        img: "images/restoration.jpg",
+                        title: "Eco Restoration",
+                        desc: "Restores ecosystems while producing clean water.",
+                        url: "https://www.pcrr-jwt.eu/sdgc/"
+                    }
+                ]
+            },
+            "gsmf": {
+                title: "GSMF - Separation",
+                heroBg: "images/membrane filtration.jpg",
+                sideImage: "images/industrial filitarion.jpg",
+                text: "Advanced Gas Separation Membrane Filtration systems.",
+                cards: [
+                    {
+                        img: "images/gas seperation.jpg",
+                        title: "Gas Separation",
+                        desc: "High selectivity membranes for CO₂ capture.",
+                        url: "https://www.pcrr-jwt.eu/gsmf/"
+                    },
+                    {
+                        img: "images/biogas upgrade.jpg",
+                        title: "Biogas Upgrading",
+                        desc: "Purifies biogas for grid injection.",
+                        url: "https://www.pcrr-jwt.eu/gsmf/"
+                    },
+                    {
+                        img: "images/use ind.webp",
+                        title: "Industrial Use",
+                        desc: "Low operating cost gas purification.",
+                        url: "https://www.pcrr-jwt.eu/gsmf/"
+                    }
+                ]
+            },
+            "gfss": {
+                title: "GFSS - Ems Separation",
+                heroBg: "images/ems seperation.jpg",
+                sideImage: "images/electronic.jpg",
+                text: "ElectroMagnetic Gravity Separation – revolutionary chemical-free technology.",
+                cards: [
+                    {
+                        img: "images/chemical-free.jpg",
+                        title: "Chemical-Free",
+                        desc: "No chemicals required for separation.",
+                        url: "https://www.pcrr-jwt.eu/gfss/"
+                    },
+                    {
+                        img: "images/industrial process.jpg",
+                        title: "Mineral Processing",
+                        desc: "Efficient extraction of valuable minerals.",
+                        url: "https://www.pcrr-jwt.eu/gfss/"
+                    },
+                    {
+                        img: "images/gravity.jpg",
+                        title: "Gravity + EM",
+                        desc: "Combines physics for superior results.",
+                        url: "https://www.pcrr-jwt.eu/gfss/"
+                    }
+                ]
+            },
+            "pcrr": {
+                title: "PCRR - Recovery & Resilience",
+                heroBg: "images/green economy.jpg",
+                sideImage: "images/sustainable business.jpg",
+                text: "The commercial backbone of JWT’s 342 green patents...",
+                cards: [
+                    {
+                        img: "images/zone.jpg",
+                        title: "Zone Licensing",
+                        desc: "Exclusive territorial rights for large zones.",
+                        url: "https://www.pcrr-jwt.eu/pcrr/"
+                    },
+                    {
+                        img: "images/broker.jpg",
+                        title: "Broker Model",
+                        desc: "Earn 3% commission on zone deals.",
+                        url: "https://www.pcrr-jwt.eu/pcrr/"
+                    },
+                    {
+                        img: "images/zero cost.jpg",
+                        title: "Zero Cost Deployment",
+                        desc: "Operators pay only from generated revenue.",
+                        url: "https://www.pcrr-jwt.eu/pcrr/"
+                    }
+                ]
+            },
+            // ====================== SPECIAL SECTIONS ======================
+            "edu": {
+                title: "EDU / FAD",
+                html: `<div style="padding:40px;"><h4 style="color:#006400;">Education & FAD</h4><ul style="line-height:2.4;
+                    list-style-type: none;"><li><a href="#" target="_blank" style="text-decoration:none; color: green; font-weight: bold; background-color: orange; padding:10px;">Course 1 - Rotor Systems</a>,
+                        <p>introduces the fundamental principles behind rotor dynamics and their applications in modern engineering. This course explores the design, operation, and performance of rotor systems, focusing on how rotating components interact with forces such as vibration, stability, 
+                            and load distribution. Learners gain insight into the mechanical behavior of rotors, the importance of balancing and alignment, and the role these systems play in industries ranging 
+                            from aviation and energy to manufacturing. By the end of the course, participants will have a clear understanding of the essential concepts that underpin rotor technology and its critical role in reliable, 
+                            efficient machinery</p></li><li><a href="#" target="_blank"style="text-decoration:none; color: green; font-weight: bold; background-color: orange; padding:10px;"> Course 2 - Microalgae Technology</a><p>innovative use of microalgae in sustainable industries.
+                                 Learners are introduced to the biological characteristics of microalgae, their cultivation methods, and diverse applications ranging from biofuels and food supplements to wastewater treatment and carbon capture. The course highlights how microalgae contribute to renewable energy, environmental protection,
+                                  and biotechnology, offering practical insights into harnessing these microorganisms for a greener future.</p></li><li><a href="#" target="_blank"style="text-decoration:none; color: green; font-weight: bold; background-color: orange; padding:10px;"> Course 3 - Desalination</a><p>examines the science and technology behind converting seawater into fresh, usable water. The course 
+                                    introduces key desalination methods such as reverse osmosis and thermal processes, highlighting their role in addressing global water scarcity. Learners explore system design, energy requirements, environmental impacts, and innovations that make desalination more efficient and sustainable. By the end, participants gain a clear understanding of how desalination supports communities,
+                                     industries, and ecosystems in regions facing freshwater challenges.</p></li></ul><a href="#" target="_blank" class="btn btn-success btn-lg mt-4">Explore More Educational Content</a></div>`
+            },
+
+            "editorial": {
+                title: "Editorial Plan in", html: `<div style="padding:20px 40px;text-align:center;color:#006400;font-weight:bold;"><h4>Editorial Plan</h4><iframe src="https://www.expotv1.com/JWT_GhostWriter.htm",
+                    width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"><a href="https://www.expotv1.com/JWT_GhostWriter.htm" target="_blank" class="btn btn-success btn-lg me-3">Explore Full,
+                        Plan</a></div></div>`
+            },
+
+            "mktg": {
+                title: "MKTG Commercial Goods",
+                html: `<div style="padding:20px 40px;"><iframe src="https://www.expotv1.com/JWT_mkt.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"><a href="https://www.expotv1.com/JWT_mkt.htm" target="_blank" class="btn btn-success btn-lg">Explore Full Marketing Plan →</a></div></div>`
+            },
+
+            "mkt-jp": { title: "MKT & IP", html: `<div style="padding:20px 40px;text-align:center;color:#006400;"><h4>MKT & IP</h4><div style="padding:4px 5px;"><iframe src="https://www.expotv1.com/JWTeam_to_Ecological_TRANSITION.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"></div></div><a href="https://www.expotv1.com/JWTeam_to_Ecological_TRANSITION.htm" target="_blank" class="btn btn-success btn-lg mt-4">Explore More</a></div>` },
+            "iisrb": { title: "II & SRB", html: `<div style="padding:20px 40px;text-align:center;color:#006400;"><h4>II & SRB</h4><div style="padding:4px 5px;"><iframe src="https://www.expotv1.com/JWT_Rent_Lease_BACK.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"></div></div><a href="https://www.expotv1.com/JWT_Rent_Lease_BACK.htm" target="_blank" class="btn btn-success btn-lg mt-4">Explore</a></div>` },
+            "jv": { title: "JV & 30/21", html: `<div style="padding:20px 40px;text-align:center;color:#006400;"><h4>JV & 30/21</h4><div style="padding:4px 5px;"><iframe src="https://www.expotv1.com/JWT_Lend_Invest_30_21.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"></div></div><a href="https://www.expotv1.com/JWT_Lend_Invest_30_21.htm" target="_blank" class="btn btn-success btn-lg mt-4">View More</a></div>` },
+            "it-support": {
+                title: "IT & SUPPORT", html: `<div style="padding:20px 40px;text-align:center;color:#006400;">IT & Support</h4><div style="padding:4px 5px;"><iframe src="https://www.expotv1.com/ESCP_TSMGO.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"></div></div><a href="https://www.expotv1.com/ESCP_TSMGO.htm" target="_blank" class="btn btn-success btn-lg mt-4">Get Support</a></div>`
+
+            },
+            "eport": {
+                title: "Industrial Property", html: `<div style="padding:20px 40px;text-align:center;color:#006400;">IT & Support</h4><div style="padding:4px 5px;"><iframe src="https://www.expotv1.com/ESCP_Patent.htm" width="100%" height="680px" style="border:none;border-radius:12px;"></iframe><div class="text-center mt-4"></div></div><a href="https://www.expotv1.com/ESCP_Patent.htm" target="_blank" class="btn btn-success btn-lg mt-4">Learn More</a></div>`
+
+            },
+        };
+
+        // ====================== SIDEBAR CLICK HANDLER ======================
+        document.querySelectorAll('.sidebar-card').forEach(card => {
+            card.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelectorAll('.sidebar-card').forEach(c => c.classList.remove('active'));
+                this.classList.add('active');
+
+                const id = this.getAttribute('data-id');
+                const data = contentData[id];
+                const area = document.getElementById('presentationArea');
+
+                if (!data || !area) return;
+
+                let htmlContent = '';
+                if (id === "welcome") {
+                    htmlContent = `
+                    <div class="module-hero" style="background-image: url('${data.heroBg}')">
+                        <h2 class="module-title">${data.title}</h2>
+                    </div>
+                    <div class="side-content">
+                        <div class="side-image"><img src="${data.sideImage}" alt="${data.title}"></div>
+                        <div class="side-text">
+                            <h4>Introduction</h4>
+                            <p>${data.text}</p>
+                        </div>
+                    </div>
+                    <div style="padding:40px;">
+                        <h4 style="color:#006400; margin-bottom:15px;">Our Global Reach - Italy Focus</h4>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12370534.077873226!2d2.1147633204309444!3d40.802699194980725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d4fe82448dd203%3A0xe22cf55c24635e6f!2sItaly!5e0!3m2!1sen!2ske!4v1775469328027!5m2!1sen!2ske" 
+                                width="100%" height="480" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                `;
+                }
+
+                //== check this for the links updated ====
+                else if (data.html) {
+                    // Special sections (EDU, Editorial, MKTG, etc.)
+                    htmlContent = data.html;
+                } else {
+                    // Regular modules - Full layout with hero, introduction & cards
+                    let cardsHTML = '';
+                    if (data.cards && data.cards.length > 0) {
+                        cardsHTML = data.cards.map(c => `
+                        <div class="feature-card">
+                            <img src="${c.img}" alt="${c.title}">
+                            <div class="feature-card-body">
+                                <h5>${c.title}</h5>
+                                <p>${c.desc}</p>
+                                <a href="${c.url}" class="btn btn-success btn-sm">Learn More</a>
+                            </div>
+                        </div>
+                    `).join('');
+                    }
+
+                    htmlContent = `
+                    <div class="module-hero" style="background-image: url('${data.heroBg}')">
+                        <h2 class="module-title">${data.title}</h2>
+                    </div>
+                    <div class="side-content">
+                        <div class="side-image"><img src="${data.sideImage}" alt="${data.title}"></div>
+                        <div class="side-text">
+                            <h4>Introduction</h4>
+                            <p>${data.text}</p>
+                        </div>
+                    </div>
+                    <div class="interactive-demo" style="padding:30px 40px; background:#f8f9fa; border-top:1px solid #eee;">
+                        <h4 style="color:#006400; margin-bottom:20px;">Interactive Statistics</h4>
+                        <div id="demo-content-${id}"></div>
+                    </div>
+                    <div class="feature-cards" style="padding:0 40px 40px;">${cardsHTML}</div>
+                `;
+                }
+
+                area.innerHTML = htmlContent;
+
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: "smooth" });
+
+                if (!data.html) renderInteractiveDemo(id);
+            });
+        });
+
+        // ====================== INTERACTIVE DEMO ======================
+        function renderInteractiveDemo(id) {
+            const container = document.getElementById(`demo-content-${id}`);
+            if (!container) return;
+
+            let html = '';
+            switch (id) {
+                case "iteg":
+                    html = `<p><strong>Rotor Energy Simulator</strong></p><button class="btn btn-success mb-3" onclick="simulateEnergy(this)">Run Simulation</button><div id="energy-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
+                    break;
+                case "mbgc":
+                    html = `<p><strong>Waste to Energy Converter</strong></p><button class="btn btn-success mb-3" onclick="simulateBiogas(this)">Process 1 Ton Waste</button><div id="biogas-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
+                    break;
+                case "pbrc":
+                    html = `<p><strong>Algae Growth Simulator</strong></p><button class="btn btn-success mb-3" onclick="simulateAlgae(this)">Start Growth Cycle</button><div id="algae-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
+                    break;
+                case "sdgc":
+                    html = `<p><strong>Desalination Estimator</strong></p><button class="btn btn-info mb-3" onclick="waterDemo()">Generate 30 Days Output</button><div id="water-result" style="margin-top:15px;font-weight:bold;color:#006400;"></div>`;
+                    break;
+                case "pcrr":
+                    html = `<p><strong>Zone Revenue Calculator</strong></p><input type="number" id="zone-pop" placeholder="Population (e.g. 1,500,000)" style="padding:10px;width:100%;margin-bottom:10px;"><button class="btn btn-success" onclick="calculateRevenue()">Calculate Revenue</button><div id="revenue-result" style="margin-top:15px;font-weight:bold;"></div>`;
+                    break;
+                default:
+                    html = `<p>Interactive demo coming soon...</p>`;
+            }
+            container.innerHTML = html;
+        }
+
+        // Demo Functions
+        window.simulateEnergy = function (btn) { btn.innerHTML = "Running..."; setTimeout(() => { document.getElementById('energy-result').innerHTML = `✅ Peak Output: <span style="color:#FF6200;">2.84 MW</span><br>Efficiency: 94.7%`; btn.innerHTML = "Run Again"; }, 1400); };
+        window.simulateBiogas = function (btn) { btn.innerHTML = "Processing..."; setTimeout(() => { document.getElementById('biogas-result').innerHTML = `✅ 1.85 MWh electricity + 420 m³ biogas`; btn.innerHTML = "Process Again"; }, 1300); };
+        window.simulateAlgae = function (btn) { btn.innerHTML = "Growing..."; setTimeout(() => { document.getElementById('algae-result').innerHTML = `✅ Biomass: 18.4 kg/m²<br>CO₂ Captured: 42 tons`; btn.innerHTML = "New Cycle"; }, 1600); };
+        window.waterDemo = function () { document.getElementById('water-result').innerHTML = `🌊 <strong>28,450,000 Liters</strong> of fresh water produced`; };
+        window.calculateRevenue = function () {
+            const pop = document.getElementById('zone-pop').value;
+            if (!pop) return alert("Please enter population");
+            const revenue = (parseInt(pop) / 1000000 * 680).toFixed(1);
+            document.getElementById('revenue-result').innerHTML = `Estimated Annual Revenue: <strong>€${revenue} Million</strong>`;
+        };
+
+        // ====================== INITIALIZE ======================
+        window.addEventListener('load', () => {
+            initCharts();
+            initJWTDiagram();
+
+            const welcomeCard = document.querySelector('.sidebar-card[data-id="welcome"]');
+            if (welcomeCard) welcomeCard.click();
+        });
     </script>
+
+    <!-- ==================== NEW CONTENT SECTION SCRIPTS ==================== -->
+    <script>
+        function smoothScrollTo(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const navHeight = 100; // Adjust if your sticky nav is taller
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - navHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        // NAMESPACE: All new functions use pcrr_ prefix to avoid conflicts
+
+        // ==================== SLIDESHOW ====================
+        let pcrr_currentSlide = 0;
+        let pcrr_slideInterval;
+
+        function pcrr_initSlideshow() {
+            const slides = document.querySelectorAll('.slide');
+            const dotsContainer = document.getElementById('dots');
+            if (!slides.length || !dotsContainer) return;
+
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.className = `dot`;
+                dot.onclick = () => {
+                    pcrr_currentSlide = i;
+                    pcrr_showSlide(pcrr_currentSlide);
+                };
+                dotsContainer.appendChild(dot);
+            });
+
+            function pcrr_showSlide(index) {
+                slides.forEach(s => s.classList.remove('active'));
+                const dots = document.querySelectorAll('.dot');
+                dots.forEach(d => d.classList.remove('active'));
+
+                if (slides[index]) slides[index].classList.add('active');
+                if (dots[index]) dots[index].classList.add('active');
+            }
+
+            function pcrr_nextSlide() {
+                pcrr_currentSlide = (pcrr_currentSlide + 1) % slides.length;
+                pcrr_showSlide(pcrr_currentSlide);
+            }
+
+            pcrr_slideInterval = setInterval(pcrr_nextSlide, 4200);
+            pcrr_showSlide(0);
+        }
+
+        // Global functions for HTML onclick handlers
+        function prevSlide() {
+            pcrr_currentSlide = (pcrr_currentSlide - 1 + document.querySelectorAll('.slide').length) % document.querySelectorAll('.slide').length;
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            if (slides[pcrr_currentSlide]) slides[pcrr_currentSlide].classList.add('active');
+            if (dots[pcrr_currentSlide]) dots[pcrr_currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            pcrr_currentSlide = (pcrr_currentSlide + 1) % document.querySelectorAll('.slide').length;
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            if (slides[pcrr_currentSlide]) slides[pcrr_currentSlide].classList.add('active');
+            if (dots[pcrr_currentSlide]) dots[pcrr_currentSlide].classList.add('active');
+        }
+
+        // ==================== BUDGET CALCULATOR ====================
+        function recalculateBudget() {
+            const license = parseFloat(document.getElementById('input-license')?.value) || 11600;
+            const sale = parseFloat(document.getElementById('input-sale')?.value) || 6960000;
+            const feeRate = parseFloat(document.getElementById('input-fee')?.value) || 0.1;
+
+            const projectedIRR = Math.round((sale / license) * 0.25);
+            const irrEl = document.getElementById('live-irr');
+            if (irrEl) irrEl.textContent = projectedIRR + '%';
+        }
+
+        // ==================== COUNTRY DATA ====================
+        const pcrr_countryDataArray = [
+            { country: "Afghanistan", st: 210, lt130: 130, f: 0.102, p: 41 },
+            { country: "Albania", st: 560, lt130: 330, f: 0.272, p: 43 },
+            { country: "Algeria", st: 310, lt130: 190, f: 0.150, p: 45 },
+            { country: "Angola", st: 150, lt130: 88, f: 0.073, p: 36 },
+            { country: "Argentina", st: 850, lt130: 510, f: 0.413, p: 45 },
+            { country: "Armenia", st: 410, lt130: 250, f: 0.199, p: 3 },
+            { country: "Australia", st: 3420, lt130: 2050, f: 1.660, p: 26 },
+            { country: "Austria", st: 3420, lt130: 2080, f: 1.680, p: 9 },
+            { country: "Azerbaijan", st: 430, lt130: 260, f: 0.209, p: 10 },
+            { country: "Bahrain", st: 2140, lt130: 1280, f: 1.039, p: 1 },
+            { country: "Bangladesh", st: 160, lt130: 96, f: 0.078, p: 171 },
+            { country: "Belgium", st: 3970, lt130: 2380, f: 1.927, p: 12 },
+            { country: "Benin", st: 120, lt130: 70, f: 0.058, p: 13 },
+            { country: "Bhutan", st: 350, lt130: 210, f: 0.170, p: 1 },
+            { country: "Bolivia", st: 500, lt130: 300, f: 0.243, p: 12 },
+            { country: "Brazil", st: 600, lt130: 360, f: 0.292, p: 215 },
+            { country: "Bulgaria", st: 930, lt130: 560, f: 0.451, p: 7 },
+            { country: "Burkina Faso", st: 160, lt130: 98, f: 0.079, p: 23 },
+            { country: "Burundi", st: 120, lt130: 71, f: 0.058, p: 13 },
+            { country: "Cambodia", st: 200, lt130: 120, f: 0.097, p: 17 },
+            { country: "Cameroon", st: 210, lt130: 120, f: 0.102, p: 28 },
+            { country: "Canada", st: 2280, lt130: 1370, f: 1.107, p: 38 },
+            { country: "Chile", st: 1160, lt130: 700, f: 0.563, p: 20 },
+            { country: "China", st: 1000, lt130: 600, f: 0.485, p: 1426 },
+            { country: "Colombia", st: 250, lt130: 150, f: 0.121, p: 52 },
+            { country: "Croatia", st: 1150, lt130: 690, f: 0.558, p: 4 },
+            { country: "Czech Republic", st: 1450, lt130: 870, f: 0.704, p: 10 },
+            { country: "Denmark", st: 3820, lt130: 2290, f: 1.854, p: 6 },
+            { country: "Egypt", st: 300, lt130: 180, f: 0.146, p: 111 },
+            { country: "Emirates", st: 4620, lt130: 2770, f: 2.243, p: 9 },
+            { country: "Estonia", st: 1590, lt130: 950, f: 0.772, p: 1 },
+            { country: "France", st: 2610, lt130: 1570, f: 1.267, p: 65 },
+            { country: "Germany", st: 2830, lt130: 1700, f: 1.374, p: 83 },
+            { country: "Ghana", st: 330, lt130: 200, f: 0.160, p: 33 },
+            { country: "India", st: 120, lt130: 71, f: 0.058, p: 1417 },
+            { country: "Indonesia", st: 570, lt130: 340, f: 0.277, p: 276 },
+            { country: "Italy", st: 2060, lt130: 1240, f: 1.000, p: 59 },
+            { country: "Japan", st: 2980, lt130: 1790, f: 1.447, p: 124 },
+            { country: "Kenya", st: 360, lt130: 210, f: 0.173, p: 54 },
+            { country: "South Africa", st: 1680, lt130: 1010, f: 0.816, p: 60 },
+            { country: "USA", st: 3400, lt130: 2040, f: 1.650, p: 338 }
+        ];
+
+        function pcrr_populateCountrySelect() {
+            const select = document.getElementById('countrySelect');
+            if (!select) return;
+            select.innerHTML = `<option value="">— Select country —</option>`;
+
+            pcrr_countryDataArray.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.country;
+                option.textContent = item.country;
+                select.appendChild(option);
+            });
+        }
+
+        function showCountryData() {
+            const selected = document.getElementById('countrySelect')?.value;
+            const resultDiv = document.getElementById('countryResult');
+            if (!resultDiv || !selected) return;
+
+            const data = pcrr_countryDataArray.find(c => c.country === selected);
+            if (data) {
+                resultDiv.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div style="font-size: 48px;">${pcrr_getFlagEmoji(data.country)}</div>
+                    <div>
+                        <h4 style="font-weight: 600; font-size: 20px;">${data.country}</h4>
+                        <div style="margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; font-size: 12px;">
+                            <div>ST <span style="font-family: monospace; display: block; font-size: 32px; color: #0a8a4a; font-weight: 600;">${data.st}</span></div>
+                            <div>&lt;130 <span style="font-family: monospace; display: block; font-size: 32px; color: #ff6200; font-weight: 600;">${data.lt130}</span></div>
+                            <div>f <span style="font-family: monospace; display: block; font-size: 32px; font-weight: 600;">${data.f}</span></div>
+                            <div>P <span style="font-family: monospace; display: block; font-size: 32px; font-weight: 600;">${data.p}</span></div>
+                        </div>
+                    </div>
+                </div>`;
+            }
+        }
+
+        function pcrr_getFlagEmoji(country) {
+            const flags = { "India": "🇮🇳", "Italy": "🇮🇹", "Kenya": "🇰🇪", "USA": "🇺🇸", "France": "🇫🇷", "Germany": "🇩🇪", "China": "🇨🇳", "Japan": "🇯🇵", "South Africa": "🇿🇦" };
+            return flags[country] || "🌍";
+        }
+
+        function pcrr_populateFullTable() {
+            const tbody = document.getElementById('fullTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            pcrr_countryDataArray.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                <td style="padding-left: 24px; font-weight: 500;">${item.country}</td>
+                <td style="font-family: monospace;">${item.st}</td>
+                <td style="font-family: monospace;">${item.lt130}</td>
+                <td style="font-family: monospace;">${item.f}</td>
+                <td style="font-family: monospace;">${item.p}</td>`;
+                tbody.appendChild(row);
+            });
+        }
+
+        // ==================== FORM HANDLER ====================
+        function handleSubmit(e) {
+            e.preventDefault();
+            const success = document.getElementById('formSuccess');
+            if (success) success.classList.remove('hidden');
+            setTimeout(() => {
+                if (success) success.classList.add('hidden');
+            }, 4000);
+            e.target.reset();
+        }
+
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            pcrr_initSlideshow();
+            pcrr_populateCountrySelect();
+            pcrr_populateFullTable();
+
+            // Budget live update
+            ['input-license', 'input-sale', 'input-fee'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', recalculateBudget);
+            });
+
+            console.log('%c✅ New Content Sections Initialized: Slideshow, Budget, Countries, Form', 'color:#0a8a4a; font-weight:bold; font-size:12px;');
+        });
+    </script>
+
 </body>
 
 </html>
