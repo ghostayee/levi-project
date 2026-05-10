@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ITEG- </title>
+    <title>ITEG- Rotor </title>
 
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -912,14 +912,13 @@
         <ul>
             <li><a href="/jwt">JWT</a></li>
             <li><a href="https://www.pcrr-jwt.eu/pcrr/">PCRR</a></li>
-            <li><a href="/comm">COMM</a></li>
-            <li><a href="/iteg">ITEG</a></li>
-            <li><a href="/mbgc">MBGC</a></li>
-            <li><a href="/pbrc">PBRC</a></li>
-            <li><a href="/sidr">SIDR</a></li>
-            <li><a href="/sdgc">SDGC</a></li>
-            <li><a href="/gsmf">GSMF</a></li>
-            <li><a href="/gfss">GFSS</a></li>
+            <li><a href="https://www.pcrr-jwt.eu/iteg">ITEG</a></li>
+            <li><a href="https://www.pcrr-jwt.eu/mbgc">MBGC</a></li>
+            <li><a href="https://www.pcrr-jwt.eu/pbrc">PBRC</a></li>
+            <li><a href="https://www.pcrr-jwt.eu/sidr">SIDR</a></li>
+            <li><a href="https://www.pcrr-jwt.eu/sdgc">SDGC</a></li>
+            <li><a href="https://www.pcrr-jwt.eu/gsmf">GSMF</a></li>
+            <li><a href="https://www.pcrr-jwt.eu/gfss">GFSS</a></li>
         </ul>
     </nav>
 
@@ -998,7 +997,10 @@
                             class="btn btn-success btn-sm fw-bold px-4" id="starter-kit">I-S&S-1</a>
 
                         <a href="#" onclick="smoothScrollTo('starter-plan'); return false;"
-                            class="btn btn-outline-success btn-sm fw-bold px-4">Business Plan</a>
+                            class="btn btn-outline-success btn-sm fw-bold px-4">ITEG - Business Plan</a>
+
+                        <a href="#" onclick="smoothScrollTo('starter-plan-2'); return false;"
+                            class="btn btn-outline-success btn-sm fw-bold px-4">Legal Title (MISE)</a>
 
                         <a href="#" onclick="smoothScrollTo('starter-features'); return false;"
                             class="btn btn-outline-success btn-sm fw-bold px-4">Publication & Thesis</a>
@@ -1017,9 +1019,6 @@
 
                         <a href="#" onclick="smoothScrollTo('heritage'); return false;"
                             class="btn btn-outline-success btn-sm fw-bold px-4">INTANGIBLE HERITAGE</a>
-
-                        <a href="#" onclick="smoothScrollTo('commercial'); return false;"
-                            class="btn btn-outline-success btn-sm fw-bold px-4">COMMERCIAL LICENSE</a>
 
                         <a href="#" onclick="smoothScrollTo('statistics'); return false;"
                             class="btn btn-outline-success btn-sm fw-bold px-4">COUNTRIES</a>
@@ -1111,6 +1110,7 @@
                         </ul>
                     </div>
                     <div>
+                        <div id="starter-plan"></div>
 
                     </div>
                     <div class="mt-4 flex gap-2">
@@ -1125,7 +1125,7 @@
                 </section>
             </div>
 
-
+            <!--Business plan-->
             <!-- Hero Banner -->
             <section class="bg-white text-center py-16">
                 <h1 class="text-4xl md:text-5xl font-bold text-green-800">ITEG – Business Plan</h1>
@@ -1239,7 +1239,7 @@
                         <li>Creation of green jobs in manufacturing, installation, and maintenance</li>
                     </ul>
                 </div>
-                <section class=" bg-white" id="starter-features">
+                <section class=" bg-white">
                     <div class="container">
                         <div class="text-center mb-4 mt-1">
                             <h2 class="fw-bold">Economic Impact</h2>
@@ -1264,6 +1264,7 @@
                 <div>
 
                 </div>
+                <div id="starter-plan-2"></div>
                 <div>
 
                 </div>
@@ -1336,7 +1337,6 @@
                 </ul>
             </div>
         </section>
-
         <!-- Strategic Importance -->
         <section class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl shadow-lg border-t-4 border-black">
             <h2 class="text-2xl font-bold text-green-800 mb-6">Strategic Importance</h2>
@@ -1345,6 +1345,7 @@
                 program.
                 It secures exclusive rights to produce, license, and monetize the technology through the JWT NFW/NFT
                 model.
+            <div id="starter-features"></div>
             </p>
             <ul class="list-disc list-inside text-gray-700 space-y-2">
                 <li>Safe technology transfer and licensing</li>
@@ -1370,7 +1371,6 @@
         <!-- Hero Banner -->
         <section class="bg-white text-center py-16">
             <h1 class="text-4xl md:text-5xl font-bold text-green-800">Publication & Thesis</h1>
-            <p class="mt-4 text-lg text-orange-800">Pelizza: Inventor of ITEG Rotor Technology</p>
         </section>
 
         <!-- Abstract with Image Card -->
@@ -1466,6 +1466,7 @@
                     <li>Decentralized energy production models</li>
                     <li>Integration of patented green technologies</li>
                     <li>Scalable solutions for ecological transition and resilience</li>
+                    <div id="starter-pricing"></div>
                 </ul>
             </div>
             <div class="mt-4 d-flex gap-2 justify-content-end">
@@ -1558,7 +1559,7 @@
         <!-- Positioning Statement -->
         <section class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl shadow-lg border-t-4 border-green-700">
             <h2 class="text-2xl font-bold text-green-800 mb-4">Positioning Statement</h2>
-            <p class="italic text-gray-800">"ITEG Rotore — The intelligent rotor that turns natural and industrial flows
+            <p class="italic text-gray-800">"ITEG Rotor — The intelligent rotor that turns natural and industrial flows
                 into clean, reliable, and profitable energy."</p>
         </section>
 
@@ -1571,6 +1572,7 @@
                 <li>Environmentally responsible and sustainable design</li>
                 <li>Full compatibility with JWT ecosystem technologies</li>
                 <li>Strong support via NFW/NFT commercialization model with tax benefits</li>
+                <div id="pitch"></div>
             </ul>
             <div class="mt-4 d-flex gap-2 justify-content-end">
                 <button class="btn btn-success btn-sm fw-bold">
@@ -1652,13 +1654,12 @@
                     and
                     territorial adaptation.</p>
             </div>
-
             <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-black">
                 <h3 class="text-xl font-bold text-green-800 mb-2">Impact Metrics</h3>
                 <p class="text-gray-700 text-sm">Quantifies expected outcomes in job creation, CO₂ reduction, economic
                     multiplier effect, and inclusivity.</p>
+                <div id="patents"></div>
             </div>
-            <div id="patents">
 
             </div>
             <div>
@@ -1761,6 +1762,7 @@
         <!-- Status -->
         <section class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl shadow-lg border-t-4 border-black">
             <h2 class="text-2xl font-bold text-green-800 mb-4">Status</h2>
+            <div id="voucher"></div>
             <ul class="list-disc list-inside text-gray-700 space-y-2">
                 <li>Core patents registered under MISE-ITEG (Pelizza)</li>
                 <li>European & International extensions in progress (EPO + WIPO)</li>
@@ -1843,6 +1845,7 @@
         <!-- Strategic Role -->
         <section class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl shadow-lg border-t-4 border-black">
             <h2 class="text-2xl font-bold text-green-800 mb-4">Strategic Role</h2>
+            <div id="heritage"></div>
             <p class="text-gray-800 leading-relaxed">
                 The GPBF Voucher is a powerful commercialization tool that makes ITEG one of the most attractive green
                 investment opportunities in the JWT portfolio. It supports rapid market penetration while aligning with
@@ -1878,8 +1881,7 @@
                 </p>
             </div>
             <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
-                <img src="https://via.placeholder.com/500x300/22c55e/ffffff?text=Intangible+Heritage"
-                    alt="Intangible Heritage" class="w-full h-48 object-cover">
+                <img src="images/heritage.jpg" alt="Intangible Heritage" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold text-green-800 mb-2">Protected Innovation</h3>
                     <p class="text-gray-700 text-sm">Transforming inventions into secure, monetizable assets.</p>
@@ -1967,290 +1969,7 @@
             </div>
     </main>
 
-    <!-- HERO + SLIDESHOW -->
-    <header class=" text-white py-16">
-        <div class="max-w-7xl mx-auto px-3 grid md:grid-cols-2 gap-12 items-center">
-            <!-- Text -->
-            <div class="space-y-6">
-                <div>
-                    <h2 style="font-size: 30px; color: #ff6200;" class="fw-bold">PCRR, Recovery & Resilience</h2>
-                </div>
-                <div>
-                    <h4 class="mt-6 text-gray-800 leading-relaxed text-lg"> (PCRR) strategies emphasize rebuilding
-                        economies with sustainability at the core.
-                        Green energy
-                        investments such as solar, wind, and bioenergy are central to reducing dependence on fossil
-                        fuels while creating new jobs and industries. Aligning these initiatives with careful budget
-                        planning ensures resources are allocated efficiently, balancing immediate recovery needs with
-                        long‑term resilience. By prioritizing renewable energy in fiscal frameworks, governments and
-                        organizations can stimulate growth, safeguard the environment, and strengthen communities
-                        against future shocks.</h4>
-                </div>
-
-                <div class="flex items-center gap-x-4">
-                    <button onclick="document.getElementById('budget').scrollIntoView({behavior:'smooth'})"
-                        class="btn btn-success btn-sm fw-bold">
-                        <span>View Live Budget Template</span>
-                        <span class="text-2xl"></span>
-                    </button>
-
-                    <button onclick="document.getElementById('country-data').scrollIntoView({behavior:'smooth'})"
-                        class="btn btn-outline-success btn-sm fw-bold">
-                        Compare 180+ Countries
-                    </button>
-                </div>
-
-                <div class=" flex items-center gap-x-8 text-sm">
-                </div>
-            </div>
-
-            <div class="slideshow-container">
-
-                <div class="slide">
-                    <img src="images/sustainable business.jpg" alt="turbine">
-                </div>
-
-                <div class="slide">
-                    <img src="images/biofuel.avif" alt="biofuel">
-                </div>
-
-                <div class="slide">
-                    <img src="images/chemical-free.jpg" alt="">
-                </div>
-
-                <div class="slide">
-                    <img src="images/solar.jpg" alt="">
-                </div>
-
-                <div class="slide">
-                    <img src="images/water optimiztion.jpg" alt="">
-                </div>
-
-                <div class="slide">
-                    <img src="images/efficiencyrotor.jpg" alt="">
-                </div>
-
-                <div class="controls">
-                    <button onclick="prevSlide()">‹</button>
-                    <button onclick="nextSlide()">›</button>
-                </div>
-
-                <div class="dots" id="dots"></div>
-
-            </div>
-        </div>
-        <div>
-            .
-        </div>
-        <div>.</div>
-        <div id="commercial"></div>
-    </header>
-    <!-- COMMERCIAL LICENSE EXPLAINED -->
-    <section id="commercial" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h1 class="text-5xl font-bold text-green-800 tracking-wide">Commercial License</h1>
-            </div>
-
-            <div class="grid md:grid-cols-12 gap-8">
-                <!-- Left explanation -->
-                <div class="md:col-span-5 space-y-8">
-                    <div class="flex gap-4">
-
-                        <div>
-                            <h4 class="font-semibold text-2xl">Contract 100% Ownership</h4>
-                            <p class="text-slate-600 mt-2">Your license is minted as a non-fungible token (NFT) on the
-                                blockchain. You own 100% of the rights forever. No middlemen. Transferable instantly.
-                            </p>
-                            <div class="text-xs mt-4 flex items-center gap-x-2 text-emerald-600">
-                                <div class="px-3 py-1 bg-emerald-100 rounded-3xl">jwt</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div
-                            class="shrink-0 w-12 h-12 bg-[#f59e0b] text-white rounded-2xl flex items-center justify-center text-3xl">
-                            jwt</div>
-                        <div>
-                            <h4 class="font-semibold text-2xl">Buy 1% • Sell Unlimited</h4>
-                            <p class="text-slate-600 mt-2">Pay only 1% upfront on the base price. Resell your license at
-                                full market value with automatic royalty distribution via smart contract.</p>
-                            <div class="mt-4 text-sm font-medium text-amber-600"> €11,600 / year</div>
-                        </div>
-                    </div>
-
-                    <div class="flex gap-4">
-                        <div>
-                            <h4 class="font-semibold text-2xl">BB Fee 0.1% Only</h4>
-                            <p class="text-slate-600 mt-2">Business Blockchain fee is just 0.1% of every transaction.
-                                The lowest in the industry. Supports all major payment rails and stablecoins.</p>
-                        </div>
-                    </div>
-
-                    <!-- Side diagram (CSS only) -->
-                    <div class="mt-10 p-6 bg-slate-50 border border-slate-200 rounded-3xl">
-                        <h5 class="font-medium mb-4 flex items-center gap-x-2"><span class="text-[#f59e0b]">→</span>
-                            License Flow</h5>
-                        <div class="flex justify-between items-center text-sm font-medium">
-                            <div class="text-center">
-                                <div
-                                    class="w-10 h-10 mx-auto rounded-2xl bg-white shadow flex items-center justify-center mb-2">
-                                    1</div>
-                                Select Country
-                            </div>
-                            <div class="flex-1 h-px bg-gradient-to-r from-[#10b981] to-[#f59e0b]"></div>
-                            <div class="text-center">
-                                <div
-                                    class="w-10 h-10 mx-auto rounded-2xl bg-white shadow flex items-center justify-center mb-2">
-                                    2</div>
-                                Mint NFT
-                            </div>
-                            <div class="flex-1 h-px bg-gradient-to-r from-[#10b981] to-[#f59e0b]"></div>
-                            <div class="text-center">
-                                <div
-                                    class="w-10 h-10 mx-auto rounded-2xl bg-white shadow flex items-center justify-center mb-2">
-                                    3</div>
-                                Activate License
-                            </div>
-                            <div class="flex-1 h-px bg-gradient-to-r from-[#10b981] to-[#f59e0b]"></div>
-                            <div class="text-center">
-                                <div
-                                    class="w-10 h-10 mx-auto rounded-2xl bg-white shadow flex items-center justify-center mb-2">
-                                    4</div>
-                                Earn Globally
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right cards -->
-                <div class="md:col-span-7 grid grid-cols-2 gap-4">
-                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-6">
-                        <div class="flex justify-between">
-                            <div>
-                                <span class="text-xs uppercase text-slate-400">License €/y</span>
-                                <div class="text-5xl font-semibold mt-2 text-success">€11,600</div>
-                            </div>
-                        </div>
-                        <p class="text-slate-500 mt-8 text-sm">Annual commercial license fee for full operations in
-                            Raipur, India. Includes State IT, City ISO, and People M registration.</p>
-                    </div>
-
-                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-6">
-                        <div class="flex justify-between">
-                            <div>
-                                <span class="text-xs uppercase text-slate-400">Sale RP €</span>
-                                <div class="text-5xl font-semibold mt-2 text-success">€6,960,000</div>
-                            </div>
-                        </div>
-                        <p class="text-slate-500 mt-8 text-sm">Projected annual revenue from RP (Retail Partnership)
-                            model. 6960 units × €1,000 average sale price.</p>
-                    </div>
-
-                    <div class="card-hover bg-white border border-slate-200 rounded-3xl p-6 col-span-2 md:col-span-1">
-                        <h5 class="font-medium mb-6">II-SRB &amp; JV-30/21 Breakdown</h5>
-                        <div class="space-y-6">
-                            <div class="flex justify-between items-baseline">
-                                <div>II-SRB €</div>
-                                <div class="font-mono text-2xl">€232,000</div>
-                                <div class="text-emerald-600 font-medium">IRR 800%</div>
-                            </div>
-                            <div class="flex justify-between items-baseline">
-                                <div>JV-30/21 €</div>
-                                <div class="font-mono text-2xl">€232,000</div>
-                                <div class="text-emerald-600 font-medium">IRR 800%</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="card-hover bg-gradient-to-br from-[#10b981] to-[#10b981] text-white rounded-3xl p-6 flex flex-col justify-between">
-                        <div>
-                            <span class="uppercase text-xs tracking-widest opacity-75">BB FEE STRUCTURE</span>
-                            <div class="text-6xl font-semibold font-mono mt-2">0.1%</div>
-                            <p class="mt-4">On every transaction. Transparent. Immutable. Paid in ME J3 PBRC BP
-                                stablecoin.</p>
-                        </div>
-                        <div class="text-xs mt-auto pt-8 opacity-75">Already live in 180 countries •</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ECONOMIC IMPACT -->
-    <section id="economic" class="py-10 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-12 gap-10 items-center">
-                <div class="md:col-span-7">
-                    <h2 class="text-5 font-bold text-green-800 tracking-wide" style="color:#e55a00">Economic Impact of
-                        PCCR License
-                    </h2>
-                    <p>Deploying the Dream.ZONE VN MC project in Raipur, India
-                        generates massive local value while maintaining global scalability.</p>
-
-                    <div class="mt-8 grid grid-cols-3 gap-4">
-                        <div class="text-center">
-                            <div class="text-5xl font-semibold text-[#10b981] font-mono">6.96M</div>
-                            <div class="uppercase text-xs tracking-widest mt-1">Annual Revenue (€)</div>
-                            <p class="text-xs text-slate-500 mt-3">From sales RP alone. Direct contribution to local GDP
-                                in Chhattisgarh state.</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-5xl font-semibold text-[#f59e0b] font-mono">2,000</div>
-                            <div class="uppercase text-xs tracking-widest mt-1">New Jobs Created</div>
-                            <p class="text-xs text-slate-500 mt-3">People M metric reached through supply chain and
-                                on-site operations.</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-5xl font-semibold text-[#10b981] font-mono">200%</div>
-                            <div class="uppercase text-xs tracking-widest mt-1">IRR</div>
-                            <p class="text-xs text-slate-500 mt-3">Return on investment for license holders within 18
-                                months.</p>
-                        </div>
-                    </div>
-
-                    <div class="mt-8">
-                        <h5 class="text-sm font-semibold mb-3">Projected 5-Year Economic Multiplier</h5>
-                        <canvas id="economicChart" class="w-full" height="80"></canvas>
-                    </div>
-                </div>
-
-                <div class="md:col-span-5 bg-white rounded-3xl p-6 shadow-xl">
-                    <h4 class="font-semibold text-lg mb-4">Why Raipur?</h4>
-                    <ul class="space-y-4">
-                        <li class="flex gap-x-4">
-                            <div>
-                                <strong>State IT &amp; ISO Certification</strong>
-                                <p class="text-xs text-slate-600">Full government backing. Zero bureaucracy for PCCR
-                                    license holders.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-x-4">
-                            <div>
-                                <strong>Geography &amp; Orography Advantage</strong>
-                                <p class="text-xs text-slate-600">Central India location with excellent logistics and
-                                    low-cost talent pool.</p>
-                            </div>
-                        </li>
-                        <li class="flex gap-x-4">
-                            <div>
-                                <strong>Sustainability Score</strong>
-                                <p class="text-xs text-slate-600">Dream.ZONE VN MC aligns with national green economy
-                                    goals.</p>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <div class="mt-6 pt-4 border-t text-xs text-slate-400 flex items-center justify-between">
-                        <div>Current license price: <span class="font-mono text-slate-700"></span></div>
-                        <div class="font-medium text-[#10b981]">+11.6% growth last month</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="statistics"></div>
 
     <!-- JWT INTEGRATION -->
     <section id="jwt" class="py-20 bg-white">
@@ -2258,68 +1977,7 @@
             <div class="text-center mb-12">
                 <h2 class="text-5xl heading-font mt-4">JWT Integration for Enterprise Security</h2>
             </div>
-
-            <div class="grid md:grid-cols-2 gap-12 items-start">
-                <div class="space-y-6">
-                    <div class="p-6 border border-slate-200 rounded-3xl">
-                        <h5 class="font-medium flex items-center gap-x-3"> How JWT Works in PCCR</h5>
-                        <p class="text-slate-600 mt-4">When you purchase or activate a license, the platform issues a
-                            signed JWT containing your wallet address, license code (e.g. IN J3 001 L), expiry, and
-                            permissions. This token is verified on every API call — zero-knowledge, fully decentralized.
-                        </p>
-                        <div class="mt-8 font-mono text-xs bg-slate-900 text-white p-4 rounded-2xl overflow-x-auto">
-                            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.<br>
-                            eyJzdWIiOiIxMjM0NTY3ODkwIiwid2FsbGV0IjoiMHhhYm...","exp":1745...<br>
-                            • License: IN J3 001 L<br>
-                            • BB Fee Rate: 0.1%<br>
-                            • Scope: NFT-BUY
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Diagram -->
-                <div class="rounded-3xl border bg-success p-8">
-                    <h5 class="font-semibold text-warning mb-6">JWT Authentication Flow</h5>
-                    <div class="space-y-8 text-sm">
-                        <div class="flex items-center gap-x-4">
-                            <div class="w-8 h-8 rounded-2xl bg-white flex items-center justify-center font-medium">1
-                            </div>
-                            <div class="flex-1">User signs transaction with wallet</div>
-                            <div class="text-[#10b981] text-2xl">→</div>
-                            <div class="font-mono text-xs bg-warning px-3 py-1 rounded-3xl">JWT issued</div>
-                        </div>
-                        <div class="flex items-center gap-x-4">
-                            <div class="w-8 h-8 rounded-2xl bg-white flex items-center justify-center font-medium">2
-                            </div>
-                            <div class="flex-1">Smart contract validates JWT signature</div>
-                            <div class="text-[#10b981] text-2xl">→</div>
-                            <div class="font-mono text-xs bg-warning px-3 py-1 rounded-3xl">Access granted</div>
-                        </div>
-                        <div class="flex items-center gap-x-4">
-                            <div class="w-8 h-8 rounded-2xl bg-white flex items-center justify-center font-medium">3
-                            </div>
-                            <div class="flex-1">NFT ownership transferred on-chain</div>
-                            <div class="text-[#f59e0b] text-2xl">→</div>
-                            <div class="font-mono text-xs bg-success px-3 py-1 rounded-3xl">License activated</div>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-500 mt-8 text-warning">This architecture ensures that even if the
-                        frontend is compromised, no unauthorized license can be issued.</p>
-                </div>
-                <div>
-
-                </div>
-                <!-- Bottom Buttons -->
-                <div class="mt-4 d-flex gap-2 justify-content-end">
-                    <button class="btn btn-success btn-sm fw-bold">
-                        Explore More
-                    </button>
-
-                    <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
-                        Back Top Menu
-                    </a>
-                </div>
-            </div>
+        </div>
         </div>
     </section>
 
@@ -2766,9 +2424,24 @@
                 sideImage: "images/starter_Kit.webp",
                 text: "Advanced high-efficiency rotor technology engineered for energy generation, water treatment, and industrial applications.",
                 cards: [
-                    { img: "images/efficiencyrotor.jpg", title: "Efficiency", desc: "Up to 40% better energy output than traditional systems." },
-                    { img: "images/rotor2.webp", title: "Industrial Grade", desc: "Built for harsh environments with minimal maintenance." },
-                    { img: "images/water.jpg", title: "Water Applications", desc: "Ideal for pumping and desalination integration." }
+                    {
+                        img: "images/efficiencyrotor.jpg",
+                        title: "Efficiency",
+                        desc: "Up to 40% better energy output than traditional systems.",
+                        url: "https://www.pcrr-jwt.eu/iteg/"
+                    },
+                    {
+                        img: "images/rotor2.webp",
+                        title: "Industrial Grade",
+                        desc: "Built for harsh environments with minimal maintenance.",
+                        url: "https://www.pcrr-jwt.eu/iteg/"
+                    },
+                    {
+                        img: "images/water.jpg",
+                        title: "Water Applications",
+                        desc: "Ideal for pumping and desalination integration.",
+                        url: "https://www.pcrr-jwt.eu/iteg/"
+                    }
                 ]
             },
             "mbgc": {
@@ -2777,9 +2450,24 @@
                 sideImage: "images/biogas.jpg",
                 text: "Mini BioGas Cogeneration systems that convert organic waste into clean electricity and heat.",
                 cards: [
-                    { img: "images/waste.webp", title: "Waste to Energy", desc: "Convert agricultural waste into usable power." },
-                    { img: "images/cogenerazione_2400x1160.jpg", title: "Cogeneration", desc: "Produces both electricity and heat simultaneously." },
-                    { img: "images/carbon.jpg", title: "Carbon Reduction", desc: "Reduces methane emissions by up to 90%." }
+                    {
+                        img: "images/waste.webp",
+                        title: "Waste to Energy",
+                        desc: "Convert agricultural waste into usable power.",
+                        url: "https://www.pcrr-jwt.eu/mbgc/"
+                    },
+                    {
+                        img: "images/cogenerazione_2400x1160.jpg",
+                        title: "Cogeneration",
+                        desc: "Produces both electricity and heat simultaneously.",
+                        url: "https://www.pcrr-jwt.eu/mbgc/"
+                    },
+                    {
+                        img: "images/carbon.jpg",
+                        title: "Carbon Reduction",
+                        desc: "Reduces methane emissions by up to 90%.",
+                        url: "https://www.pcrr-jwt.eu/mbgc/"
+                    }
                 ]
             },
             "pbrc": {
@@ -2788,9 +2476,24 @@
                 sideImage: "images/algae.webp",
                 text: "State-of-the-art photobioreactor systems for high-density micro-algae cultivation.",
                 cards: [
-                    { img: "images/yield.webp", title: "High Yield", desc: "Produces large amounts of biomass in controlled environments." },
-                    { img: "images/co capture.webp", title: "CO₂ Capture", desc: "Excellent natural carbon sequestration technology." },
-                    { img: "images/biofuel.avif", title: "Biofuel", desc: "Source material for sustainable biofuels and bioplastics." }
+                    {
+                        img: "images/yield.webp",
+                        title: "High Yield",
+                        desc: "Produces large amounts of biomass in controlled environments.",
+                        url: "https://www.pcrr-jwt.eu/pbrc/"
+                    },
+                    {
+                        img: "images/co capture.webp",
+                        title: "CO₂ Capture",
+                        desc: "Excellent natural carbon sequestration technology.",
+                        url: "https://www.pcrr-jwt.eu/pbrc/"
+                    },
+                    {
+                        img: "images/biofuel.avif",
+                        title: "Biofuel",
+                        desc: "Source material for sustainable biofuels and bioplastics.",
+                        url: "https://www.pcrr-jwt.eu/pbrc/"
+                    }
                 ]
             },
             "sidr": {
@@ -2799,9 +2502,24 @@
                 sideImage: "images/agro-side.webp",
                 text: "Integrated development solutions combining smart agriculture with sports infrastructure.",
                 cards: [
-                    { img: "images/SmartFarming_746x419.jpg", title: "Smart Agriculture", desc: "Precision farming with renewable energy integration." },
-                    { img: "images/multipurpose.avif", title: "Multi-Purpose", desc: "Sustainable sports infrastructure for communities." },
-                    { img: "images/water optimiztion.jpg", title: "Water Optimization", desc: "Advanced irrigation systems reducing water usage." }
+                    {
+                        img: "images/SmartFarming_746x419.jpg",
+                        title: "Smart Agriculture",
+                        desc: "Precision farming with renewable energy integration.",
+                        url: "https://www.pcrr-jwt.eu/sidr/"
+                    },
+                    {
+                        img: "images/multipurpose.avif",
+                        title: "Multi-Purpose",
+                        desc: "Sustainable sports infrastructure for communities.",
+                        url: "https://www.pcrr-jwt.eu/sidr/"
+                    },
+                    {
+                        img: "images/water optimiztion.jpg",
+                        title: "Water Optimization",
+                        desc: "Advanced irrigation systems reducing water usage.",
+                        url: "https://www.pcrr-jwt.eu/sidr/"
+                    }
                 ]
             },
             "sdgc": {
@@ -2810,9 +2528,24 @@
                 sideImage: "images/des sideimage.webp",
                 text: "Sea & Desert Green Conversion technology providing low-energy desalination.",
                 cards: [
-                    { img: "images/low energy.png", title: "Low Energy", desc: "Sustainable fresh water production from seawater." },
-                    { img: "images/desert green.jpg", title: "Desert Greening", desc: "Transforms arid lands into productive green zones." },
-                    { img: "images/restoration.jpg", title: "Eco Restoration", desc: "Restores ecosystems while producing clean water." }
+                    {
+                        img: "images/low energy.png",
+                        title: "Low Energy",
+                        desc: "Sustainable fresh water production from seawater.",
+                        url: "https://www.pcrr-jwt.eu/sdgc/"
+                    },
+                    {
+                        img: "images/desert green.jpg",
+                        title: "Desert Greening",
+                        desc: "Transforms arid lands into productive green zones.",
+                        url: "https://www.pcrr-jwt.eu/sdgc/"
+                    },
+                    {
+                        img: "images/restoration.jpg",
+                        title: "Eco Restoration",
+                        desc: "Restores ecosystems while producing clean water.",
+                        url: "https://www.pcrr-jwt.eu/sdgc/"
+                    }
                 ]
             },
             "gsmf": {
@@ -2821,9 +2554,24 @@
                 sideImage: "images/industrial filitarion.jpg",
                 text: "Advanced Gas Separation Membrane Filtration systems.",
                 cards: [
-                    { img: "images/gas seperation.jpg", title: "Gas Separation", desc: "High selectivity membranes for CO₂ capture." },
-                    { img: "images/biogas upgrade.jpg", title: "Biogas Upgrading", desc: "Purifies biogas for grid injection." },
-                    { img: "images/use ind.webp", title: "Industrial Use", desc: "Low operating cost gas purification." }
+                    {
+                        img: "images/gas seperation.jpg",
+                        title: "Gas Separation",
+                        desc: "High selectivity membranes for CO₂ capture.",
+                        url: "https://www.pcrr-jwt.eu/gsmf/"
+                    },
+                    {
+                        img: "images/biogas upgrade.jpg",
+                        title: "Biogas Upgrading",
+                        desc: "Purifies biogas for grid injection.",
+                        url: "https://www.pcrr-jwt.eu/gsmf/"
+                    },
+                    {
+                        img: "images/use ind.webp",
+                        title: "Industrial Use",
+                        desc: "Low operating cost gas purification.",
+                        url: "https://www.pcrr-jwt.eu/gsmf/"
+                    }
                 ]
             },
             "gfss": {
@@ -2832,9 +2580,24 @@
                 sideImage: "images/electronic.jpg",
                 text: "ElectroMagnetic Gravity Separation – revolutionary chemical-free technology.",
                 cards: [
-                    { img: "images/chemical-free.jpg", title: "Chemical-Free", desc: "No chemicals required for separation." },
-                    { img: "images/industrial process.jpg", title: "Mineral Processing", desc: "Efficient extraction of valuable minerals." },
-                    { img: "images/gravity.jpg", title: "Gravity + EM", desc: "Combines physics for superior results." }
+                    {
+                        img: "images/chemical-free.jpg",
+                        title: "Chemical-Free",
+                        desc: "No chemicals required for separation.",
+                        url: "https://www.pcrr-jwt.eu/gfss/"
+                    },
+                    {
+                        img: "images/industrial process.jpg",
+                        title: "Mineral Processing",
+                        desc: "Efficient extraction of valuable minerals.",
+                        url: "https://www.pcrr-jwt.eu/gfss/"
+                    },
+                    {
+                        img: "images/gravity.jpg",
+                        title: "Gravity + EM",
+                        desc: "Combines physics for superior results.",
+                        url: "https://www.pcrr-jwt.eu/gfss/"
+                    }
                 ]
             },
             "pcrr": {
@@ -2843,12 +2606,26 @@
                 sideImage: "images/sustainable business.jpg",
                 text: "The commercial backbone of JWT’s 342 green patents...",
                 cards: [
-                    { img: "images/zone.jpg", title: "Zone Licensing", desc: "Exclusive territorial rights for large zones." },
-                    { img: "images/broker.jpg", title: "Broker Model", desc: "Earn 3% commission on zone deals." },
-                    { img: "images/zero cost.jpg", title: "Zero Cost Deployment", desc: "Operators pay only from generated revenue." }
+                    {
+                        img: "images/zone.jpg",
+                        title: "Zone Licensing",
+                        desc: "Exclusive territorial rights for large zones.",
+                        url: "https://www.pcrr-jwt.eu/pcrr/"
+                    },
+                    {
+                        img: "images/broker.jpg",
+                        title: "Broker Model",
+                        desc: "Earn 3% commission on zone deals.",
+                        url: "https://www.pcrr-jwt.eu/pcrr/"
+                    },
+                    {
+                        img: "images/zero cost.jpg",
+                        title: "Zero Cost Deployment",
+                        desc: "Operators pay only from generated revenue.",
+                        url: "https://www.pcrr-jwt.eu/pcrr/"
+                    }
                 ]
             },
-
             // ====================== SPECIAL SECTIONS ======================
             "edu": {
                 title: "EDU / FAD",
@@ -2923,7 +2700,7 @@
                 `;
                 }
 
-
+                //== check this for the links updated ====
                 else if (data.html) {
                     // Special sections (EDU, Editorial, MKTG, etc.)
                     htmlContent = data.html;
@@ -2937,7 +2714,7 @@
                             <div class="feature-card-body">
                                 <h5>${c.title}</h5>
                                 <p>${c.desc}</p>
-                                <button class="btn btn-success btn-sm">Learn More</button>
+                                <a href="${c.url}" class="btn btn-success btn-sm">Learn More</a>
                             </div>
                         </div>
                     `).join('');
