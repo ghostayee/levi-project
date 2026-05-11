@@ -4,103 +4,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intangible Heritage – ESCP_IP (ITEG)</title>
+    <title>EUWEB GREEN - ITEG Rotor</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .fixed-top-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: #0A3D1F;
+            border-bottom: 1px solid #166534;
+        }
+
+        .orange-header {
+            background-color: #F59E0B;
+        }
+
+        /* THIRD GREEN MENU - SMALLER HEIGHT */
+        .secondary-menu {
+            background-color: #15803D;
+            border-bottom: 1px solid #166534;
+        }
+
+        .menu-items {
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+        }
+
+        .menu-btn {
+            color: white;
+            padding: 7px 14px;
+            /* Reduced padding */
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            /* Slightly smaller */
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .menu-btn:hover,
+        .menu-btn.active {
+            background-color: #4ADE80;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 992px) {
+            .menu-btn {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Hero & Sidebar */
+        .hero-section {
+            margin-top: 168px;
+            min-height: 50vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .vertical-sidebar {
+            position: fixed;
+            top: 168px;
+            left: 0;
+            width: 280px;
+            height: calc(100vh - 168px);
+            overflow-y: auto;
+            background: linear-gradient(to bottom, #0F2C1E, #0A3D1F);
+            border-right: 1px solid #166534;
+        }
+
+        main {
+            margin-left: 280px;
+        }
+
+        @media (max-width: 1024px) {
+
+            .vertical-sidebar,
+            .hero-section {
+                position: relative;
+                top: 0;
+                margin-top: 0;
+            }
+
+            main {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-green-50">
+<body class="bg-zinc-950 text-white">
 
-    <!-- Hero Banner -->
-    <section class="bg-white text-center py-16">
-        <h1 class="text-4xl md:text-5xl font-bold text-green-800">Intangible Heritage – ESCP_IP (ITEG)</h1>
-    </section>
-
-    <!-- Intro with Image Card -->
-    <section class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <div>
-            <h2 class="text-2xl font-bold text-green-800 mb-4">Official Title</h2>
-            <p class="text-gray-800 leading-relaxed">
-                <span class="font-semibold text-green-800">ESCP_IP – ITEG</span> represents the complete Intangible
-                Heritage of the ITEG technology. It is the strategic intellectual property and commercialization
-                framework that protects, organizes, and valorizes all intangible assets related to the ITEG Rotore
-                system invented by Pelizza.
-            </p>
-        </div>
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition">
-            <img src="https://via.placeholder.com/500x300/22c55e/ffffff?text=Intangible+Heritage"
-                alt="Intangible Heritage" class="w-full h-48 object-cover">
-            <div class="p-6">
-                <h3 class="text-xl font-bold text-green-800 mb-2">Protected Innovation</h3>
-                <p class="text-gray-700 text-sm">Transforming inventions into secure, monetizable assets.</p>
+    <!-- 1. Top Scrolling Menu -->
+    <nav class="fixed-top-menu py-1.5">
+        <div class="container-fluid px-4 px-lg-5">
+            <div class="scroll-wrapper overflow-hidden">
+                <ul class="navbar-nav flex-row gap-4 scroll-track">
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">WIPO/UN</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">EPO/EU</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">UIBM/IT</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">inPASS/IN</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">CNIPA/CN</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">USPTO/US</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">EAPO/RU</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">ARIPO/AIPO</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">ESG/UN</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">SDGs/UN</a></li>
+                    <li><a class="nav-link text-[#a1e0b8] hover:text-white text-sm" href="#">ZONE1</a></li>
+                </ul>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- Scope & Objectives Side by Side -->
-    <section class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-700">
-            <h2 class="text-xl font-bold text-green-800 mb-4">Scope of ESCP_IP – ITEG</h2>
-            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                <li>Core Patent Portfolio (MISE-ITEG – Pelizza)</li>
-                <li>European & International Patent Strategy (EPO + WIPO)</li>
-                <li>Industrial Designs for rotor geometries</li>
-                <li>Trademarks for “ITEG Rotore” brand</li>
-                <li>Know-How & Trade Secrets</li>
-                <li>Technology Integration Protocols (GSMF, MHLM)</li>
-                <li>Commercialization Rights Framework (NFW/NFT)</li>
-            </ul>
-        </div>
+    <!-- 2. Orange Header -->
+    <header class="orange-header py-2 sticky top-[42px] z-50 shadow">
+        <div class="max-w-screen-2xl mx-auto px-4 px-lg-5">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="d-flex align-items-center flex-shrink-0">
+                    <img src="https://via.placeholder.com/32" alt="Logo" height="32" width="32">
+                    <span class="ms-2 fw-bold text-xl text-white tracking-wider">EUWEB GREEN</span>
+                    <button class="ms-2 btn btn-success btn-sm rounded-5 fw-bold px-3 py-1">PCRR</button>
+                </div>
 
-        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-600">
-            <h2 class="text-xl font-bold text-green-800 mb-4">Strategic Objectives</h2>
-            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                <li>Protect innovations at international standards</li>
-                <li>Create legal foundation for global commercialization</li>
-                <li>Enable secure issuance of NFW/NFT rights</li>
-                <li>Facilitate technology transfer & partnerships</li>
-                <li>Maximize economic value of intangible assets</li>
-                <li>Support Dream.ZONE territorial projects</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Key Components Grid -->
-    <section class="max-w-6xl mx-auto px-6 py-12">
-        <h2 class="text-2xl font-bold text-green-800 mb-6">Key Components</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white rounded-lg shadow p-4 border-l-4 border-green-700">Patents+ – HWFC, CMTC, SDNA, MHLM
-                Integration</div>
-            <div class="bg-white rounded-lg shadow p-4 border-l-4 border-orange-600">Legal Titles – MISE-ITEG (Pelizza)
+                <nav class="d-flex align-items-center gap-3 flex-wrap">
+                    <a href="#" class="nav-link text-white hover:text-black">jwt safety</a>
+                    <a href="#" class="nav-link text-white hover:text-black">jwt security</a>
+                    <button class="btn btn-info btn-sm fw-bold">Dream Zone</button>
+                    <a href="#" class="nav-link text-white hover:text-black">About Us</a>
+                    <a href="#" class="nav-link text-white hover:text-black">Vision</a>
+                    <a href="#" class="nav-link text-white hover:text-black">Mission</a>
+                    <a href="#" class="nav-link text-white hover:text-black">Contact</a>
+                    <button class="btn btn-outline-success btn-sm fw-bold">KYC Light</button>
+                    <button class="btn btn-success btn-sm fw-bold">KYC Strong</button>
+                    <button class="btn btn-warning btn-sm fw-bold">Access</button>
+                </nav>
             </div>
-            <div class="bg-white rounded-lg shadow p-4 border-l-4 border-black">Commercial Framework – NFW/NFT model
+        </div>
+    </header>
+
+    <!-- 3. THIRD GREEN MENU - Smaller Height -->
+    <nav class="secondary-menu sticky top-[102px] z-50">
+        <div class="container-fluid px-4 px-lg-5">
+            <div class="menu-items d-flex flex-wrap gap-2 gap-lg-3 justify-content-center py-2">
+                <!-- Reduced padding -->
+                <a href="#" onclick="switchSection(0)" class="menu-btn active">PCRR NFT</a>
+                <a href="#" onclick="switchSection(1)" class="menu-btn">NFT/NFW</a>
+                <a href="#" onclick="switchSection(2)" class="menu-btn">GUPC RE/lab</a>
+                <a href="#" onclick="switchSection(3)" class="menu-btn">GUPC Housing Care</a>
+                <a href="#" onclick="switchSection(4)" class="menu-btn">Master Plan</a>
+                <a href="#" onclick="switchSection(5)" class="menu-btn">HR Leader</a>
+                <a href="#" onclick="switchSection(6)" class="menu-btn">HR Blog Chat</a>
             </div>
-            <div class="bg-white rounded-lg shadow p-4 border-l-4 border-green-700">Brand Protection – ITEG Rotore
-                trademark</div>
-            <div class="bg-white rounded-lg shadow p-4 border-l-4 border-orange-600">Knowledge Assets – Documentation &
-                R&D data</div>
         </div>
-    </section>
+    </nav>
 
-    <!-- Strategic Importance -->
-    <section class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl shadow-lg border-t-4 border-black">
-        <h2 class="text-2xl font-bold text-green-800 mb-4">Strategic Importance</h2>
-        <p class="text-gray-800 leading-relaxed">
-            ESCP_IP – ITEG is the central pillar of the intangible heritage of the ITEG project. It transforms Pelizza’s
-            technical inventions into a protected, monetizable, and scalable asset within the JWT EUWEB 2030 ecosystem.
-            This framework ensures long-term control, legal security, and maximum value extraction from innovation while
-            supporting the ecological transition across Europe and beyond.
-        </p>
-        <div class="mt-4 d-flex gap-2 justify-content-end">
-            <button class="btn btn-success btn-sm fw-bold">
-                Explore More
-            </button>
-
-            <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
-                Back Top Menu
-            </a>
+    <div class="max-w-screen-2xl mx-auto">
+        <div class="vertical-sidebar p-6 text-sm">
+            <h5 class="text-green-400 uppercase tracking-widest text-xs mb-4">INTELLECTUAL PROPERTY</h5>
+            <div class="space-y-2" id="sidebar-menu"></div>
         </div>
-    </section>
 
+        <main class="p-6 lg:p-8">
+            <section id="hero" class="hero-section rounded-3xl relative flex items-center"
+                style="background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://picsum.photos/id/1015/2000/1200');">
+                <div class="max-w-4xl mx-auto px-8 text-center">
+                    <h1 id="hero-title" class="text-5xl md:text-6xl font-bold text-white">ITEG — ROTOR</h1>
+                </div>
+            </section>
+
+            <div class="max-w-3xl mt-12">
+                <h2 id="intro-title" class="text-3xl font-semibold mb-4">Introduction</h2>
+                <p id="intro-text" class="text-zinc-300 text-lg"></p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const sections = [
+            { title: "ITEG — Rotor", bg: "https://picsum.photos/id/1015/2000/1200" },
+            { title: "MBGC — Micro BioGas", bg: "https://picsum.photos/id/133/2000/1200" }
+        ];
+
+        function renderSidebar() {
+            document.getElementById('sidebar-menu').innerHTML = sections.map((sec, i) => `
+                <div onclick="switchSection(${i})" class="px-5 py-3 rounded-xl cursor-pointer hover:bg-green-800 transition ${i === 0 ? 'bg-green-500 text-black font-semibold' : ''}">
+                    ${sec.title}
+                </div>
+            `).join('');
+        }
+
+        function switchSection(index) {
+            const sec = sections[index];
+            document.getElementById('hero').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('${sec.bg}')`;
+            document.getElementById('hero-title').textContent = sec.title;
+        }
+
+        window.onload = () => {
+            renderSidebar();
+            switchSection(0);
+        };
+    </script>
 </body>
 
 </html>
