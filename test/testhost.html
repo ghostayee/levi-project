@@ -4,456 +4,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EUWEB GREEN - JWT Ecosystem</title>
-
+    <title>PCRR – Legal Titles</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #09090b;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        /* Top Navigation */
-        .fixed-top-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: #0A3D1F;
-            border-bottom: 1px solid #166534;
-        }
-
-        .orange-header {
-            position: fixed;
-            top: 45px;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            background: #F59E0B;
-            border-bottom: 2px solid #15803D;
-        }
-
-        .secondary-menu {
-            position: fixed;
-            top: 110px;
-            left: 0;
-            right: 0;
-            z-index: 998;
-            background: #15803D;
-            border-bottom: 1px solid #166534;
-        }
-
-        .vertical-sidebar {
-            position: fixed;
-            top: 170px;
-            left: 0;
-            width: 280px;
-            height: calc(100vh - 170px);
-            overflow-y: auto;
-            background: linear-gradient(to bottom, #0F2C1E, #0A3D1F);
-            border-right: 3px solid #16A34A;
-            z-index: 990;
-        }
-
-        main {
-            margin-left: 280px;
-        }
-
-        .hero-section {
-            min-height: 55vh;
-            background-size: cover;
-            background-position: center;
-            margin-top: 170px;
-            position: relative;
-            transition: background-image 1s ease;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .banner-dots {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            display: flex;
-            gap: 10px;
-        }
-
-        .banner-dots button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .banner-dots button.active {
-            background: #F59E0B;
-            transform: scale(1.3);
-        }
-
-        .sidebar-card {
-            display: block;
-            padding: 13px 16px;
-            border-radius: 10px;
-            color: #e5e7eb;
-            text-decoration: none;
-            margin-bottom: 4px;
-            transition: all 0.25s ease;
-        }
-
-        .sidebar-card:hover {
-            background: #166534;
-            transform: translateX(6px);
-        }
-
-        .sidebar-card.active {
-            background: #16A34A;
-            color: #052e16 !important;
-            font-weight: 700;
-        }
-
-        .content-section {
-            display: none;
-            padding: 30px 20px;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .info-card {
-            background: white;
-            color: #111827;
-            border-radius: 14px;
-            overflow: hidden;
-        }
-
-        @media (max-width: 1024px) {
-            .vertical-sidebar {
-                position: relative;
-                top: 0 !important;
-                width: 100%;
-                height: auto;
-                margin-bottom: 30px;
-            }
-
-            main {
-                margin-left: 0;
-            }
-
-            .hero-section {
-                margin-top: 0;
-            }
-        }
-    </style>
 </head>
 
-<body>
+<body class="bg-gray-50">
 
-    <!-- 1. TOP GREEN MENU -->
-    <nav class="fixed-top-menu py-2">
-        <div class="container-fluid px-4 px-lg-5">
-            <ul class="navbar-nav flex-row gap-4 overflow-auto text-white small">
-                <li><a class="nav-link" href="#">WIPO/UN</a></li>
-                <li><a class="nav-link" href="#">EPO/EU</a></li>
-                <li><a class="nav-link" href="#">UIBM/IT</a></li>
-                <li><a class="nav-link" href="#">USPTO/US</a></li>
-                <li><a class="nav-link" href="#">ESG/UN</a></li>
-                <li><a class="nav-link" href="#">SDGs/UN</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- 2. ORANGE HEADER -->
-    <header class="orange-header py-3">
-        <div class="max-w-screen-2xl mx-auto px-4 px-lg-5">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
-                <div class="d-flex align-items-center">
-                    <img src="https://via.placeholder.com/40" alt="Logo">
-                    <span class="ms-3 fw-bold text-2xl text-green-900">EUWEB GREEN</span>
-                    <button class="ms-3 btn btn-warning btn-sm fw-bold">PCRR</button>
-                </div>
-                <nav class="d-flex align-items-center gap-3 flex-wrap">
-                    <a href="#" class="nav-link fw-bold text-green-900">JWT Safety</a>
-                    <a href="#" class="nav-link fw-bold text-green-900">JWT Security</a>
-                    <button class="btn btn-info btn-sm fw-bold">Dream Zone</button>
-                    <button class="btn btn-success btn-sm fw-bold">KYC Strong</button>
-                    <button class="btn btn-warning btn-sm fw-bold">Access</button>
-                </nav>
-            </div>
-        </div>
+    <!-- Hero Banner -->
+    <header class="bg-green-700 text-center py-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-white">Legal Titles – PCRR Framework</h1>
     </header>
 
-    <!-- 3. SECONDARY MENU -->
-    <nav class="secondary-menu py-3">
-        <div class="container-fluid px-4 px-lg-5">
-            <div class="d-flex gap-3 overflow-auto">
-                <a href="#" onclick="switchSection('welcome')" class="menu-btn active">PCRR NFT</a>
-                <a href="#" onclick="switchSection('iteg')" class="menu-btn">NFT/NFW</a>
-                <a href="#" onclick="switchSection('mbgc')" class="menu-btn">GUPC RE/lab</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Intro -->
+    <section class="max-w-6xl mx-auto px-6 py-12">
+        <p class="text-gray-800 leading-relaxed">
+            The Legal Title forms the official legal foundation for each technology module within the PCRR framework. It
+            refers to formal registrations, authorizations, and intellectual property protections granted by competent
+            authorities that establish ownership and exclusive rights over innovations. These Legal Titles are essential
+            for credibility, investor confidence, regulatory compliance, and secure commercialization.
+        </p>
+    </section>
 
-    <!-- SIDEBAR -->
-    <div class="vertical-sidebar p-4">
-        <div class="mb-4">
-            <h5 style="color:#FF6200;">JWT Ecosystem</h5>
+    <!-- Legal Titles Grid -->
+    <section class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- ITEG -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-700">
+            <h2 class="text-xl font-bold text-green-800 mb-2">ITEG – Rotor Technology</h2>
+            <p class="text-gray-700">Legal Title: MISE-ITEG (Italian Ministry of Economic Development – Advanced Rotor
+                Innovation Program)</p>
         </div>
-        <div id="sidebar-menu" class="space-y-1"></div>
 
-        <div class="mt-8 mb-4">
-            <a href="https://expotv1.eu/" target="_blank">
-                <h5 style="color:#FF6200;">EPO TV1 - Media & TV</h5>
+        <!-- MBGC -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-600">
+            <h2 class="text-xl font-bold text-green-800 mb-2">MBGC – Biogas Technology</h2>
+            <p class="text-gray-700">Legal Title: MISE-MBGC (Registered Optimized Biogas Production System)</p>
+        </div>
+
+        <!-- PBRC -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-black">
+            <h2 class="text-xl font-bold text-green-800 mb-2">PBRC – Micro Algae Technology</h2>
+            <p class="text-gray-700">Legal Title: MISE-PBRC (Micro Algae Biorefinery and Carbon Capture Platform)</p>
+        </div>
+
+        <!-- SIDR -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-700">
+            <h2 class="text-xl font-bold text-green-800 mb-2">SIDR – Agro & Sport Technology</h2>
+            <p class="text-gray-700">Legal Title: Registered SIDR Sustainable Agro-Sport Integrated System</p>
+        </div>
+
+        <!-- SDGC -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-600">
+            <h2 class="text-xl font-bold text-green-800 mb-2">SDGC – Desalination Technology</h2>
+            <p class="text-gray-700">Legal Title: SDGC Energy-Efficient Desalination System (Patent Pending)</p>
+        </div>
+
+        <!-- GSMF -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-black">
+            <h2 class="text-xl font-bold text-green-800 mb-2">GSMF – Separation Technology</h2>
+            <p class="text-gray-700">Legal Title: GSMF Advanced Green Separation Method and Apparatus</p>
+        </div>
+
+        <!-- GFSS -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-green-700">
+            <h2 class="text-xl font-bold text-green-800 mb-2">GFSS – EMG Separation Technology</h2>
+            <p class="text-gray-700">Legal Title: GFSS Electromagnetic Gradient Separation System</p>
+        </div>
+
+        <!-- PCRR -->
+        <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-orange-600">
+            <h2 class="text-xl font-bold text-green-800 mb-2">PCRR – Recovery & Resilience</h2>
+            <p class="text-gray-700">Legal Title: PCRR JWTeam Srls – Commercial Plan for Recovery and Resilience
+                (Registered Innovative Startup under Italian Law)</p>
+        </div>
+    </section>
+
+    <!-- Supporting Legal Framework -->
+    <section class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl shadow-lg border-t-4 border-green-700">
+        <h2 class="text-2xl font-bold text-green-800 mb-4">Supporting Legal Framework</h2>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+            <li>Official registrations with the Italian Ministry of Economic Development (MISE)</li>
+            <li>Industrial Property registrations at UIBM (Italian Patent and Trademark Office)</li>
+            <li>Alignment with EU Green Deal and PNRR regulations</li>
+            <li>Preparation for international extensions through WIPO, EPO, and national patent offices</li>
+            <li>Integration with NFT GREEN licensing model for transparent rights management</li>
+        </ul>
+    </section>
+
+    <!-- Strategic Importance -->
+    <section class="max-w-6xl mx-auto px-6 py-12 bg-white rounded-xl shadow-lg border-t-4 border-black">
+        <h2 class="text-2xl font-bold text-green-800 mb-4">Strategic Importance</h2>
+        <p class="text-gray-800 leading-relaxed">
+            The Legal Title not only protects the core inventions but also enables safe technology transfer, licensing
+            agreements, and international expansion while maintaining full control and traceability. By securing strong
+            Legal Titles, PCRR ensures that every module is fully compliant, bankable, and ready for large-scale
+            deployment across different territories and jurisdictions.
+        </p>
+        <!-- Bottom Buttons -->
+        <div class="mt-4 d-flex gap-2 justify-content-end">
+            <button class="btn btn-success btn-sm fw-bold">
+                Explore More
+            </button>
+
+            <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">
+                Back Top Menu
             </a>
         </div>
-        <div id="sidebar-menu2" class="space-y-1"></div>
-    </div>
+    </section>
+    </section>
 
-    <!-- MAIN -->
-    <main class="p-6 lg:p-8">
-        <!-- Rotating Hero Banner -->
-        <section id="hero" class="hero-section rounded-4 d-flex align-items-center position-relative">
-            <div class="hero-overlay"></div>
-            <div class="hero-content max-w-4xl mx-auto px-4 text-center w-100">
-                <h1 id="hero-title" class="text-5xl md:text-6xl fw-bold text-white">IP - Intellectual Property</h1>
-            </div>
-            <div class="banner-dots" id="bannerDots"></div>
-        </section>
-
-        <!-- All Content Sections -->
-        <div id="content-wrapper">
-            <section class="content-section active" id="welcome">
-                <h2>IP - Intellectual Property</h2>
-                <p>Intellectual Property covers innovation systems, digital rights, and ecosystem protection.</p>
-            </section>
-
-            <section class="content-section" id="iteg">
-                <h2>ITEG - Rotor</h2>
-                <p>Energy rotor systems for sustainable mechanical energy conversion.</p>
-            </section>
-
-            <section class="content-section" id="mbgc">
-                <h2>MBGC - Micro Biogas</h2>
-                <p>Micro-scale biogas production and renewable energy solution.</p>
-            </section>
-
-            <section class="content-section" id="pbrc">
-                <h2>PBRC - Micro Algae</h2>
-                <p>Micro algae cultivation for bioenergy and high-value products.</p>
-            </section>
-
-            <section class="content-section" id="sidr">
-                <h2>SIDR - Agro & Sport</h2>
-                <p>Agriculture development combined with sports infrastructure.</p>
-            </section>
-
-            <section class="content-section" id="sdgc">
-                <h2>SDGC - Desalination</h2>
-                <p>Sustainable desalination and water treatment technologies.</p>
-            </section>
-
-            <section class="content-section" id="gsmf">
-                <h2>GSMF - Separation</h2>
-                <p>Advanced material and gas separation systems.</p>
-            </section>
-
-            <section class="content-section" id="gfss">
-                <h2>GFSS - Ems Separation</h2>
-                <p>Electromagnetic separation technologies.</p>
-            </section>
-
-            <section class="content-section" id="pcrr">
-                <h2>PCRR - Recovery & Resilience</h2>
-                <p>Post-crisis recovery and resilience framework.</p>
-            </section>
-
-            <section class="content-section" id="eport">
-                <h2>Industrial Property</h2>
-                <p>Industrial property rights management.</p>
-            </section>
-
-            <section class="content-section" id="it-support">
-                <h2>IT & Support</h2>
-                <p>IT infrastructure and technical support.</p>
-            </section>
-
-            <section class="content-section" id="edu">
-                <h2>EDU / FAD</h2>
-                <p>Education, training and professional development.</p>
-            </section>
-
-            <section class="content-section" id="editorial">
-                <h2>Editorial Plan</h2>
-                <p>Content strategy and editorial planning.</p>
-            </section>
-
-            <section class="content-section" id="mktg">
-                <h2>MKTG Commercial Goods</h2>
-                <p>Marketing of commercial and physical goods.</p>
-            </section>
-
-            <section class="content-section" id="mkt-jp">
-                <h2>MKT & IP</h2>
-                <p>Marketing combined with Intellectual Property strategy.</p>
-            </section>
-
-            <section class="content-section" id="iisrb">
-                <h2>II & SRB</h2>
-                <p>International Institutions and Strategic Relations Board.</p>
-            </section>
-
-            <section class="content-section" id="jv">
-                <h2>JV & 30/21</h2>
-                <p>Joint Ventures and special programs 30/21.</p>
-            </section>
-        </div>
-    </main>
-
-    <script>
-        // Rotating Banner Data
-        const banners = [
-            { title: "IP - Intellectual Property", bg: "https://picsum.photos/id/1015/2000/1200" },
-            { title: "ITEG - Rotor", bg: "https://picsum.photos/id/133/2000/1200" },
-            { title: "MBGC - Micro Biogas", bg: "https://picsum.photos/id/201/2000/1200" },
-            { title: "PBRC - Micro Algae", bg: "https://picsum.photos/id/251/2000/1200" },
-            { title: "PCRR - Recovery & Resilience", bg: "https://picsum.photos/id/1015/2000/1200" }
-        ];
-
-        let currentBanner = 0;
-        let autoRotate;
-
-        function showBanner(index) {
-            currentBanner = index;
-            const banner = banners[index];
-
-            document.getElementById('hero').style.backgroundImage =
-                `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('${banner.bg}')`;
-
-            document.getElementById('hero-title').textContent = banner.title;
-
-            document.querySelectorAll('.banner-dots button').forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        function createDots() {
-            const dotsContainer = document.getElementById('bannerDots');
-            dotsContainer.innerHTML = banners.map((_, index) => {
-                const dot = document.createElement('button');
-                dot.addEventListener('click', () => {
-                    clearInterval(autoRotate);
-                    showBanner(index);
-                    startAutoRotate();
-                });
-                return dot.outerHTML;
-            }).join('');
-        }
-
-        function startAutoRotate() {
-            clearInterval(autoRotate);
-            autoRotate = setInterval(() => {
-                currentBanner = (currentBanner + 1) % banners.length;
-                showBanner(currentBanner);
-            }, 5000);
-        }
-
-        // ================== Your Original Menu Data ==================
-        const menuItems = [
-            { id: "welcome", title: "IP - Intellectual Property", bg: "https://picsum.photos/id/1015/2000/1200" },
-            { id: "iteg", title: "ITEG - Rotor", bg: "https://picsum.photos/id/133/2000/1200" },
-            { id: "mbgc", title: "MBGC - Micro Biogas", bg: "https://picsum.photos/id/201/2000/1200" },
-            { id: "pbrc", title: "PBRC - Micro Algae", bg: "https://picsum.photos/id/251/2000/1200" },
-            { id: "sidr", title: "SIDR - Agro & Sport", bg: "https://picsum.photos/id/180/2000/1200" },
-            { id: "sdgc", title: "SDGC - Desalination", bg: "https://picsum.photos/id/866/2000/1200" },
-            { id: "gsmf", title: "GSMF - Separation", bg: "https://picsum.photos/id/1016/2000/1200" },
-            { id: "gfss", title: "GFSS - Ems Separation", bg: "https://picsum.photos/id/133/2000/1200" },
-            { id: "pcrr", title: "PCRR - Recovery & Resilience", bg: "https://picsum.photos/id/1015/2000/1200" }
-        ];
-
-        const menuItems2 = [
-            { id: "eport", title: "Industrial Property" },
-            { id: "it-support", title: "IT & Support" },
-            { id: "edu", title: "EDU / FAD" },
-            { id: "editorial", title: "Editorial Plan" },
-            { id: "mktg", title: "MKTG Commercial Goods" },
-            { id: "mkt-jp", title: "MKT & IP" },
-            { id: "iisrb", title: "II & SRB" },
-            { id: "jv", title: "JV & 30/21" }
-        ];
-
-        function renderSidebar() {
-            document.getElementById('sidebar-menu').innerHTML = menuItems.map(item => `
-                <a href="#" class="sidebar-card" data-id="${item.id}">${item.title}</a>
-            `).join('');
-
-            document.getElementById('sidebar-menu2').innerHTML = menuItems2.map(item => `
-                <a href="#" class="sidebar-card" data-id="${item.id}">${item.title}</a>
-            `).join('');
-
-            document.querySelectorAll('.sidebar-card').forEach(card => {
-                card.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    switchSection(this.getAttribute('data-id'));
-                });
-            });
-        }
-
-        function switchSection(id) {
-            const allItems = [...menuItems, ...menuItems2];
-            const item = allItems.find(m => m.id === id);
-
-            if (item && item.bg) {
-                document.getElementById('hero').style.backgroundImage =
-                    `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('${item.bg}')`;
-            }
-
-            document.getElementById('hero-title').textContent = item ? item.title : "EUWEB GREEN";
-
-            document.querySelectorAll('.sidebar-card').forEach(card => {
-                card.classList.toggle('active', card.getAttribute('data-id') === id);
-            });
-
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.toggle('active', section.id === id);
-            });
-        }
-
-        window.addEventListener('load', () => {
-            renderSidebar();
-            createDots();
-            showBanner(0);
-            startAutoRotate();
-        });
-    </script>
 </body>
 
 </html>
