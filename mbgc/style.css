@@ -692,3 +692,223 @@ main {
     position: relative;
   }
 }
+
+.mbgc-layout {
+  background: #f8faf7;
+  color: #1f2937;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 8px 0 0;
+  --mbgc-green: #15803D;
+  --mbgc-dark: #14532d;
+  --mbgc-amber: #ea580c;
+  --mbgc-soft: #dcfce7;
+  --mbgc-methane: #0ea5e9;
+}
+
+.mbgc-layout .pcrr-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #0b3d2e;
+  padding: 10px;
+  border-radius: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+  margin: 12px 0 22px;
+}
+
+.mbgc-layout .pcrr-nav .btn-outline-success,
+.mbgc-layout .pcrr-nav .btn-outline-light {
+  border-color: rgba(255, 255, 255, .35);
+  color: #fff;
+}
+
+.mbgc-layout .intro {
+  font-size: 1.05rem;
+  color: #374151;
+}
+
+.mbgc-layout .accent-bar {
+  height: 6px;
+  width: 60px;
+  background: var(--mbgc-amber);
+  border-radius: 3px;
+  margin: 8px 0 16px;
+}
+
+.mbgc-layout .big-image-container {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 340px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.mbgc-layout .big-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s;
+}
+
+.mbgc-layout .big-image-container:hover img {
+  transform: scale(1.05);
+}
+
+.mbgc-layout .hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 83, 45, .2), rgba(20, 83, 45, .92));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  opacity: 0;
+  transition: opacity .35s;
+}
+
+.mbgc-layout .big-image-container:hover .hover-overlay {
+  opacity: 1;
+}
+
+.mbgc-layout .hover-overlay h2 {
+  color: #fcd34d;
+  margin-bottom: 8px;
+}
+
+.mbgc-layout .chart-wrap {
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  height: 300px;
+  border: 1px solid #e5e7eb;
+}
+
+.mbgc-layout .stat-bubble {
+  background: linear-gradient(135deg, #15803D, #0ea5e9);
+  color: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(15, 118, 110, .25);
+}
+
+.mbgc-layout .stat-bubble .num {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.mbgc-layout .stat-bubble .lbl {
+  font-size: .85rem;
+  opacity: .9;
+  margin-top: 6px;
+}
+
+.mbgc-layout .timeline {
+  position: relative;
+  padding-left: 28px;
+  border-left: 3px dashed var(--mbgc-green);
+}
+
+.mbgc-layout .timeline .t-item {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.mbgc-layout .timeline .t-item:before {
+  content: "";
+  position: absolute;
+  left: -37px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--mbgc-amber);
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--mbgc-amber);
+}
+
+.mbgc-layout .molecule-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+  margin: 3px;
+  border: 1px solid #a7f3d0;
+}
+
+.mbgc-layout .molecule-chip .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--mbgc-methane);
+}
+
+.mbgc-layout .feedstock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.mbgc-layout .feedstock {
+  background: #fff;
+  border: 1px dashed #15803D;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  color: #14532d;
+}
+
+.mbgc-layout .feedstock .emoji {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.mbgc-layout .legal-card {
+  border-left: 4px solid var(--mbgc-green);
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  height: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .05);
+}
+
+.mbgc-layout .badge-pill {
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.mbgc-layout .quote-block {
+  background: linear-gradient(135deg, #14532d, #0b3d2e);
+  color: #fff;
+  border-radius: 18px;
+  padding: 26px;
+  font-style: italic;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.mbgc-layout .quote-block:before {
+  content: "\201C";
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  font-size: 5rem;
+  color: #fcd34d;
+  line-height: 1;
+}
