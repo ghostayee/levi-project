@@ -84,6 +84,51 @@
         </div>
     </nav>
 
+    <section class="container my-4">
+        <div class="row g-4 align-items-stretch">
+            <div class="col-lg-7">
+                <div class="p-4 rounded-4 shadow-sm border" style="background: linear-gradient(135deg, #f8fff7, #eef9ef);">
+                    <p class="text-success fw-bold mb-2">Dream.ZONE Dispatcher</p>
+                    <h2 class="h4 mb-3">Randomly route visitors to a target page</h2>
+                    <p class="mb-3">Update the 20 target URLs below, save them, and launch a random redirect to any
+                        JWT zone, service, or commercial page.</p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <button id="save-dispatcher" class="btn btn-success text-warning">Save Targets</button>
+                        <button id="run-dispatcher" class="btn btn-outline-success">Run Random Dispatcher</button>
+                    </div>
+                    <div id="dispatcher-status" class="small text-muted mb-3">Loaded 20 default targets.</div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="p-4 rounded-4 border bg-white shadow-sm">
+                    <p class="fw-bold mb-3">Target list</p>
+                    <div class="dispatcher-grid">
+                        <input data-dispatch-target="1" type="url" value="/jwt/" placeholder="/jwt/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="2" type="url" value="/pcrr/" placeholder="/pcrr/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="3" type="url" value="/com/" placeholder="/com/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="4" type="url" value="/comm/" placeholder="/comm/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="5" type="url" value="/sdgc/" placeholder="/sdgc/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="6" type="url" value="/pbrc/" placeholder="/pbrc/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="7" type="url" value="/sidr/" placeholder="/sidr/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="8" type="url" value="/gsmf/" placeholder="/gsmf/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="9" type="url" value="/iteg/" placeholder="/iteg/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="10" type="url" value="/mbgc/" placeholder="/mbgc/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="11" type="url" value="/gfss/" placeholder="/gfss/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="12" type="url" value="https://www.jwt-jwt.eu/" placeholder="https://www.jwt-jwt.eu/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="13" type="url" value="https://www.aias-sicurezza.it/presentazione-aias/" placeholder="https://www.aias-sicurezza.it/presentazione-aias/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="14" type="url" value="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/" placeholder="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="15" type="url" value="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" placeholder="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="16" type="url" value="/comm/cart" placeholder="/comm/cart" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="17" type="url" value="/com/products/index.html" placeholder="/com/products/index.html" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="18" type="url" value="https://www.jwt-jwt.it/vision/" placeholder="https://www.jwt-jwt.it/vision/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="19" type="url" value="/iphome/" placeholder="/iphome/" class="form-control form-control-sm mb-2">
+                        <input data-dispatch-target="20" type="url" value="https://www.jwt-jwt.it/team/" placeholder="https://www.jwt-jwt.it/team/" class="form-control form-control-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <aside id="sidebar-container" class="accordion accordion-flush pt-5">
 
         <!-- Intellectual Property – with all nested headers -->
@@ -1216,6 +1261,61 @@
                         chatReply.scrollTop = chatReply.scrollHeight; // auto scroll
                     });
                 });
+            </script>
+            <script>
+                const dispatcherStorageKey = 'euweb-dispatcher-targets';
+                const statusBox = document.getElementById('dispatcher-status');
+                const saveBtn = document.getElementById('save-dispatcher');
+                const runBtn = document.getElementById('run-dispatcher');
+                const inputs = Array.from(document.querySelectorAll('[data-dispatch-target]'));
+
+                function setStatus(message) {
+                    if (statusBox) {
+                        statusBox.textContent = message;
+                    }
+                }
+
+                function saveTargets() {
+                    const targets = inputs.map(input => input.value.trim()).filter(Boolean);
+                    localStorage.setItem(dispatcherStorageKey, JSON.stringify(targets));
+                    setStatus(`Saved ${targets.length} target${targets.length === 1 ? '' : 's'}.`);
+                }
+
+                function loadTargets() {
+                    const saved = localStorage.getItem(dispatcherStorageKey);
+                    if (!saved) {
+                        return;
+                    }
+                    try {
+                        const targets = JSON.parse(saved);
+                        if (Array.isArray(targets)) {
+                            targets.forEach((value, index) => {
+                                if (inputs[index]) {
+                                    inputs[index].value = value;
+                                }
+                            });
+                            const savedCount = targets.filter(Boolean).length;
+                            setStatus(`Loaded ${savedCount} saved target${savedCount === 1 ? '' : 's'}.`);
+                        }
+                    } catch (error) {
+                        setStatus('Unable to load saved targets.');
+                    }
+                }
+
+                function runDispatcher() {
+                    const targets = inputs.map(input => input.value.trim()).filter(Boolean);
+                    if (!targets.length) {
+                        setStatus('Add at least one target URL before running the dispatcher.');
+                        return;
+                    }
+                    const target = targets[Math.floor(Math.random() * targets.length)];
+                    setStatus(`Redirecting to ${target}.`);
+                    window.location.assign(target);
+                }
+
+                loadTargets();
+                saveBtn?.addEventListener('click', saveTargets);
+                runBtn?.addEventListener('click', runDispatcher);
             </script>
 
 </body>
