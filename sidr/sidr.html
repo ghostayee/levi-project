@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SIDR - Sustainable Integrated Drainage & Sport Turf | ITEG</title>
+<meta name="description" content="SIDR - sustainable integrated drainage and hybrid sport-turf system for football pitches, stadiums and smart agro-sport infrastructure." />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  :root{
+    --sidr-grass:#16a34a;
+    --sidr-deep:#052e16;
+    --sidr-lime:#a3e635;
+    --sidr-chalk:#f8fafc;
+    --sidr-clay:#b45309;
+    --sidr-sky:#0ea5e9;
+  }
+  body{
+    background:
+      linear-gradient(180deg, rgba(22,163,74,.06), rgba(255,255,255,0) 40%),
+      repeating-linear-gradient(90deg,#ecfccb 0 60px,#f7fee7 60px 120px),
+      #f7fee7;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#0f172a;
+  }
+  .intro{font-size:1.05rem;color:#14532d;}
+  /* Sticky nav — scoreboard style */
+  .pcrr-nav{
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(90deg,#052e16,#16a34a 60%,#a3e635);
+    padding:10px;border-radius:14px;
+    display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+    box-shadow:0 10px 28px rgba(5,46,22,.3);margin:12px 0 22px;
+    border:2px solid #fff;
+  }
+  .pcrr-nav .btn{border-radius:8px;letter-spacing:.4px;text-transform:uppercase;font-size:.72rem;}
+  .pcrr-section{
+    background:#ffffffe6;backdrop-filter:blur(6px);
+    border-radius:20px;padding:30px;margin:30px 0;
+    box-shadow:0 12px 30px rgba(5,46,22,.10);
+    border:1px solid #bbf7d0;position:relative;overflow:hidden;
+  }
+  /* Pitch lines decoration */
+  .pcrr-section:before{
+    content:"";position:absolute;left:-1px;top:0;bottom:0;width:6px;
+    background:repeating-linear-gradient(180deg,#16a34a 0 18px,#fff 18px 24px);
+  }
+  .big-image-container{position:relative;border-radius:16px;overflow:hidden;height:340px;box-shadow:0 10px 24px rgba(5,46,22,.18);}
+  .big-image-container img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s;}
+  .big-image-container:hover img{transform:scale(1.07);}
+  .hover-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(22,163,74,.1),rgba(5,46,22,.95));
+    color:#fff;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:22px;opacity:0;transition:opacity .35s;
+  }
+  .big-image-container:hover .hover-overlay{opacity:1;}
+  .hover-overlay h2{color:var(--sidr-lime);margin-bottom:8px;}
+  .chart-wrap{background:#fff;border-radius:14px;padding:14px;height:300px;border:1px solid #bbf7d0;}
+
+  /* Scoreboard stat — rectangular LED-style */
+  .stat-board{
+    background:linear-gradient(180deg,#052e16,#14532d);color:#a3e635;
+    padding:18px 12px;text-align:center;border-radius:10px;
+    font-family:"Courier New",monospace;border:2px solid #16a34a;
+    box-shadow:inset 0 0 14px rgba(163,230,53,.25);
+    min-height:108px;display:flex;flex-direction:column;justify-content:center;
+  }
+  .stat-board .num{font-size:1.7rem;font-weight:800;letter-spacing:1px;line-height:1;}
+  .stat-board .lbl{font-size:.72rem;color:#bef264;margin-top:6px;text-transform:uppercase;letter-spacing:.8px;}
+
+  /* Jersey card */
+  .strain-card{
+    background:#fff;border-radius:14px;padding:14px;text-align:center;
+    border:2px solid #bbf7d0;transition:.3s;position:relative;
+  }
+  .strain-card:hover{transform:translateY(-4px);border-color:var(--sidr-grass);box-shadow:0 10px 20px rgba(22,163,74,.2);}
+  .strain-card .ico{
+    width:56px;height:56px;border-radius:14px;
+    background:linear-gradient(135deg,#16a34a,#a3e635);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 8px;font-size:1.6rem;color:#fff;
+    box-shadow:0 6px 12px rgba(22,163,74,.3);
+  }
+  .strain-card .num-badge{
+    position:absolute;top:6px;right:8px;font-family:"Courier New",monospace;
+    font-weight:800;color:#16a34a;font-size:.95rem;
+  }
+
+  /* Field-chip */
+  .spiral-chip{
+    display:inline-flex;align-items:center;gap:8px;
+    background:#ecfccb;color:#14532d;padding:8px 14px;border-radius:6px;
+    font-size:.85rem;font-weight:600;margin:3px;border:1px solid #84cc16;
+  }
+  .spiral-chip .swirl{
+    width:12px;height:12px;border-radius:2px;
+    background:repeating-linear-gradient(45deg,#16a34a 0 3px,#fff 3px 6px);
+  }
+
+  /* Match-formation pipeline (4-4-2 style) */
+  .pipeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;}
+  .pipe-step{
+    background:linear-gradient(180deg,#fff,#ecfccb);border-radius:12px;padding:16px;text-align:center;
+    border:2px solid #16a34a;box-shadow:0 4px 12px rgba(0,0,0,.06);position:relative;
+  }
+  .pipe-step .n{
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    width:32px;height:32px;border-radius:50%;
+    background:#fff;border:3px solid var(--sidr-grass);
+    color:var(--sidr-deep);font-weight:800;display:flex;align-items:center;justify-content:center;
+    font-size:.9rem;font-family:"Courier New",monospace;
+  }
+  .accent-bar{height:6px;width:80px;background:linear-gradient(90deg,var(--sidr-grass),var(--sidr-lime));border-radius:3px;margin:8px 0 16px;}
+  .legal-card{
+    border-left:4px solid var(--sidr-grass);background:#fff;border-radius:10px;
+    padding:14px;height:100%;box-shadow:0 4px 10px rgba(0,0,0,.05);
+  }
+  .badge-pill{padding:8px 14px;border-radius:6px;color:#fff;font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;}
+  .quote-block{
+    background:
+      linear-gradient(120deg,rgba(5,46,22,.96),rgba(22,163,74,.92)),
+      repeating-linear-gradient(90deg,transparent 0 40px,rgba(255,255,255,.04) 40px 80px);
+    color:#fff;border-radius:18px;padding:28px;font-style:italic;font-size:1.1rem;position:relative;
+    border:2px solid #a3e635;
+  }
+  .quote-block:before{content:"\201C";position:absolute;top:-14px;left:18px;font-size:5rem;color:var(--sidr-lime);line-height:1;}
+  /* Pitch background (the iconic SIDR field) */
+  .pitch-bg{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(255,255,255,.4) 0 90px, transparent 91px),
+      repeating-linear-gradient(90deg,#16a34a 0 60px,#15803d 60px 120px);
+    color:#fff;
+  }
+  .pitch-bg .pitch-inner{
+    background:rgba(255,255,255,.93);border-radius:14px;padding:24px;
+  }
+  @media (max-width:640px){.pcrr-nav{position:static;border-radius:14px;}}
+</style>
+</head>
+<body>
+<div class="container py-4">
+
+<div id="overview"></div>
+<h2 style="color:var(--sidr-grass);">SIDR - Sustainable Integrated Drainage &amp; Sport-Turf System</h2>
+<div class="accent-bar"></div>
+<p class="intro">A patented hybrid drainage and pitch-engineering platform for football, sport and agro infrastructure — turning stadiums, training fields and arid land into year-round playable, water-efficient and revenue-generating green assets.</p>
+
+<!-- NAV -->
+<nav class="pcrr-nav" id="starter-kiti">
+  <a href="#overview" class="btn btn-light btn-sm fw-bold px-3" style="color:var(--sidr-deep);">Kick-Off Kit</a>
+  <a href="#starter-plan" class="btn btn-outline-light btn-sm fw-bold px-3">Game Plan</a>
+  <a href="#starter-features" class="btn btn-outline-light btn-sm fw-bold px-3">Publication</a>
+  <a href="#starter-pricing" class="btn btn-outline-light btn-sm fw-bold px-3">Commercial</a>
+  <a href="#legal-title" class="btn btn-outline-light btn-sm fw-bold px-3">Legal Title</a>
+  <a href="#pitch" class="btn btn-outline-light btn-sm fw-bold px-3">Pitch S&amp;S</a>
+  <a href="#patents" class="btn btn-outline-light btn-sm fw-bold px-3">Patents+</a>
+  <a href="#voucher" class="btn btn-outline-light btn-sm fw-bold px-3">Voucher</a>
+  <a href="#heritage" class="btn btn-outline-light btn-sm fw-bold px-3">Heritage</a>
+</nav>
+
+<!-- STARTER KIT -->
+<div class="pcrr-section">
+  <h1 class="text-center mb-4" style="font-size:2rem;color:var(--sidr-deep);">KICK-OFF KIT - SIDR</h1>
+
+  <div class="row g-4 align-items-stretch">
+    <div class="col-lg-6">
+      <div class="big-image-container">
+        <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?w=1200" alt="SIDR football pitch drainage system" />
+        <div class="hover-overlay">
+          <h2>KICK-OFF KIT</h2>
+          <p>The <strong>I-SIDR-1</strong> is a modular sub-surface drainage and hybrid-turf platform — keeping every pitch playable in any weather, 365 days a year.</p>
+          <a href="http://www.expotv1.com/LIC/BUNIT/Bl4_SIDR_StartKit_0000283621.doc" class="btn btn-light btn-sm fw-bold" style="color:var(--sidr-deep);">Explore More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <p class="lead">A turnkey sport-turf engineering module that integrates micro-drainage, water harvesting, sub-soil aeration and hybrid grass reinforcement — for football stadiums, training academies, schools and smart agro-sport hubs.</p>
+      <p>SIDR shifts a pitch from <strong>weather liability → year-round revenue</strong>, while unlocking PNRR sport infrastructure funds and green-finance lines.</p>
+      <p class="fw-medium" style="color:var(--sidr-grass);">Enjoy <strong>50% tax credit</strong> + <strong>50% corporate tax reduction</strong> — total investment can effectively reach <strong>"ZERO cost"</strong>.</p>
+
+      <div class="row g-3 mt-1">
+        <div class="col-12">
+          <h5 class="fw-bold" style="color:var(--sidr-deep);">What's inside the kit</h5>
+          <div class="row g-2">
+            <div class="col-6 col-md-3"><div class="stat-board"><div class="num">365</div><div class="lbl">playable days/yr</div></div></div>
+            <div class="col-6 col-md-3"><div class="stat-board"><div class="num">-60%</div><div class="lbl">water use</div></div></div>
+            <div class="col-6 col-md-3"><div class="stat-board"><div class="num">≤90d</div><div class="lbl">install time</div></div></div>
+            <div class="col-6 col-md-3"><div class="stat-board"><div class="num">+40%</div><div class="lbl">pitch life</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <h6 class="fw-bold mt-3" style="color:var(--sidr-deep);">Pitch typologies covered</h6>
+      <div class="row g-2">
+        <div class="col-6 col-md-3"><div class="strain-card"><span class="num-badge">11</span><div class="ico">⚽</div><strong>Stadium</strong><div class="small text-muted">Pro football arenas</div></div></div>
+        <div class="col-6 col-md-3"><div class="strain-card"><span class="num-badge">07</span><div class="ico">🏟️</div><strong>Academy</strong><div class="small text-muted">Training centres</div></div></div>
+        <div class="col-6 col-md-3"><div class="strain-card"><span class="num-badge">05</span><div class="ico">🏫</div><strong>School</strong><div class="small text-muted">Multi-sport courts</div></div></div>
+        <div class="col-6 col-md-3"><div class="strain-card"><span class="num-badge">09</span><div class="ico">🌾</div><strong>Agro-Sport</strong><div class="small text-muted">Hybrid field + crop</div></div></div>
+      </div>
+
+      <div class="mt-3 d-flex gap-2 flex-wrap">
+        <a href="http://www.expotv1.com/LIC/BUNIT/Bl4_SIDR_StartKit_0000283621.doc" class="btn btn-success btn-sm fw-bold" style="background:var(--sidr-grass);border-color:var(--sidr-grass);">Explore More</a>
+        <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold" style="color:var(--sidr-grass);border-color:var(--sidr-grass);">Back Top Menu</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUSINESS PLAN -->
+<div class="pcrr-section" id="starter-plan">
+  <div class="text-center mb-4">
+    <h1 style="background:#fff;display:inline-block;padding:14px 32px;border:3px solid var(--sidr-grass);border-radius:10px;font-size:1.8rem;color:var(--sidr-deep);">GAME PLAN - SIDR</h1>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <div class="big-image-container" style="height:300px;">
+        <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200" alt="Football stadium aerial" />
+        <div class="hover-overlay">
+          <h2>THE FOCUS</h2>
+          <p>A blue-green sport economy: every SIDR pitch transforms a weather-bound facility into a multi-use, water-positive arena — multiplying revenue per square meter of turf.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="big-image-container" style="height:300px;">
+        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=1200" alt="SIDR partners" />
+        <div class="hover-overlay">
+          <h2>PARTNERS</h2>
+          <p>Football federations, stadium operators, municipalities, sport academies, school networks, agro-tech firms and ESG-driven sponsors.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block mt-4">
+    SIDR is the green-pitch engine of the ITEG ecosystem — turning rainfall, sweat and CO₂ into playable hours under the JWT EUWEB 2030 framework.
+  </div>
+
+  <div class="mt-3">
+    <p>Combining <strong>NFT GREEN licensing</strong> with the JWT security infrastructure, SIDR enables <strong>near-zero upfront cost</strong> deployment — fully aligned with PNRR sport, EU Green Deal and circular-water directives.</p>
+  </div>
+
+  <section class="mt-4">
+    <h3 class="text-center fw-bold mb-3" style="color:var(--sidr-deep);">Water &amp; Playability Impact</h3>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <h5>Playable Match-Hours / year</h5>
+        <div class="chart-wrap"><canvas id="chartHours"></canvas></div>
+      </div>
+      <div class="col-lg-6">
+        <h5>Water Use per Pitch (m³/year)</h5>
+        <div class="chart-wrap"><canvas id="chartWater"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="mt-4 d-flex gap-2 justify-content-end">
+    <a href="http://www.expotv1.com/LIC/BUNIT/Bi5_SIDR_BP_prj.pdf" class="btn btn-success btn-sm fw-bold" style="background:var(--sidr-grass);border-color:var(--sidr-grass);">Explore More</a>
+    <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold" style="color:var(--sidr-grass);border-color:var(--sidr-grass);">Back Top Menu</a>
+  </div>
+</div>
+
+<!-- PUBLICATION & THESIS -->
+<div class="pcrr-section" id="starter-features">
+  <section class="text-center py-4 rounded-4" style="background:linear-gradient(120deg,#ecfccb,#bbf7d0);">
+    <h1 class="display-5 fw-bold" style="color:var(--sidr-deep);">PUBLICATION &amp; THESIS</h1>
+    <p class="text-muted mb-0">Why football is the laboratory of sustainable infrastructure</p>
+  </section>
+
+  <section class="py-4">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <h2 class="h3 fw-bold mb-3" style="color:var(--sidr-grass);">Drainage Science at Stadium Scale</h2>
+        <div class="accent-bar"></div>
+        <p class="lead text-muted">SIDR is rooted in two decades of research on soil hydrology, turf agronomy, sport surface biomechanics and circular water management.</p>
+        <p>From doctoral theses on hybrid grass reinforcement to white papers on stadium water-positive design, the SIDR corpus de-risks turf, hydraulics and match-day economics simultaneously.</p>
+
+        <h4 class="mt-4" style="color:var(--sidr-clay);">Topics Covered</h4>
+        <div>
+          <span class="spiral-chip"><span class="swirl"></span>Sub-surface drainage design</span>
+          <span class="spiral-chip"><span class="swirl"></span>Rain-water harvesting</span>
+          <span class="spiral-chip"><span class="swirl"></span>Hybrid grass &amp; turf agronomy</span>
+          <span class="spiral-chip"><span class="swirl"></span>Sport surface biomechanics</span>
+          <span class="spiral-chip"><span class="swirl"></span>Stadium ESG &amp; carbon footprint</span>
+          <span class="spiral-chip"><span class="swirl"></span>Why FOOTBALL — social leverage</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=900" alt="Football research" class="card-img-top" style="height:260px;object-fit:cover;" />
+          <div class="card-body">
+            <h5 class="card-title" style="color:var(--sidr-grass);">From Locker Room to Lab</h5>
+            <p class="card-text text-muted">Each SIDR publication bridges agronomy, civil engineering and sport business — usable by clubs, federations, ministries and impact investors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-4">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <h2 class="h4 fw-bold mb-3" style="color:var(--sidr-grass);">Institutional Documentation</h2>
+        <p class="text-muted mb-0">Peer-reviewed studies and ministerial filings back every SIDR claim — strengthening legal titles, commercial credibility and cross-border partnerships with football federations, universities and policymakers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-4">
+    <div class="bg-warning-subtle border-start border-4 border-warning p-4 rounded">
+      <h4 class="fw-bold text-dark">Highlights</h4>
+      <p class="mb-1" id="starter-pricing">• Strategic SIDR White Paper "Why FOOTBALL" — sport as catalyst for green infrastructure adoption.</p>
+      <p class="mb-0">• Comparative studies on hybrid pitches vs natural &amp; synthetic turf — playability, cost, water and carbon.</p>
+    </div>
+
+    <div class="mt-4 d-flex gap-3 justify-content-end">
+      <a href="http://www.expotv1.com/EBSTV/PAGE/CURRENT_EVENT/$$_RR/$_MKT/SIDR_160715_Pres_Ferro_IT.pdf" class="btn btn-success btn-sm fw-bold" style="background:var(--sidr-grass);border-color:var(--sidr-grass);">Explore More</a>
+      <a href="http://www.expotv1.com/LIC/BUNIT/Bl1_SIDR_why_FOOTBALL.ppt" class="btn btn-outline-success btn-sm fw-bold" style="color:var(--sidr-grass);border-color:var(--sidr-grass);">Why FOOTBALL</a>
+      <a href="#starter-kiti" class="btn btn-outline-secondary btn-sm fw-bold">Back to Menu</a>
+    </div>
+  </section>
+</div>
+
+<!-- COMMERCIAL TITLES -->
+<div class="pcrr-section" id="starter-pricing">
+  <h1 class="text-center fw-bold mb-2" style="color:var(--sidr-deep);">COMMERCIAL TITLES</h1>
+  <p class="text-center text-muted">The SIDR family of commercial offerings across the ITEG ecosystem.</p>
+
+  <div class="row g-3 mt-3" id="commercialGrid"></div>
+
+  <div class="mt-4 d-flex gap-2 justify-content-end">
+    <a href="http://www.expotv1.com/LIC/MP_PRJ/4_SIDR_MISE_LV_MI_Lic.doc" class="btn btn-success btn-sm fw-bold" style="background:var(--sidr-grass);border-color:var(--sidr-grass);">Explore More</a>
+    <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold" style="color:var(--sidr-grass);border-color:var(--sidr-grass);">Back Top Menu</a>
+  </div>
+</div>
+
+<!-- LEGAL TITLE -->
+<div class="pcrr-section" id="legal-title">
+  <header class="text-center py-4 mb-4 rounded-4" style="background:linear-gradient(90deg,#052e16,#16a34a);">
+    <h1 class="display-5 fw-bold text-white mb-0">Legal Titles - SIDR Framework</h1>
+  </header>
+
+  <p class="lead text-muted">The Legal Title forms the official foundation for the SIDR technology — formal registrations, authorizations and IP protections that establish ownership, exclusive rights and credibility for investors, federations and partners.</p>
+
+  <div class="row g-4 mt-2" id="legalGrid"></div>
+
+  <div class="card shadow-sm mt-4">
+    <div class="card-body p-4">
+      <h2 class="h4 fw-bold mb-3" style="color:var(--sidr-grass);">Supporting Legal Framework</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Official registration with the Italian Ministry of Economic Development (MISE) — file 0000283621</li>
+        <li class="list-group-item">Industrial Property registration at UIBM (Italian Patent &amp; Trademark Office)</li>
+        <li class="list-group-item">Alignment with EU Green Deal, PNRR sport infrastructure and circular-water directives</li>
+        <li class="list-group-item">International extensions via WIPO (WO2016092576), EPO and national offices</li>
+        <li class="list-group-item">Integration with NFT GREEN licensing model for transparent rights management</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0 mt-4">
+    <div class="card-body p-4">
+      <h2 class="h4 fw-bold mb-3" style="color:var(--sidr-grass);">Strategic Importance</h2>
+      <p class="text-muted" id="pitch">Legal titles protect the core drainage and hybrid-turf inventions and enable safe technology transfer, licensing and international expansion — while maintaining full traceability through the JWT/NFT GREEN infrastructure.</p>
+      <div class="mt-4 d-flex gap-3 justify-content-end">
+        <a href="http://www.expotv1.com/LIC/MISE_0000283621_SIDR.pdf" class="btn btn-success btn-sm fw-bold" style="background:var(--sidr-grass);border-color:var(--sidr-grass);">Explore More</a>
+        <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold" style="color:var(--sidr-grass);border-color:var(--sidr-grass);">Back Top Menu</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PITCH S&S -->
+<div class="pcrr-section pitch-bg">
+  <div class="pitch-inner">
+  <h1 class="text-center fw-bold mb-3" style="color:var(--sidr-deep);">PITCH S&amp;S - MATCH FORMATION</h1>
+
+  <div class="row g-4 align-items-center">
+    <div class="col-lg-7">
+      <p><strong style="color:var(--sidr-deep);">Pitch S&amp;S</strong> packages SIDR into investor-ready, federation-focused materials — value proposition, market potential, sport-engineering edge and commercial roadmap, ready for clubs, ministries and development banks.</p>
+
+      <h5 class="fw-bold mt-3" style="color:var(--sidr-deep);">The SIDR value formation</h5>
+      <div class="pipeline mt-3">
+        <div class="pipe-step"><div class="n">1</div><strong>Site Scan</strong><div class="small text-muted">Soil, water table &amp; climate audit.</div></div>
+        <div class="pipe-step"><div class="n">2</div><strong>Drainage Grid</strong><div class="small text-muted">Sub-surface micro-channels installed.</div></div>
+        <div class="pipe-step"><div class="n">3</div><strong>Hybrid Turf</strong><div class="small text-muted">Reinforced grass + smart fibres.</div></div>
+        <div class="pipe-step"><div class="n">4</div><strong>Water Loop</strong><div class="small text-muted">Harvest, recycle, irrigate.</div></div>
+        <div class="pipe-step"><div class="n">5</div><strong>Match-Ready</strong><div class="small text-muted">365-day playable arena.</div></div>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="bg-white rounded-4 shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=900" class="w-100" style="height:200px;object-fit:cover;" alt="SIDR pitch presentation" />
+        <div class="p-3">
+          <h5 class="fw-bold" style="color:var(--sidr-deep);">Investor-Ready Pitch</h5>
+          <p class="small mb-0 text-muted">High-impact decks built to secure funding, club partnerships and sport-ESG deals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 mt-3" id="pitchGrid"></div>
+
+  <div class="mt-4 d-flex gap-2 justify-content-end">
+    <a href="http://www.expotv1.com/EBSTV/PAGE/CURRENT_EVENT/$$_RR/$_MKT/SIDR_160715_Pres_Ferro_IT.pdf" class="btn btn-success btn-sm fw-bold" style="background:var(--sidr-grass);border-color:var(--sidr-grass);">Explore More</a>
+    <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold" style="color:var(--sidr-grass);border-color:var(--sidr-grass);">Back Top Menu</a>
+  </div>
+  </div>
+</div>
+
+<!-- PATENTS+ -->
+<div class="pcrr-section">
+  <h1 class="text-center fw-bold mb-3" style="color:var(--sidr-deep);" id="patents">PATENTS+</h1>
+
+  <div class="row g-4 align-items-center">
+    <div class="col-lg-7">
+      <p><strong style="color:var(--sidr-deep);">Patents+</strong> is the IP backbone of SIDR — a layered, internationally filed portfolio that protects every stage of the sport-turf value chain, from sub-surface channel geometry to hybrid grass reinforcement and smart water-loop integration.</p>
+      <p>Anchor filing: <strong>WO2016092576</strong> (WIPO) — the foundational SIDR drainage innovation, extended through EPO, USPTO and national offices, complemented by <strong>MISE 0000283621</strong>.</p>
+    </div>
+    <div class="col-lg-5">
+      <div class="bg-white rounded-4 shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=900" class="w-100" style="height:200px;object-fit:cover;" alt="Global IP" />
+        <div class="p-3">
+          <h5 class="fw-bold" style="color:var(--sidr-deep);">Global IP Strategy</h5>
+          <p class="small mb-0 text-muted">A layered portfolio aligned with WIPO, EPO and USPTO standards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex flex-wrap gap-2 justify-content-center my-4" id="patentBadges"></div>
+
+  <div class="p-3 rounded-4" style="background:#ecfccb;border-left:4px solid var(--sidr-deep);" id="voucher">
+    <h5 class="fw-bold">Attributes</h5>
+    <p class="mb-2 text-muted">The Patents+ strategy covers core turf technologies, drainage geometries and downstream water-loop integration — a dynamic IP fortress supporting continuous innovation and recurring licensing revenue.</p>
+    <p class="mb-0 text-muted">Regular IP reviews keep SIDR ahead of competitors across football, multi-sport and agro-sport applications.</p>
+  </div>
+
+  <div class="mt-4 d-flex gap-2 justify-content-end">
+    <a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2016092576" class="btn btn-success btn-sm fw-bold" style="background:var(--sidr-grass);border-color:var(--sidr-grass);">Explore More</a>
+    <a href="http://www.expotv1.com/ESCP_Patent.htm" class="btn btn-outline-success btn-sm fw-bold" style="color:var(--sidr-grass);border-color:var(--sidr-grass);">ESCP Patent</a>
+    <a href="#starter-kiti" class="btn btn-outline-secondary btn-sm fw-bold">Back Top Menu</a>
+  </div>
+</div>
+
+<!-- VOUCHERS -->
+<div class="pcrr-section">
+  <h1 class="text-center fw-bold mb-3" style="color:var(--sidr-deep);">VOUCHERS</h1>
+
+  <div class="row g-4 align-items-center">
+    <div class="col-lg-7">
+      <p><strong style="color:var(--sidr-deep);">Vouchers</strong> are the financial accelerators of the SIDR adoption strategy — grants, subsidies and sport-innovation incentives that drastically lower the cost and risk of deploying a smart drainage pitch.</p>
+      <p>They complement the NFT GREEN licensing model and unlock direct access to PNRR Sport, Horizon Europe and EU green-infrastructure lines.</p>
+    </div>
+    <div class="col-lg-5">
+      <div class="bg-white rounded-4 shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900" class="w-100" style="height:200px;object-fit:cover;" alt="Vouchers" />
+        <div class="p-3">
+          <h5 class="fw-bold" style="color:var(--sidr-deep);">Financial Catalyst</h5>
+          <p class="small mb-0 text-muted">Voucher programs reduce costs and accelerate SIDR rollout.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="fw-bold mt-4" style="color:var(--sidr-deep);">Voucher Lifecycle</h4>
+  <div class="row g-3 mt-1" id="lifecycleRow"></div>
+
+  <h4 class="fw-bold mt-4" style="color:var(--sidr-deep);">Voucher Programs</h4>
+  <div class="row g-3 mt-1" id="programsRow"></div>
+
+  <div class="d-flex flex-wrap gap-2 justify-content-center my-4" id="voucherBadges"></div>
+  <div id="heritage"></div>
+
+  <div class="mt-2 d-flex gap-2 justify-content-end">
+    <a href="http://www.expotv1.com/LIC/MISE_102020000029255_SIRD_Descr.pdf" class="btn btn-success btn-sm fw-bold" style="background:var(--sidr-grass);border-color:var(--sidr-grass);">Explore More</a>
+    <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold" style="color:var(--sidr-grass);border-color:var(--sidr-grass);">Back Top Menu</a>
+  </div>
+</div>
+
+<!-- INTANGIBLE HERITAGE -->
+<div class="pcrr-section">
+  <h1 class="text-center fw-bold mb-3" style="color:var(--sidr-deep);">INTANGIBLE HERITAGE</h1>
+
+  <div class="row g-4 align-items-center">
+    <div class="col-lg-5">
+      <div class="bg-white rounded-4 shadow overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=900" class="w-100" style="height:200px;object-fit:cover;" alt="Invisible capital" />
+        <div class="p-3">
+          <h5 class="fw-bold" style="color:var(--sidr-deep);">Invisible Capital</h5>
+          <p class="small mb-0 text-muted">Know-how, brand and fan culture powering SIDR's long-term value.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-7">
+      <p><strong style="color:var(--sidr-deep);">Intangible Heritage</strong> captures the accumulated sport-engineering knowledge, turf playbooks, federation partnerships and ESG narrative behind SIDR — the "invisible capital" that turns a single platform into a trusted, scalable sport-green ecosystem.</p>
+      <p>It covers every non-physical asset that drives competitive advantage, federation confidence and durable impact.</p>
+    </div>
+  </div>
+
+  <div class="row g-3 mt-3" id="heritageGrid"></div>
+
+  <h4 class="fw-bold mt-4" style="color:var(--sidr-deep);">Strategic Importance</h4>
+  <div class="row g-3 mt-1" id="strategicRow"></div>
+
+  <div class="p-3 rounded-4 mt-4" style="background:#ecfccb;border-left:4px solid var(--sidr-deep);">
+    <h5 class="fw-bold">Summary</h5>
+    <p class="mb-1 text-muted">Intangible Heritage is nurtured through documentation, knowledge management, storytelling and relationship building — turning SIDR innovations into a cohesive, respected and future-proof platform.</p>
+    <p class="mb-0 text-muted">Together with Patents+, Commercial Titles, Vouchers and the Game Plan, it completes the full value stack of SIDR inside ITEG.</p>
+  </div>
+
+  <div class="mt-4 d-flex gap-2 justify-content-end">
+    <a href="http://www.expotv1.com/ESCP_Patent.htm" class="btn btn-success btn-sm fw-bold" style="background:var(--sidr-grass);border-color:var(--sidr-grass);">Explore More</a>
+    <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold" style="color:var(--sidr-grass);border-color:var(--sidr-grass);">Back Top Menu</a>
+  </div>
+</div>
+
+</div>
+
+<script>
+const GRASS="#16a34a", LIME="#a3e635", DEEP="#052e16", CLAY="#b45309", SKY="#0ea5e9";
+
+// Commercial titles
+const commercial = [
+  ["SIDR - Sport Drainage & Turf","Smart Stadium Pitch System","Hybrid drainage + reinforced turf for football and multi-sport arenas."],
+  ["PBRC - Micro Algae Biorefinery","Green Microalgae Biorefinery","Cultivation systems for carbon capture, biofuels and pigments."],
+  ["MBGC - BioGas Conversion","NextGen BioGas Solutions","Optimized biogas production and upgrading for circular waste-to-energy."],
+  ["ITEG - Advanced Rotor Technology","Smart Energy Rotor System","High-efficiency modular rotors for industrial and renewable energy."],
+  ["SDGC - Desalination Technology","EcoSmart Desalination Systems","Energy-efficient desalination for coastal and arid regions."],
+  ["GSMF - Separation Technology","Advanced Green Separation","Membrane and filtration solutions for industrial use."],
+  ["GFSS - EMG Separation","EMG Precision Separation","Electromagnetic and gradient separation platforms."],
+  ["PCRR - Recovery & Resilience","PCRR Program","Framework for green-tech deployment and NFT licensing."]
+];
+document.getElementById("commercialGrid").innerHTML = commercial.map(([t,sub,d])=>`
+  <div class="col-md-6"><div class="p-3 bg-white rounded-4 shadow-sm h-100" style="border-left:4px solid ${GRASS};">
+    <h5 class="fw-bold" style="color:${DEEP};">${t}</h5>
+    <p class="mb-1" style="color:${CLAY};font-weight:600;">"${sub}"</p>
+    <p class="small mb-0 text-muted">${d}</p>
+  </div></div>`).join("");
+
+// Legal grid
+const legal = [
+  ["SIDR - Sport Drainage System","MISE-SIDR (file 0000283621) — Registered Sustainable Integrated Drainage & Sport Turf."],
+  ["SIRD - Descriptor","MISE 102020000029255 — SIRD descriptor extending SIDR process protection."],
+  ["WIPO WO2016092576","International patent application — foundational SIDR drainage invention."],
+  ["MBGC - BioGas Conversion","MISE-MBGC (file 0001427413) — Registered Optimized Biogas Production System."],
+  ["PBRC - Algae Biorefinery","MISE-PBRC (file 0001427412) — Registered Micro Algae Biorefinery Platform."],
+  ["ITEG - Rotor Technology","MISE-ITEG — Advanced Rotor Innovation Program."],
+  ["SDGC - Desalination","SDGC Energy-Efficient Desalination System (Patent Pending)."],
+  ["PCRR - Recovery & Resilience","PCRR JWTeam Srls — Commercial Plan for Recovery and Resilience."]
+];
+document.getElementById("legalGrid").innerHTML = legal.map(([t,d])=>`
+  <div class="col-md-6"><div class="legal-card">
+    <h5 class="fw-bold" style="color:${GRASS};">${t}</h5>
+    <p class="text-muted small mb-0">Legal Title: ${d}</p>
+  </div></div>`).join("");
+
+// Pitch grid
+const pitch = [
+  ["Problem-Solution","Rain-cancelled matches & water-thirsty pitches → all-weather playable green arenas.",GRASS],
+  ["Market Opportunity","Global sport-turf market >$15B — football, multi-sport, schools, agro-sport.",CLAY],
+  ["Technical Differentiation","Sub-surface drainage + hybrid grass + smart water loop in one platform.",DEEP],
+  ["Commercial Model","NFT GREEN licensing + match-day uptime + ESG sponsorship.",GRASS],
+  ["Implementation Roadmap","Kick-Off Kit → academy pilot → stadium retrofit → city sport-grid.",CLAY],
+  ["Impact Metrics","Match-hours saved, m³ water recycled, tCO₂ avoided, youth players hosted.",DEEP]
+];
+document.getElementById("pitchGrid").innerHTML = pitch.map(([t,d,c])=>`
+  <div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded-4 shadow-sm h-100" style="border-top:4px solid ${c};">
+    <h5 class="fw-bold" style="color:${DEEP};">${t}</h5>
+    <p class="small mb-0 text-muted">${d}</p>
+  </div></div>`).join("");
+
+// Patent badges
+const patentB = ["Strong Legal Protection","NFT GREEN Licensing","Federation Trust","Technology Transfer","Turf Library"];
+const cols = [GRASS,CLAY,DEEP,GRASS,LIME];
+document.getElementById("patentBadges").innerHTML = patentB.map((t,i)=>`<span class="badge-pill" style="background:${cols[i]};color:${i===4?DEEP:'#fff'};">${t}</span>`).join("");
+
+// Voucher lifecycle
+const life = [
+  ["Site Audit","Soil, water & climate diagnosis",GRASS],
+  ["Pilot Pitch","Academy or training field demo",CLAY],
+  ["Scale-Up","Stadium / city sport-grid rollout",DEEP],
+  ["Training","Grounds-keeping & operator capacity",LIME]
+];
+document.getElementById("lifecycleRow").innerHTML = life.map(([t,d,c])=>`
+  <div class="col-6 col-md-3"><div class="p-3 bg-white rounded-4 shadow-sm text-center" style="border-top:4px solid ${c};">
+    <h6 class="fw-bold" style="color:${DEEP};">${t}</h6>
+    <p class="small mb-0 text-muted">${d}</p></div></div>`).join("");
+
+const progs = [
+  ["GSBF","Green Sport Business Funding","Feasibility studies and pilot SIDR pitches.",GRASS],
+  ["SIDR-CLUB","Stadium Decarbonisation Acceleration","Retrofit of pro football and multi-sport venues.",CLAY],
+  ["AGROFIELD","Agro-Sport Hybrid Fund","Combined turf + crop fields for rural communities.",DEEP],
+  ["EDU-EBS","Education & Knowledge Transfer","Training, capacity building, sport-engineering curricula.",LIME],
+  ["WATER+","Circular Water Funding","Vouchers tied to verified water savings & reuse.",CLAY],
+  ["PNRR-Sport","Recovery & Resilience Funding","Direct access to Italy's PNRR sport infrastructure lines.",DEEP]
+];
+document.getElementById("programsRow").innerHTML = progs.map(([t,sub,d,c])=>`
+  <div class="col-md-6"><div class="p-3 bg-white rounded-4 shadow-sm h-100" style="border-left:4px solid ${c};">
+    <h5 class="fw-bold" style="color:${DEEP};">${t}</h5>
+    <p class="mb-1" style="color:${CLAY};font-weight:600;">${sub}</p>
+    <p class="small mb-0 text-muted">${d}</p></div></div>`).join("");
+
+document.getElementById("voucherBadges").innerHTML =
+  ["Reduced Net Costs","Accelerated Timelines","Sport Mentorship","Tax Incentives","Verified Water Credits"]
+  .map((t,i)=>`<span class="badge-pill" style="background:${cols[i]};color:${i===4?DEEP:'#fff'};">${t}</span>`).join("");
+
+// Heritage grids
+const heritage = [
+  ["Turf Library & Know-How","Proprietary grass mixes, drainage recipes, troubleshooting playbooks.",GRASS],
+  ["Brand Equity","JWTeam & NFT GREEN recognition in football and sport-ESG.",CLAY],
+  ["Network Capital","Ties to WIPO, EU programs, ministries, federations, clubs & academies.",DEEP],
+  ["Organizational Culture","Multidisciplinary agronomy + civil engineering + sport business.",GRASS],
+  ["Data & Digital Assets","Pitch telemetry, weather logs, playability dashboards, ESG metrics.",CLAY],
+  ["ESG Narrative","Credible decarbonisation story aligned with SDGs, Green Deal and sport-for-good.",DEEP]
+];
+document.getElementById("heritageGrid").innerHTML = heritage.map(([t,d,c])=>`
+  <div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded-4 shadow-sm h-100" style="border-top:4px solid ${c};">
+    <h5 class="fw-bold" style="color:${DEEP};">${t}</h5>
+    <p class="small mb-0 text-muted">${d}</p></div></div>`).join("");
+
+const strat = [
+  ["Global Positioning","Stronger international sport-green footprint.",GRASS],
+  ["Trust & Partnerships","Faster alliance formation with federations & clubs.",CLAY],
+  ["Valuation","Higher value in sport-ESG finance rounds.",DEEP],
+  ["Licensing Power","Reputation-driven long-term licensing.",LIME]
+];
+document.getElementById("strategicRow").innerHTML = strat.map(([t,d,c])=>`
+  <div class="col-6 col-md-3"><div class="p-3 bg-white rounded-4 shadow-sm" style="border-left:4px solid ${c};">
+    <h6 class="fw-bold" style="color:${DEEP};">${t}</h6>
+    <p class="small mb-0 text-muted">${d}</p></div></div>`).join("");
+
+// Charts
+new Chart(document.getElementById("chartHours"),{type:"line",data:{
+  labels:["2024","2025","2026","2027","2028","2029","2030"],
+  datasets:[{label:"Match-hours/year",data:[420,720,1100,1500,1850,2150,2400],
+    borderColor:GRASS,backgroundColor:"rgba(22,163,74,.18)",fill:true,tension:.4,borderWidth:3,pointBackgroundColor:CLAY}]
+},options:{maintainAspectRatio:false}});
+
+new Chart(document.getElementById("chartWater"),{type:"bar",data:{
+  labels:["Natural turf","Synthetic","Hybrid (std)","SIDR pitch","SIDR + reuse"],
+  datasets:[{label:"m³/year",data:[12000,2500,9500,4800,1900],
+    backgroundColor:[CLAY,SKY,LIME,GRASS,DEEP]}]
+},options:{maintainAspectRatio:false,plugins:{legend:{display:false}}}});
+</script>
+</body>
+</html>
