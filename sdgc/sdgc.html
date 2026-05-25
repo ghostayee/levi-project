@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SDGC - Smart Desalination & Geothermal Cycle | ITEG</title>
+<meta name="description" content="SDGC - Smart Desalination & Geothermal Cycle: low-energy water purification and thermal-cycle technology for arid regions, islands and industrial reuse." />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  :root{
+    --sdgc-deep:#0c2340;
+    --sdgc-blue:#0369a1;
+    --sdgc-cyan:#06b6d4;
+    --sdgc-ice:#e0f2fe;
+    --sdgc-foam:#f0f9ff;
+    --sdgc-salt:#fefce8;
+    --sdgc-coral:#f97316;
+  }
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(6,182,212,.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 30%, rgba(3,105,161,.14), transparent 60%),
+      linear-gradient(180deg,#f0f9ff 0%,#e0f2fe 100%);
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#0c2340;
+    background-attachment:fixed;
+  }
+  .intro{font-size:1.05rem;color:#0c2340;}
+  h2{color:#0369a1;}
+  /* Wave nav */
+  .pcrr-nav{
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(135deg,#0c2340 0%,#0369a1 50%,#06b6d4 100%);
+    padding:12px;border-radius:50px;
+    display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+    box-shadow:0 12px 32px rgba(12,35,64,.35),inset 0 1px 0 rgba(255,255,255,.2);
+    margin:12px 0 22px;border:1px solid rgba(255,255,255,.15);
+  }
+  .pcrr-nav .btn{
+    border-radius:30px;letter-spacing:.5px;text-transform:uppercase;
+    font-size:.72rem;font-weight:700;backdrop-filter:blur(8px);
+  }
+  .pcrr-section{
+    background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
+    border-radius:24px;padding:32px;margin:30px 0;
+    box-shadow:0 16px 40px rgba(12,35,64,.10);
+    border:1px solid rgba(6,182,212,.25);position:relative;overflow:hidden;
+  }
+  /* droplet decoration */
+  .pcrr-section:before{
+    content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;
+    background:radial-gradient(circle at 35% 35%, rgba(6,182,212,.35), rgba(3,105,161,.05) 70%);
+    border-radius:50% 50% 50% 0;transform:rotate(-20deg);pointer-events:none;
+  }
+  .big-image-container{position:relative;border-radius:20px;overflow:hidden;height:340px;box-shadow:0 12px 28px rgba(12,35,64,.22);}
+  .big-image-container img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s;}
+  .big-image-container:hover img{transform:scale(1.06);}
+  .big-image-container .badge-overlay{
+    position:absolute;left:14px;bottom:14px;background:rgba(12,35,64,.85);
+    color:#a5f3fc;padding:8px 14px;border-radius:30px;font-weight:700;font-size:.85rem;
+    backdrop-filter:blur(8px);border:1px solid rgba(165,243,252,.3);
+  }
+  /* Droplet stats */
+  .stat-drop{
+    background:linear-gradient(160deg,#0369a1,#06b6d4);
+    color:#fff;border-radius:50% 50% 50% 8px;
+    width:140px;height:140px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    box-shadow:0 14px 30px rgba(3,105,161,.4),inset 0 -8px 20px rgba(0,0,0,.15);
+    margin:8px;transform:rotate(-8deg);transition:transform .3s;
+  }
+  .stat-drop:hover{transform:rotate(0deg) scale(1.06);}
+  .stat-drop .v{font-size:1.6rem;font-weight:800;line-height:1;}
+  .stat-drop .l{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;opacity:.9;margin-top:6px;padding:0 8px;}
+  /* Salinity chips */
+  .salt-chip{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 16px;border-radius:30px;font-size:.85rem;font-weight:600;
+    background:linear-gradient(90deg,#e0f2fe,#cffafe);
+    border:1px solid #67e8f9;color:#0c4a6e;margin:4px;
+    box-shadow:0 2px 6px rgba(6,182,212,.18);
+  }
+  .salt-chip .dot{width:10px;height:10px;border-radius:50%;background:#06b6d4;box-shadow:0 0 8px #06b6d4;}
+  /* Cycle steps - circular flow */
+  .cycle-step{
+    background:#fff;border:2px solid #06b6d4;border-radius:18px;
+    padding:18px;position:relative;height:100%;
+    box-shadow:0 8px 20px rgba(6,182,212,.15);
+    transition:transform .3s, box-shadow .3s;
+  }
+  .cycle-step:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(6,182,212,.25);}
+  .cycle-step .num{
+    position:absolute;top:-18px;left:18px;
+    background:linear-gradient(135deg,#0c2340,#0369a1);
+    color:#fff;width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:800;
+    box-shadow:0 6px 14px rgba(12,35,64,.35);
+  }
+  .cycle-step h6{color:#0369a1;font-weight:800;margin-top:14px;}
+  /* Heat/cold thermal bar */
+  .therm-bar{
+    height:14px;border-radius:8px;background:linear-gradient(90deg,#06b6d4 0%,#22d3ee 30%,#fbbf24 70%,#f97316 100%);
+    box-shadow:inset 0 1px 3px rgba(0,0,0,.2);margin:8px 0;
+  }
+  .voucher-card{
+    background:linear-gradient(135deg,#0c2340,#0369a1);
+    color:#e0f2fe;border-radius:22px;padding:30px;
+    border:1px dashed #67e8f9;position:relative;overflow:hidden;
+  }
+  .voucher-card:after{
+    content:"💧";position:absolute;right:20px;top:10px;font-size:5rem;opacity:.15;
+  }
+  .doc-link{
+    display:flex;align-items:center;gap:12px;padding:14px 18px;
+    background:#fff;border-radius:14px;border-left:4px solid #06b6d4;
+    margin-bottom:10px;text-decoration:none;color:#0c2340;font-weight:600;
+    box-shadow:0 4px 12px rgba(12,35,64,.08);transition:all .25s;
+  }
+  .doc-link:hover{transform:translateX(6px);border-left-color:#f97316;color:#0369a1;box-shadow:0 8px 18px rgba(12,35,64,.15);}
+  .doc-link .ico{font-size:1.4rem;}
+  footer{color:#0c2340;text-align:center;padding:30px 0;font-size:.85rem;}
+  .header-hero{
+    background:linear-gradient(135deg,rgba(12,35,64,.95),rgba(3,105,161,.85)),
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0 10 Q 25 0, 50 10 T 100 10 V20 H0 Z" fill="%2306b6d4" opacity="0.3"/></svg>') bottom/100% 60px no-repeat;
+    color:#fff;padding:50px 30px 70px;border-radius:28px;margin-bottom:8px;position:relative;overflow:hidden;
+  }
+  .header-hero h1{font-weight:800;letter-spacing:-1px;font-size:2.6rem;}
+  .header-hero .tag{color:#a5f3fc;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.78rem;}
+  .pill-ribbon{
+    display:inline-block;background:#fef3c7;color:#92400e;
+    padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.5px;
+  }
+</style>
+</head>
+<body>
+<div class="container py-3">
+
+  <header class="header-hero">
+    <div class="tag">ITEG Business Unit · Smart Water Tech</div>
+    <h1 class="mt-2">SDGC — Smart Desalination & Geothermal Cycle</h1>
+    <p class="intro mt-3 mb-0" style="color:#e0f2fe;max-width:720px;">
+      Low-energy desalination integrated with a closed geothermal cycle — purifying brackish, salt and waste water for arid regions, islands, industrial reuse and humanitarian deployment.
+    </p>
+  </header>
+
+  <div id="overview"></div>
+  <nav class="pcrr-nav" id="starter-kiti">
+    <a href="#overview" class="btn btn-light btn-sm fw-bold px-3">Overview</a>
+    <a href="#starter-kit" class="btn btn-light btn-sm fw-bold px-3">Starter Kit</a>
+    <a href="#starter-plan" class="btn btn-light btn-sm fw-bold px-3">Plan</a>
+    <a href="#starter-features" class="btn btn-light btn-sm fw-bold px-3">Cycle</a>
+    <a href="#starter-pricing" class="btn btn-light btn-sm fw-bold px-3">Pricing</a>
+    <a href="#starter-legal" class="btn btn-light btn-sm fw-bold px-3">Legal</a>
+    <a href="#pitch" class="btn btn-light btn-sm fw-bold px-3">Pitch</a>
+    <a href="#patents" class="btn btn-light btn-sm fw-bold px-3">Patents</a>
+    <a href="#voucher" class="btn btn-light btn-sm fw-bold px-3">Voucher</a>
+    <a href="#heritage" class="btn btn-light btn-sm fw-bold px-3">Heritage</a>
+  </nav>
+
+  <!-- OVERVIEW -->
+  <section class="pcrr-section">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <span class="pill-ribbon">MISE 0001429306</span>
+        <h2 class="mt-2">Water you can trust. Energy you don't waste.</h2>
+        <p>SDGC fuses membrane-free desalination with a low-enthalpy geothermal cycle. The result: drinkable, irrigation-grade and process water at a fraction of the energy footprint of reverse-osmosis plants — with zero brine discharge.</p>
+        <div class="d-flex flex-wrap">
+          <span class="salt-chip"><span class="dot"></span>Brackish water</span>
+          <span class="salt-chip"><span class="dot"></span>Seawater</span>
+          <span class="salt-chip"><span class="dot"></span>Industrial brine</span>
+          <span class="salt-chip"><span class="dot"></span>Geothermal heat</span>
+          <span class="salt-chip"><span class="dot"></span>Solar-thermal coupling</span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="d-flex flex-wrap justify-content-center">
+          <div class="stat-drop"><div class="v">≤1.8</div><div class="l">kWh/m³ energy</div></div>
+          <div class="stat-drop"><div class="v">99.7%</div><div class="l">salt rejection</div></div>
+          <div class="stat-drop"><div class="v">0</div><div class="l">brine waste</div></div>
+          <div class="stat-drop"><div class="v">25y</div><div class="l">plant lifespan</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STARTER KIT -->
+  <section class="pcrr-section" id="starter-kit">
+    <h2>💧 Starter Kit</h2>
+    <p>Drop-in modular SDGC stack — pre-engineered for rapid deployment in coastal, island and arid environments.</p>
+    <div class="row g-3 mt-2">
+      <div class="col-md-4"><div class="cycle-step"><div class="num">A</div><h6>Intake & Pre-treatment</h6><p class="small mb-0">Sand-bed filter + ceramic micro-strainer. Removes solids, algae and organics before the thermal stage.</p></div></div>
+      <div class="col-md-4"><div class="cycle-step"><div class="num">B</div><h6>Geothermal Evaporator</h6><p class="small mb-0">Closed low-enthalpy loop drives vacuum evaporation at 45–65 °C. No high-pressure pumps required.</p></div></div>
+      <div class="col-md-4"><div class="cycle-step"><div class="num">C</div><h6>Condenser & Mineralizer</h6><p class="small mb-0">Recovers latent heat, balances pH and re-mineralizes potable water to WHO standard.</p></div></div>
+    </div>
+    <a href="http://www.expotv1.com/LIC/BUNIT/Bd4_SDGC_StartKit_0001429306.doc" class="doc-link mt-4" target="_blank"><span class="ico">📦</span>Download SDGC Starter Kit (.doc) · ref 0001429306</a>
+  </section>
+
+  <!-- PLAN -->
+  <section class="pcrr-section" id="starter-plan">
+    <h2>🧭 Business Plan</h2>
+    <p>5-year deployment plan covering coastal pilots, island municipalities, agro-industrial reuse and humanitarian micro-grids.</p>
+    <div class="row g-3">
+      <div class="col-md-6">
+        <h6 class="text-info">Year 1–2 — Pilots</h6>
+        <p class="small">Two 50 m³/day demo plants (Mediterranean island + sub-Saharan agro-site). CAPEX recovery via PPA model.</p>
+        <h6 class="text-info">Year 3–4 — Scale</h6>
+        <p class="small">Standardised 200–500 m³/day modules. Distributor network across MENA & EU islands.</p>
+        <h6 class="text-info">Year 5+ — Industrial reuse</h6>
+        <p class="small">Industrial brine-to-water service contracts; geothermal heat-sharing with district utilities.</p>
+      </div>
+      <div class="col-md-6"><canvas id="adoption" height="220"></canvas></div>
+    </div>
+    <a href="http://www.expotv1.com/LIC/BUNIT/Bd5_SDGC_BP_prj.pdf" class="doc-link mt-3" target="_blank"><span class="ico">📊</span>SDGC Business Plan (.pdf)</a>
+  </section>
+
+  <!-- CYCLE / FEATURES -->
+  <section class="pcrr-section" id="starter-features">
+    <h2>♻️ The SDGC Cycle</h2>
+    <p>A closed thermal loop where geothermal energy does the work usually done by electrical pumps.</p>
+    <div class="row g-3">
+      <div class="col-md-3"><div class="cycle-step"><div class="num">1</div><h6>Heat Capture</h6><p class="small mb-0">Shallow geothermal probe (80–150 m) extracts low-enthalpy heat.</p></div></div>
+      <div class="col-md-3"><div class="cycle-step"><div class="num">2</div><h6>Vacuum Evaporation</h6><p class="small mb-0">Saline feed flashes into vapor under controlled vacuum at 50 °C.</p></div></div>
+      <div class="col-md-3"><div class="cycle-step"><div class="num">3</div><h6>Condensation</h6><p class="small mb-0">Pure water condenses, releasing heat back into the loop.</p></div></div>
+      <div class="col-md-3"><div class="cycle-step"><div class="num">4</div><h6>Re-mineralization</h6><p class="small mb-0">Bio-mineral cartridge tunes water to potable spec.</p></div></div>
+    </div>
+    <div class="mt-4">
+      <p class="small mb-1 fw-bold">Thermal range across the cycle (cold ↔ hot):</p>
+      <div class="therm-bar"></div>
+      <div class="d-flex justify-content-between small text-muted"><span>15 °C condenser</span><span>50 °C evaporator</span><span>95 °C heat recovery</span></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pcrr-section" id="starter-pricing">
+    <h2>💰 Pricing & Economics</h2>
+    <div class="row g-3">
+      <div class="col-md-7"><canvas id="cost" height="220"></canvas></div>
+      <div class="col-md-5">
+        <p>SDGC delivers desalinated water at <strong>0.48 €/m³</strong> on average — competitive with surface-water utilities and dramatically below reverse-osmosis on islands.</p>
+        <ul class="small">
+          <li>RO seawater: 1.10 – 1.60 €/m³</li>
+          <li>Truck-shipped water: 4.00 €/m³</li>
+          <li>SDGC (geo-coupled): <strong>0.48 €/m³</strong></li>
+        </ul>
+        <a href="http://www.expotv1.com/LIC/MP_PRJ/5_SDGC_MISE_LV_MI_Lic.doc" class="doc-link" target="_blank"><span class="ico">📑</span>Licensing terms (MISE)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL -->
+  <section class="pcrr-section" id="starter-legal">
+    <h2>⚖️ Legal & Certification</h2>
+    <p>Filed and registered with the Italian Ministry of Economic Development (MISE).</p>
+    <a href="http://www.expotv1.com/LIC/MISE_0001429306_SDGC.pdf" class="doc-link" target="_blank"><span class="ico">🏛️</span>MISE registration · 0001429306</a>
+    <a href="http://www.expotv1.com/LIC/MP_PRJ/5_SDGC_MISE_LV_MI_Lic.doc" class="doc-link" target="_blank"><span class="ico">📜</span>MISE Licence Project (LV/MI)</a>
+  </section>
+
+  <!-- PITCH -->
+  <section class="pcrr-section" id="pitch">
+    <h2>🎤 Pitch Deck — Agrò 2015</h2>
+    <p>Original SDGC pitch by Agrò presenting the geothermal-desalination thesis, market sizing and reference plant design.</p>
+    <div class="row g-3 align-items-center">
+      <div class="col-md-7">
+        <a href="http://www.expotv1.com/EBSTV/PAGE/CURRENT_EVENT/$$_RR/$_MKT/SDGC_151028_Pres_Agr%C3%B2.pdf" class="doc-link" target="_blank"><span class="ico">🎯</span>Open SDGC Pitch Deck (PDF) — Agrò, 28 Oct 2015</a>
+        <a href="http://www.expotv1.com/LIC/BUNIT/Bd1_SDGC_why_WATER.ppt" class="doc-link" target="_blank"><span class="ico">🌊</span>Why WATER? (Bd1 manifesto · .ppt)</a>
+      </div>
+      <div class="col-md-5">
+        <div class="big-image-container">
+          <img src="https://images.unsplash.com/photo-1559825481-12a05cc00344?w=900&q=70" alt="Water droplets" />
+          <span class="badge-overlay">Geothermal × Water</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PATENTS -->
+  <section class="pcrr-section" id="patents">
+    <h2>🔬 Patents & IP</h2>
+    <p>SDGC technology sits inside the wider ESCP patent family — covering thermal-cycle desalination, modular geothermal probes, and zero-brine condensation.</p>
+    <a href="http://www.expotv1.com/ESCP_Patent.htm" class="doc-link" target="_blank"><span class="ico">📚</span>ESCP Patent family — index</a>
+    <a href="http://www.expotv1.com/LIC/MISE_0001429306_SDGC.pdf" class="doc-link" target="_blank"><span class="ico">🧪</span>SDGC technical descriptor — MISE 0001429306</a>
+  </section>
+
+  <!-- VOUCHER -->
+  <section id="voucher">
+    <div class="voucher-card">
+      <h2 style="color:#a5f3fc;">🎟️ Innovation Voucher · FTV1</h2>
+      <p>SDGC is part of the ESCP / FTV1 innovation voucher programme — bundling engineering, licensing and pilot-deployment support for early municipalities and industrial partners.</p>
+      <a href="http://www.expotv1.com/LIC/PRJ/170114_ESCP_030_FTV1.pdf" class="doc-link" target="_blank" style="background:#fff;color:#0c2340;"><span class="ico">🎟️</span>ESCP 030 · FTV1 Voucher Project (PDF)</a>
+    </div>
+  </section>
+
+  <!-- HERITAGE -->
+  <section class="pcrr-section" id="heritage">
+    <h2>🏛️ Heritage & Lineage</h2>
+    <p>SDGC is the water-cycle pillar of the ITEG ecosystem alongside <strong>PCRR</strong> (rotor energy), <strong>MBGC</strong> (biogas), <strong>PBRC</strong> (algae biorefinery) and <strong>SIDR</strong> (sport-turf drainage). All five share the ESCP IP backbone and the same MISE-registered descriptor lineage.</p>
+    <div class="d-flex flex-wrap">
+      <span class="salt-chip">PCRR</span>
+      <span class="salt-chip">MBGC</span>
+      <span class="salt-chip">PBRC</span>
+      <span class="salt-chip">SIDR</span>
+      <span class="salt-chip" style="background:linear-gradient(90deg,#0369a1,#06b6d4);color:#fff;border-color:#0369a1;"><span class="dot" style="background:#fff;box-shadow:0 0 8px #fff;"></span>SDGC</span>
+    </div>
+  </section>
+
+  <footer>© ITEG · SDGC — Smart Desalination & Geothermal Cycle · MISE 0001429306 · ESCP Patent family</footer>
+</div>
+
+<script>
+new Chart(document.getElementById('adoption'),{
+  type:'line',
+  data:{labels:['2024','2025','2026','2027','2028','2029','2030'],
+    datasets:[{label:'m³/day deployed (cumulative)',
+      data:[100,420,1100,2800,6200,12500,24000],
+      borderColor:'#0369a1',backgroundColor:'rgba(6,182,212,.25)',
+      tension:.4,fill:true,pointBackgroundColor:'#06b6d4',pointRadius:5}]},
+  options:{plugins:{legend:{labels:{color:'#0c2340'}}},
+    scales:{y:{ticks:{color:'#0c2340'}},x:{ticks:{color:'#0c2340'}}}}
+});
+new Chart(document.getElementById('cost'),{
+  type:'bar',
+  data:{labels:['Trucked water','RO seawater','RO brackish','Surface utility','SDGC'],
+    datasets:[{label:'€/m³ delivered',
+      data:[4.0,1.4,0.95,0.65,0.48],
+      backgroundColor:['#94a3b8','#64748b','#0ea5e9','#0369a1','#06b6d4'],
+      borderRadius:10}]},
+  options:{plugins:{legend:{display:false}},
+    scales:{y:{beginAtZero:true,ticks:{color:'#0c2340'}},x:{ticks:{color:'#0c2340'}}}}
+});
+</script>
+</body>
+</html>
