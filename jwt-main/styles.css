@@ -1,0 +1,214 @@
+:root {
+  --green-main: #0b7a45;
+  --green-dark: #095d35;
+  --green-soft: #e8f8ee;
+  --accent: #ff7a1a;
+  --text: #123021;
+  --shadow: 0 18px 40px rgba(10, 58, 35, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #f6fff8 0%, #e6f8ec 100%);
+}
+
+header {
+  background: linear-gradient(90deg, var(--green-main), var(--green-dark));
+  color: #fff;
+  padding: 1.2rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.brand-subtitle {
+  margin: 0.35rem 0 0;
+  opacity: 0.95;
+}
+
+.nav-pills {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.nav-pills a {
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255,255,255,0.12);
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.main-frame {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 1.5rem auto 3rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.hero-panel,
+.info-card,
+.content-section {
+  background: rgba(255,255,255,0.92);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.hero-panel h1 {
+  margin-top: 0;
+  font-size: clamp(1.8rem, 2.3vw, 2.4rem);
+  color: var(--green-dark);
+}
+
+.hero-panel p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.15rem;
+  border-radius: 999px;
+  border: 0;
+  text-decoration: none;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--green-main);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--green-dark);
+  border: 1px solid rgba(11, 122, 69, 0.18);
+}
+
+.hero-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero-note .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--green-soft);
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  font-weight: 700;
+}
+
+.hero-note .pill strong {
+  color: var(--green-dark);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.info-card h2,
+.content-section h2 {
+  margin-top: 0;
+  color: var(--green-dark);
+}
+
+.info-card p,
+.content-section p {
+  line-height: 1.75;
+}
+
+.content-section {
+  margin-top: 1.25rem;
+}
+
+.kyc-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.kyc-box {
+  background: linear-gradient(180deg, #f6fff8, #ecf8ef);
+  border-radius: 18px;
+  padding: 1rem;
+  border: 1px solid rgba(11, 122, 69, 0.08);
+}
+
+.kyc-box h3 {
+  margin-top: 0;
+  color: var(--green-dark);
+}
+
+.footer-strip {
+  margin-top: 1.5rem;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgba(11, 122, 69, 0.95), rgba(9, 93, 53, 0.92));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.small-note {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .grid-3,
+  .kyc-row {
+    grid-template-columns: 1fr;
+  }
+}

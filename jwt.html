@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JWT Content Editor</title>
+  <link rel="stylesheet" href="jwt-main/styles.css" />
+  <style>
+    :root {
+      --green-main: #0b7a45;
+      --green-dark: #095d35;
+      --soft: #eefbf3;
+      --text: #123021;
+      --shadow: 0 18px 40px rgba(10, 58, 35, 0.14);
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f6fff8 0%, #e8f7ee 100%);
+      color: var(--text);
+    }
+
+    .editor-shell {
+      width: min(1260px, calc(100% - 2rem));
+      margin: 1.5rem auto 3rem;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1rem;
+    }
+
+    .editor-panel,
+    .preview-panel {
+      background: rgba(255,255,255,0.95);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 1.4rem;
+    }
+
+    .editor-panel h1,
+    .preview-panel h2 {
+      margin-top: 0;
+      color: var(--green-dark);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.8rem 0.9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(9, 93, 53, 0.15);
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.85rem 1.15rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--green-main);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #f0fdf4;
+      color: var(--green-dark);
+      border: 1px solid rgba(9, 93, 53, 0.18);
+    }
+
+    .status {
+      margin-top: 0.85rem;
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      background: var(--soft);
+      font-weight: 700;
+    }
+
+    .preview-frame {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .preview-card {
+      background: linear-gradient(180deg, #fafdfb, #effcf1);
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(11, 122, 69, 0.08);
+    }
+
+    .preview-card h3 {
+      margin-top: 0;
+      color: var(--green-dark);
+    }
+
+    .preview-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .editor-shell {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="editor-shell">
+    <section class="editor-panel">
+      <h1>JWT Content Editor</h1>
+      <p>Edit the content and the preview will update instantly. Save it to your browser so the data stays available the next time you open this page.</p>
+
+      <div class="form-grid">
+        <div>
+          <label for="pageTitle">Page title</label>
+          <input id="pageTitle" type="text" value="Own GREEN RIGHTS in Joules, Water and Renewables" />
+        </div>
+
+        <div>
+          <label for="heroCopy">Hero copy</label>
+          <textarea id="heroCopy">License • Invest • Trade • NFT/NFW • Dream.ZONE. This page keeps the same green theme while giving your client a clean editable landing page.</textarea>
+        </div>
+
+        <div>
+          <label for="aboutCopy">About copy</label>
+          <textarea id="aboutCopy">A modern hub for GREEN industrial rights, commercial opportunities, and trusted digital access for partners and operators.</textarea>
+        </div>
+
+        <div>
+          <label for="visionCopy">Vision copy</label>
+          <textarea id="visionCopy">A future where clean energy, water innovation, and sustainable digital infrastructure support communities, industries, and the planet together.</textarea>
+        </div>
+
+        <div>
+          <label for="missionCopy">Mission copy</label>
+          <textarea id="missionCopy">To deliver practical, green, and scalable tools for innovation, commercial licensing, and the modern transformation of industrial rights.</textarea>
+        </div>
+
+        <div>
+          <label for="dreamUrl">Dream.ZONE URL</label>
+          <input id="dreamUrl" type="url" value="/comm/" />
+        </div>
+
+        <div>
+          <label for="cartUrl">Cart URL</label>
+          <input id="cartUrl" type="url" value="/comm/cart" />
+        </div>
+
+        <div>
+          <label for="kycUrl">KYC URL</label>
+          <input id="kycUrl" type="url" value="/jwt/" />
+        </div>
+
+        <div>
+          <label for="contactUrl">Contact / Access URL</label>
+          <input id="contactUrl" type="url" value="/iphome/" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="saveBtn" class="btn btn-primary" type="button">Save to browser</button>
+        <button id="loadBtn" class="btn btn-secondary" type="button">Load saved</button>
+        <button id="resetBtn" class="btn btn-secondary" type="button">Reset defaults</button>
+      </div>
+
+      <div id="status" class="status">Ready to edit. Changes update the preview instantly.</div>
+    </section>
+
+    <section class="preview-panel">
+      <h2>Live Preview</h2>
+      <div class="preview-frame">
+        <div class="preview-card">
+          <p class="badge">JWT</p>
+          <h3 id="previewTitle">Own GREEN RIGHTS in Joules, Water and Renewables</h3>
+          <p id="previewHero">License • Invest • Trade • NFT/NFW • Dream.ZONE. This page keeps the same green theme while giving your client a clean editable landing page.</p>
+          <div class="preview-links">
+            <a id="previewDreamLink" href="/comm/" class="btn btn-primary">Dream.ZONE</a>
+            <a id="previewCartLink" href="/comm/cart" class="btn btn-secondary">Open Cart</a>
+          </div>
+        </div>
+
+        <div class="preview-card">
+          <h3>About</h3>
+          <p id="previewAbout">A modern hub for GREEN industrial rights, commercial opportunities, and trusted digital access for partners and operators.</p>
+        </div>
+
+        <div class="preview-card">
+          <h3>Vision</h3>
+          <p id="previewVision">A future where clean energy, water innovation, and sustainable digital infrastructure support communities, industries, and the planet together.</p>
+        </div>
+
+        <div class="preview-card">
+          <h3>Mission</h3>
+          <p id="previewMission">To deliver practical, green, and scalable tools for innovation, commercial licensing, and the modern transformation of industrial rights.</p>
+        </div>
+
+        <div class="preview-card">
+          <h3>Quick links</h3>
+          <div class="preview-links">
+            <a id="previewKycLink" href="/jwt/" class="btn btn-primary">KYC</a>
+            <a id="previewContactLink" href="/iphome/" class="btn btn-secondary">Access / Login</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const storageKey = 'jwt-editor-data';
+
+    const defaults = {
+      pageTitle: 'Own GREEN RIGHTS in Joules, Water and Renewables',
+      heroCopy: 'License • Invest • Trade • NFT/NFW • Dream.ZONE. This page keeps the same green theme while giving your client a clean editable landing page.',
+      aboutCopy: 'A modern hub for GREEN industrial rights, commercial opportunities, and trusted digital access for partners and operators.',
+      visionCopy: 'A future where clean energy, water innovation, and sustainable digital infrastructure support communities, industries, and the planet together.',
+      missionCopy: 'To deliver practical, green, and scalable tools for innovation, commercial licensing, and the modern transformation of industrial rights.',
+      dreamUrl: '/comm/',
+      cartUrl: '/comm/cart',
+      kycUrl: '/jwt/',
+      contactUrl: '/iphome/'
+    };
+
+    const refs = {
+      pageTitle: document.getElementById('pageTitle'),
+      heroCopy: document.getElementById('heroCopy'),
+      aboutCopy: document.getElementById('aboutCopy'),
+      visionCopy: document.getElementById('visionCopy'),
+      missionCopy: document.getElementById('missionCopy'),
+      dreamUrl: document.getElementById('dreamUrl'),
+      cartUrl: document.getElementById('cartUrl'),
+      kycUrl: document.getElementById('kycUrl'),
+      contactUrl: document.getElementById('contactUrl'),
+      status: document.getElementById('status')
+    };
+
+    const preview = {
+      title: document.getElementById('previewTitle'),
+      hero: document.getElementById('previewHero'),
+      about: document.getElementById('previewAbout'),
+      vision: document.getElementById('previewVision'),
+      mission: document.getElementById('previewMission'),
+      dreamLink: document.getElementById('previewDreamLink'),
+      cartLink: document.getElementById('previewCartLink'),
+      kycLink: document.getElementById('previewKycLink'),
+      contactLink: document.getElementById('previewContactLink')
+    };
+
+    function applyData(data) {
+      refs.pageTitle.value = data.pageTitle || defaults.pageTitle;
+      refs.heroCopy.value = data.heroCopy || defaults.heroCopy;
+      refs.aboutCopy.value = data.aboutCopy || defaults.aboutCopy;
+      refs.visionCopy.value = data.visionCopy || defaults.visionCopy;
+      refs.missionCopy.value = data.missionCopy || defaults.missionCopy;
+      refs.dreamUrl.value = data.dreamUrl || defaults.dreamUrl;
+      refs.cartUrl.value = data.cartUrl || defaults.cartUrl;
+      refs.kycUrl.value = data.kycUrl || defaults.kycUrl;
+      refs.contactUrl.value = data.contactUrl || defaults.contactUrl;
+
+      preview.title.textContent = refs.pageTitle.value;
+      preview.hero.textContent = refs.heroCopy.value;
+      preview.about.textContent = refs.aboutCopy.value;
+      preview.vision.textContent = refs.visionCopy.value;
+      preview.mission.textContent = refs.missionCopy.value;
+      preview.dreamLink.href = refs.dreamUrl.value;
+      preview.cartLink.href = refs.cartUrl.value;
+      preview.kycLink.href = refs.kycUrl.value;
+      preview.contactLink.href = refs.contactUrl.value;
+    }
+
+    function collectData() {
+      return {
+        pageTitle: refs.pageTitle.value.trim(),
+        heroCopy: refs.heroCopy.value.trim(),
+        aboutCopy: refs.aboutCopy.value.trim(),
+        visionCopy: refs.visionCopy.value.trim(),
+        missionCopy: refs.missionCopy.value.trim(),
+        dreamUrl: refs.dreamUrl.value.trim(),
+        cartUrl: refs.cartUrl.value.trim(),
+        kycUrl: refs.kycUrl.value.trim(),
+        contactUrl: refs.contactUrl.value.trim()
+      };
+    }
+
+    function saveData() {
+      const data = collectData();
+      localStorage.setItem(storageKey, JSON.stringify(data));
+      refs.status.textContent = 'Saved to browser storage.';
+      applyData(data);
+    }
+
+    function loadData() {
+      const saved = localStorage.getItem(storageKey);
+      if (!saved) {
+        refs.status.textContent = 'No saved data found.';
+        applyData(defaults);
+        return;
+      }
+      try {
+        const data = JSON.parse(saved);
+        applyData(data);
+        refs.status.textContent = 'Loaded saved content.';
+      } catch (error) {
+        refs.status.textContent = 'Saved data is invalid. Resetting defaults.';
+        applyData(defaults);
+      }
+    }
+
+    function resetDefaults() {
+      localStorage.removeItem(storageKey);
+      applyData(defaults);
+      refs.status.textContent = 'Defaults restored.';
+    }
+
+    document.getElementById('saveBtn').addEventListener('click', saveData);
+    document.getElementById('loadBtn').addEventListener('click', loadData);
+    document.getElementById('resetBtn').addEventListener('click', resetDefaults);
+
+    ['pageTitle', 'heroCopy', 'aboutCopy', 'visionCopy', 'missionCopy', 'dreamUrl', 'cartUrl', 'kycUrl', 'contactUrl'].forEach((id) => {
+      document.getElementById(id).addEventListener('input', () => {
+        applyData(collectData());
+        refs.status.textContent = 'Preview updated. Click Save to keep it.';
+      });
+    });
+
+    applyData(defaults);
+  </script>
+</body>
+</html>
