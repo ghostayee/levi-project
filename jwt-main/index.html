@@ -1,96 +1,576 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JWT Theme Main</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header>
-    <div class="brand-row">
-      <div>
-        <p class="brand-title">EUWEB GREEN • JWT Theme Builder</p>
-        <p class="brand-subtitle">A clean, reusable GREEN-themed JWT page layout for your client content.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JWT Dispatcher</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="fixed-top-menu">
+      <div class="scroll-track">
+        <a href="https://www.pcrr-jwt.eu/">WIPO/UN</a>
+        <a href="https://www.pcrr-jwt.eu/comm">EPO/EU</a>
+        <a href="https://www.pcrr-jwt.eu/iteg">UIBM/IT</a>
+        <a href="https://www.pcrr-jwt.eu/mbgc">inPASS/IN</a>
+        <a href="https://www.pcrr-jwt.eu/pbrc">CNIPA/CN</a>
+        <a href="https://www.pcrr-jwt.eu/sidr">USPTO/US</a>
+        <a href="https://www.pcrr-jwt.eu/sdgc">EAPO/RU</a>
+        <a href="https://www.pcrr-jwt.eu/gsmf">ARIPO/AIPO</a>
+        <a href="https://www.pcrr-jwt.eu/gfss">ESG/UN</a>
+        <a href="https://www.pcrr-jwt.eu/pcrr">SDGs/UN</a>
       </div>
-      <nav class="nav-pills">
-        <a href="#overview">Overview</a>
-        <a href="#vision">Vision</a>
-        <a href="#mission">Mission</a>
-        <a href="#kyc">KYC</a>
-      </nav>
     </div>
-  </header>
 
-  <main class="main-frame">
-    <section class="hero">
-      <div class="hero-panel">
-        <p class="pill"><strong>JWT</strong> • Joules Water Team</p>
-        <h1 id="hero-title">Own GREEN RIGHTS in Joules, Water and Renewables</h1>
-        <p id="hero-copy">License • Invest • Trade • NFT/NFW • Dream.ZONE. A modern, green, client-friendly landing page with editable blocks and a clean commercial flow.</p>
-        <div class="hero-actions">
-          <a href="#kyc" class="btn btn-primary">Start KYC</a>
-          <a href="#vision" class="btn btn-secondary">Explore Vision</a>
+    <div class="orange-header">
+      <div class="container-fluid px-3 px-lg-4">
+        <div class="header-inner d-flex justify-content-between align-items-center flex-wrap gap-3 py-1">
+          <div class="logo-container d-flex align-items-center flex-shrink-0">
+            <a href="https://www.pcrr-jwt.eu/jwt">
+              <img src="../comm/images/faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="32" />
+            </a>
+            <span class="logo ms-2">
+              EUWEB GREEN
+              <a href="https://www.pcrr-jwt.eu/jwt">
+                <button class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-1">jwt</button>
+              </a>
+            </span>
+          </div>
+
+          <nav class="menu d-flex flex-wrap gap-2 align-items-center">
+            <a href="https://www.pcrr-jwt.eu/comm">comm</a>
+            <a href="https://www.pcrr-jwt.eu/pcrr">pcrr</a>
+            <a href="https://www.pcrr-jwt.eu/comm/dream.zone/">Dream Zone</a>
+            <a href="https://www.pcrr-jwt.eu/jwt">JWT</a>
+            <a href="/com/cart/" class="cart-link">🛒 Cart <span id="cart-count">0</span></a>
+          </nav>
         </div>
       </div>
-
-      <div class="hero-note">
-        <div class="pill"><span>🌿</span><span><strong>Dream.ZONE</strong> active</span></div>
-        <div class="pill"><span>🛡️</span><span><strong>Security</strong> first</span></div>
-        <div class="pill"><span>💼</span><span><strong>Cart</strong> ready</span></div>
-      </div>
-    </section>
-
-    <section class="grid-3" id="overview">
-      <div class="info-card">
-        <h2>About</h2>
-        <p id="about-copy">A modern hub for GREEN industrial rights, commercial opportunities, and trusted digital access for partners and operators.</p>
-      </div>
-      <div class="info-card">
-        <h2>Security</h2>
-        <p id="security-copy">Secure collaboration, access control, and KYC-ready workflows for commercial and digital rights management.</p>
-      </div>
-      <div class="info-card">
-        <h2>Access</h2>
-        <p id="access-copy">One place to request access, review KYC, and launch Dream.ZONE tools.</p>
-      </div>
-    </section>
-
-    <section class="content-section" id="vision">
-      <h2>Vision</h2>
-      <p id="vision-copy">A future where clean energy, water innovation, and sustainable digital infrastructure support communities, industries, and the planet together.</p>
-    </section>
-
-    <section class="content-section" id="mission">
-      <h2>Mission</h2>
-      <p id="mission-copy">To deliver practical, green, and scalable tools for innovation, commercial licensing, and the modern transformation of industrial rights.</p>
-    </section>
-
-    <section class="content-section" id="kyc">
-      <h2>KYC & Access</h2>
-      <div class="kyc-row">
-        <div class="kyc-box">
-          <h3>KYC Light</h3>
-          <p>Fast verification for basic access and Dream.ZONE discovery.</p>
-        </div>
-        <div class="kyc-box">
-          <h3>KYC Strong</h3>
-          <p>Enhanced verification for commercial proposals and NFT/NFW workflows.</p>
-        </div>
-        <div class="kyc-box">
-          <h3>Access / Login</h3>
-          <p>Request access to the client portal and start managing your campaign flow.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer-strip">
-      <div>
-        <strong>Theme Maintained</strong>
-        <div class="small-note">Green, modern, and designed for quick client updates.</div>
-      </div>
-      <div class="small-note">Use the editor page at <strong>jwt.html</strong> to change the content.</div>
     </div>
-  </main>
-</body>
+
+    <div class="secondary-menu">
+      <a href="https://www.pcrr-jwt.eu/jwt" class="menu-btn">JWT Home</a>
+      <a href="https://www.pcrr-jwt.eu/comm" class="menu-btn">COMM</a>
+      <a href="https://www.pcrr-jwt.eu/pcrr" class="menu-btn">PCRR</a>
+      <a href="https://www.pcrr-jwt.eu/iteg" class="menu-btn">ITEG</a>
+      <a href="https://www.pcrr-jwt.eu/mbgc" class="menu-btn">MBGC</a>
+      <a href="https://www.pcrr-jwt.eu/pbrc" class="menu-btn">PBRC</a>
+      <a href="https://www.pcrr-jwt.eu/sidr" class="menu-btn">SIDR</a>
+      <a href="https://www.pcrr-jwt.eu/sdgc" class="menu-btn">SDGC</a>
+      <a href="https://www.pcrr-jwt.eu/gsmf" class="menu-btn">GSMF</a>
+      <a href="https://www.pcrr-jwt.eu/gfss" class="menu-btn">GFSS</a>
+      <a href="https://www.pcrr-jwt.eu/comm/dream.zone/" class="menu-btn">Dream Zone</a>
+    </div>
+
+    <aside class="vertical-sidebar">
+      <h2>Dispatch Hub</h2>
+      <a href="#dispatcher" class="sidebar-card active">Dispatcher</a>
+      <a href="#routes" class="sidebar-card">Live Routes</a>
+      <a href="#help" class="sidebar-card">How it works</a>
+      <div class="sidebar-header">
+        <h5>Quick targets</h5>
+      </div>
+      <a href="https://www.pcrr-jwt.eu/jwt" class="sidebar-card">JWT</a>
+      <a href="https://www.pcrr-jwt.eu/comm" class="sidebar-card">COMM</a>
+      <a href="https://www.pcrr-jwt.eu/pcrr" class="sidebar-card">PCRR</a>
+      <a href="https://www.pcrr-jwt.eu/comm/dream.zone/" class="sidebar-card">Dream Zone</a>
+    </aside>
+
+    <main>
+      <section class="hero-section" id="hero" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80');">
+        <div class="hero-content">
+          <h1>JWT Dispatcher</h1>
+          <p>Randomly route control between the PCRR-JWT ecosystem Just a click and ready to explore more .</p>
+        </div>
+        <div class="banner-dots" id="bannerDots"></div>
+      </section>
+
+      <div class="section-content" id="dispatcher">
+        <div class="label">Control Console</div>
+        <h2>Random Explore Dispatcher</h2>
+        <p class="intro">One click sends you to a random route from your active target pool.</p>
+
+        <div class="dispatcher-shell">
+          <div class="dispatcher-card">
+            <div class="dispatcher-editor-head">
+              <div>
+                <h3>Dispatch controls</h3>
+                <p>Track the active routes, dispatch instantly, and keep the preview in sync with every add or edit.</p>
+              </div>
+              <button type="button" id="dispatchBtn" class="dispatcher-btn secondary">Dispatch random</button>
+            </div>
+
+            <div class="dispatcher-grid">
+              <div class="dispatcher-stat">
+                <span>Total routes</span>
+                <strong id="routeCount">0</strong>
+              </div>
+              <div class="dispatcher-stat">
+                <span>Last dispatch</span>
+                <strong id="lastDispatch">—</strong>
+              </div>
+              <div class="dispatcher-stat">
+                <span>Saved status</span>
+                <strong id="saveStatus">Idle</strong>
+              </div>
+            </div>
+
+            <div id="dispatchMessage" class="dispatcher-status" aria-live="polite">Add a route to begin dispatching.</div>
+          </div>
+
+          <div class="dispatcher-card" id="routes">
+            <div class="dispatcher-url-header">
+              <div>
+                <h3>Preview & route manager</h3>
+              </div>
+              <button type="button" id="showAddFormBtn" class="dispatcher-btn primary mini">+ Add URL</button>
+            </div>
+
+            <form id="routeForm" class="route-form hidden">
+              <input type="hidden" id="editingIndex" value="-1" />
+              <div class="route-form-grid">
+                <label>
+                  Route name
+                  <input id="routeTitle" type="text" placeholder="IP Home — Epo TV1" />
+                </label>
+                <label>
+                  Destination URL
+                  <input id="routeUrl" type="url" placeholder="https://www.google.com" required />
+                </label>
+              </div>
+              <div class="route-form-actions">
+                <button type="submit" class="dispatcher-btn primary">Save route</button>
+                <button type="button" id="cancelEditBtn" class="dispatcher-btn secondary">Cancel</button>
+              </div>
+            </form>
+
+            <div id="urlPreview" class="dispatcher-url-list"></div>
+          </div>
+        </div>
+
+        <div class="dispatcher-slideshow-card">
+          <div class="dispatcher-slideshow-head">
+            <div>
+              <h3>Campaign spotlight</h3>
+              <p>Browse the major PCRR-JWT destinations with a rotating visual board for ITEG, PBRC, SIDR, SDGC, GSMF, GFSS, MBGC and COMM.</p>
+            </div>
+            <div class="dispatcher-slide-controls">
+              <button type="button" id="prevSlideBtn" class="dispatcher-btn secondary mini">←</button>
+              <button type="button" id="nextSlideBtn" class="dispatcher-btn primary mini">→</button>
+            </div>
+          </div>
+
+          <div class="dispatcher-slideshow-stage">
+            <div id="slideshowTrack" class="dispatcher-slideshow-track"></div>
+          </div>
+
+          <div id="slideshowDots" class="dispatcher-slideshow-dots"></div>
+        </div>
+
+        <div class="dispatcher-card" id="help" style="margin-top:20px;">
+          <h3>How the dispatcher works</h3>
+          <p>1. Edit your list of target URLs in the text area.<br />2. Save the list to keep it in your browser.<br />3. Click Dispatch random to redirect to one chosen target from the pool.</p>
+        </div>
+      </div>
+
+      <footer class="site-footer" id="contact-us">
+        <div class="footer-grid">
+          <div>
+            <h4>PCRR JWTeam Srls</h4>
+            <p><strong>Joules Water Team</strong><br />Research, Development & Innovation in Joules, Water and Primary Renewable Resources</p>
+            <p>Sede Legale: Via Terrazzano 85<br />20017 Rho (MI), Italy</p>
+          </div>
+          <div>
+            <h4>Legal & Contact</h4>
+            <p>PEC: <a href="mailto:pcrrjwt@pec.it">pcrrjwt@pec.it</a></p>
+            <p>Info: <a href="mailto:info@jwt-jwt.eu">info@jwt-jwt.eu</a></p>
+            <p>Commercial: <a href="mailto:comm@pcrr-jwt.it">comm@pcrr-jwt.it</a></p>
+          </div>
+          <div>
+            <h4>Quick Access</h4>
+            <p><a href="https://www.pcrr-jwt.eu/jwt">JWT Home</a></p>
+            <p><a href="https://www.pcrr-jwt.eu/comm">COMM</a></p>
+            <p><a href="https://www.pcrr-jwt.eu/pcrr">PCRR</a></p>
+            <p><a href="https://www.pcrr-jwt.eu/comm/dream.zone/">Dream Zone</a></p>
+          </div>
+          <div>
+            <h4>Dispatcher Notes</h4>
+            <p>Use this page as a reusable control panel for campaign routing, staged redirects, and live destination updates.</p>
+          </div>
+        </div>
+        <div class="copy">© 2026 EUWEB GREEN • JWT Dispatcher</div>
+      </footer>
+    </main>
+
+    <script>
+      const defaultRoutes = [
+        'https://www.pcrr-jwt.eu/jwt',
+        'https://www.pcrr-jwt.eu/comm',
+        'https://www.pcrr-jwt.eu/pcrr',
+        'https://www.pcrr-jwt.eu/iteg',
+        'https://www.pcrr-jwt.eu/mbgc',
+        'https://www.pcrr-jwt.eu/pbrc',
+        'https://www.pcrr-jwt.eu/sidr',
+        'https://www.pcrr-jwt.eu/sdgc',
+        'https://www.pcrr-jwt.eu/gsmf',
+        'https://www.pcrr-jwt.eu/gfss',
+        'https://www.pcrr-jwt.eu/comm/dream.zone/'
+      ];
+
+      const STORAGE_KEY = 'jwt-dispatcher-routes';
+      const LAST_DISPATCH_KEY = 'jwt-dispatcher-last';
+      const routeCount = document.getElementById('routeCount');
+      const lastDispatch = document.getElementById('lastDispatch');
+      const saveStatus = document.getElementById('saveStatus');
+      const dispatchMessage = document.getElementById('dispatchMessage');
+      const urlPreview = document.getElementById('urlPreview');
+      const dispatchBtn = document.getElementById('dispatchBtn');
+      const routeForm = document.getElementById('routeForm');
+      const routeTitle = document.getElementById('routeTitle');
+      const routeUrl = document.getElementById('routeUrl');
+      const editingIndex = document.getElementById('editingIndex');
+      const showAddFormBtn = document.getElementById('showAddFormBtn');
+      const cancelEditBtn = document.getElementById('cancelEditBtn');
+
+      let routes = [];
+
+      function getLabel(url) {
+        try {
+          return new URL(url).hostname.replace(/^www\./, '');
+        } catch {
+          return 'Custom route';
+        }
+      }
+
+      function cleanRoutes(text) {
+        return text
+          .split(/\n/)
+          .map((entry) => entry.trim())
+          .filter(Boolean)
+          .filter((entry) => {
+            try {
+              new URL(entry);
+              return true;
+            } catch {
+              return false;
+            }
+          });
+      }
+
+      function normalizeRoute(url, label = '') {
+        const cleanUrl = url.trim();
+        return {
+          label: label.trim() || getLabel(cleanUrl),
+          url: cleanUrl
+        };
+      }
+
+      function sanitizeRouteList(list) {
+        return list
+          .filter(Boolean)
+          .map((route) => {
+            if (typeof route === 'string') {
+              return normalizeRoute(route);
+            }
+
+            const url = typeof route.url === 'string' ? route.url.trim() : '';
+            if (!url) {
+              return null;
+            }
+
+            return normalizeRoute(url, typeof route.label === 'string' ? route.label : '');
+          })
+          .filter(Boolean);
+      }
+
+      function persistRoutes() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(routes));
+      }
+
+      function setStatus(text, tone = 'idle') {
+        dispatchMessage.textContent = text;
+        dispatchMessage.style.background = tone === 'error' ? 'rgba(248, 113, 113, 0.16)' : 'rgba(255, 98, 0, 0.12)';
+        dispatchMessage.style.color = tone === 'error' ? '#7f1d1d' : '#7c2d12';
+      }
+
+      function renderPreview() {
+        routeCount.textContent = routes.length;
+
+        if (!routes.length) {
+          urlPreview.innerHTML = '<div class="dispatcher-url-item">No valid routes saved yet.</div>';
+          return;
+        }
+
+        urlPreview.innerHTML = routes
+          .map(
+            (route, index) => `
+              <div class="dispatcher-route-card">
+                <div>
+                  <div class="dispatcher-route-title">${route.label}</div>
+                  <div class="dispatcher-route-url">${route.url}</div>
+                </div>
+                <div class="dispatcher-route-actions">
+                  <button type="button" class="dispatcher-btn primary mini route-edit-btn" data-index="${index}">Edit</button>
+                  <button type="button" class="dispatcher-btn secondary mini route-delete-btn" data-index="${index}">Delete</button>
+                </div>
+              </div>
+            `
+          )
+          .join('');
+      }
+
+      function resetForm() {
+        routeTitle.value = '';
+        routeUrl.value = '';
+        editingIndex.value = '-1';
+        routeForm.classList.add('hidden');
+        routeForm.classList.remove('active');
+      }
+
+      function openForm(mode = 'add', route = null, index = -1) {
+        routeForm.classList.remove('hidden');
+        routeForm.classList.add('active');
+
+        if (mode === 'edit' && route) {
+          routeTitle.value = route.label;
+          routeUrl.value = route.url;
+          editingIndex.value = String(index);
+        } else {
+          routeTitle.value = '';
+          routeUrl.value = '';
+          editingIndex.value = '-1';
+        }
+
+        routeUrl.focus();
+      }
+
+      function loadRoutes() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+
+        if (!saved) {
+          routes = sanitizeRouteList(defaultRoutes.slice());
+          persistRoutes();
+          saveStatus.textContent = 'Default';
+          setStatus('Dispatcher ready with default routes.');
+          renderPreview();
+          return routes;
+        }
+
+        try {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            routes = sanitizeRouteList(parsed);
+          } else {
+            throw new Error('Invalid route storage');
+          }
+        } catch {
+          const legacyRoutes = cleanRoutes(saved);
+          routes = sanitizeRouteList(legacyRoutes);
+          persistRoutes();
+        }
+
+        if (!routes.length) {
+          routes = sanitizeRouteList(defaultRoutes.slice());
+          persistRoutes();
+        }
+
+        saveStatus.textContent = 'Loaded';
+        setStatus(routes.length ? 'Dispatcher is ready.' : 'Please add at least one valid URL to begin dispatching.');
+        renderPreview();
+        return routes;
+      }
+
+      function saveRoute(event) {
+        event.preventDefault();
+
+        const urlValue = routeUrl.value.trim();
+        if (!urlValue) {
+          setStatus('Please enter a destination URL.', 'error');
+          return;
+        }
+
+        try {
+          new URL(urlValue);
+        } catch {
+          setStatus('That URL is not valid. Please use a full URL such as https://example.com.', 'error');
+          return;
+        }
+
+        const updatedRoute = normalizeRoute(urlValue, routeTitle.value);
+        const currentIndex = Number(editingIndex.value);
+
+        if (Number.isInteger(currentIndex) && currentIndex >= 0 && currentIndex < routes.length) {
+          routes[currentIndex] = updatedRoute;
+          setStatus(`Updated ${updatedRoute.label}.`);
+        } else {
+          routes.push(updatedRoute);
+          setStatus(`Added ${updatedRoute.label}.`);
+        }
+
+        persistRoutes();
+        renderPreview();
+        saveStatus.textContent = 'Saved';
+        resetForm();
+      }
+
+      function deleteRoute(index) {
+        routes.splice(index, 1);
+        persistRoutes();
+        renderPreview();
+        saveStatus.textContent = 'Saved';
+        setStatus('Route removed.');
+      }
+
+      function dispatchRandom() {
+        if (!routes.length) {
+          saveStatus.textContent = 'Error';
+          setStatus('Please add at least one valid URL before dispatching.', 'error');
+          return;
+        }
+
+        const nextRoute = routes[Math.floor(Math.random() * routes.length)];
+        localStorage.setItem(LAST_DISPATCH_KEY, nextRoute.url);
+        lastDispatch.textContent = nextRoute.url;
+        saveStatus.textContent = 'Dispatched';
+        setStatus(`Redirecting to ${nextRoute.url}`);
+        window.location.href = nextRoute.url;
+      }
+
+      const slideshowSlides = [
+        {
+          title: 'ITEG',
+          description: 'Innovation, technology and endurance pathways for the next wave of PCRR-JWT programs.',
+          image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'PBRC',
+          description: 'Blue-green research and commercial planning with a focus on resilient operations and sustainable growth.',
+          image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'SIDR',
+          description: 'Strategic industrial direction and coordinated access for policy, licensing and growth programs.',
+          image: 'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'SDGC',
+          description: 'Smart desalination and geothermal cycle concepts framed around low-energy efficiency and infrastructure.',
+          image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'GSMF',
+          description: 'Global sustainability and mission frameworks driven by cross-border commercial coordination.',
+          image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'GFSS',
+          description: 'A focused overview of finance, stewardship and shared value initiatives across the ecosystem.',
+          image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'MBGC',
+          description: 'Market and brand growth channels anchored in transparent reporting and audience engagement.',
+          image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80'
+        },
+        {
+          title: 'COMM',
+          description: 'Commercial access and partner communications presented with a polished, campaign-ready visual path.',
+          image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80'
+        }
+      ];
+
+      let currentSlideIndex = 0;
+      const slideshowTrack = document.getElementById('slideshowTrack');
+      const slideshowDots = document.getElementById('slideshowDots');
+      let slideshowTimer;
+      const loopedSlides = [...slideshowSlides, ...slideshowSlides];
+
+      function renderSlideshow() {
+        slideshowTrack.innerHTML = loopedSlides
+          .map(
+            (slide, index) => `
+              <div class="dispatcher-slide ${index === currentSlideIndex ? 'active' : ''}">
+                <img src="${slide.image}" alt="${slide.title} visual" />
+                <div class="dispatcher-slide-meta">
+                  <h4>${slide.title}</h4>
+                  <p>${slide.description}</p>
+                </div>
+              </div>
+            `
+          )
+          .join('');
+
+        slideshowDots.innerHTML = slideshowSlides
+          .map(
+            (_, index) => `<button type="button" class="${index === currentSlideIndex % slideshowSlides.length ? 'active' : ''}" data-slide="${index}" aria-label="Show slide ${index + 1}"></button>`
+          )
+          .join('');
+      }
+
+      function showSlide(index) {
+        currentSlideIndex = (index + loopedSlides.length) % loopedSlides.length;
+        renderSlideshow();
+      }
+
+      function startSlideshow() {
+        clearInterval(slideshowTimer);
+        slideshowTimer = setInterval(() => showSlide(currentSlideIndex + 1), 5000);
+      }
+
+      renderSlideshow();
+      startSlideshow();
+
+      routeForm.addEventListener('submit', saveRoute);
+      dispatchBtn.addEventListener('click', dispatchRandom);
+      showAddFormBtn.addEventListener('click', () => openForm('add'));
+      cancelEditBtn.addEventListener('click', resetForm);
+
+      document.getElementById('prevSlideBtn').addEventListener('click', () => {
+        showSlide(currentSlideIndex - 1);
+        startSlideshow();
+      });
+
+      document.getElementById('nextSlideBtn').addEventListener('click', () => {
+        showSlide(currentSlideIndex + 1);
+        startSlideshow();
+      });
+
+      slideshowDots.addEventListener('click', (event) => {
+        const dot = event.target.closest('button[data-slide]');
+        if (!dot) {
+          return;
+        }
+
+        showSlide(Number(dot.dataset.slide));
+        startSlideshow();
+      });
+
+      urlPreview.addEventListener('click', (event) => {
+        const editButton = event.target.closest('.route-edit-btn');
+        const deleteButton = event.target.closest('.route-delete-btn');
+
+        if (editButton) {
+          const index = Number(editButton.dataset.index);
+          if (!Number.isNaN(index) && routes[index]) {
+            openForm('edit', routes[index], index);
+          }
+          return;
+        }
+
+        if (deleteButton) {
+          const index = Number(deleteButton.dataset.index);
+          if (!Number.isNaN(index)) {
+            deleteRoute(index);
+          }
+        }
+      });
+
+      const previousDispatch = localStorage.getItem(LAST_DISPATCH_KEY);
+      if (previousDispatch) {
+        lastDispatch.textContent = previousDispatch;
+      }
+
+      loadRoutes();
+    </script>
+  </body>
 </html>

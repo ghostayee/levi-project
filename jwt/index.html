@@ -1,559 +1,452 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EUWEB GREEN</title>
-    <link rel="stylesheet" href="/pages-style.css">
-    <link rel="icon" href="faviconservices--32x32.png" type="image/x-icon" sizes="32x32">
+    <title>JWT | Joules Water Team</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../gfss/style.css" />
+    <link
+      rel="icon"
+      href="../gfss/images/faviconservices--32x32.png"
+      type="image/x-icon"
+      sizes="32x32"
+    />
+    <style>
+      .jwt-subnav {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+      .jwt-subnav a {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.14);
+        color: #fff;
+        font-size: 0.92rem;
+        font-weight: 700;
+        text-decoration: none;
+        border: 1px solid rgba(255,255,255,0.16);
+      }
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+      .jwt-subnav a:hover {
+        background: rgba(255,255,255,0.24);
+      }
 
-<body>
+      .jwt-hero-intro {
+        max-width: 840px;
+        color: #fff;
+        margin-top: 18px;
+        line-height: 1.75;
+        font-size: 1.02rem;
+      }
 
-    <!-- Rotating top banner -->
-    <nav id="pcrr-submenu" class="navbar navbar-dark overflow-hidden">
-        <div class="container-fluid px-3 px-lg-4">
-            <div class="scroll-wrapper">
-                <ul class="navbar-nav flex-row gap-4 scroll-track">
-                    <li class="nav-item"><a class="nav-link" href="#">WIPO/UN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">EPO/EU</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">UIBM/IT</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">inPASS/IN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">CNIPA/CN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">USPTO/US</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">EAPO/RU</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">ARIPO/AIPO</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">ESG/UN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">SDGs/UN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">ZONE1</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+      .jwt-hero-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
 
-    <!-- Main Header -->
-    <header class="site-header">
-        <div class="container-fluid px-3 px-lg-4">
-            <div class="header-inner d-flex justify-content-between align-items-center flex-wrap gap-3 py-2">
+      .jwt-pill {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.12);
+        color: #fff;
+        font-size: 0.82rem;
+        font-weight: 700;
+        border: 1px solid rgba(255,255,255,0.18);
+      }
 
-                <!-- Logo -->
-                <div class="logo-container d-flex align-items-center flex-shrink-0">
-                    <a href="https://jwt-jwt.eu/">
-                        <img src="/faviconservices--32x32.png" alt="EUWEB GREEN Logo" height="36">
-                    </a>
-                    <span class="logo text-success ms-2 fw-bold">EUWEB GREEN
-                        <a href="/jwt/"><button
-                                class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-2">jwt</button></a>
-                    </span>
-                </div>
+      .jwt-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+        margin-top: 20px;
+      }
 
-                <!-- Top Navigation Menu -->
-                <nav class="menu d-flex flex-wrap gap-3 align-items-center">
-                    <a href="https://www.aias-sicurezza.it/presentazione-aias/">safety</a>
-                    <a href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/">jwt security</a>
-                    <a href="https://sdgc-jwt.eu/comm/">Dream Zone</a>
-                    <a href="https://www.jwt-jwt.it/team/">About Us</a>
-                    <a href="https://www.jwt-jwt.it/vision/">Vision</a>
-                    <a href="https://www.jwt-jwt.it/mission/">MIssion</a>
-                    <a href="#services-offer">Services</a>
-                    <a href="#contact-us">Contact</a>
-                    <a href="#kyc-1"><button
-                            class="head-button btn btn-success rounded-1 fw-bold btn-sm ms-2">KYC</button></a>
-                    <button class="rounded-4 p-1">
-                        <a href="/cart" class="cart-link">
-                            Cart <span id="cart-count">0</span>
-                        </a>
-                    </button>
-                </nav>
+      .jwt-card {
+        background: #fff;
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 12px 30px rgba(12, 20, 12, 0.12);
+      }
 
-            </div>
-        </div>
-    </header>
+      .jwt-card h3 {
+        color: #14532d;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
 
-    <!-- Hamburger -->
-    <div id="hamburger-container" class="permanent-hamburger-container">
-        <div id="hamburger" class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+      .jwt-card p {
+        color: #374151;
+        margin-bottom: 0;
+      }
+
+      .jwt-callout {
+        background: linear-gradient(135deg, #166534, #0f766e);
+        color: #fff;
+        border-radius: 20px;
+        padding: 22px;
+        margin-top: 18px;
+      }
+
+      .jwt-callout h3 {
+        color: #fcd34d;
+        font-weight: 800;
+      }
+
+      .jwt-link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .jwt-link-row a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      @media (max-width: 992px) {
+        main {
+          margin-left: 0 !important;
+        }
+
+        .hero-section {
+          min-height: 40vh;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="fixed-top-menu">
+      <div class="scroll-track">
+        <a href="#">WIPO/UN</a><a href="#">EPO/EU</a><a href="#">UIBM/IT</a>
+        <a href="#">inPASS/IN</a><a href="#">CNIPA/CN</a>
+        <a href="#">USPTO/US</a> <a href="#">EAPO/RU</a>
+        <a href="#">ARIPO/AIPO</a><a href="#">ESG/UN</a> <a href="#">SDGs/UN</a>
+        <a href="#">ZONE1</a> <a href="#">WIPO/UN</a><a href="#">EPO/EU</a>
+        <a href="#">UIBM/IT</a> <a href="#">inPASS/IN</a>
+        <a href="#">CNIPA/CN</a><a href="#">USPTO/US</a> <a href="#">EAPO/RU</a>
+        <a href="#">ARIPO/AIPO</a><a href="#">ESG/UN</a> <a href="#">SDGs/UN</a>
+        <a href="#">ZONE1</a>
+      </div>
     </div>
 
-    <!-- Side Menu -->
-    <nav id="side-menu" class="side-menu">
-        <div class="side-menu-header">
-            <h3 class="bg-succes">Menu</h3>
-            <span class="close-btn">×</span>
+    <div class="orange-header">
+      <div class="container-fluid px-3 px-lg-4">
+        <div class="header-inner d-flex justify-content-between align-items-center flex-wrap gap-3 py-1">
+          <div class="logo-container d-flex align-items-center flex-shrink-0">
+            <a href="https://www.pcrr-jwt.eu/jwt">
+              <img
+                src="../gfss/images/faviconservices--32x32.png"
+                alt="JWT Logo"
+                height="32"
+              />
+            </a>
+            <span class="logo ms-2">
+              JWT
+              <a href="https://www.pcrr-jwt.eu/jwt">
+                <button class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-1">JWT</button>
+              </a>
+            </span>
+          </div>
+
+          <nav class="menu d-flex flex-wrap gap-2 align-items-center">
+            <a href="#safety">jwt safety</a>
+            <a href="#security">jwt security</a>
+            <button class="main-btn btn btn-info btn-sm fw-bold" data-modal="dreamzone-modal">Dream Zone</button>
+            <a href="#team">About</a>
+            <a href="#vision">Vision</a>
+            <a href="#mission">Mission</a>
+            <a href="#contact-us">Contact</a>
+            <button class="main-btn btn btn-outline-success btn-sm fw-bold" data-modal="kyc-light-modal">KYC Light</button>
+            <button class="main-btn btn btn-success btn-sm fw-bold" data-modal="kyc-strong-modal">KYC Strong</button>
+            <button class="main-btn btn btn-warning btn-sm fw-bold" data-modal="access-modal">Access</button>
+            <a href="/com/cart/" class="cart-link">🛒 Cart <span id="cart-count">0</span></a>
+          </nav>
         </div>
-        <ul>
-            <li><a href="#">JWT-Core JWT brand
+      </div>
+    </div>
 
-                </a></li>
-            <li><a href="#">PCRR-Piano Commerciale di Ripresa e Resilienza
+    <div class="secondary-menu">
+      <a href="https://www.pcrr-jwt.eu/comm/nft" class="menu-btn">PCRR NFT</a>
+      <a href="#" class="menu-btn">NFT/NFW</a>
+      <a href="https://www.expotv1.com/ESCP_GUPC_Start_02_Offer.pdf" class="menu-btn">GUPC RE/lab</a>
+      <a href="https://www.expotv1.com/190530_ESCP_BU_Fragilita_BP.pdf" class="menu-btn">GUPC Housing Care</a>
+      <a href="https://www.expotv1.com/JWT_project.pdf" class="menu-btn">Master Plan</a>
+      <a href="https://www.expotv1.com/ESCP_HR.pdf" class="menu-btn">HR Leader</a>
+      <a href="https://www.expotv1.eu/comm/" class="menu-btn">HR Blog Chat</a>
+    </div>
 
-                </a></li>
-            <li><a href="#">COMM- Common Services & ExpoTV1 Media Hub
+    <aside class="vertical-sidebar">
+      <h2>JWT Menu</h2>
+      <a href="#home" class="sidebar-card">Home</a>
+      <a href="#safety" class="sidebar-card">Safety</a>
+      <a href="#security" class="sidebar-card">Security</a>
+      <a href="#dreamzone" class="sidebar-card">Dream.ZONE</a>
+      <a href="#team" class="sidebar-card">Team</a>
+      <a href="#vision" class="sidebar-card">Vision</a>
+      <a href="#mission" class="sidebar-card">Mission</a>
+      <a href="#contact-us" class="sidebar-card">Contact</a>
+    </aside>
 
-                </a></li>
-            <li><a href="#">ITEG- Integrated Turbine Energy Generator
-
-                </a></li>
-            <li><a href="#">MBGC-Mini BioGas Cogeneration
-
-                </a></li>
-            <li><a href="#">PBRC-PhotoBioReactor Culture
-
-                </a></li>
-            <li><a href="#">SIDR-Sport & Agro Innovation
-
-                </a></li>
-            <li><a href="#">SDGC-Sea & Desert Green Conversion
-
-                </a></li>
-            <li><a href="#">GSMF-Gas Separation Membrane Filtration
-
-                </a></li>
-            <li><a href="#">GFSS- Integrated Turbine Energy Generator
-
-                </a></li>
-        </ul>
-    </nav>
-
-    <!-- Overlay -->
-    <div id="menu-overlay" class="menu-overlay"></div>
-    <!--the tittle -->
     <main>
-        <div class="my-5">
-            <h1 class="text-center">
-                <span class="text-warning">J</span><span class="text-primary">W</span><span
-                    class="text-success">T</span> – Joules Water Team
-            </h1>
-            <h3 class="text-center">
-                <span class="text-success">GREEN</span> Industrial Rights for Your Land – EU, BRICS & World
-            </h3>
+      <section class="hero-section" id="hero" style="background-image: linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.2)), url('https://www.jwt-jwt.it/wp-content/uploads/2022/07/Pcrr-image.jpg');">
+        <div class="hero-content">
+          <p style="text-transform: uppercase; letter-spacing: 0.28em; color: #fef3c7; font-size: 0.78rem; font-weight: 800;">Joules • Water • Team</p>
+          <h1>JWT | Joules Water Team</h1>
+          <p>Innovating water, energy and circular economy for a sustainable future.</p>
+          <nav class="jwt-subnav">
+            <a href="#home">Home</a>
+            <a href="#safety">Safety</a>
+            <a href="#security">Security</a>
+            <a href="#dreamzone">Dream.ZONE</a>
+            <a href="#team">Team</a>
+            <a href="#vision">Vision</a>
+            <a href="#mission">Mission</a>
+            <a href="#contact-us">Contact</a>
+          </nav>
+          <div class="jwt-hero-pills">
+            <span class="jwt-pill">Joules • Water • Team</span>
+            <span class="jwt-pill">6 patent families</span>
+            <span class="jwt-pill">16+ specialists</span>
+            <span class="jwt-pill">EU Green Deal</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-content" id="sectionContent">
+        <div id="home" class="pcrr-section">
+          <span class="label">Overview</span>
+          <h2>Joules, Water and renewable primary resources</h2>
+          <p class="intro">JWT is the operating company behind a set of industrial green patents designed to bring energy, water and food autonomy to local communities. The model is distributed, pervasive and aligned with the ecological transition goals of the EU.</p>
+          <div class="jwt-card-grid">
+            <div class="jwt-card">
+              <h3>Energy</h3>
+              <p>Distributed energy solutions for local production, efficiency and resilience.</p>
+            </div>
+            <div class="jwt-card">
+              <h3>Water</h3>
+              <p>Desalination, treatment and integrated water management for sustainable territories.</p>
+            </div>
+            <div class="jwt-card">
+              <h3>Circular Economy</h3>
+              <p>Turning waste, biomass and local resources into value with compact industrial systems.</p>
+            </div>
+          </div>
         </div>
 
-        <!-- ====================== JWT MAIN CONTENT (Full-Screen Blocks) ====================== -->
-        <div class="jwt-main-content">
-
-            <!-- HERO - Full Width -->
-            <section class="hero">
-                <div class="hero-inner">
-                    <h1>Own GREEN RIGHTS in Joules, Water and Renewables</h1>
-                    <p>License • Invest • Trade • NFT/NFW • For every land of 1,000,000+ inhabitants in EU, BRICS and
-                        the World.<br>
-                        From 100% fossil dependence to ZERO — powered by 342 industrial patents, PNRR Mission 2 and
-                        blockchain-secured contracts.</p>
-                    <div class="d-flex flex-wrap gap-2 justify-content-center">
-                        <a href="/comm/" class="cta-btn">Select Your Dream.ZONE</a>
-                        <a href="/comm/cart" class="cta-btn">Open Cart</a>
-                        <a href="/iphome/" class="cta-btn">IP Home</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="generate-zone-panel">
-                <div class="section-header">
-                    <h2>Presentation Space / Generate Zone</h2>
-                    <p>Use the shared JWT flow to move from discovery to access, KYC and commercial execution.</p>
-                </div>
-                <div class="button-group">
-                    <a href="/comm/" class="main-btn">Generate Zone</a>
-                    <a href="/comm/cart" class="main-btn strong">Open Cart</a>
-                    <a href="/jwt/" class="main-btn">Access / Login</a>
-                </div>
-            </section>
-
-            <!-- VERTICAL PRESENTATION SPACE - Full Width Blocks -->
-            <div class="presentation-space">
-
-                <!-- Block 1 -->
-                <div class="block">
-                    <div class="block-image">
-                        <img src="ERI banner image 1.jpg" alt="Joules Water Team">
-                    </div>
-                    <div class="block-content">
-                        <h2>JWT – Joules Water Team</h2>
-                        <p>JWT is dedicated to Research, Development and Innovation in joules, water and primary
-                            renewable resources. We protect the planet while creating inclusive economic opportunities
-                            through green industrial property rights for current and future generations.</p>
-                        <div class="block-buttons">
-                            <a href="#" class="btn btn-more">More About JWT</a>
-                            <a href="#" class="btn btn-back">Go Back to Menu</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Block 2 -->
-                <div class="block">
-                    <div class="block-image">
-                        <img src="varios-2-57-1-1292x1536.png" alt="Our Vision">
-                    </div>
-                    <div class="block-content">
-                        <h2>Our Vision</h2>
-                        <p>A world where current and future generations enjoy environmental health and safety. We use
-                            available technologies to supply energy and water without causing irreversible damage to the
-                            planet, fully aligned with UN SDGs, ESG metrics and the European Green Deal.</p>
-                        <div class="block-buttons">
-                            <a href="#" class="btn btn-more">Read Full Vision</a>
-                            <a href="#" class="btn btn-back">Go Back</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Block 3 -->
-                <div class="block">
-                    <div class="block-image">
-                        <img src="patent-pooling-and-diffusion.png" alt="Our Mission">
-                    </div>
-                    <div class="block-content">
-                        <h2>Our Mission</h2>
-                        <p>Promote the diffusion and exploitation of patented GREEN technologies for efficient, low-cost
-                            energy and water supply while respecting the environment. Support ecological transition
-                            under PNRR’s six missions with near-zero-cost solutions for micro and small enterprises
-                            across EU, BRICS and the World.</p>
-                        <div class="block-buttons">
-                            <a href="#" class="btn btn-more">Read Full Mission</a>
-                            <a href="#" class="btn btn-back">Go Back</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Block 4 -->
-                <div class="block">
-                    <div class="block-image">
-                        <img src="pexels-pixmike-413195.jpg" alt="GREEN Rights">
-                    </div>
-                    <div class="block-content">
-                        <h2>GREEN Rights for the World 2026</h2>
-                        <p>342 industrial patents ready for digital sale via NFT/NFW and DeFi integration. Exclusive
-                            rights per zone (1M+ inhabitants). Sale, license, rent/lease-back and JV opportunities with
-                            3% DOA fee for brokers, agents and traders. Targets: brokers, traders, agents, investors,
-                            patrons and green operators.</p>
-                        <div class="block-buttons">
-                            <a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" target="_blank"
-                                class="btn btn-more">Explore GREEN Rights</a>
-                            <a href="#" class="btn btn-back">Go Back</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Block 5 – Commercial Proposals -->
-                <div class="block">
-                    <div class="block-image">
-                        <img src="cub-energy-renewable-water-unit.jpg" alt="Commercial Proposals">
-                    </div>
-                    <div class="block-content">
-                        <h2>Commercial Proposals (KYC-gated)</h2>
-                        <p>After successful KYC Light or Strong + Dream.ZONE selection:<br>
-                            • 3% DOA fee for brokers, agents and traders<br>
-                            • Sale &amp; rent/lease-back opportunities for 33+ EU sites and global zones<br>
-                            • 0.5 B€ strategic investment options<br>
-                            • Cost-ZERO consultation and plants via Industry 4.0 and PNRR incentives</p>
-                        <div class="block-buttons">
-                            <a href="/comm/cart" class="btn btn-more">Add Rights to Shopping Cart</a>
-                            <a href="#" class="btn btn-back">Go Back</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Block 6 – Core Patents -->
-                <div class="block">
-                    <div class="block-image">
-                        <img src="ydwsrwtqwfCre2v6KPpJcn-650-80.jpg.webp" alt="Core Patents">
-                    </div>
-                    <div class="block-content">
-                        <h2>Our Core Patents</h2>
-                        <p>ITEG – Integrated Turbine Energy Generator (Rotor)<br>
-                            MBGC – Mini BioGas Cogeneration<br>
-                            PBRC – PhotoBioReactor Culture (Micro Algae)<br>
-                            SIDR – Sport &amp; Agro Innovation<br>
-                            SDGC – Sea &amp; Desert Green Conversion (Desalination)<br>
-                            GSMF – Gas Separation Membrane Filtration<br>
-                            GFSS – ElectroMagnetic Gravity Separation</p>
-                        <div class="block-buttons">
-                            <a href="#ip" class="btn btn-more">Explore All Patents &amp; Dream.ZONE</a>
-                            <a href="#" class="btn btn-back">Go Back</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Block 7 -->
-                <div class="block">
-                    <div class="block-image">
-                        <img src="hero_why-partner-with-us.jpg.webp" alt="Why Partner With Us">
-                    </div>
-                    <div class="block-content">
-                        <h2>Why Partner With JWT</h2>
-                        <p>Zero-cost model for local operators • Voluntary telematic NFT auctions • Full IT&amp;C,
-                            EnergyBean training and marketing support via ExpoTV1 • Blockchain-secured unique contracts
-                            (Solidity/ERC721 ready) • Agents and brokers recruitment open worldwide.</p>
-                        <div class="block-buttons">
-                            <a href="#" class="btn btn-more">Become a Partner or Agent</a>
-                            <a href="#" class="btn btn-back">Go Back to Menu</a>
-                        </div>
-                        <div>
-                            <p id="kyc-1"></p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!--section on kyc -->
-        <section class="kyc-access-section">
-
-            <div class="section-header">
-                <h2>Verification & Access</h2>
-                <p>Choose the level that best suits your interest in GREEN Rights</p>
-            </div>
-
-            <!-- Trigger Buttons -->
-            <div class="button-group">
-                <button class="main-btn" data-modal="kyc-light-modal">KYC Light</button>
-                <button class="main-btn strong" data-modal="kyc-strong-modal">KYC Strong</button>
-                <button class="main-btn" data-modal="access-modal">Access Request</button>
-            </div>
-
-        </section>
-
-        <!-- ====================== POP-UP MODALS ====================== -->
-
-        <!-- KYC Light Modal -->
-        <div id="kyc-light-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h3>KYC Light</h3>
-                <form id="kyc-light-form" action="https://xxxx-jwt.eu/comm/kyc-l" method="POST">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="tel" name="phone" placeholder="Phone Number (optional)">
-                    <textarea name="message" rows="3"
-                        placeholder="Briefly describe your interest (Broker, Investor, Agent...)"></textarea>
-                    <button type="submit" class="submit-btn">Submit KYC Light</button>
-                </form>
-                <div class="modal-explain">
-                    Quick verification for basic access to information and Dream.ZONE selector.
-                </div>
-            </div>
+        <div id="safety" class="pcrr-section">
+          <span class="label">Safety</span>
+          <h2>JWT Safety</h2>
+          <p class="intro">JWT adopts a culture of prevention inspired by AIAS, the Italian association founded in 1975, to spread safety and health in all working and living environments. The approach combines occupational health, environmental protection, risk management and sustainability across all our technologies and projects.</p>
+          <p class="intro">We support integrated safety, training, and continuous improvement so that every project is designed and delivered with traceable protection standards and a strong commitment to human wellbeing.</p>
+          <div class="jwt-link-row">
+            <a href="https://www.aias-sicurezza.it/presentazione-aias/" target="_blank" rel="noreferrer">Read AIAS presentation →</a>
+          </div>
         </div>
 
-        <!-- KYC Strong Modal -->
-        <div id="kyc-strong-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h3>KYC Strong</h3>
-                <form id="kyc-strong-form" action="https://xxxx-jwt.eu/comm/kyc-s" method="POST">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                    <input type="text" name="company" placeholder="Company / Entity">
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
-                    <textarea name="message" rows="4" placeholder="Describe your role and intended use of GREEN Rights"
-                        required></textarea>
-                    <button type="submit" class="submit-btn strong">Submit KYC Strong</button>
-                </form>
-                <div class="modal-explain">
-                    Enhanced verification required for commercial proposals, exclusive rights and NFT purchases.
-                </div>
-            </div>
+        <div id="security" class="pcrr-section">
+          <span class="label">Security</span>
+          <h2>JWT Security</h2>
+          <p class="intro">Security at JWT covers privacy, data protection, cybersecurity and the safeguard of intellectual property. We work with the principles of GDPR, DPIA, and secure smart-working practices to protect data, stakeholders and digital infrastructure.</p>
+          <p class="intro">We also apply a governance approach for sensitive information, contractual compliance and secure collaboration with partners, authorities and industrial clients.</p>
+          <div class="jwt-link-row">
+            <a href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/" target="_blank" rel="noreferrer">Discover privacy & cybersecurity →</a>
+          </div>
         </div>
 
-        <!-- Access Request Modal -->
-        <div id="access-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn">&times;</span>
-                <h3>Access Request</h3>
-                <form id="access-form" action="https://xxxx-jwt.eu/comm/access" method="POST">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="email" name="email" placeholder="Email Address" required>
-
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="functions[]" value="Dream.ZONE"> Dream.ZONE</label>
-                        <label><input type="checkbox" name="functions[]" value="Sell.Function"> Sell
-                            Cart</label>
-                        <label><input type="checkbox" name="functions[]" value="Blog/Chat"> Blog / Chat</label>
-                    </div>
-
-                    <textarea name="message" rows="3" placeholder="Additional notes..."></textarea>
-                    <button type="submit" class="submit-btn">Request Access</button>
-                </form>
-                <div class="modal-explain">
-                    Select the tools you need. After validation you will receive login credentials.
-                </div>
-            </div>
+        <div id="dreamzone" class="jwt-callout">
+          <span class="label">Dream.ZONE</span>
+          <h3>Co-create the next green project</h3>
+          <p>Dream.ZONE is the open collaboration layer for communities, SMEs and innovation partners that want to explore water, energy, circular economy and territorial regeneration projects together.</p>
+          <div class="jwt-link-row">
+            <a href="https://pcrr-jwt.eu/comm/dream.zone/" target="_blank" rel="noreferrer">Visit Dream.ZONE →</a>
+            <a href="/com/cart/">Open cart →</a>
+          </div>
         </div>
+
+        <div id="team" class="pcrr-section">
+          <span class="label">Team</span>
+          <h2>About the team</h2>
+          <p class="intro">JWT is a multidisciplinary group of professionals who combine research, engineering, industrial design, environmental science and operations. The team is focused on turning innovation into useful systems for communities and industrial users.</p>
+          <p class="intro">The core team includes Vito Lavanga, Simona Ramponi, Rita Ferro, Alessandra Trinca, Stefano Farnè, Paolo Broglio and other specialists supporting research, implementation and stakeholder engagement.</p>
+          <div class="jwt-link-row">
+            <a href="https://www.jwt-jwt.it/team/" target="_blank" rel="noreferrer">View full team profile →</a>
+          </div>
+        </div>
+
+        <div class="jwt-card-grid">
+          <div class="jwt-card">
+            <h3>Applied innovation</h3>
+            <p>Energy systems, microalgae, biogas, desalination and water management are developed with pilot-ready engineering and industrial validation.</p>
+          </div>
+          <div class="jwt-card">
+            <h3>Territorial deployment</h3>
+            <p>The business model supports local autonomy, SMEs, public initiatives and industrial circularity in a distributed format.</p>
+          </div>
+          <div class="jwt-card">
+            <h3>From patents to impact</h3>
+            <p>Each patent is designed to reduce dependency on fossil inputs, improve water resilience and create circular uses of biomass, waste and local resources.</p>
+          </div>
+        </div>
+
+        <div class="pcrr-section" id="vision">
+          <span class="label">Vision</span>
+          <h2>Health, safety and inclusivity</h2>
+          <p class="intro">JWT’s vision is to employ the technologies available today to guarantee energy, water and every essential resource, without compromising the nature and health of the planet.</p>
+          <p class="intro">The mission is to leave future generations a safer, healthier and more inclusive environment while enabling a new model of local autonomy and sustainability.</p>
+        </div>
+
+        <div class="pcrr-section" id="mission">
+          <span class="label">Mission</span>
+          <h2>Respect, security and economic value</h2>
+          <p class="intro">JWT promotes the use, diffusion and exploitation of its patents to respond to the demand for energy, water and other resources with maximum efficiency and respect for the environment.</p>
+          <p class="intro">The company builds social and economic resilience through sustainable innovation, territorial partnerships and high-value industrial solutions that can be adopted by SMEs and local communities.</p>
+        </div>
+      </div>
+
+      <footer class="site-footer" id="contact-us">
+        <div class="footer-grid">
+          <div>
+            <h4>PCRR JWTeam Srls</h4>
+            <p>
+              <strong>Joules Water Team</strong><br />
+              Research, Development & Innovation in Joules, Water and Primary Renewable Resources
+            </p>
+            <p>Sede Legale: Via Terrazzano 85<br />20017 Rho (MI), Italy</p>
+            <p>C.F. e P.I. 12092970966 | Cap.Soc. € 200</p>
+          </div>
+          <div>
+            <h4>Legal & Contact</h4>
+            <p>PEC: <a href="mailto:pcrrjwt@pec.it">pcrrjwt@pec.it</a></p>
+            <p>Info: <a href="mailto:info@jwt-jwt.eu">info@jwt-jwt.eu</a></p>
+            <p>Commercial: <a href="mailto:comm@pcrr-jwt.it">comm@pcrr-jwt.it</a></p>
+            <p>IBAN: IT73H0306909412100000002247<br />BIC: BCITITMM</p>
+          </div>
+          <div>
+            <h4>Quick Access</h4>
+            <p><a href="https://jwt-jwt.eu/">JWT Home</a></p>
+            <p><a href="https://www.jwt-jwt.it/vision/">Vision</a></p>
+            <p><a href="https://www.jwt-jwt.it/mission/">Mission</a></p>
+            <p><a href="https://www.jwt-jwt.it/team/">Team</a></p>
+          </div>
+          <div>
+            <h4>From 100% fossil to ZERO</h4>
+            <p>GREEN Industrial Rights • NFT/NFW • Ecological Transition</p>
+            <p>by Ananya</p>
+            <p><a href="/com/cart/">Open Shopping Cart</a></p>
+          </div>
+        </div>
+        <div class="copy">© 2026 All Rights Reserved</div>
+      </footer>
     </main>
-    <footer
-        style="background: linear-gradient(135deg, #006400 0%, #0A3D2A 100%); color: #FFFFFF; padding: 60px 20px 30px; font-family: 'Segoe UI', Arial, sans-serif; border-top: 4px solid #FF6200;">
-        <div
-            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between;">
 
-            <!-- Column 1: Company Info -->
-            <div style="flex: 1; min-width: 280px;">
-                <h3 style="color: #FF6200; margin-bottom: 15px; font-size: 1.4em;">PCRR JWTeam Srls</h3>
-                <p style="margin: 8px 0; line-height: 1.6; font-size: 0.95em;">
-                    Joules Water Team<br>
-                    Research, Development & Innovation in Joules, Water and Primary Renewable Resources
-                </p>
-                <p style="margin: 15px 0 8px; font-size: 0.9em;">
-                    Sede Legale: Via Terrazzano 85<br>
-                    20017 Rho (MI), Italy
-                </p>
-                <p style="margin: 5px 0; font-size: 0.9em;">
-                    C.F. e P.I. 12092970966 | Cap.Soc. € 200
-                </p>
-            </div>
+    <div class="modal-overlay modal" id="dreamzone-modal">
+      <div class="modal-box">
+        <button class="close-btn" type="button">&times;</button>
+        <h3>Dream Zone</h3>
+        <p>Share your idea or project. Our team will reach out to discuss collaboration opportunities.</p>
+        <form>
+          <label>Full Name</label>
+          <input type="text" required />
+          <label>Email</label>
+          <input type="email" required />
+          <label>Your Dream / Project</label>
+          <textarea rows="4" required></textarea>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
 
-            <!-- Column 2: Legal & Banking -->
-            <div style="flex: 1; min-width: 280px;">
-                <h4 style="color: #FF6200; margin-bottom: 15px;">Legal & Contact</h4>
-                <p style="margin: 8px 0; font-size: 0.92em;">
-                    PEC: <a href="mailto:pcrrjwt@pec.it"
-                        style="color: #FFCC80; text-decoration: none;">pcrrjwt@pec.it</a><br>
-                    Info: <a href="mailto:info@jwt-jwt.eu"
-                        style="color: #FFCC80; text-decoration: none;">info@jwt-jwt.eu</a><br>
-                    Commercial: <a href="mailto:comm@pcrr-jwt.it"
-                        style="color: #FFCC80; text-decoration: none;">comm@pcrr-jwt.it</a>
-                </p>
-                <p style="margin: 15px 0 8px; font-size: 0.9em;">
-                    IBAN: IT73H0306909412100000002247<br>
-                    BIC: BCITITMM
-                </p>
-            </div>
+    <div class="modal-overlay modal" id="kyc-light-modal">
+      <div class="modal-box">
+        <button class="close-btn" type="button">&times;</button>
+        <h3>KYC Light</h3>
+        <p>Quick identity registration. Basic verification only.</p>
+        <form>
+          <label>Full Name</label>
+          <input type="text" required />
+          <label>Email</label>
+          <input type="email" required />
+          <label>Country</label>
+          <input type="text" required />
+          <button type="submit" class="submit-btn">Submit KYC Light</button>
+        </form>
+      </div>
+    </div>
 
-            <!-- Column 3: Quick Links -->
-            <div style="flex: 1; min-width: 280px;">
-                <h4 style="color: #FF6200; margin-bottom: 15px;">Quick Access</h4>
-                <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.92em; line-height: 2;">
-                    <li><a href="/jwt" style="color: #FFFFFF; text-decoration: none;">JWT Home</a></li>
-                    <li><a href="/pcrr" style="color: #FFFFFF; text-decoration: none;">PCRR Commercial Plan</a></li>
-                    <li><a href="/comm" style="color: #FFFFFF; text-decoration: none;">Common Services</a></li>
-                    <li><a href="#ip" style="color: #FFFFFF; text-decoration: none;">Intellectual Property</a></li>
-                    <li><a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" target="_blank"
-                            style="color: #FFCC80; text-decoration: none;">GREEN Rights for the World</a></li>
-                </ul>
-            </div>
+    <div class="modal-overlay modal" id="kyc-strong-modal">
+      <div class="modal-box">
+        <button class="close-btn" type="button">&times;</button>
+        <h3>KYC Strong</h3>
+        <p>Full identity verification with document upload.</p>
+        <form>
+          <label>Full Name</label>
+          <input type="text" required />
+          <label>Email</label>
+          <input type="email" required />
+          <label>Tax ID / Fiscal Code</label>
+          <input type="text" required />
+          <label>Country</label>
+          <input type="text" required />
+          <label>ID Document</label>
+          <input type="file" accept="image/*,.pdf" required />
+          <button type="submit" class="submit-btn">Submit KYC Strong</button>
+        </form>
+      </div>
+    </div>
 
-            <!-- Column 4: GREEN Message + Copyright -->
-            <div style="flex: 1; min-width: 280px; text-align: center;">
-                <p style="font-size: 1.1em; margin-bottom: 20px; color: #A8E6A1;">
-                    From 100% fossil to ZERO.<br>
-                    GREEN Industrial Rights • NFT/NFW • Ecological Transition
-                </p>
-
-                <div style="margin: 25px 0;">
-                    <a href="/comm/cart"
-                        style="background: #FF6200; color: #FFFFFF; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: bold; display: inline-block;">
-                        Open Shopping Cart
-                    </a>
-                </div>
-
-                <p style="font-size: 0.85em; opacity: 0.85; margin-top: 30px;">
-                    © 2026 PCRR JWTeam Srls – All Rights Reserved<br>
-                    Qualified visitors receive reply within 48 hours
-                </p>
-            </div>
-
-        </div>
-
-        <!-- Bottom Bar -->
-        <div
-            style="border-top: 1px solid #113311; margin-top: 50px; padding-top: 20px; text-align: center; font-size: 0.8em; opacity: 0.75;">
-            Site built with Hostinger WordPress • Aligned with UN SDGs, ESG & PNRR Mission 2
-        </div>
-    </footer>
+    <div class="modal-overlay modal" id="access-modal">
+      <div class="modal-box">
+        <button class="close-btn" type="button">&times;</button>
+        <h3>Access</h3>
+        <p>Sign in to your EUWEB GREEN account.</p>
+        <form>
+          <label>Email</label>
+          <input type="email" required />
+          <label>Password</label>
+          <input type="password" required />
+          <button type="submit" class="submit-btn">Sign In</button>
+        </form>
+      </div>
+    </div>
 
     <script>
-        // Rotating banner pause on hover
-        const track = document.querySelector('.scroll-track');
-        if (track) {
-            track.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
-            track.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
-        }
-
-        // Side Menu Controls
-        const hamburger = document.getElementById('hamburger');
-        const sideMenu = document.getElementById('side-menu');
-        const overlay = document.getElementById('menu-overlay');
-        const closeBtn = document.querySelector('.close-btn');
-        const hamburgerContainer = document.getElementById('hamburger-container');
-        const siteHeader = document.querySelector('.site-header');
-
-        function openMenu() {
-            sideMenu.classList.add('active');
-            overlay.classList.add('active');
-            document.body.classList.add('menu-open');
-            hamburger.classList.add('active');
-        }
-
-        function closeMenu() {
-            sideMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            hamburger.classList.remove('active');
-        }
-
-        hamburger.addEventListener('click', openMenu);
-        overlay.addEventListener('click', closeMenu);
-        if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-
-        sideMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMenu);
+      document.querySelectorAll('.main-btn').forEach((btn) => {
+        btn.addEventListener('click', function () {
+          const modal = document.getElementById(this.getAttribute('data-modal'));
+          if (modal) modal.style.display = 'flex';
         });
+      });
 
-        // Dynamic Hamburger Position (only change made)
-        function updateHamburgerPosition() {
-            const bannerHeight = document.getElementById('pcrr-submenu').offsetHeight;
-            const headerHeight = siteHeader.offsetHeight;
-            hamburgerContainer.style.top = `${bannerHeight + headerHeight + 8}px`;
-        }
-
-        window.addEventListener('load', updateHamburgerPosition);
-        window.addEventListener('resize', updateHamburgerPosition);
-        // Open modal
-        document.querySelectorAll('.main-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const modalId = this.getAttribute('data-modal');
-                document.getElementById(modalId).style.display = 'flex';
-            });
+      document.querySelectorAll('.close-btn').forEach((close) => {
+        close.addEventListener('click', function () {
+          this.closest('.modal').style.display = 'none';
         });
+      });
 
-        // Close modal
-        document.querySelectorAll('.close-btn').forEach(close => {
-            close.addEventListener('click', function () {
-                this.closest('.modal').style.display = 'none';
-            });
+      document.querySelectorAll('.modal').forEach((modal) => {
+        modal.addEventListener('click', function (e) {
+          if (e.target === modal) modal.style.display = 'none';
         });
+      });
 
-        // Close modal when clicking outside content
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', function (e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
+      document.querySelectorAll('.modal form').forEach((form) => {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          this.closest('.modal').style.display = 'none';
         });
-
-        // Form submission simulation
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('Thank you! Your request has been received.\nWe will contact you shortly.');
-                form.reset();
-                this.closest('.modal').style.display = 'none';
-            });
-        });
+      });
     </script>
-</body>
-
+  </body>
 </html>
