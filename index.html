@@ -1,1323 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EUWEB GREEN</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="faviconservices--32x32.png" type="image/x-icon" sizes="32x32">
-
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<body>
-    <header class="site-header bg-warning">
-        <div class="logo-container">
-            <a href="https://jwt-jwt.eu/"><img src="images/faviconservices--32x32.png" alt="EUWEB GREEN Logo"
-                    height="30">-</a>
-            <span class="logo text-success">EUWEB GREEN</span>
-        </div>
-        <nav class="menu">
-            <a href="#">overview</a>
-            <a href="#about-us">About</a>
-            <a href="#services-offer">Services</a>
-            <a href="#contact-us">Contact</a>
-
-        </nav>
-    </header>
-
-
-    <!-- JWT Top Menu -->
-    <nav id="jwt-top-menu" class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid px-3 px-lg-4">
-            <a class="navbar-brand fw-bold text-warning" href="#">EUWEB GREEN</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#jwtNav"
-                aria-controls="jwtNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="jwtNav">
-                <ul class="navbar-nav flex-row flex-wrap gap-2 gap-lg-3">
-                    <li class="nav-item"><a href="https://jwt-jwt.eu/"><img src="images/faviconservices--32x32.png"
-                                alt="EUWEB GREEN Logo" height="30">-</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="https://www.aias-sicurezza.it/presentazione-aias/">Safety</a></li>
-                    <li class="nav-item"><a class="nav-link"
-                            href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/"
-                            target="_blank">Security</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal"
-                            data-bs-target="#dreamModal">Dream.ZONE</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about-us">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://www.jwt-jwt.it/vision/">Vision</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">KYC</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Access</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- PCRR Sub Menu -->
-    <nav id="pcrr-submenu" class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid px-3 px-lg-4">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#pcrrNav"
-                aria-controls="pcrrNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="pcrrNav">
-                <ul class="navbar-nav flex-row flex-wrap gap-3">
-                    <li class="nav-item"><a class="nav-link" href="#">PCRR</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">NFT / NFW</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">GUPC RE/Lab</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">HousingCare</a></li>
-                    <li class="nav-item"><a class="nav-link" href="JWT_project.pdf" target="_blank">Master Plan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="ESCP_HR.pdf" target="_blank">HR Leader</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <section class="container my-4">
-        <div class="row g-4 align-items-stretch">
-            <div class="col-lg-7">
-                <div class="p-4 rounded-4 shadow-sm border" style="background: linear-gradient(135deg, #f8fff7, #eef9ef);">
-                    <p class="text-success fw-bold mb-2">Dream.ZONE Dispatcher</p>
-                    <h2 class="h4 mb-3">Randomly route visitors to a target page</h2>
-                    <p class="mb-3">Update the 20 target URLs below, save them, and launch a random redirect to any
-                        JWT zone, service, or commercial page.</p>
-                    <div class="d-flex flex-wrap gap-2 mb-3">
-                        <button id="save-dispatcher" class="btn btn-success text-warning">Save Targets</button>
-                        <button id="run-dispatcher" class="btn btn-outline-success">Run Random Dispatcher</button>
-                    </div>
-                    <div id="dispatcher-status" class="small text-muted mb-3">Loaded 20 default targets.</div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="p-4 rounded-4 border bg-white shadow-sm">
-                    <p class="fw-bold mb-3">Target list</p>
-                    <div class="dispatcher-grid">
-                        <input data-dispatch-target="1" type="url" value="/jwt/" placeholder="/jwt/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="2" type="url" value="/pcrr/" placeholder="/pcrr/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="3" type="url" value="/com/" placeholder="/com/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="4" type="url" value="/comm/" placeholder="/comm/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="5" type="url" value="/sdgc/" placeholder="/sdgc/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="6" type="url" value="/pbrc/" placeholder="/pbrc/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="7" type="url" value="/sidr/" placeholder="/sidr/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="8" type="url" value="/gsmf/" placeholder="/gsmf/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="9" type="url" value="/iteg/" placeholder="/iteg/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="10" type="url" value="/mbgc/" placeholder="/mbgc/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="11" type="url" value="/gfss/" placeholder="/gfss/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="12" type="url" value="https://www.jwt-jwt.eu/" placeholder="https://www.jwt-jwt.eu/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="13" type="url" value="https://www.aias-sicurezza.it/presentazione-aias/" placeholder="https://www.aias-sicurezza.it/presentazione-aias/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="14" type="url" value="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/" placeholder="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="15" type="url" value="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" placeholder="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="16" type="url" value="/comm/cart" placeholder="/comm/cart" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="17" type="url" value="/com/products/index.html" placeholder="/com/products/index.html" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="18" type="url" value="https://www.jwt-jwt.it/vision/" placeholder="https://www.jwt-jwt.it/vision/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="19" type="url" value="/iphome/" placeholder="/iphome/" class="form-control form-control-sm mb-2">
-                        <input data-dispatch-target="20" type="url" value="https://www.jwt-jwt.it/team/" placeholder="https://www.jwt-jwt.it/team/" class="form-control form-control-sm">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <aside id="sidebar-container" class="accordion accordion-flush pt-5">
-
-        <!-- Intellectual Property – with all nested headers -->
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#ipCollapse"
-                    aria-expanded="true" aria-controls="ipCollapse">
-                    Intellectual Property
-                </button>
-            </h2>
-            <div id="ipCollapse" class="accordion-collapse collapse show">
-                <div class="accordion-body p-0">
-                    <ul class="list-unstyled px-3 py-2 vert-menu">
-
-                        <!-- JWT-JWT -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionJWT">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseJWT"
-                                            aria-expanded="false" aria-controls="collapseJWT">
-                                            JWT-JWT – GG(C) – BP
-                                        </button>
-                                    </h2>
-                                    <div id="collapseJWT" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionJWT">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.jwt-jwt.eu" target="_blank">www.jwt-jwt.eu</a>
-                                                </li>
-                                                <li><a href="/jwt/" target="_blank">www.jwt-jwt.eu/jwt</a></li>
-                                                <li><a href="https://www.jwt-jwt.eu/comm"
-                                                        target="_blank">www.jwt-jwt.eu/comm</a></li>
-                                                <li><a href="https://www.jwt-jwt.eu/pcrr"
-                                                        target="_blank">www.jwt-jwt.eu/pcrr</a></li>
-                                                <li><a href="https://www.jwt-jwt.eu/iteg"
-                                                        target="_blank">www.jwt-jwt.eu/iteg</a></li>
-                                                <li><a href="https://www.jwt-jwt.eu/mbgc"
-                                                        target="_blank">www.jwt-jwt.eu/mbgc</a></li>
-                                                <li><a href="https://www.jwt-jwt.eu/pbrc"
-                                                        target="_blank">www.jwt-jwt.eu/pbrc</a></li>
-                                                <li><a href="https://www.jwt-jwt.eu/sidr"
-                                                        target="_blank">www.jwt-jwt.eu/sidr</a></li>
-                                                <li><a href="https://www.jwt-jwt.eu/sdgc"
-                                                        target="_blank">www.jwt-jwt.eu/sdgc</a></li>
-                                                <li><a href="https://www.jwt-jwt.eu/gsmf"
-                                                        target="_blank">www.jwt-jwt.eu/gsmf</a></li>
-                                                <li><a href="https://www.jwt-jwt.eu/gfss"
-                                                        target="_blank">www.jwt-jwt.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- EXPOTV1 -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionEXPOTV1">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseEXPOTV1"
-                                            aria-expanded="false" aria-controls="collapseEXPOTV1">
-                                            EXPOTV1 – GG(A) – BP
-                                        </button>
-                                    </h2>
-                                    <div id="collapseEXPOTV1" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionEXPOTV1">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.expotv1.eu" target="_blank">www.expotv1.eu</a>
-                                                </li>
-                                                <li><a href="https://www.expotv1.eu/jwt"
-                                                        target="_blank">www.expotv1.eu/jwt</a></li>
-                                                <li><a href="https://www.expotv1.eu/comm"
-                                                        target="_blank">www.expotv1.eu/comm</a></li>
-                                                <li><a href="https://www.expotv1.eu/pcrr"
-                                                        target="_blank">www.expotv1.eu/pcrr</a></li>
-                                                <li><a href="https://www.expotv1.eu/iteg"
-                                                        target="_blank">www.expotv1.eu/iteg</a></li>
-                                                <li><a href="https://www.expotv1.eu/mbgc"
-                                                        target="_blank">www.expotv1.eu/mbgc</a></li>
-                                                <li><a href="https://www.expotv1.eu/pbrc"
-                                                        target="_blank">www.expotv1.eu/pbrc</a></li>
-                                                <li><a href="https://www.expotv1.eu/sidr"
-                                                        target="_blank">www.expotv1.eu/sidr</a></li>
-                                                <li><a href="https://www.expotv1.eu/sdgc"
-                                                        target="_blank">www.expotv1.eu/sdgc</a></li>
-                                                <li><a href="https://www.expotv1.eu/gsmf"
-                                                        target="_blank">www.expotv1.eu/gsmf</a></li>
-                                                <li><a href="https://www.expotv1.eu/gfss"
-                                                        target="_blank">www.expotv1.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- PCRR -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionPCRR">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapsePCRR"
-                                            aria-expanded="false" aria-controls="collapsePCRR">
-                                            PCRR – GG(M) – BP
-                                        </button>
-                                    </h2>
-                                    <div id="collapsePCRR" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionPCRR">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.pcrr-jwt.eu"
-                                                        target="_blank">www.pcrr-jwt.eu</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/jwt"
-                                                        target="_blank">www.pcrr-jwt.eu/jwt</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/comm"
-                                                        target="_blank">www.pcrr-jwt.eu/comm</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/pcrr"
-                                                        target="_blank">www.pcrr-jwt.eu/pcrr</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/iteg"
-                                                        target="_blank">www.pcrr-jwt.eu/iteg</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/mbgc"
-                                                        target="_blank">www.pcrr-jwt.eu/mbgc</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/pbrc"
-                                                        target="_blank">www.pcrr-jwt.eu/pbrc</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/sidr"
-                                                        target="_blank">www.pcrr-jwt.eu/sidr</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/sdgc"
-                                                        target="_blank">www.pcrr-jwt.eu/sdgc</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/gsmf"
-                                                        target="_blank">www.pcrr-jwt.eu/gsmf</a></li>
-                                                <li><a href="https://www.pcrr-jwt.eu/gfss"
-                                                        target="_blank">www.pcrr-jwt.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- ITEG (header first) -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionITEG">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseITEG"
-                                            aria-expanded="false" aria-controls="collapseITEG">
-                                            ITEG
-                                        </button>
-                                    </h2>
-                                    <div id="collapseITEG" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionITEG">
-                                        <div class="accordion-body p-0 bg-it-eg-rotor"> <!-- example unique bg -->
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.iteg-jwt.eu"
-                                                        target="_blank">www.iteg-jwt.eu</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/jwt"
-                                                        target="_blank">www.iteg-jwt.eu/jwt</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/comm"
-                                                        target="_blank">www.iteg-jwt.eu/comm</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/pcrr"
-                                                        target="_blank">www.iteg-jwt.eu/pcrr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/iteg"
-                                                        target="_blank">www.iteg-jwt.eu/iteg</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/mbgc"
-                                                        target="_blank">www.iteg-jwt.eu/mbgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/pbrc"
-                                                        target="_blank">www.iteg-jwt.eu/pbrc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/sidr"
-                                                        target="_blank">www.iteg-jwt.eu/sidr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/sdgc"
-                                                        target="_blank">www.iteg-jwt.eu/sdgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/gsmf"
-                                                        target="_blank">www.iteg-jwt.eu/gsmf</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/gfss"
-                                                        target="_blank">www.iteg-jwt.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- MBGC -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionMBGC">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseMBGC"
-                                            aria-expanded="false" aria-controls="collapseMBGC">
-                                            MBGC
-                                        </button>
-                                    </h2>
-                                    <div id="collapseMBGC" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionMBGC">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.mbgc-jwt.eu"
-                                                        target="_blank">www.mbgc-jwt.eu</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/jwt"
-                                                        target="_blank">www.mbgc-jwt.eu/jwt</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/comm"
-                                                        target="_blank">www.mbgc-jwt.eu/comm</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/pcrr"
-                                                        target="_blank">www.mbgc-jwt.eu/pcrr</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/iteg"
-                                                        target="_blank">www.mbgc-jwt.eu/iteg</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/mbgc"
-                                                        target="_blank">www.mbgc-jwt.eu/mbgc</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/pbrc"
-                                                        target="_blank">www.mbgc-jwt.eu/pbrc</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/sidr"
-                                                        target="_blank">www.mbgc-jwt.eu/sidr</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/sdgc"
-                                                        target="_blank">www.mbgc-jwt.eu/sdgc</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/gsmf"
-                                                        target="_blank">www.mbgc-jwt.eu/gsmf</a></li>
-                                                <li><a href="https://www.mbgc-jwt.eu/gfss"
-                                                        target="_blank">www.mbgc-jwt.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- PBRC -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionPBRC">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapsePBRC"
-                                            aria-expanded="false" aria-controls="collapsePBRC">
-                                            PBRC
-                                        </button>
-                                    </h2>
-                                    <div id="collapsePBRC" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionPBRC">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.pbrc-jwt.eu"
-                                                        target="_blank">www.pbrc-jwt.eu</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/jwt"
-                                                        target="_blank">www.pbrc-jwt.eu/jwt</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/comm"
-                                                        target="_blank">www.pbrc-jwt.eu/comm</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/pcrr"
-                                                        target="_blank">www.pbrc-jwt.eu/pcrr</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/iteg"
-                                                        target="_blank">www.pbrc-jwt.eu/iteg</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/mbgc"
-                                                        target="_blank">www.pbrc-jwt.eu/mbgc</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/pbrc"
-                                                        target="_blank">www.pbrc-jwt.eu/pbrc</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/sidr"
-                                                        target="_blank">www.pbrc-jwt.eu/sidr</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/sdgc"
-                                                        target="_blank">www.pbrc-jwt.eu/sdgc</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/gsmf"
-                                                        target="_blank">www.pbrc-jwt.eu/gsmf</a></li>
-                                                <li><a href="https://www.pbrc-jwt.eu/gfss"
-                                                        target="_blank">www.pbrc-jwt.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- SIDR -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionSIDR">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseSIDR"
-                                            aria-expanded="false" aria-controls="collapseSIDR">
-                                            SIDR
-                                        </button>
-                                    </h2>
-                                    <div id="collapseSIDR" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionSIDR">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.sidr-jwt.eu"
-                                                        target="_blank">www.sidr-jwt.eu</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/jwt"
-                                                        target="_blank">www.sidr-jwt.eu/jwt</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/comm"
-                                                        target="_blank">www.sidr-jwt.eu/comm</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/pcrr"
-                                                        target="_blank">www.sidr-jwt.eu/pcrr</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/iteg"
-                                                        target="_blank">www.sidr-jwt.eu/iteg</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/mbgc"
-                                                        target="_blank">www.sidr-jwt.eu/mbgc</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/pbrc"
-                                                        target="_blank">www.sidr-jwt.eu/pbrc</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/sidr"
-                                                        target="_blank">www.sidr-jwt.eu/sidr</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/sdgc"
-                                                        target="_blank">www.sidr-jwt.eu/sdgc</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/gsmf"
-                                                        target="_blank">www.sidr-jwt.eu/gsmf</a></li>
-                                                <li><a href="https://www.sidr-jwt.eu/gfss"
-                                                        target="_blank">www.sidr-jwt.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- SDGC -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionSDGC">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseSDGC"
-                                            aria-expanded="false" aria-controls="collapseSDGC">
-                                            SDGC
-                                        </button>
-                                    </h2>
-                                    <div id="collapseSDGC" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionSDGC">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.sdgc-jwt.eu"
-                                                        target="_blank">www.sdgc-jwt.eu</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/jwt"
-                                                        target="_blank">www.sdgc-jwt.eu/jwt</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/comm"
-                                                        target="_blank">www.sdgc-jwt.eu/comm</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/pcrr"
-                                                        target="_blank">www.sdgc-jwt.eu/pcrr</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/iteg"
-                                                        target="_blank">www.sdgc-jwt.eu/iteg</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/mbgc"
-                                                        target="_blank">www.sdgc-jwt.eu/mbgc</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/pbrc"
-                                                        target="_blank">www.sdgc-jwt.eu/pbrc</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/sidr"
-                                                        target="_blank">www.sdgc-jwt.eu/sidr</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/sdgc"
-                                                        target="_blank">www.sdgc-jwt.eu/sdgc</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/gsmf"
-                                                        target="_blank">www.sdgc-jwt.eu/gsmf</a></li>
-                                                <li><a href="https://www.sdgc-jwt.eu/gfss"
-                                                        target="_blank">www.sdgc-jwt.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- GSMF -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionGSMF">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseGSMF"
-                                            aria-expanded="false" aria-controls="collapseGSMF">
-                                            GSMF
-                                        </button>
-                                    </h2>
-                                    <div id="collapseGSMF" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionGSMF">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.gsmf-jwt.eu"
-                                                        target="_blank">www.gsmf-jwt.eu</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/jwt"
-                                                        target="_blank">www.gsmf-jwt.eu/jwt</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/comm"
-                                                        target="_blank">www.gsmf-jwt.eu/comm</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/pcrr"
-                                                        target="_blank">www.gsmf-jwt.eu/pcrr</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/iteg"
-                                                        target="_blank">www.gsmf-jwt.eu/iteg</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/mbgc"
-                                                        target="_blank">www.gsmf-jwt.eu/mbgc</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/pbrc"
-                                                        target="_blank">www.gsmf-jwt.eu/pbrc</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/sidr"
-                                                        target="_blank">www.gsmf-jwt.eu/sidr</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/sdgc"
-                                                        target="_blank">www.gsmf-jwt.eu/sdgc</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/gsmf"
-                                                        target="_blank">www.gsmf-jwt.eu/gsmf</a></li>
-                                                <li><a href="https://www.gsmf-jwt.eu/gfss"
-                                                        target="_blank">www.gsmf-jwt.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- GFSS -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionGFSS">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseGFSS"
-                                            aria-expanded="false" aria-controls="collapseGFSS">
-                                            GFSS – GG(G) – BP
-                                        </button>
-                                    </h2>
-                                    <div id="collapseGFSS" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionGFSS">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.gfss-jwt.eu"
-                                                        target="_blank">www.gfss-jwt.eu</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/jwt"
-                                                        target="_blank">www.gfss-jwt.eu/jwt</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/comm"
-                                                        target="_blank">www.gfss-jwt.eu/comm</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/pcrr"
-                                                        target="_blank">www.gfss-jwt.eu/pcrr</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/iteg"
-                                                        target="_blank">www.gfss-jwt.eu/iteg</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/mbgc"
-                                                        target="_blank">www.gfss-jwt.eu/mbgc</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/pbrc"
-                                                        target="_blank">www.gfss-jwt.eu/pbrc</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/sidr"
-                                                        target="_blank">www.gfss-jwt.eu/sidr</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/sdgc"
-                                                        target="_blank">www.gfss-jwt.eu/sdgc</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/gsmf"
-                                                        target="_blank">www.gfss-jwt.eu/gsmf</a></li>
-                                                <li><a href="https://www.gfss-jwt.eu/gfss"
-                                                        target="_blank">www.gfss-jwt.eu/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- ITEG-Heart -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionITEGHeart">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseITEGHeart"
-                                            aria-expanded="false" aria-controls="collapseITEGHeart">
-                                            ITEG-Heart
-                                        </button>
-                                    </h2>
-                                    <div id="collapseITEGHeart" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionITEGHeart">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.iteg-jwt.eu"
-                                                        target="_blank">www.iteg-jwt.eu</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/jwt"
-                                                        target="_blank">www.iteg-jwt.eu/heart/jwt</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/comm"
-                                                        target="_blank">www.iteg-jwt.eu/heart/comm</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/pcrr"
-                                                        target="_blank">www.iteg-jwt.eu/heart/pcrr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/iteg"
-                                                        target="_blank">www.iteg-jwt.eu/heart/iteg</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/mbgc"
-                                                        target="_blank">www.iteg-jwt.eu/heart/mbgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/pbrc"
-                                                        target="_blank">www.iteg-jwt.eu/heart/pbrc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/sidr"
-                                                        target="_blank">www.iteg-jwt.eu/heart/sidr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/sdgc"
-                                                        target="_blank">www.iteg-jwt.eu/heart/sdgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/gsmf"
-                                                        target="_blank">www.iteg-jwt.eu/heart/gsmf</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/heart/gfss"
-                                                        target="_blank">www.iteg-jwt.eu/heart/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- ITEG-Fly -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionITEGFly">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseITEGFly"
-                                            aria-expanded="false" aria-controls="collapseITEGFly">
-                                            ITEG-Fly
-                                        </button>
-                                    </h2>
-                                    <div id="collapseITEGFly" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionITEGFly">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.iteg-jwt.eu"
-                                                        target="_blank">www.iteg-jwt.eu</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/jwt"
-                                                        target="_blank">www.iteg-jwt.eu/fly/jwt</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/comm"
-                                                        target="_blank">www.iteg-jwt.eu/fly/comm</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/pcrr"
-                                                        target="_blank">www.iteg-jwt.eu/fly/pcrr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/iteg"
-                                                        target="_blank">www.iteg-jwt.eu/fly/iteg</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/mbgc"
-                                                        target="_blank">www.iteg-jwt.eu/fly/mbgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/pbrc"
-                                                        target="_blank">www.iteg-jwt.eu/fly/pbrc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/sidr"
-                                                        target="_blank">www.iteg-jwt.eu/fly/sidr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/sdgc"
-                                                        target="_blank">www.iteg-jwt.eu/fly/sdgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/gsmf"
-                                                        target="_blank">www.iteg-jwt.eu/fly/gsmf</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/fly/gfss"
-                                                        target="_blank">www.iteg-jwt.eu/fly/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- ITEG-Navy -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionITEGNavy">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseITEGNavy"
-                                            aria-expanded="false" aria-controls="collapseITEGNavy">
-                                            ITEG-Navy
-                                        </button>
-                                    </h2>
-                                    <div id="collapseITEGNavy" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionITEGNavy">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.iteg-jwt.eu"
-                                                        target="_blank">www.iteg-jwt.eu</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/jwt"
-                                                        target="_blank">www.iteg-jwt.eu/navy/jwt</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/comm"
-                                                        target="_blank">www.iteg-jwt.eu/navy/comm</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/pcrr"
-                                                        target="_blank">www.iteg-jwt.eu/navy/pcrr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/iteg"
-                                                        target="_blank">www.iteg-jwt.eu/navy/iteg</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/mbgc"
-                                                        target="_blank">www.iteg-jwt.eu/navy/mbgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/pbrc"
-                                                        target="_blank">www.iteg-jwt.eu/navy/pbrc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/sidr"
-                                                        target="_blank">www.iteg-jwt.eu/navy/sidr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/sdgc"
-                                                        target="_blank">www.iteg-jwt.eu/navy/sdgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/gsmf"
-                                                        target="_blank">www.iteg-jwt.eu/navy/gsmf</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/navy/gfss"
-                                                        target="_blank">www.iteg-jwt.eu/navy/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- ITEG-Industry -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionITEGIndustry">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseITEGIndustry"
-                                            aria-expanded="false" aria-controls="collapseITEGIndustry">
-                                            ITEG-Industry
-                                        </button>
-                                    </h2>
-                                    <div id="collapseITEGIndustry" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionITEGIndustry">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.iteg-jwt.eu"
-                                                        target="_blank">www.iteg-jwt.eu</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/jwt"
-                                                        target="_blank">www.iteg-jwt.eu/industry/jwt</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/comm"
-                                                        target="_blank">www.iteg-jwt.eu/industry/comm</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/pcrr"
-                                                        target="_blank">www.iteg-jwt.eu/industry/pcrr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/iteg"
-                                                        target="_blank">www.iteg-jwt.eu/industry/iteg</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/mbgc"
-                                                        target="_blank">www.iteg-jwt.eu/industry/mbgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/pbrc"
-                                                        target="_blank">www.iteg-jwt.eu/industry/pbrc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/sidr"
-                                                        target="_blank">www.iteg-jwt.eu/industry/sidr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/sdgc"
-                                                        target="_blank">www.iteg-jwt.eu/industry/sdgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/gsmf"
-                                                        target="_blank">www.iteg-jwt.eu/industry/gsmf</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/industry/gfss"
-                                                        target="_blank">www.iteg-jwt.eu/industry/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- ITEG-Energy -->
-                        <li class="nested-accordion-item">
-                            <div class="accordion accordion-flush" id="subAccordionITEGEnergy">
-                                <div class="accordion-item border-0">
-                                    <h2 class="accordion-header sub-header">
-                                        <button class="accordion-button collapsed sub-button" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseITEGEnergy"
-                                            aria-expanded="false" aria-controls="collapseITEGEnergy">
-                                            ITEG-Energy
-                                        </button>
-                                    </h2>
-                                    <div id="collapseITEGEnergy" class="accordion-collapse collapse"
-                                        data-bs-parent="#subAccordionITEGEnergy">
-                                        <div class="accordion-body p-0">
-                                            <ul class="list-unstyled ps-4 py-1 sub-sub-menu">
-                                                <li><a href="https://www.iteg-jwt.eu"
-                                                        target="_blank">www.iteg-jwt.eu</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/jwt"
-                                                        target="_blank">www.iteg-jwt.eu/energy/jwt</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/comm"
-                                                        target="_blank">www.iteg-jwt.eu/energy/comm</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/pcrr"
-                                                        target="_blank">www.iteg-jwt.eu/energy/pcrr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/iteg"
-                                                        target="_blank">www.iteg-jwt.eu/energy/iteg</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/mbgc"
-                                                        target="_blank">www.iteg-jwt.eu/energy/mbgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/pbrc"
-                                                        target="_blank">www.iteg-jwt.eu/energy/pbrc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/sidr"
-                                                        target="_blank">www.iteg-jwt.eu/energy/sidr</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/sdgc"
-                                                        target="_blank">www.iteg-jwt.eu/energy/sdgc</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/gsmf"
-                                                        target="_blank">www.iteg-jwt.eu/energy/gsmf</a></li>
-                                                <li><a href="https://www.iteg-jwt.eu/energy/gfss"
-                                                        target="_blank">www.iteg-jwt.eu/energy/gfss</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- ExpoTV1 – unchanged -->
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#expoCollapse" aria-expanded="false" aria-controls="expoCollapse">
-                    ExpoTV1 – Media & TV
-                </button>
-            </h2>
-            <div id="expoCollapse" class="accordion-collapse collapse">
-                <div class="accordion-body p-0">
-                    <ul class="list-unstyled px-3 py-2 vert-menu">
-                        <li><a href="#">Media & TV</a></li>
-                        <li><a href="#">IT&C support group</a></li>
-                        <li><a href="#">EDU / FAD</a></li>
-                        <li><a href="https://www.expotv1.com/JWT_GhostWriter.htm%20" target="_blank">Editorial Plan</a>
-                        </li>
-                        <li><a href="#">MKTG Commercial Goals</a></li>
-                        <li><a href="https://www.expotv1.com/JWT_Lend_Invest_30_21.htm" target="_blank">JV & 30/21</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </aside>
-
-    <!-- Main Content -->
-    <div>
-        <!-- Hero -->
-        <section class="hero">
-            <h1 class="mb-1">EUWEB GREEN – Sustainable Digital Future</h1>
-            <p class="lead mb-5 mx-auto" style="max-width:100%;">
-                Integrated ecosystem supporting green innovation, digital transformation, patents, resilience and
-                circular economy projects.
-            </p>
-            <a href="#services" class="btn btn-lg btn-success text-warning px-5 py-3" id="explore-more">Explore
-                More</a>
-        </section>
-
-        <!-- Slideshow -->
-        <div class="slideshow">
-
-            <img class="slide" src="algae.jpg">
-            <img class="slide" src="clean design.jpg">
-            <img class="slide" src="green design.jpg">
-            <img class="slide" src="marinedesign.jpg">
-            <img class="slide" src="plantsdesign.jpg">
-            <img class="slide" src="Untitled design.jpg">
-            <div id="about-us"></div>
-
-        </div>
-        <div>
-            <div>
-                <h1 class="text-success text-center fw-bold mt-4">VISION</h1>
-            </div>
-            <div>
-                <section class="vision">
-                    <h1 class="bg-success p-3">Vision JWT - Joules Water Team</h1>
-                    <h2>Safety, salute ed inclusività</h2>
-                    <p>
-                        Salute e sicurezza ambientale per noi ed il pianeta che lasciamo alle prossime generazioni.
-                        Impiegare le tecnologie che oggi abbiamo a disposizione per garantire all’umanità energia,
-                        acqua ed ogni altra risorsa indispensabile alla vita, senza compromettere in modo irreversibile
-                        la natura e la salute del nostro pianeta.
-                    </p>
-                    <p><strong>Joules, Water e risorse primarie rinnovabili!</strong></p>
-                </section>
-
-            </div>
-            <div class="text-center">
-                <a href="https://www.jwt-jwt.it/vision/"
-                    class="btn btn-lg btn-success text-warning px-5 py-3 text-center">Dig Deep
-                    about Vision</a>
-            </div>
-        </div>
-        <div>
-            <!-- ABOUT SECTION -->
-            <section class="about-section">
-                <div class="about-text">
-                    <h2>Who We Are</h2>
-                    <p>
-                        EUWEB GREEN is a collective of innovators, developers, and sustainability‑driven thinkers.
-                        We merge environmental responsibility with digital transformation to build resilient,
-                        future‑ready solutions for Europe and beyond.
-                    </p>
-                    <p>
-                        Our team thrives on collaboration, transparency, and a shared mission to create meaningful,
-                        measurable impact through technology and eco‑aligned strategies.
-                    </p>
-                </div>
-
-                <div class="about-image">
-                    <div class="image-card">
-                        <h3>People. Purpose. Progress.</h3>
-                    </div>
-                </div>
-            </section>
-
-            <!-- VALUES GRID -->
-            <section class="values-grid" id="">
-                <h2>Our Core Values</h2>
-
-                <div class="grid">
-                    <div class="value-box">
-                        <h3>Transparency</h3>
-                        <p>We communicate openly and build trust through clarity and honesty.</p>
-                    </div>
-
-                    <div class="value-box">
-                        <h3>Innovation</h3>
-                        <p>We explore new ideas and technologies to support sustainable digital growth.</p>
-                    </div>
-
-                    <div class="value-box">
-                        <h3>Sustainability</h3>
-                        <p>Every decision is guided by long‑term environmental responsibility.</p>
-                    </div>
-
-                    <div class="value-box">
-                        <h3>Collaboration</h3>
-                        <p>We work across disciplines to create solutions greater than the sum of their parts.</p>
-                    </div>
-                    <div class="value-box">
-                        <h3 class="text-center">Explore More About Us</h3>
-                        <a href="https://www.jwt-jwt.it/team/"
-                            class="btn btn-lg btn-success text-warning px-5 py-3 text-center">Explore
-                            More</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TEAM PHILOSOPHY -->
-            <section class="philosophy-section">
-                <div class="philosophy-card">
-                    <h2>How We Work</h2>
-                    <p>
-                        Our workflow blends autonomy with structure. Each contributor brings unique strengths,
-                        supported by a framework that encourages creativity, precision, and continuous improvement.
-                    </p>
-                    <p>
-                        Whether developing digital tools, supporting green patents, or designing scalable
-                        LandingPages,
-                        we approach every task with purpose and impact in mind.
-                    </p>
-                </div>
-
-                <div class="quote-box">
-                    <p>“Collaboration is our. Sustainability is our direction.”</p>
-                </div>
-                <div id="services-offer"></div>
-            </section>
-            <!-- Services Section -->
-            <div class="m-2">
-                <section id="services" class="py-5">
-                    <h2 class="text-center mb-2 fw-bold" style="color:var(--green-main)">Our Core Services</h2>
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        <div class="col">
-                            <div class="pillar-card">
-                                <h3>Sustainable Innovation</h3>
-                                <p>Eco-friendly product & service design aligned with circular economy and EU Green
-                                    Deal
-                                    goals.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="pillar-card">
-                                <h3>Digital Ecosystem</h3>
-                                <p>Unified platforms, AI tools, eCommerce and transparent collaboration
-                                    infrastructure.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="pillar-card">
-                                <h3>Patents & Research Support</h3>
-                                <p>Structure, visibility and development path for green-oriented patents and
-                                    concepts.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="pillar-card">
-                                <h3>AI-Enhanced Tools</h3>
-                                <p>AI-assisted content generation, documentation and workflow automation.</p>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="pillar-card">
-                                <h3>Resilience & Impact</h3>
-                                <p>Long-term sustainable digital strategies with measurable environmental impact.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div
-                                class="pillar-card text-center d-flex flex-column justify-content-center align-items-center">
-                                <h3>Guide Manual</h3>
-                                <a href="JWT_project_EN.pdf" download
-                                    class="btn btn-success mt-3 px-4 py-2 text-warning">Download
-                                    PDF</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="contact-us"></div>
-                </section>
-            </div>
-        </div>
-        <div>
-            <section class="contact-hero">
-                <div class="hero-text">
-                    <h1 class="text-center mb-4 fw-bold">Contact Us</h1>
-                    <h2 class="text-success">Let’s Build a Greener Future Together</h2>
-                    <p>
-                        EUWEB GREEN is a digital solutions company dedicated to building modern, reliable, and scalable
-                        online
-                        platforms for businesses and organizations. Our team specializes in web development, system
-                        integration,
-                        and tailored digital services designed to support professional growth and operational
-                        efficiency.
-                        Whether you’re seeking technical assistance, exploring partnership opportunities, or looking for
-                        a
-                        trusted team to bring your project to life, we’re here to help you move forward with confidence
-                    </p>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="circle"></div>
-                    <div class="circle small"></div>
-                </div>
-            </section>
-
-            <!-- CONTACT GRID -->
-            <section class="contact-grid">
-                <h2 class="text-light fw-bold">Get in Touch</h2>
-
-                <div class="grid">
-
-                    <div class="contact-card">
-                        <h3>Email Us</h3>
-                        <p>For general inquiries, collaboration proposals, or project discussions.</p>
-                        <div class="contact-info"><a href="contact@euweb.green"
-                                class="text-success">contact@euweb.green</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Join Our Network</h3>
-                        <p>Become part of the EUWEB GREEN ecosystem and contribute to sustainable innovation.</p>
-                        <div class="contact-info"><a href="network@euweb.green"
-                                class="text-success">network@euweb.green</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3>Project Support</h3>
-                        <p>Need help with a green‑oriented idea, patent, or digital solution?</p>
-                        <div class="contact-info"><a href="support@euweb.green"
-                                class="text-success">support@euweb.green</a>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- CALL TO ACTION -->
-            <section class="cta-section">
-                <div class="cta-box">
-                    <h2>Ready to Collaborate?</h2>
-                    <p>
-                        We’re always open to new partnerships, ideas, and opportunities that align with our mission.
-                        Let’s create impact together.
-                    </p>
-                    <a href="#" class="cta-btn text-warning">Start a Conversation</a>
-                </div>
-            </section>
-
-            <!-- Dream.ZONE Modal -->
-            <div class="modal fade" id="dreamModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Dream.ZONE / Access Request</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Submit your interest for Dream.ZONE or related access / KYC process.</p>
-                            <form>
-                                <div class="mb-3">
-                                    <label class="form-label">Email address</label>
-                                    <input type="email" class="form-control" placeholder="your@email.com">
-                                </div>
-                                <button type="submit" class="btn btn-success w-100">Submit Request</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- FOOTER -->
-            <div>
-                <!-- Section: CTA -->
-                <section class="">
-                    <p class="d-flex justify-content-center align-items-center">
-                        <span class="me-3 text-success fw-bold">Click to join US <a class="btn btn-floating m-1"
-                                href="#!" role="button"><i class="fa-solid fa-hand-point-right fa-bounce fa-lg"
-                                    style="color: rgb(20, 204, 148);"></i></a></span>
-                        <a href="register.html"><button type="button"
-                                class="btn btn-outline-success text-dark rounded-5 fw-bold">Join
-                                Us!</button></a>
-                    </p>
-                </section>
-            </div>
-            <div>
-                <!-- Section: Social media -->
-                <div style="background-color: rgb(55, 224, 140);" class="rounded-2">
-                    <section class="mb-4 text-center">
-                        <!-- Facebook -->
-                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                class="fa-brands fa-facebook fa-lg" style="color: rgb(10, 102, 231);"></i></a>
-
-                        <!-- Twitter -->
-                        <a class="btn btn-outline-light btn-floating m-1 bg" href="#!" role="button"><i
-                                class="fa-brands fa-square-x-twitter fa-lg" style="color: rgb(7, 6, 6);"></i></a>
-
-                        <!-- Google -->
-                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                class="fa-brands fa-google fa-lg" style="color: rgb(73, 162, 234);"></i></a>
-
-                        <!-- Instagram -->
-                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                class="fa-brands fa-square-instagram fa-lg" style="color: rgb(150, 41, 135);"></i></a>
-
-                        <!-- Linkedin -->
-                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i
-                                class="fa-brands fa-linkedin fa-lg" style="color: rgb(116, 192, 252);"></i></a>
-
-                    </section>
-                    <!-- Section: Social media -->
-                </div>
-            </div>
-
-            <footer class="footer-jwt">
-                <div class="footer-container">
-
-                    <!-- Column 1: Company -->
-                    <div class="footer-col">
-                        <h3>PCRR JWTeam Srls</h3>
-                        <p>Joules Water Team<br>
-                            Research, Development & Innovation in Joules, Water and Primary Renewable Resources</p>
-                        <p>Sede Legale: Via Terrazzano 85<br>20017 Rho (MI), Italy</p>
-                        <p>C.F. e P.I. 12092970966 | Cap.Soc. € 200</p>
-                    </div>
-
-                    <!-- Column 2: Legal & Contact -->
-                    <div class="footer-col">
-                        <h4>Legal & Contact</h4>
-                        <p>PEC: <a href="mailto:pcrrjwt@pec.it">pcrrjwt@pec.it</a><br>
-                            Info: <a href="mailto:info@jwt-jwt.eu">info@jwt-jwt.eu</a><br>
-                            Commercial: <a href="mailto:comm@pcrr-jwt.it">comm@pcrr-jwt.it</a></p>
-                        <p>IBAN: IT73H0306909412100000002247<br>BIC: BCITITMM</p>
-                    </div>
-
-                    <!-- Column 3: Quick Links -->
-                    <div class="footer-col">
-                        <h4>Quick Access</h4>
-                        <ul>
-                            <li><a href="/jwt">JWT Home</a></li>
-                            <li><a href="/pcrr">PCRR Commercial Plan</a></li>
-                            <li><a href="/comm">Common Services</a></li>
-                            <li><a href="#ip">Intellectual Property</a></li>
-                            <li><a href="https://www.expotv1.com/JWT_2025_GREEN_Right_for_World.html"
-                                    target="_blank">GREEN Rights for the World</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Column 4: Message + Cart -->
-                    <div class="footer-col" style="text-align:center;">
-                        <p class="green-message">
-                            From 100% fossil to ZERO.<br>
-                            GREEN Industrial Rights • NFT/NFW • Ecological Transition
-                        </p>
-                        <a href="/comm/cart" class="cart-btn">Open Shopping Cart</a>
-                        <p style="margin-top:30px; font-size:0.9em;">
-                            © 2026 PCRR JWTeam Srls – All Rights Reserved
-                        </p>
-                    </div>
-
-                </div>
-
-                <!-- Bottom Bar -->
-                <div class="footer-bottom">
-                    Site built with Hostinger WordPress • Aligned with UN SDGs, ESG & PNRR Mission 2
-                </div>
-            </footer>
-            <!-- Scripts -->
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-                integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-                crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-                integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-                crossorigin="anonymous"></script>
-
-            <script>
-                // Simple slideshow
-                const slides = document.querySelectorAll('.slide');
-                let current = 0;
-
-                function nextSlide() {
-                    slides[current].classList.remove('active');
-                    current = (current + 1) % slides.length;
-                    slides[current].classList.add('active');
-                }
-
-                if (slides.length > 0) {
-                    slides[0].classList.add('active');
-                    setInterval(nextSlide, 8000);
-                }
-                document.addEventListener("DOMContentLoaded", () => {
-                    const sendBtn = document.getElementById("sendBtn");
-                    const userPrompt = document.getElementById("userPrompt");
-                    const chatReply = document.getElementById("chatReply");
-
-                    sendBtn.addEventListener("click", async () => {
-                        const prompt = userPrompt.value.trim();
-                        if (!prompt) return;
-
-                        // Display user message
-                        const userMsg = document.createElement("p");
-                        userMsg.innerHTML = `<strong>You:</strong> ${prompt}`;
-                        chatReply.appendChild(userMsg);
-
-                        try {
-                            const response = await fetch("http://localhost:3000/chat", {
-                                method: "POST",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify({ prompt }),
-                            });
-
-                            const data = await response.json();
-
-                            const botMsg = document.createElement("p");
-                            botMsg.innerHTML = `<strong>GPT:</strong> ${data.reply || "No reply from server"}`;
-                            chatReply.appendChild(botMsg);
-
-                        } catch (err) {
-                            const errorMsg = document.createElement("p");
-                            errorMsg.innerHTML = `<strong>Error:</strong> ${err.message}`;
-                            chatReply.appendChild(errorMsg);
-                        }
-
-                        userPrompt.value = "";
-                        chatReply.scrollTop = chatReply.scrollHeight; // auto scroll
-                    });
-                });
-            </script>
-            <script>
-                const dispatcherStorageKey = 'euweb-dispatcher-targets';
-                const statusBox = document.getElementById('dispatcher-status');
-                const saveBtn = document.getElementById('save-dispatcher');
-                const runBtn = document.getElementById('run-dispatcher');
-                const inputs = Array.from(document.querySelectorAll('[data-dispatch-target]'));
-
-                function setStatus(message) {
-                    if (statusBox) {
-                        statusBox.textContent = message;
-                    }
-                }
-
-                function saveTargets() {
-                    const targets = inputs.map(input => input.value.trim()).filter(Boolean);
-                    localStorage.setItem(dispatcherStorageKey, JSON.stringify(targets));
-                    setStatus(`Saved ${targets.length} target${targets.length === 1 ? '' : 's'}.`);
-                }
-
-                function loadTargets() {
-                    const saved = localStorage.getItem(dispatcherStorageKey);
-                    if (!saved) {
-                        return;
-                    }
-                    try {
-                        const targets = JSON.parse(saved);
-                        if (Array.isArray(targets)) {
-                            targets.forEach((value, index) => {
-                                if (inputs[index]) {
-                                    inputs[index].value = value;
-                                }
-                            });
-                            const savedCount = targets.filter(Boolean).length;
-                            setStatus(`Loaded ${savedCount} saved target${savedCount === 1 ? '' : 's'}.`);
-                        }
-                    } catch (error) {
-                        setStatus('Unable to load saved targets.');
-                    }
-                }
-
-                function runDispatcher() {
-                    const targets = inputs.map(input => input.value.trim()).filter(Boolean);
-                    if (!targets.length) {
-                        setStatus('Add at least one target URL before running the dispatcher.');
-                        return;
-                    }
-                    const target = targets[Math.floor(Math.random() * targets.length)];
-                    setStatus(`Redirecting to ${target}.`);
-                    window.location.assign(target);
-                }
-
-                loadTargets();
-                saveBtn?.addEventListener('click', saveTargets);
-                runBtn?.addEventListener('click', runDispatcher);
-            </script>
-
-</body>
-
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCRR-JWT Redirect Dispatcher</title>
+    <style>
+      body { margin: 0; min-height: 100vh; font-family: Inter, system-ui, sans-serif; color: #eef2ff; background: radial-gradient(circle at top, #111827, #0f172a 45%, #020617 100%); display: flex; align-items: center; justify-content: center; text-align: center; }
+      .page { width: min(100%, 920px); padding: 28px; }
+      h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin: 0 0 1rem; letter-spacing: -0.04em; }
+      p { margin: 0 0 1.25rem; color: #cbd5e1; line-height: 1.7; }
+      .badge { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.65rem 1rem; border-radius: 999px; background: rgba(59, 130, 246, 0.16); color: #93c5fd; font-weight: 700; font-size: 0.95rem; margin-bottom: 1rem; }
+      .status { margin: 1rem auto 0; max-width: 620px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(148, 163, 184, 0.25); border-radius: 18px; padding: 1rem 1.15rem; color: #cbd5e1; }
+      #adminPanel { margin-top: 1.5rem; display: none; }
+      button { border: none; border-radius: 999px; padding: 0.95rem 1.6rem; font-size: 1rem; font-weight: 700; cursor: pointer; color: #fff; background: #10b981; box-shadow: 0 18px 45px rgba(16, 185, 129, 0.22); }
+      pre { text-align: left; overflow-x: auto; margin: 1rem auto 0; padding: 1rem; border-radius: 16px; background: rgba(15, 23, 42, 0.88); color: #f8fafc; max-width: 760px; }
+      a { color: #93c5fd; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="badge">PCRR-JWT Dispatcher</div>
+      <h1>Redirecting you to a random PCRR-JWT route</h1>
+      <p id="message">Please wait while we select a live route from the current pool.</p>
+
+      <div id="adminPanel">
+        <p>Admin preview mode: explore current routes without automatic redirect.</p>
+        <button id="exploreBtn">Explore</button>
+        <pre id="routeList" aria-label="Current route list"></pre>
+      </div>
+    </main>
+
+    <script>
+      const defaultRoutes = [
+        'https://pcrr-jwt.eu/comm/dream.zone/',
+        'https://pcrr-jwt.eu/jwt',
+        'https://pcrr-jwt.eu/comm',
+        'https://pcrr-jwt.eu/pcrr',
+        'https://pcrr-jwt.eu/iteg',
+        'https://pcrr-jwt.eu/mbgc',
+        'https://pcrr-jwt.eu/pbrc',
+        'https://pcrr-jwt.eu/sidr',
+        'https://pcrr-jwt.eu/sdgc',
+        'https://pcrr-jwt.eu/gsmf',
+        'https://pcrr-jwt.eu/gfss'
+      ];
+
+      const STORAGE_KEY = 'jwt-dispatcher-routes';
+      const LAST_DISPATCH_KEY = 'jwt-dispatcher-last';
+      const ROUTES_JSON_PATH = 'routes.json';
+      const statusEl = document.getElementById('message');
+      const adminPanel = document.getElementById('adminPanel');
+      const exploreBtn = document.getElementById('exploreBtn');
+      const routeList = document.getElementById('routeList');
+      const adminMode = new URL(window.location.href).searchParams.has('admin');
+
+      let routes = [];
+
+      function validUrl(urlString) {
+        try {
+          new URL(urlString);
+          return true;
+        } catch {
+          return false;
+        }
+      }
+
+      function persistRoutes() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(routes));
+      }
+
+      function setStatus(text, tone = 'idle') {
+        statusEl.textContent = text;
+        statusEl.style.color = tone === 'error' ? '#fecaca' : '#cbd5e1';
+      }
+
+      function loadRoutes() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          try {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed) && parsed.length) {
+              routes = parsed.filter((entry) => typeof entry === 'string' && validUrl(entry));
+            }
+          } catch {
+            routes = [];
+          }
+        }
+
+        if (!routes.length) {
+          routes = defaultRoutes.slice();
+          persistRoutes();
+          setStatus('Using the default route pool while the live list refreshes.');
+          return;
+        }
+
+        setStatus(`Loaded ${routes.length} saved route${routes.length === 1 ? '' : 's'} from browser storage.`);
+      }
+
+      async function refreshRemoteRoutes() {
+        try {
+          const response = await fetch(`${ROUTES_JSON_PATH}?t=${Date.now()}`, { cache: 'no-store' });
+          if (!response.ok) {
+            throw new Error('Failed to fetch live routes.');
+          }
+
+          const remote = await response.json();
+          if (!Array.isArray(remote) || !remote.length) {
+            throw new Error('Live route file is empty or invalid.');
+          }
+
+          const updated = remote.filter((entry) => typeof entry === 'string' && validUrl(entry));
+          if (!updated.length) {
+            throw new Error('No valid URLs found in routes.json.');
+          }
+
+          routes = Array.from(new Set(updated));
+          persistRoutes();
+          setStatus(`Live route pool loaded with ${routes.length} routes.`);
+          if (adminMode) {
+            routeList.textContent = routes.join('\n');
+          }
+        } catch (error) {
+          console.warn('Route refresh failed:', error);
+          if (!routes.length) {
+            setStatus('Route refresh failed and no saved routes are available.', 'error');
+          }
+        }
+      }
+
+      function dispatchRandom() {
+        if (!routes.length) {
+          setStatus('No valid routes are available.', 'error');
+          return;
+        }
+
+        const nextUrl = routes[Math.floor(Math.random() * routes.length)];
+        localStorage.setItem(LAST_DISPATCH_KEY, nextUrl);
+        window.location.href = nextUrl;
+      }
+
+      function initializeAdminPreview() {
+        adminPanel.style.display = 'block';
+        exploreBtn.addEventListener('click', dispatchRandom);
+        routeList.textContent = routes.join('\n');
+        setStatus('Admin preview mode active. Click Explore to test the current route pool.');
+      }
+
+      loadRoutes();
+      refreshRemoteRoutes();
+
+      if (adminMode) {
+        initializeAdminPreview();
+      } else {
+        dispatchRandom();
+      }
+    </script>
+  </body>
 </html>

@@ -72,12 +72,13 @@ $textareaValue = htmlspecialchars(implode("\n", $routes), ENT_QUOTES | ENT_SUBST
       .status.error { background: #fee2e2; color: #991b1b; }
       .warning { color: #b45309; margin: 0.5rem 0 1rem; }
       label { display: block; margin-bottom: 0.75rem; font-weight: 600; }
+      code { background: #eef2ff; padding: 0.2rem 0.4rem; border-radius: 6px; }
     </style>
   </head>
   <body>
     <div class="panel">
       <h1>JWT Route Admin</h1>
-      <p class="warning">This page is hidden and should only be accessed by authorized staff. Keep the admin URL private.</p>
+      <p class="warning">Hidden admin page. Only open this page if you know the secret key.</p>
 
       <?php if ($message): ?>
         <div class="status success"><?php echo htmlspecialchars($message, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8'); ?></div>
@@ -97,8 +98,8 @@ $textareaValue = htmlspecialchars(implode("\n", $routes), ENT_QUOTES | ENT_SUBST
 
       <section style="margin-top: 2rem; font-size: 0.95rem; color: #475569;">
         <h2>Notes</h2>
-        <p>The dispatcher page fetches <code>routes.json</code> in the background and updates its route pool automatically. If the file is changed here, the live route list will refresh on next page load.</p>
-        <p>Use absolute URLs only (for example <code>https://pcrr-jwt.eu/iteg</code>).</p>
+        <p>The dispatcher page reads <code>routes.json</code> in the background and updates its redirect list automatically.</p>
+        <p>Use absolute URLs only, for example <code>https://pcrr-jwt.eu/iteg</code>.</p>
       </section>
     </div>
   </body>
