@@ -91,60 +91,16 @@
         <p class="intro">One click sends you to a random route from your active target pool.</p>
 
         <div class="dispatcher-shell">
-          <div class="dispatcher-card">
+          <div class="dispatcher-card dispatcher-card--single">
             <div class="dispatcher-editor-head">
               <div>
-                <h3>Dispatch controls</h3>
-                <p>Track the active routes, dispatch instantly, and keep the preview in sync with every add or edit.</p>
+                <h3>Explore PCRR-JWT</h3>
+                <p>One button finds a random target from the PCRR-JWT route pool and forwards you there immediately.</p>
               </div>
-              <button type="button" id="dispatchBtn" class="dispatcher-btn secondary">Dispatch random</button>
+              <button type="button" id="dispatchBtn" class="dispatcher-btn primary">Explore</button>
             </div>
-
-            <div class="dispatcher-grid">
-              <div class="dispatcher-stat">
-                <span>Total routes</span>
-                <strong id="routeCount">0</strong>
-              </div>
-              <div class="dispatcher-stat">
-                <span>Last dispatch</span>
-                <strong id="lastDispatch">—</strong>
-              </div>
-              <div class="dispatcher-stat">
-                <span>Saved status</span>
-                <strong id="saveStatus">Idle</strong>
-              </div>
-            </div>
-
-            <div id="dispatchMessage" class="dispatcher-status" aria-live="polite">Add a route to begin dispatching.</div>
-          </div>
-
-          <div class="dispatcher-card" id="routes">
-            <div class="dispatcher-url-header">
-              <div>
-                <h3>Preview & route manager</h3>
-              </div>
-              <button type="button" id="showAddFormBtn" class="dispatcher-btn primary mini">+ Add URL</button>
-            </div>
-
-            <form id="routeForm" class="route-form hidden">
-              <input type="hidden" id="editingIndex" value="-1" />
-              <div class="route-form-grid">
-                <label>
-                  Route name
-                  <input id="routeTitle" type="text" placeholder="IP Home — Epo TV1" />
-                </label>
-                <label>
-                  Destination URL
-                  <input id="routeUrl" type="url" placeholder="https://www.google.com" required />
-                </label>
-              </div>
-              <div class="route-form-actions">
-                <button type="submit" class="dispatcher-btn primary">Save route</button>
-                <button type="button" id="cancelEditBtn" class="dispatcher-btn secondary">Cancel</button>
-              </div>
-            </form>
-
-            <div id="urlPreview" class="dispatcher-url-list"></div>
+            <div id="dispatchMessage" class="dispatcher-status" aria-live="polite">Routes are managed in the background from the active PCRR-JWT pool.</div>
+            <!-- routes editor removed; Explore operates on background pool only -->
           </div>
         </div>
 
@@ -165,11 +121,6 @@
           </div>
 
           <div id="slideshowDots" class="dispatcher-slideshow-dots"></div>
-        </div>
-
-        <div class="dispatcher-card" id="help" style="margin-top:20px;">
-          <h3>How the dispatcher works</h3>
-          <p>1. Edit your list of target URLs in the text area.<br />2. Save the list to keep it in your browser.<br />3. Click Dispatch random to redirect to one chosen target from the pool.</p>
         </div>
       </div>
 
@@ -204,84 +155,27 @@
 
     <script>
       const defaultRoutes = [
-        'https://www.pcrr-jwt.eu/jwt',
-        'https://www.pcrr-jwt.eu/comm',
-        'https://www.pcrr-jwt.eu/pcrr',
-        'https://www.pcrr-jwt.eu/iteg',
-        'https://www.pcrr-jwt.eu/mbgc',
-        'https://www.pcrr-jwt.eu/pbrc',
-        'https://www.pcrr-jwt.eu/sidr',
-        'https://www.pcrr-jwt.eu/sdgc',
-        'https://www.pcrr-jwt.eu/gsmf',
-        'https://www.pcrr-jwt.eu/gfss',
-        'https://www.pcrr-jwt.eu/comm/dream.zone/'
+        'https://pcrr-jwt.eu/comm/dream.zone/',
+        'https://pcrr-jwt.eu/jwt',
+        'https://pcrr-jwt.eu/comm',
+        'https://pcrr-jwt.eu/pcrr',
+        'https://pcrr-jwt.eu/iteg',
+        'https://pcrr-jwt.eu/mbgc',
+        'https://pcrr-jwt.eu/pbrc',
+        'https://pcrr-jwt.eu/sidr',
+        'https://pcrr-jwt.eu/sdgc',
+        'https://pcrr-jwt.eu/gsmf',
+        'https://pcrr-jwt.eu/gfss'
       ];
 
       const STORAGE_KEY = 'jwt-dispatcher-routes';
       const LAST_DISPATCH_KEY = 'jwt-dispatcher-last';
-      const routeCount = document.getElementById('routeCount');
-      const lastDispatch = document.getElementById('lastDispatch');
-      const saveStatus = document.getElementById('saveStatus');
+      const ROUTES_JSON_PATH = 'routes.json';
       const dispatchMessage = document.getElementById('dispatchMessage');
-      const urlPreview = document.getElementById('urlPreview');
       const dispatchBtn = document.getElementById('dispatchBtn');
-      const routeForm = document.getElementById('routeForm');
-      const routeTitle = document.getElementById('routeTitle');
-      const routeUrl = document.getElementById('routeUrl');
-      const editingIndex = document.getElementById('editingIndex');
-      const showAddFormBtn = document.getElementById('showAddFormBtn');
-      const cancelEditBtn = document.getElementById('cancelEditBtn');
+      const adminMode = new URL(window.location.href).searchParams.has('admin');
 
       let routes = [];
-
-      function getLabel(url) {
-        try {
-          return new URL(url).hostname.replace(/^www\./, '');
-        } catch {
-          return 'Custom route';
-        }
-      }
-
-      function cleanRoutes(text) {
-        return text
-          .split(/\n/)
-          .map((entry) => entry.trim())
-          .filter(Boolean)
-          .filter((entry) => {
-            try {
-              new URL(entry);
-              return true;
-            } catch {
-              return false;
-            }
-          });
-      }
-
-      function normalizeRoute(url, label = '') {
-        const cleanUrl = url.trim();
-        return {
-          label: label.trim() || getLabel(cleanUrl),
-          url: cleanUrl
-        };
-      }
-
-      function sanitizeRouteList(list) {
-        return list
-          .filter(Boolean)
-          .map((route) => {
-            if (typeof route === 'string') {
-              return normalizeRoute(route);
-            }
-
-            const url = typeof route.url === 'string' ? route.url.trim() : '';
-            if (!url) {
-              return null;
-            }
-
-            return normalizeRoute(url, typeof route.label === 'string' ? route.label : '');
-          })
-          .filter(Boolean);
-      }
 
       function persistRoutes() {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(routes));
@@ -293,147 +187,89 @@
         dispatchMessage.style.color = tone === 'error' ? '#7f1d1d' : '#7c2d12';
       }
 
-      function renderPreview() {
-        routeCount.textContent = routes.length;
-
-        if (!routes.length) {
-          urlPreview.innerHTML = '<div class="dispatcher-url-item">No valid routes saved yet.</div>';
-          return;
+      function validUrl(urlString) {
+        try {
+          new URL(urlString);
+          return true;
+        } catch {
+          return false;
         }
-
-        urlPreview.innerHTML = routes
-          .map(
-            (route, index) => `
-              <div class="dispatcher-route-card">
-                <div>
-                  <div class="dispatcher-route-title">${route.label}</div>
-                  <div class="dispatcher-route-url">${route.url}</div>
-                </div>
-                <div class="dispatcher-route-actions">
-                  <button type="button" class="dispatcher-btn primary mini route-edit-btn" data-index="${index}">Edit</button>
-                  <button type="button" class="dispatcher-btn secondary mini route-delete-btn" data-index="${index}">Delete</button>
-                </div>
-              </div>
-            `
-          )
-          .join('');
-      }
-
-      function resetForm() {
-        routeTitle.value = '';
-        routeUrl.value = '';
-        editingIndex.value = '-1';
-        routeForm.classList.add('hidden');
-        routeForm.classList.remove('active');
-      }
-
-      function openForm(mode = 'add', route = null, index = -1) {
-        routeForm.classList.remove('hidden');
-        routeForm.classList.add('active');
-
-        if (mode === 'edit' && route) {
-          routeTitle.value = route.label;
-          routeUrl.value = route.url;
-          editingIndex.value = String(index);
-        } else {
-          routeTitle.value = '';
-          routeUrl.value = '';
-          editingIndex.value = '-1';
-        }
-
-        routeUrl.focus();
       }
 
       function loadRoutes() {
         const saved = localStorage.getItem(STORAGE_KEY);
 
         if (!saved) {
-          routes = sanitizeRouteList(defaultRoutes.slice());
+          routes = defaultRoutes.slice();
           persistRoutes();
-          saveStatus.textContent = 'Default';
-          setStatus('Dispatcher ready with default routes.');
-          renderPreview();
-          return routes;
+          setStatus('Ready with the default PCRR-JWT route pool.');
+          return;
         }
 
         try {
           const parsed = JSON.parse(saved);
-          if (Array.isArray(parsed)) {
-            routes = sanitizeRouteList(parsed);
-          } else {
-            throw new Error('Invalid route storage');
+          if (Array.isArray(parsed) && parsed.length) {
+            routes = parsed.filter((entry) => {
+              try {
+                new URL(entry);
+                return true;
+              } catch {
+                return false;
+              }
+            });
           }
         } catch {
-          const legacyRoutes = cleanRoutes(saved);
-          routes = sanitizeRouteList(legacyRoutes);
+          routes = defaultRoutes.slice();
           persistRoutes();
         }
 
         if (!routes.length) {
-          routes = sanitizeRouteList(defaultRoutes.slice());
+          routes = defaultRoutes.slice();
           persistRoutes();
         }
 
-        saveStatus.textContent = 'Loaded';
-        setStatus(routes.length ? 'Dispatcher is ready.' : 'Please add at least one valid URL to begin dispatching.');
-        renderPreview();
-        return routes;
+        setStatus(routes.length ? 'Ready with the saved route pool.' : 'Ready with the default PCRR-JWT route pool.');
       }
 
-      function saveRoute(event) {
-        event.preventDefault();
-
-        const urlValue = routeUrl.value.trim();
-        if (!urlValue) {
-          setStatus('Please enter a destination URL.', 'error');
-          return;
-        }
-
+      // background route refresh loads the latest pool from routes.json when available
+      async function refreshRemoteRoutes() {
         try {
-          new URL(urlValue);
-        } catch {
-          setStatus('That URL is not valid. Please use a full URL such as https://example.com.', 'error');
-          return;
+          const response = await fetch(`${ROUTES_JSON_PATH}?t=${Date.now()}`, { cache: 'no-store' });
+          if (!response.ok) {
+            throw new Error(`Failed to fetch ${ROUTES_JSON_PATH}`);
+          }
+
+          const remote = await response.json();
+          if (!Array.isArray(remote) || !remote.length) {
+            throw new Error('Remote routes data is invalid or empty.');
+          }
+
+          const updated = remote.filter((entry) => typeof entry === 'string' && validUrl(entry));
+          if (!updated.length) {
+            throw new Error('No valid URLs were found in remote routes.');
+          }
+
+          routes = Array.from(new Set(updated));
+          persistRoutes();
+          setStatus(`Loaded ${routes.length} routes from the live route pool.`);
+        } catch (error) {
+          console.warn('Route refresh failed:', error);
+          if (!routes.length) {
+            setStatus('Using the default route pool while live route refresh is unavailable.', 'error');
+          }
         }
-
-        const updatedRoute = normalizeRoute(urlValue, routeTitle.value);
-        const currentIndex = Number(editingIndex.value);
-
-        if (Number.isInteger(currentIndex) && currentIndex >= 0 && currentIndex < routes.length) {
-          routes[currentIndex] = updatedRoute;
-          setStatus(`Updated ${updatedRoute.label}.`);
-        } else {
-          routes.push(updatedRoute);
-          setStatus(`Added ${updatedRoute.label}.`);
-        }
-
-        persistRoutes();
-        renderPreview();
-        saveStatus.textContent = 'Saved';
-        resetForm();
-      }
-
-      function deleteRoute(index) {
-        routes.splice(index, 1);
-        persistRoutes();
-        renderPreview();
-        saveStatus.textContent = 'Saved';
-        setStatus('Route removed.');
       }
 
       function dispatchRandom() {
         if (!routes.length) {
-          saveStatus.textContent = 'Error';
-          setStatus('Please add at least one valid URL before dispatching.', 'error');
+          setStatus('No valid routes are available.', 'error');
           return;
         }
 
-        const nextRoute = routes[Math.floor(Math.random() * routes.length)];
-        localStorage.setItem(LAST_DISPATCH_KEY, nextRoute.url);
-        lastDispatch.textContent = nextRoute.url;
-        saveStatus.textContent = 'Dispatched';
-        setStatus(`Redirecting to ${nextRoute.url}`);
-        window.location.href = nextRoute.url;
+        const nextUrl = routes[Math.floor(Math.random() * routes.length)];
+        localStorage.setItem(LAST_DISPATCH_KEY, nextUrl);
+        setStatus(`Redirecting to ${nextUrl}`);
+        window.location.href = nextUrl;
       }
 
       const slideshowSlides = [
@@ -520,10 +356,7 @@
       renderSlideshow();
       startSlideshow();
 
-      routeForm.addEventListener('submit', saveRoute);
       dispatchBtn.addEventListener('click', dispatchRandom);
-      showAddFormBtn.addEventListener('click', () => openForm('add'));
-      cancelEditBtn.addEventListener('click', resetForm);
 
       document.getElementById('prevSlideBtn').addEventListener('click', () => {
         showSlide(currentSlideIndex - 1);
@@ -545,32 +378,14 @@
         startSlideshow();
       });
 
-      urlPreview.addEventListener('click', (event) => {
-        const editButton = event.target.closest('.route-edit-btn');
-        const deleteButton = event.target.closest('.route-delete-btn');
-
-        if (editButton) {
-          const index = Number(editButton.dataset.index);
-          if (!Number.isNaN(index) && routes[index]) {
-            openForm('edit', routes[index], index);
-          }
-          return;
-        }
-
-        if (deleteButton) {
-          const index = Number(deleteButton.dataset.index);
-          if (!Number.isNaN(index)) {
-            deleteRoute(index);
-          }
-        }
-      });
-
-      const previousDispatch = localStorage.getItem(LAST_DISPATCH_KEY);
-      if (previousDispatch) {
-        lastDispatch.textContent = previousDispatch;
-      }
-
       loadRoutes();
+      refreshRemoteRoutes();
+
+      if (!adminMode) {
+        dispatchRandom();
+      } else {
+        setStatus('Admin preview mode active. Click Explore to test the current route pool.');
+      }
     </script>
   </body>
 </html>
