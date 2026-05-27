@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="pbrc-style.css" />
     <link
       rel="icon"
       href="images/faviconservices--32x32.png"
@@ -284,6 +284,7 @@
         {
           id: "ip",
           label: "IP - Intellectual Property",
+          url: "https://www.pcrr-jwt.eu/comm/ip",
           intro:
             "Intellectual Property covers innovation systems, digital rights, patents, trademarks and ecosystem protection across global jurisdictions.",
           cards: [
@@ -489,9 +490,10 @@
         {
           id: "iphome",
           label: "IP Home — Epo TV1",
+          url: "https://pcrr-jwt.eu/comm/",
           isHeader: true,
           isOverview: true,
-          overviewUrl: "https://expotv1.eu/",
+          overviewUrl: "https://pcrr-jwt.eu/comm/",
           img: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800",
         },
         {
@@ -863,8 +865,7 @@
           name: "PCRR Module",
           intro: "Sustainable technology solution.",
           starterKit: {
-            image:
-              "images/pbrc.webp",
+            image: "images/pbrc.webp",
             highlight: "Green Innovation Module.",
             benefits: ["Tax Benefits", "Sustainability", "Innovation"],
           },
@@ -896,6 +897,9 @@
         sidebarEl.innerHTML = sections
           .map((s) => {
             const activeClass = s.id === activeId ? "active" : "";
+            if (s.id === "iphome") {
+              return `<button type="button" class="sidebar-card iphome-button ${activeClass}" data-open-url="${s.url || s.overviewUrl}">${s.label}</button>`;
+            }
             if (s.isHeader) {
               return `<div class="sidebar-header" data-id="${s.id}" style="cursor:pointer;">
             <h5 style="color:#FF6200;">${s.label}</h5>
@@ -913,6 +917,12 @@
             e.preventDefault();
             const id = el.dataset.id;
             navigateTo(id);
+          });
+        });
+
+        sidebarEl.querySelectorAll("[data-open-url]").forEach((el) => {
+          el.addEventListener("click", () => {
+            openUrl(el.dataset.openUrl);
           });
         });
       }
@@ -983,7 +993,7 @@
                 <div class="hover-overlay">
                   <h2>PBRC STARTER KIT</h2>
                   <p>The <strong>PBRC closed-loop photobioreactor system</strong> combines modular cultivation, harvesting and downstream processing to turn sunlight, CO₂ and nutrient-rich water into clean high-value bioproducts.</p>
-                  <a href="https://www.pcrr-jwt.eu/pbrc" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a>
+                  <a href="http://www.expotv1.com/LIC/BUNIT/Bc4_PBRC_StartKit_0001427412.doc" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a>
                 </div>
               </div>
             </div>
