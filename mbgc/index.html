@@ -9,7 +9,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mbgc-style.css" />
     <link
       rel="icon"
       href="images/faviconservices--32x32.png"
@@ -284,6 +284,7 @@
         {
           id: "ip",
           label: "IP - Intellectual Property",
+          url: "https://www.pcrr-jwt.eu/comm/ip",
           intro:
             "Intellectual Property covers innovation systems, digital rights, patents, trademarks and ecosystem protection across global jurisdictions.",
           cards: [
@@ -489,9 +490,10 @@
         {
           id: "iphome",
           label: "IP Home — Epo TV1",
+          url: "https://pcrr-jwt.eu/comm/",
           isHeader: true,
           isOverview: true,
-          overviewUrl: "https://expotv1.eu/",
+          overviewUrl: "https://pcrr-jwt.eu/comm/",
           img: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800",
         },
         {
@@ -896,6 +898,9 @@
         sidebarEl.innerHTML = sections
           .map((s) => {
             const activeClass = s.id === activeId ? "active" : "";
+            if (s.id === "iphome") {
+              return `<button type="button" class="sidebar-card iphome-button ${activeClass}" data-open-url="${s.url || s.overviewUrl}">${s.label}</button>`;
+            }
             if (s.isHeader) {
               return `<div class="sidebar-header" data-id="${s.id}" style="cursor:pointer;">
             <h5 style="color:#FF6200;">${s.label}</h5>
@@ -913,6 +918,12 @@
             e.preventDefault();
             const id = el.dataset.id;
             navigateTo(id);
+          });
+        });
+
+        sidebarEl.querySelectorAll("[data-open-url]").forEach((el) => {
+          el.addEventListener("click", () => {
+            openUrl(el.dataset.openUrl);
           });
         });
       }
@@ -1132,8 +1143,8 @@
           </div>
           <div id="starter-legal"></div>
           <div class="mt-4 d-flex gap-2 justify-content-end">
-            <a href="https://view.officeapps.live.com/op/view.aspx?src=http%3A%2F%2Fwww.expotv1.com%2FLIC%2FMP_PRJ%2F6_GSMF_MISE_LV_MI_Lic.doc&wdOrigin=BROWSELINK" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a>
-            <a href="#" onclick="smoothScrollTo('starter-kiti'); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+            <a href="pdf/2_MBGC_MISE_LV_MI_Lic.doc" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a>
+            <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
           </div>
         </div>
 
@@ -1257,8 +1268,8 @@
                   </div>
 
                   <div class="mt-3 d-flex gap-2 flex-wrap">
-                    <a href="http://www.expotv1.com/LIC/BUNIT/Bb4_MBGC_StartKit_0001427413.doc" class="btn btn-success btn-sm fw-bold">Explore More</a>
-                    <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                    <a href="pdf/Bb4_MBGC_StartKit_0001427413.doc" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                    <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
                   </div>
                 </div>
               </div>
@@ -1314,7 +1325,7 @@
 
               <div class="mt-4 d-flex gap-2 justify-content-end">
                 <a href="https://www.expotv1.com/LIC/BUNIT/Bb5_MBGC_BP_prj.pdf" class="btn btn-success btn-sm fw-bold">Explore More</a>
-                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
               </div>
             </div>
 
@@ -1372,8 +1383,8 @@
                 </div>
 
                 <div class="mt-4 d-flex gap-3 justify-content-end">
-                  <a href="http://www.expotv1.com/EBSTV/PAGE/CURRENT_EVENT/$$_RR/$_MKT/MBGC_200304_Pres_Youssef.pptx" class="btn btn-success btn-sm fw-bold">Explore More</a>
-                  <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">Back to Menu</a>
+                  <a href="pdf/MBGC_200304_Pres_Youssef.pptx" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                  <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
                 </div>
               </section>
             </div>
@@ -1387,7 +1398,7 @@
               <div id="starter-legal"></div>
               <div class="mt-4 d-flex gap-2 justify-content-end">
                 <a href="http://www.expotv1.com/LIC/MP_PRJ/2_MBGC_MISE_LV_MI_Lic.doc" class="btn btn-success btn-sm fw-bold">Explore More</a>
-                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
               </div>
             </div>
 
@@ -1419,7 +1430,7 @@
                   <p class="text-muted" id="pitch">Legal titles protect the core biogas inventions and enable safe technology transfer, licensing and international expansion — while maintaining full traceability through the JWT/NFT GREEN infrastructure.</p>
                   <div class="mt-4 d-flex gap-3 justify-content-end">
                     <a href="http://www.expotv1.com/LIC/MISE_0001427413_MBGC.pdf" class="btn btn-success btn-sm fw-bold">Explore More</a>
-                    <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                    <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
                   </div>
                 </div>
               </div>
@@ -1455,8 +1466,8 @@
               <div class="row g-3 mt-3" id="pitchGrid"></div>
 
               <div class="mt-4 d-flex gap-2 justify-content-end">
-                <a href="http://www.expotv1.com/LIC/BUNIT/Bb1_MBGC_why_BIOGAS.ppt" class="btn btn-success btn-sm fw-bold">Explore More</a>
-                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                <a href="pdf/Bb1_MBGC_why_BIOGAS.ppt" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
               </div>
             </div>
 
@@ -1489,7 +1500,7 @@
 
               <div class="mt-4 d-flex gap-2 justify-content-end">
                 <a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2016092580" class="btn btn-success btn-sm fw-bold">Explore More</a>
-                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
               </div>
             </div>
 
@@ -1559,7 +1570,7 @@
 
               <div class="mt-4 d-flex gap-2 justify-content-end">
                 <a href="http://www.expotv1.com/ESCP_Patent.htm" class="btn btn-success btn-sm fw-bold">Explore More</a>
-                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
               </div>
             </div>
           </div>
@@ -1569,140 +1580,332 @@
 
       function initMBGCContent() {
         const commercial = [
-          ["MBGC - BioGas Conversion", "NextGen BioGas Solutions", "Optimized biogas production and upgrading for circular waste-to-energy models."],
-          ["ITEG - Advanced Rotor Technology", "Smart Energy Rotor System", "High-efficiency modular rotors for industrial and renewable energy applications."],
-          ["PBRC - Micro Algae Technology", "Green Microalgae Biorefinery", "Cultivation systems for carbon capture, biofuels and biochemicals."],
-          ["SIDR - Agro & Sport Technology", "Sustainable Agro-Sport Ecosystems", "Precision agriculture combined with sports and wellness infrastructure."],
-          ["SDGC - Desalination Technology", "EcoSmart Desalination Systems", "Energy-efficient desalination for coastal and arid regions."],
-          ["GSMF - Separation Technology", "Advanced Green Separation Systems", "Membrane and filtration solutions for industrial use."],
-          ["GFSS - EMG Separation", "EMG Precision Separation", "Electromagnetic and gradient separation platforms."],
-          ["PCRR - Recovery & Resilience", "PCRR Program", "Framework for green tech deployment and NFT licensing."]
+          [
+            "MBGC - BioGas Conversion",
+            "NextGen BioGas Solutions",
+            "Optimized biogas production and upgrading for circular waste-to-energy models.",
+          ],
+          [
+            "ITEG - Advanced Rotor Technology",
+            "Smart Energy Rotor System",
+            "High-efficiency modular rotors for industrial and renewable energy applications.",
+          ],
+          [
+            "PBRC - Micro Algae Technology",
+            "Green Microalgae Biorefinery",
+            "Cultivation systems for carbon capture, biofuels and biochemicals.",
+          ],
+          [
+            "SIDR - Agro & Sport Technology",
+            "Sustainable Agro-Sport Ecosystems",
+            "Precision agriculture combined with sports and wellness infrastructure.",
+          ],
+          [
+            "SDGC - Desalination Technology",
+            "EcoSmart Desalination Systems",
+            "Energy-efficient desalination for coastal and arid regions.",
+          ],
+          [
+            "GSMF - Separation Technology",
+            "Advanced Green Separation Systems",
+            "Membrane and filtration solutions for industrial use.",
+          ],
+          [
+            "GFSS - EMG Separation",
+            "EMG Precision Separation",
+            "Electromagnetic and gradient separation platforms.",
+          ],
+          [
+            "PCRR - Recovery & Resilience",
+            "PCRR Program",
+            "Framework for green tech deployment and NFT licensing.",
+          ],
         ];
 
         const legal = [
-          ["MBGC - BioGas Conversion", "MISE-MBGC (file 0001427413) — Registered Optimized Biogas Production System."],
-          ["ITEG - Rotor Technology", "MISE-ITEG — Advanced Rotor Innovation Program."],
-          ["PBRC - Micro Algae", "MISE-PBRC — Micro Algae Biorefinery and Carbon Capture Platform."],
-          ["SIDR - Agro & Sport", "Registered SIDR Sustainable Agro-Sport Integrated System."],
-          ["SDGC - Desalination", "SDGC Energy-Efficient Desalination System (Patent Pending)."],
-          ["GSMF - Separation", "GSMF Advanced Green Separation Method and Apparatus."],
-          ["GFSS - EMG Separation", "GFSS Electromagnetic Gradient Separation System."],
-          ["PCRR - Recovery & Resilience", "PCRR JWTeam Srls — Commercial Plan for Recovery and Resilience."]
+          [
+            "MBGC - BioGas Conversion",
+            "MISE-MBGC (file 0001427413) — Registered Optimized Biogas Production System.",
+          ],
+          [
+            "ITEG - Rotor Technology",
+            "MISE-ITEG — Advanced Rotor Innovation Program.",
+          ],
+          [
+            "PBRC - Micro Algae",
+            "MISE-PBRC — Micro Algae Biorefinery and Carbon Capture Platform.",
+          ],
+          [
+            "SIDR - Agro & Sport",
+            "Registered SIDR Sustainable Agro-Sport Integrated System.",
+          ],
+          [
+            "SDGC - Desalination",
+            "SDGC Energy-Efficient Desalination System (Patent Pending).",
+          ],
+          [
+            "GSMF - Separation",
+            "GSMF Advanced Green Separation Method and Apparatus.",
+          ],
+          [
+            "GFSS - EMG Separation",
+            "GFSS Electromagnetic Gradient Separation System.",
+          ],
+          [
+            "PCRR - Recovery & Resilience",
+            "PCRR JWTeam Srls — Commercial Plan for Recovery and Resilience.",
+          ],
         ];
 
         const pitch = [
-          ["Problem-Solution", "Turns organic waste streams into clean methane and grid energy.", "#15803D"],
-          ["Market Opportunity", "Global biomethane market projected >$60B by 2030 — aligned with RED III & SDG 7/12/13.", "#ea580c"],
-          ["Technical Differentiation", "Verified CH₄ yields, modular scale, robust co-digestion recipes.", "#000"],
-          ["Commercial Model", "NFT GREEN licensing, near-zero entry, energy + carbon-credit + gate-fee revenue.", "#15803D"],
-          ["Implementation Roadmap", "Starter Kit → pilot → cluster rollout → grid injection.", "#ea580c"],
-          ["Impact Metrics", "CO₂ avoided, rural jobs, digestate fertilizer replacing synthetic N.", "#000"]
+          [
+            "Problem-Solution",
+            "Turns organic waste streams into clean methane and grid energy.",
+            "#15803D",
+          ],
+          [
+            "Market Opportunity",
+            "Global biomethane market projected >$60B by 2030 — aligned with RED III & SDG 7/12/13.",
+            "#ea580c",
+          ],
+          [
+            "Technical Differentiation",
+            "Verified CH₄ yields, modular scale, robust co-digestion recipes.",
+            "#000",
+          ],
+          [
+            "Commercial Model",
+            "NFT GREEN licensing, near-zero entry, energy + carbon-credit + gate-fee revenue.",
+            "#15803D",
+          ],
+          [
+            "Implementation Roadmap",
+            "Starter Kit → pilot → cluster rollout → grid injection.",
+            "#ea580c",
+          ],
+          [
+            "Impact Metrics",
+            "CO₂ avoided, rural jobs, digestate fertilizer replacing synthetic N.",
+            "#000",
+          ],
         ];
 
-        const patentB = ["Strong Legal Protection", "NFT GREEN Licensing", "Investor Attractiveness", "Technology Transfer", "Additional Layers"];
+        const patentB = [
+          "Strong Legal Protection",
+          "NFT GREEN Licensing",
+          "Investor Attractiveness",
+          "Technology Transfer",
+          "Additional Layers",
+        ];
         const cols = ["#15803D", "#ea580c", "#000", "#15803D", "#ea580c"];
 
         const life = [
           ["Early Validation", "Feedstock analysis & feasibility", "#15803D"],
           ["Pilot Plant", "Small-scale digester demo", "#ea580c"],
           ["Scale-Up", "Full industrial deployment", "#000"],
-          ["Training", "Operator & community capacity", "#15803D"]
+          ["Training", "Operator & community capacity", "#15803D"],
         ];
 
         const progs = [
-          ["GPBF", "Green Project Business Funding", "Feasibility studies and initial biogas demos.", "#15803D"],
-          ["MBGC-FARM", "Agro Biogas Acceleration", "Funds for livestock and agro-residue digesters.", "#ea580c"],
-          ["ACFW", "Agro-Circular Future Works", "Bio-based and circular agriculture initiatives.", "#000"],
-          ["EDU-EBS", "Education & Knowledge Transfer", "Training, capacity building, knowledge programs.", "#15803D"],
-          ["COGEA & IT&C", "Cooperative & Digital Circular", "Cooperative projects and digital-circular models.", "#ea580c"],
-          ["PNRR-Aligned", "Recovery & Resilience Funding", "Direct access to Italy's PNRR biomethane lines.", "#000"]
+          [
+            "GPBF",
+            "Green Project Business Funding",
+            "Feasibility studies and initial biogas demos.",
+            "#15803D",
+          ],
+          [
+            "MBGC-FARM",
+            "Agro Biogas Acceleration",
+            "Funds for livestock and agro-residue digesters.",
+            "#ea580c",
+          ],
+          [
+            "ACFW",
+            "Agro-Circular Future Works",
+            "Bio-based and circular agriculture initiatives.",
+            "#000",
+          ],
+          [
+            "EDU-EBS",
+            "Education & Knowledge Transfer",
+            "Training, capacity building, knowledge programs.",
+            "#15803D",
+          ],
+          [
+            "COGEA & IT&C",
+            "Cooperative & Digital Circular",
+            "Cooperative projects and digital-circular models.",
+            "#ea580c",
+          ],
+          [
+            "PNRR-Aligned",
+            "Recovery & Resilience Funding",
+            "Direct access to Italy's PNRR biomethane lines.",
+            "#000",
+          ],
         ];
 
         const heritage = [
-          ["Know-How & Trade Secrets", "Proprietary digestion recipes, operational lessons, troubleshooting playbooks.", "#15803D"],
-          ["Brand Equity", "JWTeam & NFT GREEN recognition across green-tech ecosystems.", "#ea580c"],
-          ["Network Capital", "Ties to WIPO, EU programs, ministries, universities and farm cooperatives.", "#000"],
-          ["Organizational Culture", "Shared vision, multidisciplinary expertise, agile execution.", "#15803D"],
-          ["Data & Digital Assets", "Plant telemetry, yield datasets, market intelligence, ESG dashboards.", "#ea580c"],
-          ["ESG Narrative", "Credible impact story aligned with SDGs and the Green Deal.", "#000"]
+          [
+            "Know-How & Trade Secrets",
+            "Proprietary digestion recipes, operational lessons, troubleshooting playbooks.",
+            "#15803D",
+          ],
+          [
+            "Brand Equity",
+            "JWTeam & NFT GREEN recognition across green-tech ecosystems.",
+            "#ea580c",
+          ],
+          [
+            "Network Capital",
+            "Ties to WIPO, EU programs, ministries, universities and farm cooperatives.",
+            "#000",
+          ],
+          [
+            "Organizational Culture",
+            "Shared vision, multidisciplinary expertise, agile execution.",
+            "#15803D",
+          ],
+          [
+            "Data & Digital Assets",
+            "Plant telemetry, yield datasets, market intelligence, ESG dashboards.",
+            "#ea580c",
+          ],
+          [
+            "ESG Narrative",
+            "Credible impact story aligned with SDGs and the Green Deal.",
+            "#000",
+          ],
         ];
 
         const strat = [
-          ["Global Positioning", "Stronger international footprint.", "#15803D"],
+          [
+            "Global Positioning",
+            "Stronger international footprint.",
+            "#15803D",
+          ],
           ["Trust & Partnerships", "Faster alliance formation.", "#ea580c"],
           ["Valuation", "Higher value in investment rounds.", "#000"],
-          ["Licensing Power", "Reputation-driven long-term licensing.", "#15803D"]
+          [
+            "Licensing Power",
+            "Reputation-driven long-term licensing.",
+            "#15803D",
+          ],
         ];
 
         const commercialGrid = document.getElementById("commercialGrid");
         if (commercialGrid) {
-          commercialGrid.innerHTML = commercial.map(([t, sub, d]) => `
+          commercialGrid.innerHTML = commercial
+            .map(
+              ([t, sub, d]) => `
             <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid var(--mbgc-green);">
               <h5 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h5>
               <p class="mb-1" style="color:var(--mbgc-amber);font-weight:600;">"${sub}"</p>
               <p class="small mb-0 text-muted">${d}</p>
-            </div></div>`).join("");
+            </div></div>`,
+            )
+            .join("");
         }
 
         const legalGrid = document.getElementById("legalGrid");
         if (legalGrid) {
-          legalGrid.innerHTML = legal.map(([t, d]) => `
+          legalGrid.innerHTML = legal
+            .map(
+              ([t, d]) => `
             <div class="col-md-6"><div class="legal-card">
               <h5 class="fw-bold" style="color:var(--mbgc-green);">${t}</h5>
               <p class="text-muted small mb-0">Legal Title: ${d}</p>
-            </div></div>`).join("");
+            </div></div>`,
+            )
+            .join("");
         }
 
         const pitchGrid = document.getElementById("pitchGrid");
         if (pitchGrid) {
-          pitchGrid.innerHTML = pitch.map(([t, d, c]) => `
+          pitchGrid.innerHTML = pitch
+            .map(
+              ([t, d, c]) => `
             <div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid ${c};">
               <h5 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h5>
               <p class="small mb-0 text-muted">${d}</p>
-            </div></div>`).join("");
+            </div></div>`,
+            )
+            .join("");
         }
 
         const patentBadges = document.getElementById("patentBadges");
         if (patentBadges) {
-          patentBadges.innerHTML = patentB.map((t, i) => `<span class="badge-pill" style="background:${cols[i]};">${t}</span>`).join("");
+          patentBadges.innerHTML = patentB
+            .map(
+              (t, i) =>
+                `<span class="badge-pill" style="background:${cols[i]};">${t}</span>`,
+            )
+            .join("");
         }
 
         const lifecycleRow = document.getElementById("lifecycleRow");
         if (lifecycleRow) {
-          lifecycleRow.innerHTML = life.map(([t, d, c]) => `
+          lifecycleRow.innerHTML = life
+            .map(
+              ([t, d, c]) => `
             <div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm text-center" style="border-top:4px solid ${c};">
               <h6 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h6>
-              <p class="small mb-0 text-muted">${d}</p></div></div>`).join("");
+              <p class="small mb-0 text-muted">${d}</p></div></div>`,
+            )
+            .join("");
         }
 
         const programsRow = document.getElementById("programsRow");
         if (programsRow) {
-          programsRow.innerHTML = progs.map(([t, sub, d, c]) => `
+          programsRow.innerHTML = progs
+            .map(
+              ([t, sub, d, c]) => `
             <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid ${c};">
               <h5 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h5>
               <p class="mb-1" style="color:var(--mbgc-amber);font-weight:600;">${sub}</p>
-              <p class="small mb-0 text-muted">${d}</p></div></div>`).join("");
+              <p class="small mb-0 text-muted">${d}</p></div></div>`,
+            )
+            .join("");
         }
 
         const voucherBadges = document.getElementById("voucherBadges");
         if (voucherBadges) {
-          voucherBadges.innerHTML = ["Reduced Net Costs", "Accelerated Timelines", "Expertise & Mentorship", "Tax Incentives", "Measurable ESG Outcomes"].map((t, i) => `<span class="badge-pill" style="background:${cols[i]};">${t}</span>`).join("");
+          voucherBadges.innerHTML = [
+            "Reduced Net Costs",
+            "Accelerated Timelines",
+            "Expertise & Mentorship",
+            "Tax Incentives",
+            "Measurable ESG Outcomes",
+          ]
+            .map(
+              (t, i) =>
+                `<span class="badge-pill" style="background:${cols[i]};">${t}</span>`,
+            )
+            .join("");
         }
 
         const heritageGrid = document.getElementById("heritageGrid");
         if (heritageGrid) {
-          heritageGrid.innerHTML = heritage.map(([t, d, c]) => `
+          heritageGrid.innerHTML = heritage
+            .map(
+              ([t, d, c]) => `
             <div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid ${c};">
               <h5 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h5>
-              <p class="small mb-0 text-muted">${d}</p></div></div>`).join("");
+              <p class="small mb-0 text-muted">${d}</p></div></div>`,
+            )
+            .join("");
         }
 
         const strategicRow = document.getElementById("strategicRow");
         if (strategicRow) {
-          strategicRow.innerHTML = strat.map(([t, d, c]) => `
+          strategicRow.innerHTML = strat
+            .map(
+              ([t, d, c]) => `
             <div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm" style="border-left:4px solid ${c};">
               <h6 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h6>
-              <p class="small mb-0 text-muted">${d}</p></div></div>`).join("");
+              <p class="small mb-0 text-muted">${d}</p></div></div>`,
+            )
+            .join("");
         }
       }
 
@@ -1722,20 +1925,22 @@
             type: "line",
             data: {
               labels: ["2024", "2025", "2026", "2027", "2028", "2029", "2030"],
-              datasets: [{
-                label: "MBGC Adoption %",
-                data: [5, 12, 24, 38, 55, 72, 88],
-                borderColor: "#15803D",
-                backgroundColor: "rgba(21,128,61,.15)",
-                fill: true,
-                tension: .35,
-                borderWidth: 3
-              }]
+              datasets: [
+                {
+                  label: "MBGC Adoption %",
+                  data: [5, 12, 24, 38, 55, 72, 88],
+                  borderColor: "#15803D",
+                  backgroundColor: "rgba(21,128,61,.15)",
+                  fill: true,
+                  tension: 0.35,
+                  borderWidth: 3,
+                },
+              ],
             },
             options: {
               maintainAspectRatio: false,
-              plugins: { legend: { display: true } }
-            }
+              plugins: { legend: { display: true } },
+            },
           });
         }
 
@@ -1744,17 +1949,24 @@
           charts.chartSavings = new Chart(savingsCtx, {
             type: "bar",
             data: {
-              labels: ["Diesel", "Natural Gas", "Grid Electricity", "MBGC Biomethane"],
-              datasets: [{
-                label: "€/MWh",
-                data: [180, 120, 150, 65],
-                backgroundColor: ["#ea580c", "#facc15", "#0ea5e9", "#15803D"]
-              }]
+              labels: [
+                "Diesel",
+                "Natural Gas",
+                "Grid Electricity",
+                "MBGC Biomethane",
+              ],
+              datasets: [
+                {
+                  label: "€/MWh",
+                  data: [180, 120, 150, 65],
+                  backgroundColor: ["#ea580c", "#facc15", "#0ea5e9", "#15803D"],
+                },
+              ],
             },
             options: {
               maintainAspectRatio: false,
-              plugins: { legend: { display: false } }
-            }
+              plugins: { legend: { display: false } },
+            },
           });
         }
       }
