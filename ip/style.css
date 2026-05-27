@@ -185,6 +185,20 @@
             color: #fff;
         }
 
+        .sidebar-card.iphome-button {
+            background: #FF6200;
+            color: #fff;
+            border: 0;
+            width: 100%;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .sidebar-card.iphome-button:hover {
+            background: #e55b00;
+            color: #fff;
+        }
+
         .sidebar-card.active {
             background: #16A34A;
             color: #052e16;
