@@ -1,0 +1,3297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCRR/NFT - Digital Assets</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="images/faviconservices--32x32.png"
+      type="image/x-icon"
+      sizes="32x32"
+    />
+  </head>
+
+  <body>
+    <!-- Top scrolling bar -->
+    <div class="fixed-top-menu">
+      <div class="scroll-track">
+        <a href="#">WIPO/UN</a><a href="#">EPO/EU</a><a href="#">UIBM/IT</a>
+        <a href="#">inPASS/IN</a><a href="#">CNIPA/CN</a
+        ><a href="#">USPTO/US</a> <a href="#">EAPO/RU</a
+        ><a href="#">ARIPO/AIPO</a><a href="#">ESG/UN</a> <a href="#">SDGs/UN</a
+        ><a href="#">ZONE1</a> <a href="#">WIPO/UN</a><a href="#">EPO/EU</a
+        ><a href="#">UIBM/IT</a> <a href="#">inPASS/IN</a
+        ><a href="#">CNIPA/CN</a><a href="#">USPTO/US</a> <a href="#">EAPO/RU</a
+        ><a href="#">ARIPO/AIPO</a><a href="#">ESG/UN</a> <a href="#">SDGs/UN</a
+        ><a href="#">ZONE1</a>
+      </div>
+    </div>
+
+    <!-- Orange Header (replaced) -->
+    <div class="orange-header">
+      <div class="container-fluid px-3 px-lg-4">
+        <div
+          class="header-inner d-flex justify-content-between align-items-center flex-wrap gap-3 py-1"
+        >
+          <div class="logo-container d-flex align-items-center flex-shrink-0">
+            <a href="http://www.pcrr-jwt.eu/jwt">
+              <img
+                src="images/faviconservices--32x32.png"
+                alt="EUWEB GREEN Logo"
+                height="32"
+              />
+            </a>
+            <span class="logo ms-2"
+              >EUWEB GREEN
+              <a href="https://www.pcrr-jwt.eu/mbgc/"
+                ><button
+                  class="head-button btn btn-success rounded-5 fw-bold btn-sm ms-1"
+                >
+                  mbgc
+                </button></a
+              >
+            </span>
+          </div>
+
+          <nav class="menu d-flex flex-wrap gap-2 align-items-center">
+            <a href="https://www.aias-sicurezza.it/presentazione-aias/"
+              >jwt safety</a
+            >
+            <a
+              href="https://www.aias-sicurezza.it/privacy-data-protection-cybersecurity/"
+              >jwt security</a
+            >
+            <button
+              class="main-btn btn btn-info btn-sm fw-bold"
+              data-modal="dreamzone-modal"
+            >
+              Dream Zone
+            </button>
+            <a href="https://www.jwt-jwt.it/team/">About</a>
+            <a href="https://www.jwt-jwt.it/vision/">Vision</a>
+            <a href="https://www.jwt-jwt.it/mission/">Mission</a>
+            <a href="#contact-us">Contact</a>
+            <button
+              class="main-btn btn btn-outline-success btn-sm fw-bold"
+              data-modal="kyc-light-modal"
+            >
+              KYC Light
+            </button>
+            <button
+              class="main-btn btn btn-success btn-sm fw-bold"
+              data-modal="kyc-strong-modal"
+            >
+              KYC Strong
+            </button>
+            <button
+              class="main-btn btn btn-warning btn-sm fw-bold"
+              data-modal="access-modal"
+            >
+              Access
+            </button>
+            <a href="/com/cart/" class="cart-link"
+              >🛒 Cart <span id="cart-count">0</span></a
+            >
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="secondary-menu">
+      <a href="https://www.pcrr-jwt.eu/comm/nft" class="menu-btn">PCRR NFT</a>
+      <a href="#" class="menu-btn">NFT/NFW</a>
+      <a
+        href="https://www.expotv1.com/ESCP_GUPC_Start_02_Offer.pdf"
+        class="menu-btn"
+        >GUPC RE/lab</a
+      >
+      <a
+        href="https://www.expotv1.com/190530_ESCP_BU_Fragilita_BP.pdf"
+        class="menu-btn"
+        >GUPC Housing Care</a
+      >
+      <a href="https://www.expotv1.com/JWT_project.pdf" class="menu-btn"
+        >Master Plan</a
+      >
+      <a href="https://www.expotv1.com/ESCP_HR.pdf" class="menu-btn"
+        >HR Leader</a
+      >
+      <a href="https://www.expotv1.eu/comm/" class="menu-btn">HR Blog Chat</a>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="vertical-sidebar">
+      <h2>IP Home</h2>
+      <div id="sidebar"></div>
+    </aside>
+
+    <main>
+      <section class="hero-section" id="hero">
+        <div class="hero-content">
+          <h1 id="bannerTitle"></h1>
+          <p id="bannerSubtitle"></p>
+        </div>
+        <div class="banner-dots" id="bannerDots"></div>
+      </section>
+
+      <div class="section-content" id="sectionContent"></div>
+
+      <!-- Footer -->
+      <footer class="site-footer" id="contact-us">
+        <div class="footer-grid">
+          <div>
+            <h4>PCRR JWTeam Srls</h4>
+            <p>
+              <strong>Joules Water Team</strong><br />
+              Research, Development & Innovation in Joules, Water and Primary
+              Renewable Resources
+            </p>
+            <p>Sede Legale: Via Terrazzano 85<br />20017 Rho (MI), Italy</p>
+            <p>C.F. e P.I. 12092970966 | Cap.Soc. € 200</p>
+          </div>
+          <div>
+            <h4>Legal & Contact</h4>
+            <p>PEC: <a href="mailto:pcrrjwt@pec.it">pcrrjwt@pec.it</a></p>
+            <p>Info: <a href="mailto:info@jwt-jwt.eu">info@jwt-jwt.eu</a></p>
+            <p>
+              Commercial: <a href="mailto:comm@pcrr-jwt.it">comm@pcrr-jwt.it</a>
+            </p>
+            <p>IBAN: IT73H0306909412100000002247<br />BIC: BCITITMM</p>
+          </div>
+          <div>
+            <h4>Quick Access</h4>
+            <p><a href="https://jwt-jwt.eu/">JWT Home</a></p>
+            <p><a href="#">PCRR Commercial Plan</a></p>
+            <p><a href="#">Common Services</a></p>
+            <p><a href="#">GREEN Rights for the World</a></p>
+          </div>
+          <div>
+            <h4>From 100% fossil to ZERO</h4>
+            <p>GREEN Industrial Rights • NFT/NFW • Ecological Transition</p>
+            <p>by Ananya</p>
+            <p><a href="/com/cart/">Open Shopping Cart</a></p>
+          </div>
+        </div>
+        <div class="copy">© 2026 All Rights Reserved</div>
+      </footer>
+    </main>
+
+    <!-- ============ MODALS ============ -->
+    <div class="modal-overlay modal" id="dreamzone-modal">
+      <div class="modal-box">
+        <button class="close-btn" type="button">&times;</button>
+        <h3>Dream Zone</h3>
+        <p>
+          Share your idea or project. Our team will reach out to discuss
+          collaboration opportunities.
+        </p>
+        <form>
+          <label>Full Name</label><input type="text" required />
+          <label>Email</label><input type="email" required />
+          <label>Your Dream / Project</label
+          ><textarea rows="4" required></textarea>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-overlay modal" id="kyc-light-modal">
+      <div class="modal-box">
+        <button class="close-btn" type="button">&times;</button>
+        <h3>KYC Light</h3>
+        <p>Quick identity registration. Basic verification only.</p>
+        <form>
+          <label>Full Name</label><input type="text" required />
+          <label>Email</label><input type="email" required />
+          <label>Country</label><input type="text" required />
+          <button type="submit" class="submit-btn">Submit KYC Light</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-overlay modal" id="kyc-strong-modal">
+      <div class="modal-box">
+        <button class="close-btn" type="button">&times;</button>
+        <h3>KYC Strong</h3>
+        <p>Full identity verification with document upload.</p>
+        <form>
+          <label>Full Name</label><input type="text" required />
+          <label>Email</label><input type="email" required />
+          <label>Tax ID / Fiscal Code</label><input type="text" required />
+          <label>Country</label><input type="text" required />
+          <label>ID Document</label
+          ><input type="file" accept="image/*,.pdf" required />
+          <button type="submit" class="submit-btn">Submit KYC Strong</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal-overlay modal" id="access-modal">
+      <div class="modal-box">
+        <button class="close-btn" type="button">&times;</button>
+        <h3>Access</h3>
+        <p>Sign in to your EUWEB GREEN account.</p>
+        <form>
+          <label>Email</label><input type="email" required />
+          <label>Password</label><input type="password" required />
+          <button type="submit" class="submit-btn">Sign In</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      /* ============ DATA ============ */
+      const currentPage = "mbgc";
+      const banners = [
+        {
+          title: "EPO TV1 — Media & TV",
+          subtitle: "Live coverage of the JWT Ecosystem",
+          image:
+            "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=1600",
+        },
+        {
+          title: "Green Energy Forum 2026",
+          subtitle: "Renewables, biogas and algae innovations",
+          image:
+            "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1600",
+        },
+        {
+          title: "PCRR Recovery Summit",
+          subtitle: "Resilience for territories and communities",
+          image: "images/waste.webp",
+        },
+        {
+          title: "IP & Innovation Week",
+          subtitle: "Patents, trademarks and tech transfer",
+          image:
+            "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600",
+        },
+        {
+          title: "Energy",
+          subtitle: "Environment friendly",
+          image: "images/targetaudi.webp",
+        },
+      ];
+
+      const sections = [
+        {
+          id: "ip",
+          label: "IP - Intellectual Property",
+          url: "https://www.pcrr-jwt.eu/comm/ip",
+          intro:
+            "Intellectual Property covers innovation systems, digital rights, patents, trademarks and ecosystem protection across global jurisdictions.",
+          cards: [
+            {
+              title: "Patents",
+              text: "File, manage and license inventions worldwide.",
+            },
+            {
+              title: "Trademarks",
+              text: "Protect names, logos and brand identity.",
+            },
+            {
+              title: "Copyrights",
+              text: "Secure creative works and digital assets.",
+            },
+            {
+              title: "Trade Secrets",
+              text: "Confidential know-how and processes.",
+            },
+          ],
+          subMenu: ["Filing", "Licensing", "Litigation", "Portfolio"],
+          bp: {
+            title: "IP Business Plan Starter Kit",
+            bullets: [
+              "IP audit and asset mapping",
+              "Filing roadmap (WIPO, EPO, USPTO)",
+              "Licensing & royalty model",
+              "Enforcement strategy and budget",
+            ],
+          },
+        },
+        {
+          id: "iteg",
+          label: "ITEG - Rotor",
+          url: "https://www.pcrr-jwt.eu/iteg",
+          intro:
+            "Energy rotor systems for sustainable mechanical-to-electrical energy conversion with high efficiency.",
+          cards: [
+            { title: "Rotor Design", text: "Aerodynamic blade engineering." },
+            { title: "Generator", text: "High-efficiency conversion units." },
+            { title: "Field Tests", text: "Pilot installations and KPIs." },
+            { title: "Grid Connect", text: "Integration with smart grids." },
+          ],
+          subMenu: ["Specs", "Pilots", "Suppliers", "Certifications"],
+          bp: {
+            title: "ITEG Business Plan Starter Kit",
+            bullets: [
+              "Rotor prototype CAPEX & OPEX",
+              "Site selection and permits",
+              "PPA and offtake structure",
+              "5-year energy yield model",
+            ],
+          },
+        },
+        {
+          id: "mbgc",
+          label: "MBGC - Micro Biogas",
+          url: "https://www.pcrr-jwt.eu/mbgc",
+          intro:
+            "Micro-scale biogas production turning organic waste into clean renewable energy for local communities.",
+          cards: [
+            { title: "Digesters", text: "Modular anaerobic units." },
+            { title: "Feedstock", text: "Agro-waste sourcing chain." },
+            { title: "Upgrading", text: "Biomethane purification." },
+            { title: "Distribution", text: "Local energy delivery." },
+          ],
+          subMenu: ["Modules", "Feedstock", "Permits", "Operations"],
+          bp: {
+            title: "MBGC Business Plan Starter Kit",
+            bullets: [
+              "Plant sizing & feedstock contracts",
+              "Permits and environmental study",
+              "Revenue model: gas + digestate",
+              "ROI and carbon credit projection",
+            ],
+          },
+        },
+        {
+          id: "pbrc",
+          label: "PBRC - Micro Algae",
+          url: "https://www.pcrr-jwt.eu/pbrc",
+          intro:
+            "Micro algae cultivation for bioenergy, nutraceuticals and high-value bioproducts.",
+          cards: [
+            { title: "Photobioreactors", text: "Closed-loop cultivation." },
+            { title: "Strains", text: "Selected high-yield species." },
+            { title: "Harvesting", text: "Centrifuge and filtration." },
+            { title: "Products", text: "Omega-3, pigments, biofuel." },
+          ],
+          subMenu: ["Strains", "Process", "Markets", "Lab"],
+          bp: {
+            title: "PBRC Business Plan Starter Kit",
+            bullets: [
+              "Strain & product portfolio",
+              "Cultivation CAPEX",
+              "B2B offtake agreements",
+              "Scale-up roadmap",
+            ],
+          },
+        },
+        {
+          id: "sidr",
+          label: "SIDR - Agro & Sport",
+          url: "https://www.pcrr-jwt.eu/sidr",
+          intro:
+            "Agriculture development combined with sports infrastructure for integrated rural regeneration.",
+          cards: [
+            { title: "Agro Hubs", text: "Smart farming clusters." },
+            { title: "Sport Facilities", text: "Multi-use venues." },
+            { title: "Community", text: "Youth & training programs." },
+            { title: "Tourism", text: "Eco & sports tourism." },
+          ],
+          subMenu: ["Hubs", "Facilities", "Programs", "Partners"],
+          bp: {
+            title: "SIDR Business Plan Starter Kit",
+            bullets: [
+              "Land & concession analysis",
+              "Mixed-revenue model",
+              "Public-private partnerships",
+              "Impact KPIs",
+            ],
+          },
+        },
+        {
+          id: "sdgc",
+          label: "SDGC - Desalination",
+          url: "https://www.pcrr-jwt.eu/sdgc",
+          intro:
+            "Sustainable desalination and water treatment using low-energy membrane and solar-driven systems.",
+          cards: [
+            { title: "RO Systems", text: "Energy-recovered reverse osmosis." },
+            { title: "Solar Drive", text: "PV-powered modules." },
+            { title: "Brine Mgmt", text: "Zero liquid discharge." },
+            { title: "Quality", text: "WHO-grade output." },
+          ],
+          subMenu: ["Tech", "Sites", "Quality", "Service"],
+          bp: {
+            title: "SDGC Business Plan Starter Kit",
+            bullets: [
+              "Site demand & salinity study",
+              "CAPEX/OPEX per m³",
+              "Water purchase agreements",
+              "20-year service model",
+            ],
+          },
+        },
+        {
+          id: "gsmf",
+          label: "GSMF - Separation",
+          url: "https://www.pcrr-jwt.eu/gsmf",
+          intro:
+            "Advanced material and gas separation systems for industrial purification and recovery.",
+          cards: [
+            { title: "Membranes", text: "High-selectivity materials." },
+            { title: "Cryogenic", text: "Low-temp separation." },
+            { title: "PSA", text: "Pressure swing adsorption." },
+            { title: "Recovery", text: "Closed-loop reuse." },
+          ],
+          subMenu: ["Tech", "Cases", "Lab", "Engineering"],
+          bp: {
+            title: "GSMF Business Plan Starter Kit",
+            bullets: [
+              "Target gas streams & clients",
+              "Pilot to commercial roadmap",
+              "Licensing vs EPC model",
+              "Service & maintenance revenue",
+            ],
+          },
+        },
+        {
+          id: "gfss",
+          label: "GFSS - EMG Separation",
+          url: "https://www.pcrr-jwt.eu/gfss",
+          intro:
+            "Electromagnetic separation technologies for materials recovery and recycling.",
+          cards: [
+            { title: "Eddy Current", text: "Non-ferrous separation." },
+            { title: "Magnetic Drum", text: "Ferrous extraction." },
+            { title: "ESP", text: "Electrostatic precipitation." },
+            { title: "Sorting Lines", text: "Integrated recycling." },
+          ],
+          subMenu: ["Equipment", "Plants", "Service", "R&D"],
+          bp: {
+            title: "GFSS Business Plan Starter Kit",
+            bullets: [
+              "Recyclable stream analysis",
+              "Plant configuration",
+              "Material offtake market",
+              "Payback model",
+            ],
+          },
+        },
+        {
+          id: "pcrr",
+          label: "PCRR - Recovery & Resilience",
+          url: "https://www.pcrr-jwt.eu/pcrr",
+          intro:
+            "Post-crisis recovery and resilience framework for territories, infrastructure and communities.",
+          cards: [],
+          subMenu: [],
+          bp: null,
+        },
+        {
+          id: "iphome",
+          label: "IP Home — Epo TV1",
+          url: "https://pcrr-jwt.eu/comm/",
+          isHeader: true,
+          isOverview: true,
+          overviewUrl: "https://pcrr-jwt.eu/comm/",
+          img: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800",
+        },
+        {
+          id: "industrial",
+          label: "Industrial Property",
+          intro:
+            "Industrial property rights management — patents, designs and utility models for industry.",
+          cards: [
+            { title: "Designs", text: "Industrial design rights." },
+            { title: "Utility", text: "Utility model protection." },
+            { title: "Strategy", text: "Portfolio strategy." },
+            { title: "Defense", text: "Opposition & litigation." },
+          ],
+          subMenu: ["Filing", "Search", "Defense", "Valuation"],
+          bp: {
+            title: "Industrial Property Business Plan Starter Kit",
+            bullets: [
+              "Asset inventory",
+              "Jurisdiction selection",
+              "Cost-of-protection model",
+              "Monetization plan",
+            ],
+          },
+        },
+        {
+          id: "it",
+          label: "IT & Support",
+          url: "https://www.expotv1.com/ESCP_TSMGO.htm",
+          img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+          intro:
+            "IT infrastructure, cloud services and 24/7 technical support.",
+        },
+        {
+          id: "edu",
+          label: "EDU / FAD",
+          url: "https://www.expotv1.com/ESCP_EDU_EnergyBean_PCRR.pdf",
+          img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800",
+          intro: "Education, training and professional development.",
+        },
+        {
+          id: "editorial",
+          label: "Editorial Plan",
+          url: "https://www.expotv1.com/JWT_GhostWriter.htm",
+          img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800",
+          intro: "Content strategy and editorial planning.",
+        },
+        {
+          id: "mktg",
+          label: "MKTG Goals",
+          url: "https://www.expotv1.com/JWT_mkt.htm",
+          img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
+          intro: "Marketing of commercial and physical goods.",
+        },
+        {
+          id: "mkt-ip",
+          label: "MKT & IP",
+          url: "https://www.expotv1.com/JWTeam_to_Ecological_TRANSITION.htm",
+          img: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800",
+          intro: "Marketing combined with Intellectual Property strategy.",
+        },
+        {
+          id: "ii-srb",
+          label: "II & SRB",
+          url: "https://www.expotv1.com/JWT_Rent_Lease_BACK.htm",
+          img: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800",
+          intro: "International Institutions and Strategic Relations Board.",
+        },
+        {
+          id: "jv",
+          label: "JV & 30/21",
+          url: "https://www.expotv1.com/JWT_Lend_Invest_30_21.htm",
+          img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800",
+          intro: "Joint Ventures and special program 30/21.",
+        },
+      ];
+
+      const moduleDetails = {
+        iteg: {
+          name: "ITEG - Advanced Rotor",
+          intro:
+            "Energy rotor systems for sustainable mechanical-to-electrical energy conversion with high efficiency.",
+          starterKit: {
+            image:
+              "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200",
+            highlight:
+              "High-efficiency modular rotors for industrial and renewable applications.",
+            benefits: [
+              "50% Tax Credit",
+              "Zero upfront cost model",
+              "PNRR Mission 2 Alignment",
+              "Quick Installation",
+            ],
+          },
+          businessPlan: {
+            objective:
+              "Develop and commercialize next-generation rotor technology for distributed renewable energy generation.",
+            target:
+              "Industrial facilities, wind farms, hydro-kinetic projects, and smart cities.",
+            keyPoints: [
+              "CAPEX/OPEX analysis",
+              "5-year energy yield projection",
+              "PPA & Offtake strategy",
+              "Site assessment methodology",
+            ],
+          },
+          publication:
+            "Scientific papers and theses on rotor aerodynamics, efficiency testing, and real-world pilot results.",
+          commercialTitle: "ITEG – Advanced Rotor Technology",
+          commercialDesc:
+            "Smart Energy Rotor System – High-efficiency modular rotors for industrial and renewable energy applications.",
+          pitch: {
+            problem:
+              "High cost and low efficiency of traditional energy conversion systems.",
+            solution:
+              "Patented rotor geometry delivering up to 35% higher efficiency.",
+            market: "€2.8 Billion European distributed energy market by 2030.",
+          },
+          patents:
+            "Core patents on adaptive blade geometry, low-drag design, and smart pitch control.",
+          voucher:
+            "Eligible for PNRR, Horizon Europe, and regional innovation vouchers.",
+          heritage:
+            "Accumulated engineering know-how from 7+ years of rotor testing and optimization.",
+        },
+        mbgc: {
+          name: "MBGC - Micro Biogas",
+          intro:
+            "Micro-scale biogas production turning organic waste into clean renewable energy.",
+          starterKit: {
+            image:
+              "https://images.unsplash.com/photo-1542601906990-b4d3e3f7c9e3?w=1200",
+            highlight: "Modular digesters for farms and communities.",
+            benefits: [
+              "Waste-to-Energy",
+              "Digestate Fertilizer",
+              "Carbon Credits",
+            ],
+          },
+          businessPlan: {
+            objective:
+              "Turn agricultural and food waste into local renewable energy and fertilizer.",
+            target: "Farms, food processors, municipalities.",
+            keyPoints: [
+              "Feedstock contracts",
+              "Biomethane upgrading",
+              "ROI 4-6 years",
+            ],
+          },
+          publication:
+            "Technical documentation and case studies on compact biogas systems, feedstock performance and integrated nutrient recovery.",
+          commercialTitle: "MBGC – BioGas Technology",
+          commercialDesc:
+            "NextGen BioGas Solutions – Optimized biogas production for circular economy.",
+          pitch: {
+            problem: "Methane emissions from waste.",
+            solution: "Compact modular biogas systems.",
+            market: "Growing rural energy demand.",
+          },
+          patents:
+            "Patents on compact digester design and efficient upgrading process.",
+          voucher:
+            "Strong support under circular economy and agricultural innovation funds.",
+          heritage:
+            "Practical experience in continuous operation and feedstock management.",
+        },
+        pbrc: {
+          name: "PBRC - Micro Algae",
+          intro:
+            "Micro algae cultivation for bioenergy, nutraceuticals and high-value bioproducts.",
+          starterKit: {
+            image:
+              "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200",
+            highlight: "Closed-loop photobioreactors.",
+            benefits: ["CO₂ Capture", "Omega-3 Production", "Biofuel"],
+          },
+          businessPlan: {
+            objective: "Scalable algae biorefinery model.",
+            target: "Nutraceutical and biofuel industries.",
+            keyPoints: [
+              "Strain selection",
+              "Harvesting technology",
+              "High-value co-products",
+            ],
+          },
+          publication:
+            "Research on high-density algae production, nutrient recycling and premium bioproduct markets.",
+          commercialTitle: "PBRC – Micro Algae Technology",
+          commercialDesc:
+            "Green Microalgae Biorefinery – Carbon sequestration and valuable biochemicals.",
+          pitch: {
+            problem: "High cost of algae production.",
+            solution: "Efficient modular systems.",
+            market: "Exploding demand for natural ingredients.",
+          },
+          patents: "Patents on photobioreactor design and harvesting methods.",
+          voucher: "Eligible for biotech and blue economy vouchers.",
+          heritage:
+            "Strong scientific background in algae biology and cultivation.",
+        },
+        sidr: {
+          name: "SIDR - Agro & Sport",
+          intro:
+            "Agriculture development combined with sports infrastructure for integrated rural regeneration.",
+          starterKit: {
+            image:
+              "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200",
+            highlight: "Integrated agro-sport regeneration hubs.",
+            benefits: [
+              "Mixed-use revenue",
+              "Community programs",
+              "Sustainable agriculture",
+            ],
+          },
+          businessPlan: {
+            objective:
+              "Design multi-use rural hubs blending farming, sport, and local services.",
+            target:
+              "Municipalities, educational institutions, wellness communities.",
+            keyPoints: [
+              "Land-use optimization",
+              "Event programming",
+              "Public-private partnerships",
+            ],
+          },
+          publication:
+            "Project briefs and social impact reports on regenerative community development.",
+          commercialTitle: "SIDR – Agro & Sport Ecosystems",
+          commercialDesc:
+            "Integrated regeneration platforms combining agriculture, sport and community services.",
+          pitch: {
+            problem:
+              "Fragmented rural infrastructure and limited local opportunity.",
+            solution:
+              "Unified agro-sport facilities that drive jobs, health and engagement.",
+            market:
+              "Regional regeneration and sustainable tourism investments.",
+          },
+          patents:
+            "Designs for mixed-use hub layouts, irrigation systems and facility operations.",
+          voucher:
+            "Supported by regional development and youth ecosystem financing.",
+          heritage:
+            "Local development expertise and community partnership networks.",
+        },
+        sdgc: {
+          name: "SDGC - Desalination",
+          intro:
+            "Sustainable desalination and water treatment using low-energy membrane and solar-driven systems.",
+          starterKit: {
+            image:
+              "https://images.unsplash.com/photo-1495576776163-2c3db54a91d3?w=1200",
+            highlight: "Energy-efficient desalination solutions.",
+            benefits: [
+              "Freshwater access",
+              "Low energy demand",
+              "Scalable deployment",
+            ],
+          },
+          businessPlan: {
+            objective:
+              "Deploy low-emission water treatment systems for coastal and arid regions.",
+            target: "Utilities, resorts, remote communities.",
+            keyPoints: [
+              "Solar integration",
+              "Water-as-service",
+              "Quality compliance",
+            ],
+          },
+          publication:
+            "Technical notes on membrane optimization, brine management and sustainable freshwater supply.",
+          commercialTitle: "SDGC – Desalination Technology",
+          commercialDesc:
+            "EcoSmart Desalination Systems – Sustainable freshwater production for water-stressed regions.",
+          pitch: {
+            problem: "High-cost, energy-intensive water production.",
+            solution: "Solar-assisted, low-waste desalination.",
+            market: "Coastal utilities, tourism and industrial water users.",
+          },
+          patents:
+            "Patents on RO integration, solar coupling and low-waste recovery methods.",
+          voucher:
+            "Eligible for water innovation and climate resilience grants.",
+          heritage: "Membrane and solar water treatment expertise.",
+        },
+        gsmf: {
+          name: "GSMF - Separation",
+          intro:
+            "Advanced material and gas separation systems for industrial purification and recovery.",
+          starterKit: {
+            image:
+              "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200",
+            highlight: "High-selectivity separation platforms.",
+            benefits: [
+              "Purity optimization",
+              "Energy savings",
+              "Closed-loop recovery",
+            ],
+          },
+          businessPlan: {
+            objective:
+              "Commercialize gas and material separation systems for energy and chemical industries.",
+            target: "Industrial processors, refineries, clean tech operators.",
+            keyPoints: [
+              "Membrane licensing",
+              "PSA integration",
+              "Recovery services",
+            ],
+          },
+          publication:
+            "White papers on membrane science, PSA efficiency and industrial recovery use cases.",
+          commercialTitle: "GSMF – Separation Technology",
+          commercialDesc:
+            "Advanced Green Separation Systems – Industrial purification and recovery solutions.",
+          pitch: {
+            problem: "Inefficient gas and material separation processes.",
+            solution: "High-performance membrane and PSA systems.",
+            market: "Chemical, refining and environmental recovery markets.",
+          },
+          patents:
+            "Patents on selective membranes, PSA cycles and closed-loop recovery.",
+          voucher:
+            "Eligible for industrial efficiency and pollution reduction grants.",
+          heritage: "Materials science and process engineering expertise.",
+        },
+        gfss: {
+          name: "GFSS - EMG Separation",
+          intro:
+            "Electromagnetic separation technologies for materials recovery and recycling.",
+          starterKit: {
+            image:
+              "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200",
+            highlight:
+              "High-precision recovery for recycling and metals processing.",
+            benefits: [
+              "Material purity",
+              "Recovery efficiency",
+              "Circular economy",
+            ],
+          },
+          businessPlan: {
+            objective:
+              "Bring EMG sorting and recovery into recycling and industrial processing.",
+            target: "Recyclers, mining and materials processors.",
+            keyPoints: [
+              "Recovery margins",
+              "Automation support",
+              "Service-based revenue",
+            ],
+          },
+          publication:
+            "Case studies on electromagnetic sorting, material purity and circular value chains.",
+          commercialTitle: "GFSS – EMG Separation Technology",
+          commercialDesc:
+            "EMG Precision Separation Platform – High-performance recovery for recycling and industrial materials.",
+          pitch: {
+            problem: "Low-value recovery from mixed waste streams.",
+            solution:
+              "Electromagnetic separation with high throughput and purity.",
+            market: "Recycling, mining and industrial sorting markets.",
+          },
+          patents:
+            "Patents on EMG separation apparatus, sensor integration and automation.",
+          voucher:
+            "Supported by circular economy and resource recovery incentives.",
+          heritage:
+            "Separation systems experience and circular economy credentials.",
+        },
+        default: {
+          name: "PCRR Module",
+          intro: "Sustainable technology solution.",
+          starterKit: {
+            image:
+              "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200",
+            highlight: "Green Innovation Module.",
+            benefits: ["Tax Benefits", "Sustainability", "Innovation"],
+          },
+          businessPlan: {
+            objective: "Accelerate green transition.",
+            target: "Industry and public sector.",
+            keyPoints: ["Feasibility", "Implementation", "Scaling"],
+          },
+          publication:
+            "A broad overview of sustainable technology research and deployment.",
+          commercialTitle: "Commercial Technology Title",
+          commercialDesc: "Advanced sustainable solution.",
+          pitch: {
+            problem: "Environmental challenges.",
+            solution: "Innovative technology.",
+            market: "Growing green market.",
+          },
+          patents: "Patent portfolio under development.",
+          voucher: "Multiple funding opportunities available.",
+          heritage: "Knowledge and network capital.",
+        },
+      };
+
+      /* ============ SIDEBAR ============ */
+      const sidebarEl = document.getElementById("sidebar");
+      let activeId = currentPage;
+
+      function renderSidebar() {
+        sidebarEl.innerHTML = sections
+          .map((s) => {
+            const activeClass = s.id === activeId ? "active" : "";
+            if (s.id === "iphome") {
+              return `<button type="button" class="sidebar-card iphome-button ${activeClass}" data-open-url="${s.url || s.overviewUrl}">${s.label}</button>`;
+            }
+            if (s.isHeader) {
+              return `<div class="sidebar-header" data-id="${s.id}" style="cursor:pointer;">
+            <h5 style="color:#FF6200;">${s.label}</h5>
+          </div>`;
+            }
+            if (s.url && !s.isOverview) {
+              return `<a class="sidebar-card ${activeClass}" href="${s.url}">${s.label}</a>`;
+            }
+            return `<a class="sidebar-card ${activeClass}" href="#" data-id="${s.id}">${s.label}</a>`;
+          })
+          .join("");
+
+        sidebarEl.querySelectorAll("[data-id]").forEach((el) => {
+          el.addEventListener("click", (e) => {
+            e.preventDefault();
+            const id = el.dataset.id;
+            navigateTo(id);
+          });
+        });
+
+        sidebarEl.querySelectorAll("[data-open-url]").forEach((el) => {
+          el.addEventListener("click", () => {
+            openUrl(el.dataset.openUrl);
+          });
+        });
+      }
+
+      // New Navigation Function
+      function navigateTo(id) {
+        if (!id) return;
+
+        activeId = id;
+
+        // Update browser URL (Clean path)
+        const newUrl = `https://www.pcrr-jwt.eu/${id}`;
+        history.pushState({ id: id }, "", `/${id}`);
+
+        renderSidebar();
+        renderSection();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      window.addEventListener("popstate", (event) => {
+        const path = window.location.pathname;
+        let id = path.replace("/", "").toLowerCase() || "iteg";
+
+        // Clean the id
+        if (id === "" || id === "index.html") id = "iteg";
+
+        const validIds = sections.map((s) => s.id);
+        if (validIds.includes(id)) {
+          activeId = id;
+          renderSidebar();
+          renderSection();
+        }
+      });
+
+      /* ============ SECTION ============ */
+      const sectionEl = document.getElementById("sectionContent");
+
+      function smoothScrollTo(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      window.smoothScrollTo = smoothScrollTo;
+
+      function renderPCRR() {
+        return `
+       <div id="overview"></div>
+        <h2 class="text-center title-yellow">GSMF – Magnetic Spiral Separation</h2>
+        <p class="intro">Green Spiral Magnetic Fluidization – a next-generation magnetic separation platform engineered for mineral processing, water treatment, recycling and industrial-fluid recovery.</p>
+        <nav class="pcrr-nav" id="starter-kiti">
+          <a href="#" onclick="smoothScrollTo('overview'); return false;" class="btn btn-success btn-sm fw-bold px-3">Starter Kit</a>
+          <a href="#" onclick="smoothScrollTo('starter-plan'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">Business Plan</a>
+          <a href="#" onclick="smoothScrollTo('starter-features'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">Publication & Thesis</a>
+          <a href="#" onclick="smoothScrollTo('starter-pricing'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">Commercial Title</a>
+          <a href="#" onclick="smoothScrollTo('starter-legal'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">Legal Title</a>
+          <a href="#" onclick="smoothScrollTo('pitch'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">PITCH S&S</a>
+          <a href="#" onclick="smoothScrollTo('patents'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">PATENTS+</a>
+          <a href="#" onclick="smoothScrollTo('voucher'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">VOUCHER</a>
+          <a href="#" onclick="smoothScrollTo('heritage'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">INTANGIBLE HERITAGE</a>
+        </nav>
+
+        <!-- Starter Kit -->
+        <div class="pcrr-section">
+          <h1 class="text-center mb-4" style="font-size:2rem;">STARTER KIT</h1>
+          <div class="row g-4 align-items-stretch">
+            <div class="col-lg-6">
+              <div class="big-image-container">
+                <img src="images/starter_Kit.webp" alt="GSMF Starter Kit">
+                <div class="hover-overlay">
+                  <h2>GSMF STARTER KIT</h2>
+                  <p>The <strong>GSMF Magnetic Spiral Separator</strong> combines high-gradient magnetic fields with optimized spiral fluidization to selectively recover ferrous and paramagnetic particles from fluids and slurries.</p>
+                  <a href="https://view.officeapps.live.com/op/view.aspx?src=http%3A%2F%2Fwww.expotv1.com%2FLIC%2FBUNIT%2FBh4_GSMF_StartKit_0001427137.doc&wdOrigin=BROWSELINK" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <p class="lead">A modular magnetic-spiral kit replacing chemical-intensive and energy-heavy separation processes with a clean, scalable, fluid-dynamic approach.</p>
+              <p>The GSMF Starter Kit accelerates deployment of green magnetic separation systems while delivering strong tax benefits for innovative and sustainability-driven projects.</p>
+              <p class="fw-medium" style="color:#15803D;">Enjoy <strong>50% tax credit</strong> + <strong>50% corporate tax reduction</strong>. The transaction can effectively result in <strong>"ZERO cost"</strong>.</p>
+              <div class="row g-3 mt-3">
+                <div class="col-md-6" id="starter-plan">
+                  <div style="border-radius:14px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.15);">
+                    <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=900" alt="GSMF Kit" style="width:100%;height:160px;object-fit:cover;">
+                  </div>
+                </div>
+                <div class="col-md-6" id="starter-benefits">
+                  <h5 class="fw-bold">Key characteristics</h5>
+                  <ul>
+                    <li><strong>Throughput Range:</strong> Pilot units up to industrial magnetic-spiral plants</li>
+                    <li><strong>Operating Principle:</strong> High-gradient magnetic field + spiral fluidization geometry</li>
+                    <li><strong>Applications:</strong> Mineral processing, water treatment, metal recycling, industrial fluids</li>
+                  </ul>
+                  <div class="mt-2 d-flex gap-2">
+                    <a href="https://view.officeapps.live.com/op/view.aspx?src=http%3A%2F%2Fwww.expotv1.com%2FLIC%2FBUNIT%2FBh4_GSMF_StartKit_0001427137.doc&wdOrigin=BROWSELINK" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a>
+                    <a href="#" onclick="smoothScrollTo('starter-kiti'); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Plan -->
+        <div class="pcrr-section" id="starter-plan">
+          <div class="text-center mb-4">
+            <h1 style="background:#fff;display:inline-block;padding:14px 32px;border:3px solid #15803D;border-radius:14px;font-size:1.8rem;">BUSINESS PLAN – GSMF</h1>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="big-image-container" style="height:340px;">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200" alt="Focus" style="height:340px;">
+                <div class="hover-overlay">
+                  <h2>THE FOCUS</h2>
+                  <p>Territorial deployment of GSMF magnetic-spiral separators for mining districts, recycling plants, water utilities and industrial parks — generating measurable environmental impact and local employment.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="big-image-container" style="height:340px;">
+                <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=1200" alt="Companies" style="height:340px;">
+                <div class="hover-overlay">
+                  <h2>COMPANIES</h2>
+                  <p>Mining and metallurgical operators, recycling facilities, water utilities, environmental remediation firms, hydro-mechanical engineering companies and green-finance investors.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p><strong>GSMF is a proprietary magnetic-spiral separation technology developed by JWTeam under the JWT EUWEB 2030 framework.</strong></p>
+            <p>The objective is to industrialize a chemical-free, energy-efficient magnetic separation platform that replaces obsolete wet-magnetic and chemical processes — combining NFT GREEN licensing with JWT security infrastructure for a near-zero upfront cost model and substantial tax benefits.</p>
+          </div>
+
+          <section class="mt-4">
+            <h3 class="text-center fw-bold mb-3" style="color:#14532d;">Economic Impact</h3>
+            <div class="row g-4">
+              <div class="col-lg-6">
+                <h5>Adoption Rate (%)</h5>
+                <div class="chart-wrap"><canvas id="chartAdoption"></canvas></div>
+              </div>
+              <div class="col-lg-6">
+                <h5>Cost Savings vs Traditional Magnetic Separation</h5>
+                <div class="chart-wrap"><canvas id="chartSavings"></canvas></div>
+              </div>
+            </div>
+          </section>
+
+          <div class="mt-4 d-flex gap-2 justify-content-end">
+            <a href="http://www.expotv1.com/LIC/BUNIT/Bh5_GSMF_BP_prj.pdf" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a>
+            <a href="#" onclick="smoothScrollTo('starter-kiti'); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+          </div>
+        </div>
+
+        <!-- Publication & Thesis -->
+        <div class="pcrr-section" id="starter-features">
+          <section class="text-center py-5 bg-light">
+            <h1 class="display-5 fw-bold text-success">PUBLICATION & THESIS</h1>
+          </section>
+          <section class="px-4 py-5">
+            <div class="row g-5">
+              <div class="col-lg-8">
+                <h2 class="h3 fw-bold text-success mb-4">Publication & Thesis – GSMF</h2>
+                <p class="lead text-muted">The GSMF Publication & Thesis pillar consolidates the scientific and academic foundation of green magnetic-spiral fluidization technology.</p>
+                <p>It brings together peer-reviewed research, technical studies and applied case analyses validating GSMF performance, selectivity and environmental benefits across mining, recycling and water sectors.</p>
+                <h4 class="mt-5 mb-3 text-warning">Topics Covered</h4>
+                <p>High-gradient magnetic field theory, spiral fluidization dynamics, comparative studies vs traditional WHIMS/LIMS, energy-consumption analyses, environmental impact, and the <strong>GSMF MHLM Moramarco presentation</strong> documenting full-scale pilot performance.</p>
+              </div>
+              <div class="col-lg-4">
+                <div class="card h-100 shadow-sm border-0">
+                  <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900" alt="Research" class="card-img-top" style="height:260px;object-fit:cover;">
+                  <div class="card-body">
+                    <h5 class="card-title text-success">Visual Reference</h5>
+                    <p class="card-text text-muted">Publications and theses combine technical depth with accessible communication for investors, regulators and partners.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="px-4 pb-5">
+            <div class="card shadow-sm border-0">
+              <div class="card-body p-5">
+                <h2 class="h4 fw-bold text-success mb-4">Institutional Documentation</h2>
+                <p class="text-muted">Includes the full GSMF technical materials, the MHLM Moramarco institutional presentation and the COGEA ESCP project documentation — providing credibility for universities, ministries and international partners.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="px-4 pb-5">
+            <div class="bg-warning-subtle border-start border-4 border-warning p-4 rounded">
+              <h4 class="fw-bold text-dark">Notes</h4>
+              <p class="mb-0" id="starter-pricing">
+                • GSMF MHLM Moramarco Presentation – Institutional positioning and pilot results.<br>
+                • COGEA ESCP 060 Project – Cooperative deployment and circular-economy alignment.<br>
+                • GSMF Why Separator – Strategic rationale and competitive analysis.
+              </p>
+            </div>
+            <div class="mt-4 d-flex gap-3 justify-content-end flex-wrap">
+              <a href="http://www.expotv1.com/EBSTV/PAGE/CURRENT_EVENT/$$_RR/$_MKT/GSMF_MHLM_200612_Pres_Moramarco.pdf" class="btn btn-success btn-sm fw-bold" target="_blank">MHLM Moramarco</a>
+              <a href="http://www.expotv1.com/LIC/PRJ/170114_ESCP_060_COGEA.pdf" class="btn btn-success btn-sm fw-bold" target="_blank">COGEA ESCP</a>
+              <a href="http://www.expotv1.com/LIC/BUNIT/Bh1_GSMF_why_SEPARATOR.ppt" class="btn btn-success btn-sm fw-bold" target="_blank">Why Separator</a>
+              <a href="#" onclick="smoothScrollTo('starter-kiti'); return true;" class="btn btn-outline-success btn-sm fw-bold">Back to Menu</a>
+            </div>
+          </section>
+        </div>
+
+        <!-- Commercial Titles -->
+        <div class="pcrr-section" id="starter-pricing">
+          <h1 class="text-center fw-bold mb-3" style="color:#14532d;">COMMERCIAL TITLES</h1>
+          <div class="row g-3 mt-3">
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">GSMF – Magnetic Spiral Core</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">"Magnetic Spiral Separation Core"</p><p class="small mb-0" style="color:#374151;">High-gradient magnetic spiral separator for industrial slurries and fluids.</p></div></div>
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">GSMF – Mining & Minerals</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">"Mineral Magnetic Recovery"</p><p class="small mb-0" style="color:#374151;">Selective recovery of ferrous and paramagnetic minerals from ores and tailings.</p></div></div>
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">GSMF – Recycling Edition</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">"Metal Recycling Spiral Unit"</p><p class="small mb-0" style="color:#374151;">Recovery of metals from WEEE, shredder residues and recycling streams.</p></div></div>
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">GSMF – Water Treatment</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">"Magnetic Water Purification"</p><p class="small mb-0" style="color:#374151;">Removal of metallic contaminants from potable and industrial waters.</p></div></div>
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">GSMF – Industrial Fluids</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">"Process Fluids Magnetic Refiner"</p><p class="small mb-0" style="color:#374151;">Magnetic separation in oil, chemical and food-grade fluid streams.</p></div></div>
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">GSMF – Modular Container Plant</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">"Plug-and-Play Magnetic Container"</p><p class="small mb-0" style="color:#374151;">Pre-assembled containerized GSMF units for rapid deployment.</p></div></div>
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">GSMF – Smart Monitoring Suite</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">"Digital Magnetic Intelligence"</p><p class="small mb-0" style="color:#374151;">IoT-enabled monitoring, predictive maintenance and analytics.</p></div></div>
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">GSMF – Licensing & Services</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">"NFT GREEN Magnetic License"</p><p class="small mb-0" style="color:#374151;">Full licensing, training and operational support package.</p></div></div>
+          </div>
+          <div id="starter-legal"></div>
+          <div class="mt-4 d-flex gap-2 justify-content-end">
+            <a href="pdf/2_MBGC_MISE_LV_MI_Lic.doc" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a>
+            <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+          </div>
+        </div>
+
+        <!-- Legal Title -->
+        <div class="pcrr-section" id="legal-title">
+          <header class="bg-success text-center py-5 mb-5 rounded">
+            <h1 class="display-4 fw-bold text-white">Legal Title – GSMF Framework</h1>
+          </header>
+          <section class="container py-3">
+            <p class="lead text-muted">The Legal Title for GSMF establishes the official legal foundation of the Green Spiral Magnetic Fluidization technology — covering MISE registration, industrial property rights and full alignment with EU Green Deal and PNRR regulations.</p>
+          </section>
+          <section class="container py-3">
+            <div class="row g-4">
+              <div class="col-md-6"><div class="card h-100 shadow-sm"><div class="card-body"><h5 class="card-title text-success">GSMF – Magnetic Spiral Technology</h5><p class="card-text text-muted">Legal Title: MISE-GSMF Magnetic Spiral Fluidization System — Registration No. 0001427137.</p></div></div></div>
+              <div class="col-md-6"><div class="card h-100 shadow-sm"><div class="card-body"><h5 class="card-title text-success">Industrial Property</h5><p class="card-text text-muted">Registered with UIBM (Italian Patent and Trademark Office) and prepared for international extensions via WIPO and EPO.</p></div></div></div>
+              <div class="col-md-6"><div class="card h-100 shadow-sm"><div class="card-body"><h5 class="card-title text-success">EU Alignment</h5><p class="card-text text-muted">Fully aligned with EU Green Deal, PNRR raw-materials and circular-economy lines, and SDG 9 / 12 / 13.</p></div></div></div>
+              <div class="col-md-6"><div class="card h-100 shadow-sm"><div class="card-body"><h5 class="card-title text-success">NFT GREEN Licensing</h5><p class="card-text text-muted">Integrated with the NFT GREEN licensing model for transparent and traceable rights management.</p></div></div></div>
+            </div>
+          </section>
+          <section class="container py-3"><div class="card shadow-sm border-0"><div class="card-body p-5"><h2 class="h4 fw-bold text-success mb-4">Strategic Importance</h2><p class="text-muted" id="pitch">The GSMF Legal Title protects the core magnetic-spiral invention, enables safe technology transfer and licensing, and supports international expansion while preserving full control and traceability of the platform.</p><div class="mt-4 d-flex gap-3 justify-content-end"><a href="http://www.expotv1.com/LIC/MISE_0001427137_GSMF.pdf" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a><a href="#" onclick="smoothScrollTo('starter-kiti'); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a></div></div></div></section>
+        </div>
+
+        <!-- PITCH S&S -->
+        <div class="pcrr-section" id="pitch">
+          <h1 class="text-center fw-bold mb-3" style="color:#14532d;">PITCH S&S</h1>
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7"><p>The <strong style="color:#14532d;">GSMF Pitch S&S</strong> provides investor-ready, partner-focused materials for the Magnetic Spiral Fluidization platform — communicating value proposition, market potential, technical advantages and commercial roadmap.</p><p>Designed for investors, governments, mining operators, recycling facilities and international development organizations.</p></div><div class="col-lg-5"><div class="bg-white rounded shadow overflow-hidden"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900" class="w-100" style="height:180px;object-fit:cover;"><div class="p-3"><h5 class="fw-bold" style="color:#14532d;">Why Magnetic Separator</h5><p class="small mb-0" style="color:#374151;">A high-impact pitch deck demonstrating GSMF performance, ROI and deployment scenarios.</p></div></div></div></div>
+          <div class="row g-3 mt-3"><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">Problem-Solution</h5><p class="small mb-0" style="color:#374151;">Replaces obsolete WHIMS/LIMS with clean high-gradient magnetic separation.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #ea580c;"><h5 class="fw-bold" style="color:#14532d;">Market Opportunity</h5><p class="small mb-0" style="color:#374151;">Mining, recycling and water sectors — multi-billion EUR markets growing with circular-economy pressure.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #000;"><h5 class="fw-bold" style="color:#14532d;">Technical Differentiation</h5><p class="small mb-0" style="color:#374151;">High-gradient magnetic geometry, low energy, high selectivity, validated pilots.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">Commercial Model</h5><p class="small mb-0" style="color:#374151;">NFT GREEN licensing, zero-cost entry, recurring revenue from operations and royalties.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #ea580c;"><h5 class="fw-bold" style="color:#14532d;">Implementation Roadmap</h5><p class="small mb-0" style="color:#374151;">Starter Kit → pilot → modular containerized plants → full industrial scale.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #000;"><h5 class="fw-bold" style="color:#14532d;">Impact Metrics</h5><p class="small mb-0" style="color:#374151;">Metals recovered, waste reduced, CO₂ avoided, jobs created, ESG-grade reporting.</p></div></div></div>
+          <div class="mt-4 d-flex gap-2 justify-content-end"><a href="http://www.expotv1.com/LIC/BUNIT/Bh1_GSMF_why_SEPARATOR.ppt" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a><a href="#" onclick="smoothScrollTo('starter-kiti'); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a></div>
+        </div>
+
+        <!-- PATENTS+ -->
+        <div class="pcrr-section" id="patents">
+          <h1 class="text-center fw-bold mb-3" style="color:#14532d;">PATENTS+</h1>
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7"><p>The <strong style="color:#14532d;">GSMF Patents+</strong> pillar represents the core IP strength of the Magnetic Spiral Fluidization platform — a layered, strategically managed portfolio of industrial property rights for global licensing, technology transfer and long-term revenue generation.</p><p>Every innovation around the high-gradient magnetic spiral system is documented, protected and positioned for international expansion.</p></div><div class="col-lg-5"><div class="bg-white rounded shadow overflow-hidden"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900" class="w-100" style="height:180px;object-fit:cover;"><div class="p-3"><h5 class="fw-bold" style="color:#14532d;">Global IP Strategy</h5><p class="small mb-0" style="color:#374151;">A layered GSMF magnetic-field patent portfolio aligned with WIPO, EPO and USPTO standards.</p></div></div></div></div>
+          <div class="d-flex flex-wrap gap-2 justify-content-center my-4"><span class="badge rounded-pill px-3 py-2" style="background:#15803D;color:#fff;font-size:13px;">Strong Legal Protection</span><span class="badge rounded-pill px-3 py-2" style="background:#ea580c;color:#fff;font-size:13px;">NFT GREEN Licensing</span><span class="badge rounded-pill px-3 py-2" style="background:#000;color:#fff;font-size:13px;">Investor Attractiveness</span><span class="badge rounded-pill px-3 py-2" style="background:#15803D;color:#fff;font-size:13px;">Technology Transfer</span><span class="badge rounded-pill px-3 py-2" style="background:#ea580c;color:#fff;font-size:13px;">Geometry & Process Layers</span></div>
+          <div class="p-3 rounded" style="background:#dcfce7;border-left:4px solid #000;" id="voucher"><h5 class="fw-bold" style="color:#000;">Attributes</h5><p class="mb-2" style="color:#374151;">The GSMF Patents+ strategy actively covers core inventions, magnetic-field geometry improvements and process-integration methods — creating a dynamic IP fortress while generating recurring licensing revenue.</p><p class="mb-0" style="color:#374151;">All filings align with WIPO/EPO/USPTO standards. Regular reviews ensure GSMF remains ahead of competing magnetic separation technologies.</p></div>
+          <div class="mt-4 d-flex gap-2 justify-content-end"><a href="http://www.expotv1.com/LIC_GSMF_PatentStatus.pdf" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a><a href="#" onclick="smoothScrollTo('starter-kiti'); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a></div>
+        </div>
+
+        <!-- VOUCHERS -->
+        <div class="pcrr-section" id="vouchers">
+          <h1 class="text-center fw-bold mb-3" style="color:#14532d;">VOUCHERS</h1>
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7"><p><strong style="color:#14532d;">GSMF Vouchers</strong> are targeted financial and technical support instruments that lower the cost and risk of adopting the Magnetic Spiral Fluidization technology.</p><p>They unlock grants, subsidies and innovation incentives complementing the NFT GREEN licensing model.</p></div><div class="col-lg-5"><div class="bg-white rounded shadow overflow-hidden"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900" class="w-100" style="height:180px;object-fit:cover;"><div class="p-3"><h5 class="fw-bold" style="color:#14532d;">Financial Catalyst</h5><p class="small mb-0" style="color:#374151;">Voucher programs accelerate the rollout of GSMF in mining, recycling and industry.</p></div></div></div></div>
+          <h4 class="fw-bold mt-4" style="color:#14532d;">Voucher Lifecycle</h4>
+          <div class="row g-3 mt-1"><div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm text-center" style="border-top:4px solid #15803D;"><h6 class="fw-bold" style="color:#14532d;">Early Validation</h6><p class="small mb-0 text-muted">Feasibility & lab prototyping</p></div></div><div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm text-center" style="border-top:4px solid #ea580c;"><h6 class="fw-bold" style="color:#14532d;">Pilot Execution</h6><p class="small mb-0 text-muted">Field demonstration units</p></div></div><div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm text-center" style="border-top:4px solid #000;"><h6 class="fw-bold" style="color:#14532d;">Scale-Up</h6><p class="small mb-0 text-muted">Industrial & containerized plants</p></div></div><div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm text-center" style="border-top:4px solid #15803D;"><h6 class="fw-bold" style="color:#14532d;">Training</h6><p class="small mb-0 text-muted">Operator capacity building</p></div></div></div>
+          <h4 class="fw-bold mt-4" style="color:#14532d;">Voucher Programs</h4>
+          <div class="row g-3 mt-1"><div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">GPBF</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">Green Project Business Funding</p><p class="small mb-0" style="color:#374151;">Feasibility studies and initial GSMF magnetic-separator demos.</p></div></div><div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #ea580c;"><h5 class="fw-bold" style="color:#14532d;">GSMF Mining</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">Magnetic Mining Recovery Program</p><p class="small mb-0" style="color:#374151;">Ore separation and mineral recovery deployment.</p></div></div><div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #000;"><h5 class="fw-bold" style="color:#14532d;">RCFL</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">Recycling & Circular Fluid-Loops</p><p class="small mb-0" style="color:#374151;">GSMF integration in recycling and WEEE streams.</p></div></div><div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">EDU-EBS</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">Education & Knowledge Transfer</p><p class="small mb-0" style="color:#374151;">Training, capacity building, university programs.</p></div></div><div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #ea580c;"><h5 class="fw-bold" style="color:#14532d;">COGEA & IT&C</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">Cooperative & Digital Magnetic Innovations</p><p class="small mb-0" style="color:#374151;">Cooperative projects and digital-twin GSMF modeling.</p></div></div><div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid #000;"><h5 class="fw-bold" style="color:#14532d;">PNRR-Aligned</h5><p class="mb-1" style="color:#ea580c;font-weight:600;">Recovery & Raw-Materials Funding</p><p class="small mb-0" style="color:#374151;">Direct access to Italy's PNRR mining and recycling lines.</p></div></div></div>
+          <div class="d-flex flex-wrap gap-2 justify-content-center my-4"><span class="badge rounded-pill px-3 py-2" style="background:#15803D;color:#fff;font-size:13px;">Reduced Net Costs</span><span class="badge rounded-pill px-3 py-2" style="background:#ea580c;color:#fff;font-size:13px;">Accelerated Timelines</span><span class="badge rounded-pill px-3 py-2" style="background:#000;color:#fff;font-size:13px;">Expertise & Mentorship</span><span class="badge rounded-pill px-3 py-2" style="background:#15803D;color:#fff;font-size:13px;">Tax Incentives</span><span class="badge rounded-pill px-3 py-2" style="background:#ea580c;color:#fff;font-size:13px;">Measurable ESG Outcomes</span></div>
+          <div class="mt-4 d-flex gap-2 justify-content-end"><a href="http://www.expotv1.com/LIC/MISE_0001427137_GSMF_Vouchers.pdf" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a><a href="#" onclick="smoothScrollTo('starter-kiti'); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a></div>
+        </div>
+
+        <!-- INTANGIBLE HERITAGE -->
+        <div class="pcrr-section" id="heritage">
+          <h1 class="text-center fw-bold mb-3" style="color:#14532d;">INTANGIBLE HERITAGE</h1>
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-5"><div class="bg-white rounded shadow overflow-hidden"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900" class="w-100" style="height:180px;object-fit:cover;"><div class="p-3"><h5 class="fw-bold" style="color:#14532d;">Invisible Capital</h5><p class="small mb-0" style="color:#374151;">Know-how and reputation powering the GSMF Magnetic Spiral ecosystem.</p></div></div></div>
+            <div class="col-lg-7"><p><strong style="color:#14532d;">Intangible Heritage</strong> for GSMF represents accumulated knowledge, magnetic-field engineering know-how, brand value, organizational culture and strategic relationships — the "invisible capital" giving long-term strength and uniqueness to the Magnetic Separator platform.</p><p>This pillar covers all non-physical assets that drive competitive advantage, trust and sustainable value creation over time.</p></div>
+          </div>
+          <div class="row g-3 mt-3"><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">Know-How & Trade Secrets</h5><p class="small mb-0" style="color:#374151;">Magnetic-field geometry, high-gradient coil tuning, operational fluidization secrets.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #ea580c;"><h5 class="fw-bold" style="color:#14532d;">Brand Equity</h5><p class="small mb-0" style="color:#374151;">Recognition of GSMF and JWTeam in the green-magnetic-separation space.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #000;"><h5 class="fw-bold" style="color:#14532d;">Network Capital</h5><p class="small mb-0" style="color:#374151;">WIPO, EU programs, mining ministries, recycling operators and industrial partners.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #15803D;"><h5 class="fw-bold" style="color:#14532d;">Organizational Culture</h5><p class="small mb-0" style="color:#374151;">Engineering excellence, multidisciplinary R&D teams, magnetic physics expertise.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #ea580c;"><h5 class="fw-bold" style="color:#14532d;">Data & Digital Assets</h5><p class="small mb-0" style="color:#374151;">Pilot performance datasets, magnetic models, digital twins, performance analytics.</p></div></div><div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid #000;"><h5 class="fw-bold" style="color:#14532d;">ESG Narrative</h5><p class="small mb-0" style="color:#374151;">Credible circular-economy story aligned with SDG 6, 9, 12 and the Green Deal.</p></div></div></div>
+          <h4 class="fw-bold mt-4" style="color:#14532d;">Strategic Importance</h4>
+          <div class="row g-3 mt-1"><div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm" style="border-left:4px solid #15803D;"><h6 class="fw-bold" style="color:#14532d;">Global Positioning</h6><p class="small mb-0 text-muted">Stronger presence in international magnetic-separation markets.</p></div></div><div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm" style="border-left:4px solid #ea580c;"><h6 class="fw-bold" style="color:#14532d;">Trust & Partnerships</h6><p class="small mb-0 text-muted">Faster alliances with mining and recycling operators.</p></div></div><div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm" style="border-left:4px solid #000;"><h6 class="fw-bold" style="color:#14532d;">Valuation</h6><p class="small mb-0 text-muted">Higher value in investment and acquisition rounds.</p></div></div><div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm" style="border-left:4px solid #15803D;"><h6 class="fw-bold" style="color:#14532d;">Licensing Power</h6><p class="small mb-0 text-muted">Reputation-driven long-term NFT GREEN magnetic licensing.</p></div></div></div>
+          <div class="p-3 rounded mt-4" style="background:#dcfce7;border-left:4px solid #000;"><h5 class="fw-bold" style="color:#000;">Summary</h5><p class="mb-2" style="color:#374151;">GSMF Intangible Heritage is cultivated through documentation, knowledge management, storytelling and relationship-building — turning a technical magnetic innovation into a respected, future-proof ecosystem.</p><p class="mb-0" style="color:#374151;">Combined with Patents+, Commercial Titles, Vouchers and the Business Plan, it completes the full value stack of GSMF.</p></div>
+          <div class="mt-4 d-flex gap-2 justify-content-end"><a href="http://www.expotv1.com/LIC/MISE_0001427137_GSMF_Heritage.pdf" class="btn btn-success btn-sm fw-bold" target="_blank">Explore More</a><a href="#" onclick="smoothScrollTo('starter-kiti'); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a></div>
+        </div>
+      `;
+      }
+
+      function renderMBGCContent() {
+        return `
+        <div class="mbgc-layout">
+          <div class="container py-4">
+            <div id="overview"></div>
+            <h2>MBGC - BioGas Conversion</h2>
+            <div class="accent-bar"></div>
+            <p class="intro">A next-generation anaerobic digestion and biogas upgrading platform that converts organic waste streams into clean methane, electricity, heat and bio-fertilizer closing the loop between agriculture, industry and energy.</p>
+
+            <nav class="pcrr-nav" id="starter-kiti">
+              <a href="#overview" class="btn btn-success btn-sm fw-bold px-3">Starter Kit</a>
+              <a href="#starter-plan" class="btn btn-outline-light btn-sm fw-bold px-3">Business Plan</a>
+              <a href="#starter-features" class="btn btn-outline-light btn-sm fw-bold px-3">Publication &amp; Thesis</a>
+              <a href="#starter-pricing" class="btn btn-outline-light btn-sm fw-bold px-3">Commercial Title</a>
+              <a href="#starter-legal" class="btn btn-outline-light btn-sm fw-bold px-3">Legal Title</a>
+              <a href="#pitch" class="btn btn-outline-light btn-sm fw-bold px-3">PITCH S&amp;S</a>
+              <a href="#patents" class="btn btn-outline-light btn-sm fw-bold px-3">PATENTS+</a>
+              <a href="#voucher" class="btn btn-outline-light btn-sm fw-bold px-3">VOUCHER</a>
+              <a href="#heritage" class="btn btn-outline-light btn-sm fw-bold px-3">INTANGIBLE HERITAGE</a>
+            </nav>
+
+            <div class="pcrr-section">
+              <h1 class="text-center mb-4" style="font-size:2rem;color:var(--mbgc-dark);">STARTER KIT - MBGC</h1>
+              <div class="row g-4 align-items-stretch">
+                <div class="col-lg-6">
+                  <div class="big-image-container">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200" alt="MBGC Biogas Starter Kit" />
+                    <div class="hover-overlay">
+                      <h2>STARTER KIT</h2>
+                      <p>The <strong>I-MBGC-1</strong> is a modular biogas conversion unit engineered for farms, food-processing plants and small municipalities — turning organic waste into pipeline-grade biomethane with minimal footprint.</p>
+                      <a href="http://www.expotv1.com/LIC/BUNIT/Bb4_MBGC_StartKit_0001427413.doc" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <p class="lead">A plug-and-play anaerobic digestion module that valorises organic residues manure, agro-waste, sludge, food scraps into renewable energy and high-grade digestate fertilizer.</p>
+                  <p>The kit brings <strong>fossil-fuel dependency from 100 → ZERO</strong> while unlocking strong tax incentives for innovative startups and territorial sustainability projects.</p>
+                  <p class="fw-medium" style="color:var(--mbgc-green);">Enjoy <strong>50% tax credit</strong> + <strong>50% corporate tax reduction</strong> — the transaction can effectively reach <strong>"ZERO cost"</strong>.</p>
+
+                  <div class="row g-3 mt-1">
+                    <div class="col-12">
+                      <h5 class="fw-bold" style="color:var(--mbgc-dark);">What's inside the kit</h5>
+                      <div class="row g-2">
+                        <div class="col-6 col-md-3"><div class="stat-bubble"><div class="num">5–500</div><div class="lbl">kW electrical</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-bubble"><div class="num">60–98%</div><div class="lbl">CH₄ purity</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-bubble"><div class="num">≤90 days</div><div class="lbl">deploy time</div></div></div>
+                        <div class="col-6 col-md-3"><div class="stat-bubble"><div class="num">0 t</div><div class="lbl">waste to landfill</div></div></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-3 d-flex gap-2 flex-wrap">
+                    <a href="pdf/Bb4_MBGC_StartKit_0001427413.doc" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                    <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pcrr-section" id="starter-plan">
+              <div class="text-center mb-4">
+                <h1 style="background:#fff;display:inline-block;padding:14px 32px;border:3px solid var(--mbgc-green);border-radius:14px;font-size:1.8rem;color:var(--mbgc-dark);">BUSINESS PLAN - MBGC</h1>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-lg-6">
+                  <div class="big-image-container" style="height:300px;">
+                    <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?w=1200" alt="Circular bioeconomy" />
+                    <div class="hover-overlay">
+                      <h2>THE FOCUS</h2>
+                      <p>A circular bioeconomy model: each MBGC plant transforms a local waste problem into a local energy asset, creating jobs, reducing emissions and stabilising rural economies.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="big-image-container" style="height:300px;">
+                    <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=1200" alt="MBGC partners" />
+                    <div class="hover-overlay">
+                      <h2>PARTNERS</h2>
+                      <p>Agro-cooperatives, dairy &amp; livestock farms, food-industry operators, municipal utilities, district-heating networks, ESCOs and green-finance investors.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="quote-block mt-4">
+                MBGC is the methane-cycle engine of the ITEG ecosystem — converting today's waste into tomorrow's grid-ready energy, under the JWT EUWEB 2030 framework.
+              </div>
+
+              <div class="mt-3">
+                <p>Combining <strong>NFT GREEN licensing</strong> with the JWT security infrastructure, MBGC enables a <strong>near-zero upfront cost</strong> deployment model with strong fiscal leverage — perfectly aligned with PNRR and the EU Green Deal.</p>
+              </div>
+
+              <section class="mt-4">
+                <h3 class="text-center fw-bold mb-3" style="color:var(--mbgc-dark);">Economic &amp; Environmental Impact</h3>
+                <div class="row g-4">
+                  <div class="col-lg-6">
+                    <h5>Biogas Adoption Curve (%)</h5>
+                    <div class="chart-wrap"><canvas id="chartAdoption"></canvas></div>
+                  </div>
+                  <div class="col-lg-6">
+                    <h5>Cost vs Traditional Energy (€/MWh)</h5>
+                    <div class="chart-wrap" id="starter-features"><canvas id="chartSavings"></canvas></div>
+                  </div>
+                </div>
+              </section>
+
+              <div class="mt-4 d-flex gap-2 justify-content-end">
+                <a href="https://www.expotv1.com/LIC/BUNIT/Bb5_MBGC_BP_prj.pdf" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+              </div>
+            </div>
+
+            <div class="pcrr-section" id="starter-features">
+              <section class="text-center py-4 rounded" style="background:#ecfdf5;">
+                <h1 class="display-5 fw-bold" style="color:var(--mbgc-dark);">PUBLICATION &amp; THESIS</h1>
+                <p class="text-muted mb-0">The scientific spine of MBGC</p>
+              </section>
+
+              <section class="py-4">
+                <div class="row g-5">
+                  <div class="col-lg-8">
+                    <h2 class="h3 fw-bold mb-3" style="color:var(--mbgc-green);">Research-backed Biogas Innovation</h2>
+                    <div class="accent-bar"></div>
+                    <p class="lead text-muted">MBGC is built on a decade of peer-reviewed research into anaerobic digestion kinetics, biogas upgrading membranes and digestate valorisation.</p>
+                    <p>From doctoral theses on co-digestion stoichiometry to white papers on biomethane grid injection, the MBGC corpus validates both technical feasibility and territorial impact.</p>
+
+                    <h4 class="mt-4 text-warning">Topics Covered</h4>
+                    <div>
+                      <span class="molecule-chip"><span class="dot"></span>Anaerobic digestion</span>
+                      <span class="molecule-chip"><span class="dot"></span>CH₄ upgrading</span>
+                      <span class="molecule-chip"><span class="dot"></span>Co-digestion recipes</span>
+                      <span class="molecule-chip"><span class="dot"></span>Digestate valorisation</span>
+                      <span class="molecule-chip"><span class="dot"></span>Carbon credits</span>
+                      <span class="molecule-chip"><span class="dot"></span>LCA &amp; ESG metrics</span>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                      <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900" alt="Biogas research" class="card-img-top" style="height:260px;object-fit:cover;" />
+                      <div class="card-body">
+                        <h5 class="card-title" style="color:var(--mbgc-green);">From Lab to Plant</h5>
+                        <p class="card-text text-muted">Each MBGC publication bridges academic rigour and field-ready engineering — usable by universities, ministries and investors alike.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="pb-4">
+                <div class="card shadow-sm border-0">
+                  <div class="card-body p-4">
+                    <h2 class="h4 fw-bold mb-3" style="color:var(--mbgc-green);">Institutional Documentation</h2>
+                    <p class="text-muted mb-0">Peer-reviewed studies and institutional reports back every MBGC claim — strengthening legal titles, commercial credibility and international partnerships with universities, research centres and policymakers.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section class="pb-4">
+                <div class="bg-warning-subtle border-start border-4 border-warning p-4 rounded">
+                  <h4 class="fw-bold text-dark">Highlights</h4>
+                  <p class="mb-1" id="starter-pricing">• Strategic MBGC White Papers — integration of NFT GREEN licensing with PNRR &amp; Green New Deal.</p>
+                  <p class="mb-0">• Comparative studies on biogas vs natural gas, LPG and diesel — performance, scalability and sustainability metrics.</p>
+                </div>
+
+                <div class="mt-4 d-flex gap-3 justify-content-end">
+                  <a href="pdf/MBGC_200304_Pres_Youssef.pptx" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                  <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                </div>
+              </section>
+            </div>
+
+            <div class="pcrr-section" id="starter-pricing">
+              <h1 class="text-center fw-bold mb-2" style="color:var(--mbgc-dark);">COMMERCIAL TITLES</h1>
+              <p class="text-center text-muted">The MBGC family of commercial offerings across the ITEG ecosystem.</p>
+
+              <div class="row g-3 mt-3" id="commercialGrid"></div>
+
+              <div id="starter-legal"></div>
+              <div class="mt-4 d-flex gap-2 justify-content-end">
+                <a href="pdf/2_MBGC_MISE_LV_MI_Lic.doc" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+              </div>
+            </div>
+
+            <div class="pcrr-section" id="legal-title">
+              <header class="text-center py-4 mb-4 rounded" style="background:var(--mbgc-green);">
+                <h1 class="display-5 fw-bold text-white mb-0">Legal Titles - MBGC Framework</h1>
+              </header>
+
+              <p class="lead text-muted">The Legal Title forms the official foundation for the MBGC technology — formal registrations, authorizations and IP protections that establish ownership, exclusive rights and credibility for investors, regulators and partners.</p>
+
+              <div class="row g-4 mt-2" id="legalGrid"></div>
+
+              <div class="card shadow-sm mt-4">
+                <div class="card-body p-4">
+                  <h2 class="h4 fw-bold mb-3" style="color:var(--mbgc-green);">Supporting Legal Framework</h2>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Official registration with the Italian Ministry of Economic Development (MISE) — file 0001427413</li>
+                    <li class="list-group-item">Industrial Property registration at UIBM (Italian Patent &amp; Trademark Office)</li>
+                    <li class="list-group-item">Alignment with EU Green Deal, RED III and PNRR biomethane targets</li>
+                    <li class="list-group-item">International extensions via WIPO (WO2016092580), EPO and national offices</li>
+                    <li class="list-group-item">Integration with NFT GREEN licensing model for transparent rights management</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="card shadow-sm border-0 mt-4">
+                <div class="card-body p-4">
+                  <h2 class="h4 fw-bold mb-3" style="color:var(--mbgc-green);">Strategic Importance</h2>
+                  <p class="text-muted" id="pitch">Legal titles protect the core biogas inventions and enable safe technology transfer, licensing and international expansion — while maintaining full traceability through the JWT/NFT GREEN infrastructure.</p>
+                  <div class="mt-4 d-flex gap-3 justify-content-end">
+                    <a href="http://www.expotv1.com/LIC/MISE_0001427413_MBGC.pdf" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                    <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pcrr-section">
+              <h1 class="text-center fw-bold mb-3" style="color:var(--mbgc-dark);">PITCH S&amp;S</h1>
+
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p><strong style="color:var(--mbgc-dark);">Pitch S&amp;S</strong> packages MBGC into investor-ready, partner-focused materials — value proposition, market potential, technical edge and commercial roadmap, ready for boards, ministries and development banks.</p>
+
+                  <h5 class="fw-bold mt-3" style="color:var(--mbgc-dark);">The MBGC value flow</h5>
+                  <div class="timeline mt-3">
+                    <div class="t-item"><strong>Problem</strong> — organic waste → emissions, cost, disposal liability.</div>
+                    <div class="t-item"><strong>Solution</strong> — MBGC modular digester + upgrading unit.</div>
+                    <div class="t-item"><strong>Output</strong> — biomethane, electricity, heat, digestate.</div>
+                    <div class="t-item"><strong>Revenue</strong> — energy sales + carbon credits + gate fees.</div>
+                    <div class="t-item"><strong>Impact</strong> — CO₂↓, jobs↑, local energy sovereignty.</div>
+                  </div>
+                </div>
+                <div class="col-lg-5">
+                  <div class="bg-white rounded shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=900" class="w-100" style="height:200px;object-fit:cover;" alt="MBGC pitch" />
+                    <div class="p-3">
+                      <h5 class="fw-bold" style="color:var(--mbgc-dark);">Investor-Ready Pitch</h5>
+                      <p class="small mb-0 text-muted">High-impact decks built to secure funding, partnerships and territorial contracts.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-3 mt-3" id="pitchGrid"></div>
+
+              <div class="mt-4 d-flex gap-2 justify-content-end">
+                <a href="pdf/Bb1_MBGC_why_BIOGAS.ppt" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+              </div>
+            </div>
+
+            <div class="pcrr-section">
+              <h1 class="text-center fw-bold mb-3" style="color:var(--mbgc-dark);" id="patents">PATENTS+</h1>
+
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p><strong style="color:var(--mbgc-dark);">Patents+</strong> is the IP backbone of MBGC — a layered, internationally filed portfolio that protects every stage of the biogas chain, from digester geometry to membrane-based CH₄/CO₂ separation and digestate post-treatment.</p>
+                  <p>Anchor filing: <strong>WO2016092580</strong> (WIPO) — the foundational MBGC biogas innovation, extended through EPO, USPTO and national offices.</p>
+                </div>
+                <div class="col-lg-5">
+                  <div class="bg-white rounded shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900" class="w-100" style="height:200px;object-fit:cover;" alt="Global IP" />
+                    <div class="p-3">
+                      <h5 class="fw-bold" style="color:var(--mbgc-dark);">Global IP Strategy</h5>
+                      <p class="small mb-0 text-muted">A layered portfolio aligned with WIPO, EPO and USPTO standards.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2 justify-content-center my-4" id="patentBadges"></div>
+
+              <div class="p-3 rounded" style="background:var(--mbgc-soft);border-left:4px solid #000;" id="voucher">
+                <h5 class="fw-bold">Attributes</h5>
+                <p class="mb-2 text-muted">The Patents+ strategy covers core inventions, process improvements and integration methods — a dynamic IP fortress supporting continuous innovation and recurring licensing revenue.</p>
+                <p class="mb-0 text-muted">Regular IP reviews ensure filings, extensions and defensive publications keep MBGC ahead of competitors across every geography.</p>
+              </div>
+
+              <div class="mt-4 d-flex gap-2 justify-content-end">
+                <a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2016092580" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+              </div>
+            </div>
+
+            <div class="pcrr-section">
+              <h1 class="text-center fw-bold mb-3" style="color:var(--mbgc-dark);">VOUCHERS</h1>
+
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-7">
+                  <p><strong style="color:var(--mbgc-dark);">Vouchers</strong> are the financial accelerators of the MBGC adoption strategy — grants, subsidies and innovation incentives that drastically lower the cost and risk of deploying a biogas plant.</p>
+                  <p>They complement the NFT GREEN licensing model and unlock direct access to PNRR, CSE and EU green-finance lines.</p>
+                </div>
+                <div class="col-lg-5">
+                  <div class="bg-white rounded shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900" class="w-100" style="height:200px;object-fit:cover;" alt="Vouchers" />
+                    <div class="p-3">
+                      <h5 class="fw-bold" style="color:var(--mbgc-dark);">Financial Catalyst</h5>
+                      <p class="small mb-0 text-muted">Voucher programs reduce costs and accelerate MBGC rollout.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h4 class="fw-bold mt-4" style="color:var(--mbgc-dark);">Voucher Lifecycle</h4>
+              <div class="row g-3 mt-1" id="lifecycleRow"></div>
+
+              <h4 class="fw-bold mt-4" style="color:var(--mbgc-dark);">Voucher Programs</h4>
+              <div class="row g-3 mt-1" id="programsRow"></div>
+
+              <div class="d-flex flex-wrap gap-2 justify-content-center my-4" id="voucherBadges"></div>
+              <div id="heritage"></div>
+
+              <div class="mt-2 d-flex gap-2 justify-content-end">
+                <a href="https://www.expotv1.com/ESCP_JEH_0.pdf" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                <a href="#starter-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+              </div>
+            </div>
+
+            <div class="pcrr-section">
+              <h1 class="text-center fw-bold mb-3" style="color:var(--mbgc-dark);">INTANGIBLE HERITAGE</h1>
+
+              <div class="row g-4 align-items-center">
+                <div class="col-lg-5">
+                  <div class="bg-white rounded shadow overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900" class="w-100" style="height:200px;object-fit:cover;" alt="Invisible capital" />
+                    <div class="p-3">
+                      <h5 class="fw-bold" style="color:var(--mbgc-dark);">Invisible Capital</h5>
+                      <p class="small mb-0 text-muted">Know-how, brand and culture powering MBGC's long-term value.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-7">
+                  <p><strong style="color:var(--mbgc-dark);">Intangible Heritage</strong> captures the accumulated knowledge, methodologies, partnerships and ESG narrative behind MBGC — the "invisible capital" that turns a single technology into a trusted, scalable ecosystem.</p>
+                  <p>It covers every non-physical asset that drives competitive advantage, investor confidence and durable impact.</p>
+                </div>
+              </div>
+
+              <div class="row g-3 mt-3" id="heritageGrid"></div>
+
+              <h4 class="fw-bold mt-4" style="color:var(--mbgc-dark);">Strategic Importance</h4>
+              <div class="row g-3 mt-1" id="strategicRow"></div>
+
+              <div class="p-3 rounded mt-4" style="background:var(--mbgc-soft);border-left:4px solid #000;">
+                <h5 class="fw-bold">Summary</h5>
+                <p class="mb-1 text-muted">Intangible Heritage is nurtured through documentation, knowledge management, storytelling and relationship building — turning MBGC innovations into a cohesive, respected and future-proof platform.</p>
+                <p class="mb-0 text-muted">Together with Patents+, Commercial Titles, Vouchers and the Business Plan, it completes the full value stack of MBGC inside ITEG.</p>
+              </div>
+
+              <div class="mt-4 d-flex gap-2 justify-content-end">
+                <a href="http://www.expotv1.com/ESCP_Patent.htm" class="btn btn-success btn-sm fw-bold">Explore More</a>
+                <a href="#" onclick="smoothScrollTo(&quot;starter-kiti&quot); return true;" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        `;
+      }
+
+      function initMBGCContent() {
+        const commercial = [
+          [
+            "MBGC - BioGas Conversion",
+            "NextGen BioGas Solutions",
+            "Optimized biogas production and upgrading for circular waste-to-energy models.",
+          ],
+          [
+            "ITEG - Advanced Rotor Technology",
+            "Smart Energy Rotor System",
+            "High-efficiency modular rotors for industrial and renewable energy applications.",
+          ],
+          [
+            "PBRC - Micro Algae Technology",
+            "Green Microalgae Biorefinery",
+            "Cultivation systems for carbon capture, biofuels and biochemicals.",
+          ],
+          [
+            "SIDR - Agro & Sport Technology",
+            "Sustainable Agro-Sport Ecosystems",
+            "Precision agriculture combined with sports and wellness infrastructure.",
+          ],
+          [
+            "SDGC - Desalination Technology",
+            "EcoSmart Desalination Systems",
+            "Energy-efficient desalination for coastal and arid regions.",
+          ],
+          [
+            "GSMF - Separation Technology",
+            "Advanced Green Separation Systems",
+            "Membrane and filtration solutions for industrial use.",
+          ],
+          [
+            "GFSS - EMG Separation",
+            "EMG Precision Separation",
+            "Electromagnetic and gradient separation platforms.",
+          ],
+          [
+            "PCRR - Recovery & Resilience",
+            "PCRR Program",
+            "Framework for green tech deployment and NFT licensing.",
+          ],
+        ];
+
+        const legal = [
+          [
+            "MBGC - BioGas Conversion",
+            "MISE-MBGC (file 0001427413) — Registered Optimized Biogas Production System.",
+          ],
+          [
+            "ITEG - Rotor Technology",
+            "MISE-ITEG — Advanced Rotor Innovation Program.",
+          ],
+          [
+            "PBRC - Micro Algae",
+            "MISE-PBRC — Micro Algae Biorefinery and Carbon Capture Platform.",
+          ],
+          [
+            "SIDR - Agro & Sport",
+            "Registered SIDR Sustainable Agro-Sport Integrated System.",
+          ],
+          [
+            "SDGC - Desalination",
+            "SDGC Energy-Efficient Desalination System (Patent Pending).",
+          ],
+          [
+            "GSMF - Separation",
+            "GSMF Advanced Green Separation Method and Apparatus.",
+          ],
+          [
+            "GFSS - EMG Separation",
+            "GFSS Electromagnetic Gradient Separation System.",
+          ],
+          [
+            "PCRR - Recovery & Resilience",
+            "PCRR JWTeam Srls — Commercial Plan for Recovery and Resilience.",
+          ],
+        ];
+
+        const pitch = [
+          [
+            "Problem-Solution",
+            "Turns organic waste streams into clean methane and grid energy.",
+            "#15803D",
+          ],
+          [
+            "Market Opportunity",
+            "Global biomethane market projected >$60B by 2030 — aligned with RED III & SDG 7/12/13.",
+            "#ea580c",
+          ],
+          [
+            "Technical Differentiation",
+            "Verified CH₄ yields, modular scale, robust co-digestion recipes.",
+            "#000",
+          ],
+          [
+            "Commercial Model",
+            "NFT GREEN licensing, near-zero entry, energy + carbon-credit + gate-fee revenue.",
+            "#15803D",
+          ],
+          [
+            "Implementation Roadmap",
+            "Starter Kit → pilot → cluster rollout → grid injection.",
+            "#ea580c",
+          ],
+          [
+            "Impact Metrics",
+            "CO₂ avoided, rural jobs, digestate fertilizer replacing synthetic N.",
+            "#000",
+          ],
+        ];
+
+        const patentB = [
+          "Strong Legal Protection",
+          "NFT GREEN Licensing",
+          "Investor Attractiveness",
+          "Technology Transfer",
+          "Additional Layers",
+        ];
+        const cols = ["#15803D", "#ea580c", "#000", "#15803D", "#ea580c"];
+
+        const life = [
+          ["Early Validation", "Feedstock analysis & feasibility", "#15803D"],
+          ["Pilot Plant", "Small-scale digester demo", "#ea580c"],
+          ["Scale-Up", "Full industrial deployment", "#000"],
+          ["Training", "Operator & community capacity", "#15803D"],
+        ];
+
+        const progs = [
+          [
+            "GPBF",
+            "Green Project Business Funding",
+            "Feasibility studies and initial biogas demos.",
+            "#15803D",
+          ],
+          [
+            "MBGC-FARM",
+            "Agro Biogas Acceleration",
+            "Funds for livestock and agro-residue digesters.",
+            "#ea580c",
+          ],
+          [
+            "ACFW",
+            "Agro-Circular Future Works",
+            "Bio-based and circular agriculture initiatives.",
+            "#000",
+          ],
+          [
+            "EDU-EBS",
+            "Education & Knowledge Transfer",
+            "Training, capacity building, knowledge programs.",
+            "#15803D",
+          ],
+          [
+            "COGEA & IT&C",
+            "Cooperative & Digital Circular",
+            "Cooperative projects and digital-circular models.",
+            "#ea580c",
+          ],
+          [
+            "PNRR-Aligned",
+            "Recovery & Resilience Funding",
+            "Direct access to Italy's PNRR biomethane lines.",
+            "#000",
+          ],
+        ];
+
+        const heritage = [
+          [
+            "Know-How & Trade Secrets",
+            "Proprietary digestion recipes, operational lessons, troubleshooting playbooks.",
+            "#15803D",
+          ],
+          [
+            "Brand Equity",
+            "JWTeam & NFT GREEN recognition across green-tech ecosystems.",
+            "#ea580c",
+          ],
+          [
+            "Network Capital",
+            "Ties to WIPO, EU programs, ministries, universities and farm cooperatives.",
+            "#000",
+          ],
+          [
+            "Organizational Culture",
+            "Shared vision, multidisciplinary expertise, agile execution.",
+            "#15803D",
+          ],
+          [
+            "Data & Digital Assets",
+            "Plant telemetry, yield datasets, market intelligence, ESG dashboards.",
+            "#ea580c",
+          ],
+          [
+            "ESG Narrative",
+            "Credible impact story aligned with SDGs and the Green Deal.",
+            "#000",
+          ],
+        ];
+
+        const strat = [
+          [
+            "Global Positioning",
+            "Stronger international footprint.",
+            "#15803D",
+          ],
+          ["Trust & Partnerships", "Faster alliance formation.", "#ea580c"],
+          ["Valuation", "Higher value in investment rounds.", "#000"],
+          [
+            "Licensing Power",
+            "Reputation-driven long-term licensing.",
+            "#15803D",
+          ],
+        ];
+
+        const commercialGrid = document.getElementById("commercialGrid");
+        if (commercialGrid) {
+          commercialGrid.innerHTML = commercial
+            .map(
+              ([t, sub, d]) => `
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid var(--mbgc-green);">
+              <h5 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h5>
+              <p class="mb-1" style="color:var(--mbgc-amber);font-weight:600;">"${sub}"</p>
+              <p class="small mb-0 text-muted">${d}</p>
+            </div></div>`,
+            )
+            .join("");
+        }
+
+        const legalGrid = document.getElementById("legalGrid");
+        if (legalGrid) {
+          legalGrid.innerHTML = legal
+            .map(
+              ([t, d]) => `
+            <div class="col-md-6"><div class="legal-card">
+              <h5 class="fw-bold" style="color:var(--mbgc-green);">${t}</h5>
+              <p class="text-muted small mb-0">Legal Title: ${d}</p>
+            </div></div>`,
+            )
+            .join("");
+        }
+
+        const pitchGrid = document.getElementById("pitchGrid");
+        if (pitchGrid) {
+          pitchGrid.innerHTML = pitch
+            .map(
+              ([t, d, c]) => `
+            <div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid ${c};">
+              <h5 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h5>
+              <p class="small mb-0 text-muted">${d}</p>
+            </div></div>`,
+            )
+            .join("");
+        }
+
+        const patentBadges = document.getElementById("patentBadges");
+        if (patentBadges) {
+          patentBadges.innerHTML = patentB
+            .map(
+              (t, i) =>
+                `<span class="badge-pill" style="background:${cols[i]};">${t}</span>`,
+            )
+            .join("");
+        }
+
+        const lifecycleRow = document.getElementById("lifecycleRow");
+        if (lifecycleRow) {
+          lifecycleRow.innerHTML = life
+            .map(
+              ([t, d, c]) => `
+            <div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm text-center" style="border-top:4px solid ${c};">
+              <h6 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h6>
+              <p class="small mb-0 text-muted">${d}</p></div></div>`,
+            )
+            .join("");
+        }
+
+        const programsRow = document.getElementById("programsRow");
+        if (programsRow) {
+          programsRow.innerHTML = progs
+            .map(
+              ([t, sub, d, c]) => `
+            <div class="col-md-6"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-left:4px solid ${c};">
+              <h5 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h5>
+              <p class="mb-1" style="color:var(--mbgc-amber);font-weight:600;">${sub}</p>
+              <p class="small mb-0 text-muted">${d}</p></div></div>`,
+            )
+            .join("");
+        }
+
+        const voucherBadges = document.getElementById("voucherBadges");
+        if (voucherBadges) {
+          voucherBadges.innerHTML = [
+            "Reduced Net Costs",
+            "Accelerated Timelines",
+            "Expertise & Mentorship",
+            "Tax Incentives",
+            "Measurable ESG Outcomes",
+          ]
+            .map(
+              (t, i) =>
+                `<span class="badge-pill" style="background:${cols[i]};">${t}</span>`,
+            )
+            .join("");
+        }
+
+        const heritageGrid = document.getElementById("heritageGrid");
+        if (heritageGrid) {
+          heritageGrid.innerHTML = heritage
+            .map(
+              ([t, d, c]) => `
+            <div class="col-md-6 col-lg-4"><div class="p-3 bg-white rounded shadow-sm h-100" style="border-top:4px solid ${c};">
+              <h5 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h5>
+              <p class="small mb-0 text-muted">${d}</p></div></div>`,
+            )
+            .join("");
+        }
+
+        const strategicRow = document.getElementById("strategicRow");
+        if (strategicRow) {
+          strategicRow.innerHTML = strat
+            .map(
+              ([t, d, c]) => `
+            <div class="col-6 col-md-3"><div class="p-3 bg-white rounded shadow-sm" style="border-left:4px solid ${c};">
+              <h6 class="fw-bold" style="color:var(--mbgc-dark);">${t}</h6>
+              <p class="small mb-0 text-muted">${d}</p></div></div>`,
+            )
+            .join("");
+        }
+      }
+
+      function initMBGCCharts() {
+        if (typeof Chart === "undefined") return;
+
+        ["chartAdoption", "chartSavings"].forEach((id) => {
+          if (charts[id]) {
+            charts[id].destroy();
+            delete charts[id];
+          }
+        });
+
+        const adoptionCtx = document.getElementById("chartAdoption");
+        if (adoptionCtx) {
+          charts.chartAdoption = new Chart(adoptionCtx, {
+            type: "line",
+            data: {
+              labels: ["2024", "2025", "2026", "2027", "2028", "2029", "2030"],
+              datasets: [
+                {
+                  label: "MBGC Adoption %",
+                  data: [5, 12, 24, 38, 55, 72, 88],
+                  borderColor: "#15803D",
+                  backgroundColor: "rgba(21,128,61,.15)",
+                  fill: true,
+                  tension: 0.35,
+                  borderWidth: 3,
+                },
+              ],
+            },
+            options: {
+              maintainAspectRatio: false,
+              plugins: { legend: { display: true } },
+            },
+          });
+        }
+
+        const savingsCtx = document.getElementById("chartSavings");
+        if (savingsCtx) {
+          charts.chartSavings = new Chart(savingsCtx, {
+            type: "bar",
+            data: {
+              labels: [
+                "Diesel",
+                "Natural Gas",
+                "Grid Electricity",
+                "MBGC Biomethane",
+              ],
+              datasets: [
+                {
+                  label: "€/MWh",
+                  data: [180, 120, 150, 65],
+                  backgroundColor: ["#ea580c", "#facc15", "#0ea5e9", "#15803D"],
+                },
+              ],
+            },
+            options: {
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } },
+            },
+          });
+        }
+      }
+
+      function renderKitSection(s) {
+        const card1 = (s.cards && s.cards[0]) || {
+          title: s.label,
+          text: s.intro,
+        };
+        const card2 = (s.cards && s.cards[1]) || {
+          title: "Target",
+          text: s.intro,
+        };
+        const moduleDetails = {
+          iteg: {
+            commercialIntro:
+              "Advanced rotor commercialization targets renewable energy, industrial rooftop turbines and smart grid integration.",
+            commercialCards: [
+              [
+                "Licensing Strategy",
+                "Modular rotor systems licensed to manufacturers and project developers.",
+              ],
+              [
+                "Revenue Model",
+                "Hardware licensing plus service, maintenance and performance guarantees.",
+              ],
+              [
+                "Target Markets",
+                "Wind, hydro-kinetic, industrial ventilation and distributed generation.",
+              ],
+            ],
+            pitchCards: [
+              [
+                "Value Proposition",
+                "High-efficiency rotor technology delivering lower cost-per-kWh and stronger ROI.",
+              ],
+              [
+                "Go-to-Market",
+                "Proof-of-concept pilots with utilities and industrial partners.",
+              ],
+              [
+                "Impact Metrics",
+                "Reduced emissions, energy productivity and local jobs per project.",
+              ],
+            ],
+            patentsCards: [
+              [
+                "Rotor Geometry",
+                "Patents on blade design, adaptive pitch and low-drag performance.",
+              ],
+              [
+                "Control Systems",
+                "Protection for smart control and grid-synchronization methods.",
+              ],
+              [
+                "Material Innovation",
+                "Novel composites and manufacturing techniques for high durability.",
+              ],
+            ],
+            voucherCards: [
+              [
+                "Pilot Funding",
+                "Subsidies for demonstrators in renewable and industrial settings.",
+              ],
+              [
+                "Capacity Building",
+                "Training technicians and operators for rotor maintenance.",
+              ],
+              [
+                "Grant Access",
+                "Support for EU innovation and energy transition programs.",
+              ],
+            ],
+            heritageCards: [
+              [
+                "Engineering Know-How",
+                "Rotor design expertise and experimental test data.",
+              ],
+              [
+                "Brand Recognition",
+                "Reputation in green mechanical systems and energy efficiency.",
+              ],
+              [
+                "Partner Network",
+                "Links with developers, utilities and energy service providers.",
+              ],
+            ],
+            licenseCards: [
+              [
+                "License Scope",
+                "Turbine hardware, installation and service packages.",
+              ],
+              [
+                "Delivery Model",
+                "EPC, licensing-for-manufacture and performance-as-a-service.",
+              ],
+              [
+                "Support",
+                "Commissioning, monitoring and lifecycle optimization.",
+              ],
+            ],
+            statisticsCards: [
+              [
+                "Europe",
+                "Strong clean energy targets and wind project pipelines.",
+              ],
+              [
+                "Mediterranean",
+                "Distributed generation demand for coastal and island grids.",
+              ],
+              [
+                "Middle East",
+                "High-value industrial clients seeking efficiency improvements.",
+              ],
+            ],
+          },
+          mbgc: {
+            commercialIntro:
+              "Biogas commercialization combines modular digesters, feedstock supply and biomethane upgrading for circular energy applications.",
+            commercialCards: [
+              [
+                "Licensing Strategy",
+                "Modular biogas plants licensed to farms, municipalities and food processors.",
+              ],
+              [
+                "Revenue Model",
+                "Gate fees, fuel sales and carbon credit capture.",
+              ],
+              [
+                "Target Markets",
+                "Agriculture, waste management and distributed energy.",
+              ],
+            ],
+            pitchCards: [
+              [
+                "Value Proposition",
+                "Organic waste becomes a renewable fuel and fertilizer resource.",
+              ],
+              [
+                "Go-to-Market",
+                "Targeted pilots with agri-food and municipal partners.",
+              ],
+              [
+                "Impact Metrics",
+                "Methane avoidance, renewable energy yield and nutrient recycling.",
+              ],
+            ],
+            patentsCards: [
+              [
+                "Digester Design",
+                "Patents on compact, modular anaerobic digestion units.",
+              ],
+              [
+                "Upgrading Process",
+                "Biomethane purification and conditioning methods.",
+              ],
+              [
+                "Integration Systems",
+                "Hybrid waste-to-energy and nutrient recovery systems.",
+              ],
+            ],
+            voucherCards: [
+              [
+                "Pilot Funding",
+                "Grants for on-farm and local waste valorization projects.",
+              ],
+              [
+                "Capacity Building",
+                "Training for plant operators and feedstock managers.",
+              ],
+              [
+                "Grant Access",
+                "Support to access regional circular economy incentives.",
+              ],
+            ],
+            heritageCards: [
+              [
+                "Operational Expertise",
+                "Experience in continuous digester management.",
+              ],
+              [
+                "Sustainability Credentials",
+                "Circular waste-to-energy and soil improvement.",
+              ],
+              [
+                "Industry Links",
+                "Networks with agribusiness and waste operators.",
+              ],
+            ],
+            licenseCards: [
+              [
+                "License Scope",
+                "Turnkey digesters, upgrading modules and service.",
+              ],
+              [
+                "Delivery Model",
+                "Build-operate-transfer and service contracts.",
+              ],
+              [
+                "Support",
+                "Feedstock sourcing, maintenance and performance monitoring.",
+              ],
+            ],
+            statisticsCards: [
+              ["Europe", "Strong rural and agri-energy support frameworks."],
+              [
+                "Mediterranean",
+                "High organic waste generation and renewable energy demand.",
+              ],
+              [
+                "Middle East",
+                "Growing interest in waste valorization and energy security.",
+              ],
+            ],
+          },
+          pbrc: {
+            commercialIntro:
+              "Microalgae commercialization targets biofuels, nutraceuticals and water treatment with scalable photobioreactor modules.",
+            commercialCards: [
+              [
+                "Licensing Strategy",
+                "Photobioreactor systems licensed to biotech and aquaculture operators.",
+              ],
+              [
+                "Revenue Model",
+                "Product sales, CO₂ services and joint R&D partnerships.",
+              ],
+              [
+                "Target Markets",
+                "Food ingredients, animal feed and environmental services.",
+              ],
+            ],
+            pitchCards: [
+              [
+                "Value Proposition",
+                "High-value algae products with low land footprint.",
+              ],
+              [
+                "Go-to-Market",
+                "Partnership programs with clean ingredient and biofuel brands.",
+              ],
+              [
+                "Impact Metrics",
+                "Carbon capture, nutrient reuse and bio-product yields.",
+              ],
+            ],
+            patentsCards: [
+              [
+                "Photobioreactor Design",
+                "Patents on modular, high-efficiency cultivation units.",
+              ],
+              [
+                "Strain Management",
+                "Protected cultivation and harvesting protocols.",
+              ],
+              [
+                "Product Recovery",
+                "Methods for biomass separation and formulation.",
+              ],
+            ],
+            voucherCards: [
+              [
+                "Pilot Funding",
+                "Funding for demonstration of high-value microalgae systems.",
+              ],
+              [
+                "Capacity Building",
+                "Training in cultivation, harvesting and downstream processing.",
+              ],
+              [
+                "Grant Access",
+                "Support for green biotech and circular economy grants.",
+              ],
+            ],
+            heritageCards: [
+              [
+                "Scientific Expertise",
+                "Algae biology, cultivation and product development knowledge.",
+              ],
+              [
+                "Market Relationships",
+                "Connections to food, feed and bio-based industries.",
+              ],
+              [
+                "Innovation Reputation",
+                "Track record in sustainable bioproduct systems.",
+              ],
+            ],
+            licenseCards: [
+              [
+                "License Scope",
+                "Reactor systems, strains and processing services.",
+              ],
+              [
+                "Delivery Model",
+                "Co-developed production and licensing packages.",
+              ],
+              [
+                "Support",
+                "Technical assistance, scale-up and quality control.",
+              ],
+            ],
+            statisticsCards: [
+              ["Europe", "Emerging biotech hubs and green ingredient markets."],
+              [
+                "Mediterranean",
+                "Solar-rich regions ideal for algae cultivation.",
+              ],
+              [
+                "Middle East",
+                "Water-efficient bio-production opportunities in arid climates.",
+              ],
+            ],
+          },
+          sidr: {
+            commercialIntro:
+              "Agro-sport commercialization combines smart farming, sports venues and community services for regional regeneration.",
+            commercialCards: [
+              [
+                "Licensing Strategy",
+                "Integrated agro-sport hubs licensed to municipalities and developers.",
+              ],
+              [
+                "Revenue Model",
+                "Facility operations, events, training and agritourism services.",
+              ],
+              [
+                "Target Markets",
+                "Local authorities, education and wellness communities.",
+              ],
+            ],
+            pitchCards: [
+              [
+                "Value Proposition",
+                "Multi-use infrastructure that boosts social and economic impact.",
+              ],
+              [
+                "Go-to-Market",
+                "Collaborative pilots with public-private partners.",
+              ],
+              [
+                "Impact Metrics",
+                "Community participation, jobs and local supply chain growth.",
+              ],
+            ],
+            patentsCards: [
+              [
+                "Hub Configuration",
+                "Protected designs for integrated agro-sport facilities.",
+              ],
+              [
+                "Program Models",
+                "Innovative multi-purpose operational frameworks.",
+              ],
+              [
+                "Technology Integration",
+                "Smart irrigation and facility management systems.",
+              ],
+            ],
+            voucherCards: [
+              [
+                "Pilot Funding",
+                "Seeds for mixed-use community regeneration projects.",
+              ],
+              [
+                "Capacity Building",
+                "Training in agro-tech, sports management and operations.",
+              ],
+              [
+                "Grant Access",
+                "Funding pathways for regional development and youth programs.",
+              ],
+            ],
+            heritageCards: [
+              [
+                "Community Knowledge",
+                "Local development and cooperative management expertise.",
+              ],
+              [
+                "Social Trust",
+                "Stakeholder relationships in education and sport.",
+              ],
+              [
+                "Cultural Capital",
+                "Heritage of regenerative rural infrastructure.",
+              ],
+            ],
+            licenseCards: [
+              [
+                "License Scope",
+                "Integrated planning, construction and facility operations.",
+              ],
+              [
+                "Delivery Model",
+                "Joint venture, concession and managed services.",
+              ],
+              [
+                "Support",
+                "Event programming, training and facility maintenance.",
+              ],
+            ],
+            statisticsCards: [
+              ["Europe", "Rural and urban regeneration programs."],
+              ["Mediterranean", "Tourism and community sports investments."],
+              [
+                "Middle East",
+                "Healthy living and sustainable development initiatives.",
+              ],
+            ],
+          },
+          sdgc: {
+            commercialIntro:
+              "Desalination commercialization delivers low-energy water treatment solutions for coastal and arid regions.",
+            commercialCards: [
+              [
+                "Licensing Strategy",
+                "Solar-assisted desalination systems licensed to municipalities and industry.",
+              ],
+              [
+                "Revenue Model",
+                "Water-as-a-service, equipment leasing and operations contracts.",
+              ],
+              [
+                "Target Markets",
+                "Coastal utilities, resorts and remote communities.",
+              ],
+            ],
+            pitchCards: [
+              [
+                "Value Proposition",
+                "Energy-efficient water production with low environmental impact.",
+              ],
+              [
+                "Go-to-Market",
+                "Pilot installations in water-stressed regions and industrial sites.",
+              ],
+              [
+                "Impact Metrics",
+                "Reduced energy intensity, freshwater availability and resilience.",
+              ],
+            ],
+            patentsCards: [
+              [
+                "RO & Solar Integration",
+                "Patents on membrane and solar-driven desalination systems.",
+              ],
+              [
+                "Brine Management",
+                "Protected low-waste reject handling processes.",
+              ],
+              [
+                "Quality Control",
+                "Advanced water quality monitoring and purification methods.",
+              ],
+            ],
+            voucherCards: [
+              [
+                "Pilot Funding",
+                "Support for coastal and off-grid desalination pilots.",
+              ],
+              [
+                "Capacity Building",
+                "Training for plant operators and maintenance teams.",
+              ],
+              ["Grant Access", "Access to water-sector innovation incentives."],
+            ],
+            heritageCards: [
+              [
+                "Technical Expertise",
+                "Membrane, solar and water treatment know-how.",
+              ],
+              [
+                "Operational Footprint",
+                "Experience with low-energy desalination projects.",
+              ],
+              [
+                "Sustainability Credentials",
+                "Proven freshwater production in challenging environments.",
+              ],
+            ],
+            licenseCards: [
+              [
+                "License Scope",
+                "Water treatment units, service contracts and monitoring.",
+              ],
+              [
+                "Delivery Model",
+                "Build-operate-transfer and service-as-a-solution packages.",
+              ],
+              ["Support", "Water quality, maintenance and lifecycle support."],
+            ],
+            statisticsCards: [
+              ["Europe", "Coastal water demand and innovation funding."],
+              [
+                "Mediterranean",
+                "High desalination need and solar availability.",
+              ],
+              [
+                "Middle East",
+                "Strategic water security and resilience projects.",
+              ],
+            ],
+          },
+          gfss: {
+            commercialIntro:
+              "EMG separation commercialization delivers high-precision materials recovery for recycling and industrial processing.",
+            commercialCards: [
+              [
+                "Licensing Strategy",
+                "Electromagnetic separation systems licensed to recycling and metals processors.",
+              ],
+              [
+                "Revenue Model",
+                "Equipment licensing, service agreements and material recovery finance.",
+              ],
+              [
+                "Target Markets",
+                "Recycling, mining and industrial sorting operations.",
+              ],
+            ],
+            pitchCards: [
+              [
+                "Value Proposition",
+                "Improved material purity, recovery rates and circular economy value.",
+              ],
+              [
+                "Go-to-Market",
+                "Deployments with waste processors and circular materials hubs.",
+              ],
+              [
+                "Impact Metrics",
+                "Waste diversion, recovery yields and resource efficiency.",
+              ],
+            ],
+            patentsCards: [
+              [
+                "EMG Techniques",
+                "Patents for electromagnetic and gradient separation methods.",
+              ],
+              [
+                "Sorting Systems",
+                "Protected apparatus for high-throughput material separation.",
+              ],
+              [
+                "Control Logic",
+                "Automation and sensing for precision separation.",
+              ],
+            ],
+            voucherCards: [
+              [
+                "Pilot Funding",
+                "Support for recycling and recovery demonstration sites.",
+              ],
+              [
+                "Capacity Building",
+                "Training for operators and maintenance technicians.",
+              ],
+              [
+                "Grant Access",
+                "Funding for circular economy and waste valorization programs.",
+              ],
+            ],
+            heritageCards: [
+              [
+                "Separation Expertise",
+                "Material recovery and recycling systems knowledge.",
+              ],
+              [
+                "Industry Connections",
+                "Partnerships with waste and metals industries.",
+              ],
+              [
+                "Sustainability Narrative",
+                "Circular economy and resource recovery leadership.",
+              ],
+            ],
+            licenseCards: [
+              ["License Scope", "Separation lines, service and analytics."],
+              ["Delivery Model", "Turnkey and modular system packages."],
+              ["Support", "Maintenance, upgrades and process optimization."],
+            ],
+            statisticsCards: [
+              [
+                "Europe",
+                "Advanced recycling and resource recovery investment.",
+              ],
+              [
+                "Mediterranean",
+                "Industrial recycling and sustainable recovery demand.",
+              ],
+              ["Middle East", "Resource-efficient industrial systems growth."],
+            ],
+          },
+          gsmf: {
+            commercialIntro:
+              "Separation commercialization focuses on membranes, PSA and cryogenic systems for industrial gas and material recovery.",
+            commercialCards: [
+              [
+                "Licensing Strategy",
+                "Separation solutions licensed to industrial, chemical and energy clients.",
+              ],
+              [
+                "Revenue Model",
+                "Technology licensing, performance contracts and recovered material sales.",
+              ],
+              [
+                "Target Markets",
+                "Gas processing, chemical plants and environmental recovery systems.",
+              ],
+            ],
+            pitchCards: [
+              [
+                "Value Proposition",
+                "High-purity separation with low energy and high recovery rates.",
+              ],
+              [
+                "Go-to-Market",
+                "Technology pilots in energy, gas and materials industries.",
+              ],
+              [
+                "Impact Metrics",
+                "Reduced emissions, improved recovery and lower operating costs.",
+              ],
+            ],
+            patentsCards: [
+              [
+                "Membrane Systems",
+                "Patents on selective, high-performance membranes.",
+              ],
+              [
+                "PSA & Cryo",
+                "Protected pressure swing absorption and cryogenic separation processes.",
+              ],
+              [
+                "Recovery Loops",
+                "Methods for closed-loop reuse and resource recovery.",
+              ],
+            ],
+            voucherCards: [
+              [
+                "Pilot Funding",
+                "Grants for industrial purification and waste recovery pilots.",
+              ],
+              [
+                "Capacity Building",
+                "Training in separation operations and maintenance.",
+              ],
+              [
+                "Grant Access",
+                "Support for clean industrial and circular economy incentives.",
+              ],
+            ],
+            heritageCards: [
+              [
+                "Materials Expertise",
+                "Membrane and gas separation innovation know-how.",
+              ],
+              [
+                "Industrial Credibility",
+                "Track record in purification and recovery applications.",
+              ],
+              [
+                "Partner Network",
+                "Relationships with process engineers and industrial operators.",
+              ],
+            ],
+            licenseCards: [
+              [
+                "License Scope",
+                "Membrane modules, PSA units and service contracts.",
+              ],
+              [
+                "Delivery Model",
+                "Modular integration or turnkey separation packages.",
+              ],
+              [
+                "Support",
+                "Startup, operation and lifecycle optimization services.",
+              ],
+            ],
+            statisticsCards: [
+              ["Europe", "Industrial purification and gas recovery demand."],
+              [
+                "Mediterranean",
+                "Energy and chemicals sectors seeking efficient separation.",
+              ],
+              [
+                "Middle East",
+                "Gas processing and industrial efficiency projects.",
+              ],
+            ],
+          },
+          default: {
+            commercialIntro:
+              "Commercialization blends innovation, deployment and market validation to accelerate adoption.",
+            commercialCards: [
+              [
+                "Licensing Strategy",
+                "Modular technology and service licensing.",
+              ],
+              ["Revenue Model", "Sales, subscriptions and service fees."],
+              ["Target Markets", "Energy, water and industrial sectors."],
+            ],
+            pitchCards: [
+              [
+                "Value Proposition",
+                "Proven innovation with sustainability impact.",
+              ],
+              ["Go-to-Market", "Pilot deliveries and partnership programs."],
+              [
+                "Impact Metrics",
+                "Efficiency, resilience and resource savings.",
+              ],
+            ],
+            patentsCards: [
+              [
+                "Core Protection",
+                "Patents protecting key technology concepts.",
+              ],
+              ["Defensive Barrier", "Publication and clearance practices."],
+              ["Portfolio Growth", "Future extension opportunities."],
+            ],
+            voucherCards: [
+              [
+                "Pilot Funding",
+                "Support for demonstrations and technical validation.",
+              ],
+              ["Capacity Building", "Operator and partner training."],
+              ["Grant Access", "Support for innovation funding programs."],
+            ],
+            heritageCards: [
+              ["Knowledge Assets", "Technical know-how and field experience."],
+              ["Brand & Trust", "Recognition in sustainable innovation."],
+              [
+                "Network Capital",
+                "Partnerships with stakeholders and institutions.",
+              ],
+            ],
+            licenseCards: [
+              ["License Scope", "Core system, service and support offerings."],
+              ["Delivery Model", "Flexible deployment and service packages."],
+              ["Support", "Implementation and lifecycle assistance."],
+            ],
+            statisticsCards: [
+              ["Europe", "Innovation-friendly markets."],
+              ["Mediterranean", "Climate resilience and water-energy demand."],
+              ["Middle East", "Energy transition and industrial efficiency."],
+            ],
+          },
+        };
+        const details = moduleDetails[s.id] || moduleDetails.default;
+        return `
+        <h2 style="color:#fcd34d;">${s.label}</h2>
+        <p class="intro">${s.intro}</p>
+
+        <nav class="pcrr-nav" id="${s.id}-kiti">
+          <a href="#" onclick="smoothScrollTo('${s.id}-overview'); return false;" class="btn btn-success btn-sm fw-bold px-3">Starter Kit</a>
+          <a href="#" onclick="smoothScrollTo('${s.id}-plan'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">Business Plan</a>
+          <a href="#" onclick="smoothScrollTo('${s.id}-features'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">Publication & Thesis</a>
+          <a href="#" onclick="smoothScrollTo('${s.id}-pricing'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">Commercial Title</a>
+          <a href="#" onclick="smoothScrollTo('${s.id}-pitch'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">PITCH S&S</a>
+          <a href="#" onclick="smoothScrollTo('${s.id}-patents'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">PATENTS+</a>
+          <a href="#" onclick="smoothScrollTo('${s.id}-voucher'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">VOUCHER</a>
+          <a href="#" onclick="smoothScrollTo('${s.id}-heritage'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">INTANGIBLE HERITAGE</a>
+          <a href="#" onclick="smoothScrollTo('${s.id}-commercial'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">COMMERCIAL LICENSE</a>
+          <a href="#" onclick="smoothScrollTo('${s.id}-statistics'); return false;" class="btn btn-outline-success btn-sm fw-bold px-3">COUNTRIES</a>
+        </nav>
+
+        <div class="pcrr-section">
+          <h1 class="text-center mb-4" id="${s.id}-overview" style="font-size:2rem;">STARTER KIT</h1>
+          <div class="row g-4 align-items-stretch">
+            <div class="col-lg-6">
+              <div class="big-image-container">
+                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200" alt="Starter Kit">
+                <div class="hover-overlay">
+                  <h2>${card1.title}</h2>
+                  <p>${card1.text}</p>
+                  <button onclick="alert('Exploring ${s.label} Starter Kit...')" class="mt-2 btn btn-success btn-sm fw-bold">Learn More</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <p class="lead">${s.intro}</p>
+              <p>This Starter Kit aligns ${s.label} with the Green New Deal — bringing fossil fuel use from 100 to ZERO while unlocking innovative tax incentives for sustainable projects.</p>
+              <p class="fw-medium" style="color:#15803D;">Enjoy <strong>50% tax credit</strong> + <strong>50% corporate tax reduction</strong>. The transaction can effectively result in <strong>"ZERO cost"</strong>.</p>
+              <div class="row g-3 mt-3">
+                <div class="col-md-6">
+                  <div style="border-radius:14px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.15);">
+                    <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=800" alt="Kit Details" style="width:100%;height:160px;object-fit:cover;">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h5 class="fw-bold">Benefits Included</h5>
+                  <ul class="list-unstyled" style="color:#374151;">
+                    ${(s.bp && s.bp.bullets
+                      ? s.bp.bullets
+                      : [
+                          "R&D support",
+                          "Tax incentives",
+                          "Green New Deal alignment",
+                        ]
+                    )
+                      .slice(0, 3)
+                      .map((b) => `<li>→ ${b}</li>`)
+                      .join("")}
+                  </ul>
+                  <div class="mt-2 d-flex gap-2">
+                    <button class="btn btn-success btn-sm fw-bold">Explore More</button>
+                    <a href="#${s.id}-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pcrr-section" id="${s.id}-plan">
+          <div class="text-center mb-4">
+            <h1 style="background:#fff;display:inline-block;padding:14px 32px;border:3px solid #15803D;border-radius:14px;font-size:1.8rem;">BUSINESS PLAN</h1>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="big-image-container" style="height:340px;">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200" alt="Objective" style="height:340px;">
+                <div class="hover-overlay">
+                  <h2>OBJECTIVE</h2>
+                  <p>${s.label} development focus — customized implementations creating measurable territorial impact and job creation.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="big-image-container" style="height:340px;">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200" alt="Target Audience" style="height:340px;">
+                <div class="hover-overlay">
+                  <h2>TARGET AUDIENCE</h2>
+                  <p>${card2.text}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p><strong>${s.bp ? s.bp.title : s.label + " Plan"}</strong> — strategic framework for accelerating the green transition through innovative startups, NFT-based commercialization and advanced IP mechanisms aligned with the EU Green New Deal and Italy's PNRR.</p>
+          </div>
+          <section class="mt-4" id="${s.id}-features">
+            <h3 class="text-center fw-bold mb-3" style="color:#14532d;">Economic Impact</h3>
+            <div class="row g-4">
+              <div class="col-lg-6"><h5>Adoption Rate (%)</h5><div class="chart-wrap"><canvas id="chart-${s.id}-adoption"></canvas></div></div>
+              <div class="col-lg-6"><h5>Cost Savings vs Traditional</h5><div class="chart-wrap"><canvas id="chart-${s.id}-savings"></canvas></div></div>
+            </div>
+          </section>
+          <div class="mt-4 d-flex gap-2 justify-content-end">
+            <button class="btn btn-success btn-sm fw-bold">Explore More</button>
+            <a href="#${s.id}-kiti" class="btn btn-outline-success btn-sm fw-bold">Back Top Menu</a>
+          </div>
+        </div>
+
+        <div class="pcrr-section" id="${s.id}-pricing">
+          <h3 style="color:#14532d;">Commercial Title</h3>
+          <p>${details.commercialIntro}</p>
+          <div class="row g-3 mt-3">
+            ${details.commercialCards
+              .map(
+                ([t, d]) => `
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm h-100">
+                  <h5 class="fw-bold" style="color:#14532d;">${t}</h5>
+                  <p class="small mb-0" style="color:#374151;">${d}</p>
+                </div>
+              </div>`,
+              )
+              .join("")}
+          </div>
+          <div class="mt-4">
+            <h5 style="color:#14532d;">Key Plan Elements</h5>
+            <ul class="list-unstyled" style="color:#374151;">
+              ${(s.bp && s.bp.bullets ? s.bp.bullets : ["Technology roadmap", "Market validation", "Commercial partnership model"]).map((item) => `<li>→ ${item}</li>`).join("")}
+            </ul>
+          </div>
+        </div>
+
+        <div class="pcrr-section" id="${s.id}-pitch">
+          <h3 style="color:#14532d;">PITCH S&S</h3>
+          <p>Investor pitch materials focus on innovation value, sustainability impact, and commercial scale-up potential for ${s.label}.</p>
+          <div class="row g-3 mt-3">
+            ${details.pitchCards
+              .map(
+                ([t, d]) => `
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm h-100">
+                  <h5 class="fw-bold" style="color:#14532d;">${t}</h5>
+                  <p class="small mb-0" style="color:#374151;">${d}</p>
+                </div>
+              </div>`,
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <div class="pcrr-section" id="${s.id}-patents">
+          <h3 style="color:#14532d;">PATENTS+</h3>
+          <p>${s.label} patent strategy protects core technology, process innovation and deployment methods while enabling licensing and competitive differentiation.</p>
+          <div class="row g-3 mt-3">
+            ${details.patentsCards
+              .map(
+                ([t, d]) => `
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm h-100">
+                  <h5 class="fw-bold" style="color:#14532d;">${t}</h5>
+                  <p class="small mb-0" style="color:#374151;">${d}</p>
+                </div>
+              </div>`,
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <div class="pcrr-section" id="${s.id}-voucher">
+          <h3 style="color:#14532d;">VOUCHER</h3>
+          <p>Voucher support accelerates adoption of ${s.label} via subsidized pilots, feasibility studies and innovation grants.</p>
+          <div class="row g-3 mt-3">
+            ${details.voucherCards
+              .map(
+                ([t, d]) => `
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm h-100">
+                  <h5 class="fw-bold" style="color:#14532d;">${t}</h5>
+                  <p class="small mb-0" style="color:#374151;">${d}</p>
+                </div>
+              </div>`,
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <div class="pcrr-section" id="${s.id}-heritage">
+          <h3 style="color:#14532d;">INTANGIBLE HERITAGE</h3>
+          <p>${s.label} builds intangible heritage through expertise, brand value, data assets and stakeholder networks.</p>
+          <div class="row g-3 mt-3">
+            ${details.heritageCards
+              .map(
+                ([t, d]) => `
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm h-100">
+                  <h5 class="fw-bold" style="color:#14532d;">${t}</h5>
+                  <p class="small mb-0" style="color:#374151;">${d}</p>
+                </div>
+              </div>`,
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <div class="pcrr-section" id="${s.id}-commercial">
+          <h3 style="color:#14532d;">COMMERCIAL LICENSE</h3>
+          <p>The commercial license section explains how ${s.label} can be licensed and delivered with transparent pricing, service levels and support.</p>
+          <div class="row g-3 mt-3">
+            ${details.licenseCards
+              .map(
+                ([t, d]) => `
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm h-100">
+                  <h5 class="fw-bold" style="color:#14532d;">${t}</h5>
+                  <p class="small mb-0" style="color:#374151;">${d}</p>
+                </div>
+              </div>`,
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <div class="pcrr-section" id="${s.id}-statistics">
+          <h3 style="color:#14532d;">COUNTRIES</h3>
+          <p>Target markets for ${s.label} include Europe, Mediterranean and Middle East regions selected for their strategic demand in each module's sector.</p>
+          <div class="row g-3 mt-3">
+            ${details.statisticsCards
+              .map(
+                ([t, d]) => `
+              <div class="col-md-6">
+                <div class="p-3 bg-white rounded shadow-sm h-100">
+                  <h5 class="fw-bold" style="color:#14532d;">${t}</h5>
+                  <p class="small mb-0" style="color:#374151;">${d}</p>
+                </div>
+              </div>`,
+              )
+              .join("")}
+          </div>
+        </div>
+      `;
+      }
+
+      function initKitCharts(id) {
+        if (typeof Chart === "undefined") return;
+        const aId = `chart-${id}-adoption`,
+          sId = `chart-${id}-savings`;
+        [aId, sId].forEach((k) => {
+          if (charts[k]) charts[k].destroy();
+        });
+        const a = document.getElementById(aId);
+        const sv = document.getElementById(sId);
+        if (a)
+          charts[aId] = new Chart(a, {
+            type: "line",
+            data: {
+              labels: ["2022", "2023", "2024", "2025", "2026"],
+              datasets: [
+                {
+                  label: "Adoption %",
+                  data: [8, 22, 40, 62, 80],
+                  borderColor: "#15803D",
+                  backgroundColor: "rgba(21,128,61,.2)",
+                  tension: 0.4,
+                  fill: true,
+                },
+              ],
+            },
+            options: { responsive: true, maintainAspectRatio: false },
+          });
+        if (sv)
+          charts[sId] = new Chart(sv, {
+            type: "bar",
+            data: {
+              labels: ["Energy", "Water", "Operations", "Maintenance"],
+              datasets: [
+                {
+                  label: "Savings %",
+                  data: [40, 52, 36, 45],
+                  backgroundColor: ["#15803D", "#16A34A", "#22C55E", "#4ADE80"],
+                },
+              ],
+            },
+            options: { responsive: true, maintainAspectRatio: false },
+          });
+      }
+
+      function goToSection(id) {
+        activeId = id;
+        renderSidebar();
+        renderSection();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      window.goToSection = goToSection;
+
+      function openUrl(u, label) {
+        if (!u || u === "#") {
+          alert(
+            "URL placeholder for " +
+              (label || "this item") +
+              " — set the url in data.",
+          );
+          return;
+        }
+        // Navigate in the same tab so module pages load in-place
+        window.location.href = u;
+      }
+      window.openUrl = openUrl;
+
+      function renderOverviewCards(items) {
+        return `<div class="card-grid">${items
+          .map(
+            (it) => `
+        <article class="info-card" style="display:flex;flex-direction:column;overflow:hidden;padding:0;">
+          <img src="${it.img}" alt="${it.label}" style="width:100%;height:160px;object-fit:cover;">
+          <div style="padding:16px;flex:1;display:flex;flex-direction:column;">
+            <h4>${it.label}</h4>
+            <p style="flex:1;">${it.intro || ""}</p>
+            <button class="btn btn-success btn-sm fw-bold mt-2" onclick="${it.action}">Explore More →</button>
+          </div>
+        </article>`,
+          )
+          .join("")}</div>`;
+      }
+
+      function renderSection() {
+        const s = sections.find((x) => x.id === activeId);
+        if (!s) return;
+        sectionEl.classList.remove("section-fade");
+        void sectionEl.offsetWidth;
+        sectionEl.classList.add("section-fade");
+
+        if (s.isHeader && s.isOverview) {
+          const excludedIds = [
+            "iteg",
+            "mbgc",
+            "pbrc",
+            "sidr",
+            "sdgc",
+            "gsmf",
+            "gfss",
+            "pcrr",
+          ];
+          const items = sections
+            .filter((x) => x.url && !excludedIds.includes(x.id))
+            .map((x) => ({
+              label: x.label,
+              intro: x.intro,
+              img: x.img,
+              action: `openUrl('${x.url}', '${x.label.replace(/'/g, "\\'")}')`,
+            }));
+          sectionEl.innerHTML = `
+          <h2>${s.label}</h2>
+          <div class="label">Media & Services</div>
+          <p class="intro">Quick access to IT, Education, Editorial, Marketing and partnership programs. Click any card to open its dedicated portal.</p>
+          ${renderOverviewCards(items)}
+          <div class="mt-3 d-flex gap-2"><a href="${s.overviewUrl}" target="_blank" class="btn btn-warning fw-bold">Visit Epo TV1 →</a><a href="https://www.pcrr-jwt.eu/comm/" target="_blank" class="btn btn-info fw-bold">Common Services →</a></div>
+        `;
+          return;
+        }
+        if (s.isHeader) return;
+
+        if (s.id === "ip") {
+          const items = sections
+            .filter(
+              (x) =>
+                x.url &&
+                [
+                  "iteg",
+                  "mbgc",
+                  "pbrc",
+                  "sidr",
+                  "sdgc",
+                  "gsmf",
+                  "gfss",
+                  "pcrr",
+                ].includes(x.id),
+            )
+            .map((x) => ({
+              label: x.label,
+              intro: x.intro,
+              img:
+                x.img ||
+                "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&sig=" +
+                  x.id,
+              action: `openUrl('${x.url}', '${x.label.replace(/'/g, "\\'")}')`,
+            }));
+          sectionEl.innerHTML = `
+          <h2>${s.label}</h2>
+          <div class="label">Technology Modules</div>
+          <p class="intro">${s.intro}</p>
+          <p class="mb-4">Intellectual Property is the backbone of all PCRR initiatives. These categories represent key assets that must be protected, licensed, and enforced as the project expands across jurisdictions and markets.</p>
+          ${renderOverviewCards(items)}
+          <div class="mt-4 d-flex justify-content-end">
+            <a href="https://www.pcrr-jwt.eu/comm/" class="btn btn-info btn-sm fw-bold">Learn more</a>
+          </div>
+        `;
+          return;
+        }
+
+        if (s.id === "mbgc") {
+          sectionEl.innerHTML = renderMBGCContent();
+          setTimeout(() => {
+            initMBGCContent();
+            initMBGCCharts();
+          }, 50);
+          return;
+        }
+
+        if (s.id === "pcrr" || s.id === "gfss" || s.id === "gsmf") {
+          sectionEl.innerHTML = renderPCRR();
+          setTimeout(initCharts, 50);
+          return;
+        }
+
+        const kitIds = ["iteg", "pbrc", "sidr", "sdgc"];
+        if (kitIds.includes(s.id)) {
+          sectionEl.innerHTML = renderKitSection(s);
+          setTimeout(() => initKitCharts(s.id), 50);
+          return;
+        }
+
+        sectionEl.innerHTML = `
+        <h2>${s.label}</h2>
+        <div class="label">Introduction</div>
+        <p class="intro">${s.intro}</p>
+        <div class="card-grid">
+          ${s.cards.map((c) => `<article class="info-card"><h4>${c.title}</h4><p>${c.text}</p></article>`).join("")}
+        </div>
+        <div class="sub-menu">
+          ${s.subMenu.map((m) => `<a href="#">${m}</a>`).join("")}
+        </div>
+        ${
+          s.bp
+            ? `
+        <div class="biz-plan">
+          <div class="biz-plan-head">
+            <div>
+              <h3>${s.bp.title}</h3>
+              <p class="sub">Foundational pillars to launch a viable plan for <b>${s.label}</b>.</p>
+            </div>
+            <a href="https://www.expotv1.com/ESCP_Patent.htm" target="_blank" class="cta">Open Full Business Plan →</a>
+          </div>
+          <ul class="biz-list">
+            ${s.bp.bullets.map((b, i) => `<li><span class="num">${i + 1}</span><span class="txt">${b}</span></li>`).join("")}
+          </ul>
+        </div>`
+            : ""
+        }
+      `;
+      }
+
+      let charts = {};
+      function initCharts() {
+        if (typeof Chart === "undefined") return;
+        ["chartAdoption", "chartSavings"].forEach((id) => {
+          if (charts[id]) charts[id].destroy();
+        });
+        const a = document.getElementById("chartAdoption");
+        const s = document.getElementById("chartSavings");
+        if (a)
+          charts.chartAdoption = new Chart(a, {
+            type: "line",
+            data: {
+              labels: ["2022", "2023", "2024", "2025", "2026"],
+              datasets: [
+                {
+                  label: "Adoption %",
+                  data: [10, 25, 45, 68, 85],
+                  borderColor: "#15803D",
+                  backgroundColor: "rgba(21,128,61,.2)",
+                  tension: 0.4,
+                  fill: true,
+                },
+              ],
+            },
+            options: { responsive: true, maintainAspectRatio: false },
+          });
+        if (s)
+          charts.chartSavings = new Chart(s, {
+            type: "bar",
+            data: {
+              labels: ["Energy", "Water", "Operations", "Maintenance"],
+              datasets: [
+                {
+                  label: "Savings %",
+                  data: [42, 55, 38, 47],
+                  backgroundColor: ["#15803D", "#16A34A", "#22C55E", "#4ADE80"],
+                },
+              ],
+            },
+            options: { responsive: true, maintainAspectRatio: false },
+          });
+      }
+
+      /* ============ ROTATING BANNER ============ */
+      const heroEl = document.getElementById("hero");
+      const titleEl = document.getElementById("bannerTitle");
+      const subEl = document.getElementById("bannerSubtitle");
+      const dotsEl = document.getElementById("bannerDots");
+      let bannerIdx = 0;
+
+      function renderDots() {
+        dotsEl.innerHTML = banners
+          .map(
+            (_, i) =>
+              `<button data-i="${i}" class="${i === bannerIdx ? "active" : ""}"></button>`,
+          )
+          .join("");
+        dotsEl.querySelectorAll("button").forEach((b) => {
+          b.addEventListener("click", () => {
+            bannerIdx = +b.dataset.i;
+            renderBanner();
+          });
+        });
+      }
+      function renderBanner() {
+        const b = banners[bannerIdx];
+        heroEl.style.backgroundImage = `linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.2)), url('${b.image}')`;
+        titleEl.textContent = b.title;
+        subEl.textContent = b.subtitle;
+        heroEl.classList.remove("banner-fade");
+        void heroEl.offsetWidth;
+        heroEl.classList.add("banner-fade");
+        renderDots();
+      }
+      setInterval(() => {
+        bannerIdx = (bannerIdx + 1) % banners.length;
+        renderBanner();
+      }, 5000);
+
+      /* ============ MODALS ============ */
+      document.querySelectorAll(".main-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const modalId = this.getAttribute("data-modal");
+          const modal = document.getElementById(modalId);
+          if (modal) modal.style.display = "flex";
+        });
+      });
+      document.querySelectorAll(".close-btn").forEach((close) => {
+        close.addEventListener("click", function () {
+          this.closest(".modal").style.display = "none";
+        });
+      });
+      document.querySelectorAll(".modal").forEach((modal) => {
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) modal.style.display = "none";
+        });
+      });
+      document.querySelectorAll(".modal form").forEach((form) => {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Thank you! Your request has been received.\nWe will contact you shortly.",
+          );
+          form.reset();
+          this.closest(".modal").style.display = "none";
+        });
+      });
+
+      /* ============ INIT ============ */
+      function init() {
+        const path = window.location.pathname.replace("/", "").toLowerCase();
+        let initialId = currentPage; // default to the current page (iteg)
+
+        if (path && path.length > 1) {
+          const found = sections.find((s) => s.id === path);
+          if (found) initialId = path;
+        }
+
+        activeId = initialId;
+
+        renderSidebar();
+        renderSection();
+        renderBanner();
+      }
+
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>
