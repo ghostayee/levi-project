@@ -146,6 +146,17 @@ a {
   color: #fcd34d;
 }
 
+.secondary-menu a.active {
+  background: #fcd34d;
+  color: #052e16;
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.secondary-menu a.active:hover {
+  color: #052e16;
+}
+
 /* ===== Sidebar ===== */
 .vertical-sidebar {
   position: fixed;
@@ -200,9 +211,9 @@ a {
 }
 
 .sidebar-card.active {
-  background: #16a34a;
-  color: #052e16;
-  font-weight: 700;
+  background: transparent;
+  color: #e5e7eb;
+  font-weight: 500;
 }
 
 .sidebar-header {
